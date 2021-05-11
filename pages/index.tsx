@@ -1,9 +1,10 @@
-import { Fragment } from 'react'
-import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
+import { Fragment } from 'react';
+import { Disclosure, Menu, Transition } from '@headlessui/react';
+import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline';
+import Link from 'next/link';
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(' ');
 }
 
 export default function Example() {
@@ -16,14 +17,14 @@ export default function Example() {
               <div className="flex w-full justify-between">
                 <div className="flex-shrink-0 flex items-center">
                   <img
-                    className="block lg:hidden h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
-                    alt="Workflow"
+                    className="block lg:hidden h-14"
+                    src="logo.png"
+                    alt="Houseace"
                   />
                   <img
-                    className="hidden lg:block h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/workflow-logo-indigo-600-mark-gray-800-text.svg"
-                    alt="Workflow"
+                    className="hidden lg:block h-14"
+                    src="logo.png"
+                    alt="Houseace"
                   />
                 </div>
                 <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
@@ -34,12 +35,13 @@ export default function Example() {
                   >
                     Start a Project
                   </a>
-                  <a
-                    href="#"
-                    className="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
-                  >
-                    Login/Register
-                  </a>
+                  <Link href='/auth/login'>
+                    <a
+                      className="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
+                    >
+                      Login/Register
+                    </a>
+                  </Link>
                 </div>
               </div>
               <div className="hidden sm:ml-6 sm:flex sm:items-center">
@@ -85,7 +87,7 @@ export default function Example() {
                                   'block px-4 py-2 text-sm text-gray-700'
                                 )}
                               >
-                                Your Profile
+                                Account
                               </a>
                             )}
                           </Menu.Item>
@@ -98,7 +100,7 @@ export default function Example() {
                                   'block px-4 py-2 text-sm text-gray-700'
                                 )}
                               >
-                                Settings
+                                Projects
                               </a>
                             )}
                           </Menu.Item>
@@ -111,7 +113,33 @@ export default function Example() {
                                   'block px-4 py-2 text-sm text-gray-700'
                                 )}
                               >
-                                Sign out
+                                Contacts
+                              </a>
+                            )}
+                          </Menu.Item>
+                          <Menu.Item>
+                            {({ active }) => (
+                              <a
+                                href="#"
+                                className={classNames(
+                                  active ? 'bg-gray-100' : '',
+                                  'block px-4 py-2 text-sm text-gray-700'
+                                )}
+                              >
+                                Payments
+                              </a>
+                            )}
+                          </Menu.Item>
+                          <Menu.Item>
+                            {({ active }) => (
+                              <a
+                                href="#"
+                                className={classNames(
+                                  active ? 'bg-gray-100' : '',
+                                  'block px-4 py-2 text-sm text-gray-700'
+                                )}
+                              >
+                                Logout
                               </a>
                             )}
                           </Menu.Item>
@@ -144,12 +172,13 @@ export default function Example() {
               >
                 Start a Project
               </a>
-              <a
-                href="#"
-                className="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
-              >
-                Login/Register
-              </a>
+              <Link href="/auth/login">
+                <a
+                  className="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
+                >
+                  Login/Register
+                </a>
+              </Link>
             </div>
             <div className="pt-4 pb-3 border-t border-gray-200">
               <div className="flex items-center px-4">
@@ -174,19 +203,31 @@ export default function Example() {
                   href="#"
                   className="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100"
                 >
-                  Your Profile
+                  Account
                 </a>
                 <a
                   href="#"
                   className="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100"
                 >
-                  Settings
+                  Projects
                 </a>
                 <a
                   href="#"
                   className="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100"
                 >
-                  Sign out
+                  Contacts
+                </a>
+                <a
+                  href="#"
+                  className="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100"
+                >
+                  Payments
+                </a>
+                <a
+                  href="#"
+                  className="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100"
+                >
+                  Logout
                 </a>
               </div>
             </div>
@@ -195,5 +236,5 @@ export default function Example() {
       )}
     </Disclosure>
   
-  )
+  );
 }
