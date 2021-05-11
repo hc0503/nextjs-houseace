@@ -1,5 +1,10 @@
 import Link from 'next/link';
+
 import Layout from '../../components/layouts/Page';
+import Button from '../../components/commons/buttons/Button';
+import TextInput from '../../components/commons/inputs/TextInput';
+import CheckboxInput from '../../components/commons/inputs/CheckboxInput';
+import HrefLink from '../../components/commons/buttons/HrefLink';
 
 const Login = () => {
 	const handleFormSubmit = (e) => {
@@ -19,7 +24,7 @@ const Login = () => {
 				<div className='w-full max-w-md m-auto bg-white rounded-lg border border-primaryBorder shadow-default py-10 px-10'>
 					<div className="text-center">
 						<Link href="/">
-							<a className={aStyle}><img src="./../logo.png" alt="Houseace"/></a>
+							<a className={aStyle}><img src="../logo.png" alt="Houseace"/></a>
 						</Link>
 					</div>
 					<form onSubmit={handleFormSubmit}>
@@ -27,11 +32,10 @@ const Login = () => {
 							<label
 								htmlFor='email'
 								className={labelColor}>Email</label>
-							<input
-								type='email'
-								className="w-full p-2 border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4 focus:outline-none focus:ring-2 focus:ring-red-300 focus:border-transparent"
-								id='email'
-								placeholder='Your Email'
+							<TextInput
+								type="email"
+								id="email"
+								placeholder="Your Email"
 							/>
 						</div>
 						<div>
@@ -41,19 +45,17 @@ const Login = () => {
 							>
 								Password
 							</label>
-							<input
-								type='password'
-								className="w-full p-2 border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4 focus:outline-none focus:ring-2 focus:ring-red-300 focus:border-transparent"
-								id='password'
-								placeholder='Your Password'
+							<TextInput
+								type="password"
+								id="password"
+								placeholder="Your Password"
 							/>
 						</div>
 						<div className="flex items-center justify-between">
 							<div className="flex items-center">
-								<input
-									id="remember_me"
+								<CheckboxInput
 									type="checkbox"
-									className="h-4 w-4 text-red-400 rounded checked:bg-red-400 checked:border-transparent"
+									id="remember_me"
 								/>
 								<label
 									htmlFor="remember_me"
@@ -63,21 +65,20 @@ const Login = () => {
 								</label>
 							</div>
 							<div>
-								<Link href="/auth/forgot-password"><a href="#"className={aStyle}>Forgot your password?</a></Link>
+								<HrefLink href="/auth/forgot-password">Forgot your password?</HrefLink>
 							</div>
 						</div>
 						<div className='flex justify-center items-center mt-6'>
-							<button
+							<Button
 								type="submit"
-								className="bg-red-400 px-3 py-3 text-white w-full text-lg font-medium hover:bg-red-500"
-								
+								disabled={false}
 							>
 								Sign In
-							</button>
+							</Button>
 						</div>
 						<div className="text-center py-3 px-3">
 							<p className={labelColor}>
-								Still no account? Please go to <Link href="/auth/register"><a className={aStyle}> Sign Up</a></Link>
+								Still no account? Please go to <HrefLink href="/auth/register"> Sign Up</HrefLink>
 							</p>
 						</div>
 					</form>
