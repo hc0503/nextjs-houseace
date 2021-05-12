@@ -1,7 +1,7 @@
 
-const Layout = () => (
+const Layout = (props: any) => (
 	<div>
-		OK
+		{props.children}
 	</div>
 );
 

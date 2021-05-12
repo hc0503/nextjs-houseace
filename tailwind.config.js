@@ -5,15 +5,18 @@ module.exports = {
     extend: {
       colors: {
         red: {
-          lesslight: '#FECACA',
+          lesslight: '#FFE8E8',
           light: '#F87171',
           DEFAULT: '#F96868',
-          dark: '#EF4444'
+          dark: '#EF4444',
+          moredark: '#DC2626'
         },
         gray: {
+          lesslight: '#E5E7EB',
           light: '#959595',
           DEFAULT: '#616161',
-          dark: '#161616'
+          dark: '#161616',
+          moredark: '#4B5563'
         }
       }
     },
