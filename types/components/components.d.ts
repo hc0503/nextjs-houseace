@@ -5,7 +5,8 @@ interface iInputProps {
 	id?: string,
 	placeholder?: string,
 	autoFocus?: boolean,
-	autoComplete?: 'off' | 'on'
+	autoComplete?: 'off' | 'on',
+	onChange?: any
 }
 interface iLabelProps {
 	className?: string,
@@ -24,7 +25,7 @@ interface iHrefLinkProps {
 	children?: ReactNode,
 	href?: string,
 }
-interface iLogoProps {
+interface iImgProps {
 	className?: string,
 	alt?: string,
 	src?: string

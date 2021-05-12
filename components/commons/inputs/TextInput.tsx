@@ -6,7 +6,8 @@ const TextInput = (props: iInputProps) => {
 		type = 'text',
 		placeholder = '',
 		autoFocus = false,
-		autoComplete = 'off'
+		autoComplete = 'off',
+		onChange
 	} = props;
 
 	return (
@@ -22,8 +23,8 @@ const TextInput = (props: iInputProps) => {
 				duration-150
 				ease-in-out mb-4
 				focus:outline-none
-				focus:ring-2
-				focus:ring-red-300
+				focus:ring-1
+				focus:ring-red
 				focus:border-transparent
 				${className}
 			`}
@@ -32,6 +33,7 @@ const TextInput = (props: iInputProps) => {
 			id={id}
 			autoFocus={autoFocus}
 			autoComplete={autoComplete}
+			onChange={onChange}
 		/>
 	);
 }

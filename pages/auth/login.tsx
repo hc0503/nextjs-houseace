@@ -1,29 +1,33 @@
+import React, { useState } from 'react';
 import Link from 'next/link';
+import { useDispatch, useSelector } from 'react-redux';
 
-import Layout from '../../components/layouts/Page';
+import { login, logout } from '../../redux/slices/authSlice';
+import Layout from '../../components/layout/Page';
 import Button from '../../components/commons/buttons/Button';
-import SocialButton from '../../components/auths/SocialButton';
+import SocialButton from '../../components/auth/SocialButton';
 import TextInput from '../../components/commons/inputs/TextInput';
 import CheckboxInput from '../../components/commons/inputs/CheckboxInput';
 import HrefLink from '../../components/commons/buttons/HrefLink';
 import Label from '../../components/commons/labels/Label';
-import Logo from '../../components/auths/Logo';
+import Logo from '../../components/commons/Logo';
 
 const Login = () => {
-	const handleFormSubmit = (e) => {
+	const dispatch = useDispatch();
+	const [email, setEmail] = useState('');
+	const [password, setPassword] = useState('');
+	const [rememberMe, setRememberMe] = useState(false);
+	const handleFormSubmit = async (e: any) => {
 		e.preventDefault();
 	
-		let email = e.target.elements.email?.value;
-		let password = e.target.elements.password?.value;
-	
-		console.log(email, password);
+		await dispatch(login());
 	};
-	const textColor = 'text-gray-500';
+	const textColor: string = 'text-gray';
 
 	return (
 		<Layout>
-			<div className='h-screen flex bg-gray-bg1 m-2'>
-				<div className='w-full max-w-md m-auto bg-white rounded-lg border border-primaryBorder shadow-default py-10 px-10'>
+			<div className='h-screen flex p-2'>
+				<div className='w-full max-w-md m-auto bg-white rounded-lg border border-primaryBorder shadow-default px-10 py-10'>
 					<div className="flex justify-center">
 						<Link href="/">
 							<a><Logo src="../logo.png" alt="Houseace"/></a>
@@ -41,6 +45,7 @@ const Login = () => {
 								id="email"
 								placeholder="Your Email"
 								autoFocus={true}
+								onChange={(e: any) => setEmail(e.target.value)}
 							/>
 						</div>
 						<div>
@@ -53,6 +58,7 @@ const Login = () => {
 								type="password"
 								id="password"
 								placeholder="Your Password"
+								onChange={(e: any) => setPassword(e.target.value)}
 							/>
 						</div>
 						<div className="grid md:grid-cols-2 grid-cols-1 gap-5">
@@ -60,6 +66,7 @@ const Login = () => {
 								<CheckboxInput
 									type="checkbox"
 									id="remember_me"
+									onChange={(e: any) => setRememberMe(e.target.checked)}
 								/>
 								<Label
 									htmlFor="remember_me"

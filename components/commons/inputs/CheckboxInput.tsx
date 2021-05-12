@@ -4,21 +4,23 @@ const CheckboxInput = (props: iInputProps) => {
 		id = null,
 		className = '',
 		type = 'checkbox',
+		onChange
 	} = props;
 
 	return (
 		<input
 			className={`
-				h-4
-				w-4
-				text-red-400
+				min-h-4
+				min-w-4
+				text-red
 				rounded
-				checked:bg-red-400
+				checked:bg-red
 				checked:border-transparent
 				${className}
 			`}
 			id={id}
 			type={type}
+			onChange={onChange}
 		/>
 	);
 }

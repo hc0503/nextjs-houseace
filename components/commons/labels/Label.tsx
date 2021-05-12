@@ -9,7 +9,7 @@ const Label = (props: iLabelProps) => {
 	return (
 		<label
 			className={`
-				text-gray-500
+				text-gray
 				${className}
 			`}
 			htmlFor={htmlFor}
