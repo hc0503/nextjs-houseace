@@ -1,6 +1,6 @@
 
 const Layout = (props) => (
-	<div className="bg-red-400 h-screen">
+	<div className="bg-red-400">
 		{props.children}
 	</div>
 );

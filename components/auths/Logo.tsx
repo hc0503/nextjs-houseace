@@ -11,7 +11,7 @@ const Logo = (props: iLogoProps) => {
 			src={src}
 			alt={alt}
 			className={`
-				h-20
+				max-h-20
 				${className}
 			`}
 		/>
