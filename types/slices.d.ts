@@ -8,4 +8,5 @@ interface iUser {
 interface iUserState {
 	data: iUser,
 	loading: boolean,
+	loggedIn: boolean
 }

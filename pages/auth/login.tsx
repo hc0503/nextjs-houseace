@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { fetchUser } from '../../redux/slices/userSlice';
-
+import { login, logout } from '../../redux/slices/authSlice';
 import Layout from '../../components/layouts/Page';
 import Button from '../../components/commons/buttons/Button';
 import SocialButton from '../../components/auths/SocialButton';
@@ -18,11 +17,10 @@ const Login = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [rememberMe, setRememberMe] = useState(false);
-	const [user, setUser] = useState();
 	const handleFormSubmit = async (e: any) => {
 		e.preventDefault();
 	
-		await dispatch(fetchUser());
+		await dispatch(login());
 	};
 	const textColor: string = 'text-gray-500';
 

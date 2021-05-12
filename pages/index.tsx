@@ -1,15 +1,22 @@
-import { Fragment } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline';
 import Link from 'next/link';
 import cookie from 'js-cookie';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { login, logout } from '../redux/slices/authSlice';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
 export default function Example() {
-  const loggedIn: boolean = cookie.get('loggedin');
+  const userData = useSelector((state: any) => state.auth);
+  const dispatch = useDispatch();
+  const handleLogout = async () => {
+    await dispatch(logout());
+  }
 
   return (
     <Disclosure as="nav" className="bg-white shadow">
@@ -30,7 +37,7 @@ export default function Example() {
                     alt="Houseace"
                   />
                 </div>
-                {!loggedIn && <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
+                {!userData.loggedIn && <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
                   {/* Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
                   <a
                     href="#"
@@ -47,7 +54,7 @@ export default function Example() {
                   </Link>
                 </div>}
               </div>
-              {loggedIn && <div className="hidden sm:ml-6 sm:flex sm:items-center">
+              {userData.loggedIn && <div className="hidden sm:ml-6 sm:flex sm:items-center">
                 <button className="bg-white p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                   <span className="sr-only">View notifications</span>
                   <BellIcon className="h-6 w-6" aria-hidden="true" />
@@ -141,6 +148,7 @@ export default function Example() {
                                   active ? 'bg-gray-100' : '',
                                   'block px-4 py-2 text-sm text-gray-700'
                                 )}
+                                onClick={handleLogout}
                               >
                                 Logout
                               </a>
@@ -167,7 +175,7 @@ export default function Example() {
           </div>
 
           <Disclosure.Panel className="sm:hidden">
-            {!loggedIn && <div className="pt-2 pb-3 space-y-1">
+            {!userData.loggedIn && <div className="pt-2 pb-3 space-y-1">
               {/* Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700" */}
               <a
                 href="#"
@@ -183,7 +191,7 @@ export default function Example() {
                 </a>
               </Link>
             </div>}
-            {loggedIn && <div className="pt-4 pb-3 border-t border-gray-200">
+            {userData.loggedIn && <div className="pt-4 pb-3 border-t border-gray-200">
               <div className="flex items-center px-4">
                 <div className="flex-shrink-0">
                   <img
@@ -229,6 +237,7 @@ export default function Example() {
                 <a
                   href="#"
                   className="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100"
+                  onClick={handleLogout}
                 >
                   Logout
                 </a>
