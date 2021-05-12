@@ -4,6 +4,7 @@ const CheckboxInput = (props: iInputProps) => {
 		id = null,
 		className = '',
 		type = 'checkbox',
+		onChange
 	} = props;
 
 	return (
@@ -19,6 +20,7 @@ const CheckboxInput = (props: iInputProps) => {
 			`}
 			id={id}
 			type={type}
+			onChange={onChange}
 		/>
 	);
 }

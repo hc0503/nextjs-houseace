@@ -1,23 +1,14 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import axios from 'axios'
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import axios from 'axios';
+import cookie from 'js-cookie';
+import Router from 'next/router';
 
 import envConfig from '../../config/environments';
 
-interface iUser {
-	id: number,
-	firstname: string,
-	lastname: string,
-	photo?: string,
-	password: string,
-}
-interface UserState {
-	data: iUser,
-	loading: boolean
-}
 const initialState = {
 	data: null,
-	loading: true
-} as UserState
+	loading: true,
+} as iUserState
 
 export const fetchUser = createAsyncThunk(
 	'user/fetchUser',
@@ -25,12 +16,12 @@ export const fetchUser = createAsyncThunk(
 		const source = axios.CancelToken.source()
 		signal.addEventListener('abort', () => {
 			source.cancel()
-		})
-		const res = await axios.get(`${envConfig.apiURL}/auth/login`, {
+		});
+		const res = await axios.post(`${envConfig.apiURL}/auth/login`, {
 			cancelToken: source.token
-		})
+		});
 		
-		return res.data
+		return res.data;
 	}
 )
 
@@ -50,19 +41,22 @@ export const userSlice = createSlice({
 	},
 	extraReducers: (builder) => {
 		builder.addCase(fetchUser.pending, (state) => {
-			// 
+			state.loading = true;
 		})
 		builder.addCase(fetchUser.fulfilled, (state: any, action) => {
 			state.data = action.payload;
 			state.loading = false;
+			cookie.set('loggedin', true);
+			Router.push('/');
 		})
 		builder.addCase(fetchUser.rejected, (state: any, action) => {
-			//
+			state.loading = false;
+			cookie.remove('loggedin');
 		})
 	},
 })
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount } = userSlice.actions
+export const { increment, decrement, incrementByAmount } = userSlice.actions;
 
-export default userSlice.reducer
+export default userSlice.reducer;

@@ -5,7 +5,8 @@ interface iInputProps {
 	id?: string,
 	placeholder?: string,
 	autoFocus?: boolean,
-	autoComplete?: 'off' | 'on'
+	autoComplete?: 'off' | 'on',
+	onChange?: any
 }
 interface iLabelProps {
 	className?: string,

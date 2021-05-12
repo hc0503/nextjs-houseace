@@ -2,12 +2,15 @@ import { Fragment } from 'react';
 import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline';
 import Link from 'next/link';
+import cookie from 'js-cookie';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
 export default function Example() {
+  const loggedIn: boolean = cookie.get('loggedin');
+
   return (
     <Disclosure as="nav" className="bg-white shadow">
       {({ open }) => (
@@ -27,7 +30,7 @@ export default function Example() {
                     alt="Houseace"
                   />
                 </div>
-                <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
+                {!loggedIn && <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
                   {/* Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
                   <a
                     href="#"
@@ -42,9 +45,9 @@ export default function Example() {
                       Login/Register
                     </a>
                   </Link>
-                </div>
+                </div>}
               </div>
-              <div className="hidden sm:ml-6 sm:flex sm:items-center">
+              {loggedIn && <div className="hidden sm:ml-6 sm:flex sm:items-center">
                 <button className="bg-white p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                   <span className="sr-only">View notifications</span>
                   <BellIcon className="h-6 w-6" aria-hidden="true" />
@@ -148,7 +151,7 @@ export default function Example() {
                     </>
                   )}
                 </Menu>
-              </div>
+              </div>}
               <div className="-mr-2 flex items-center sm:hidden">
                 {/* Mobile menu button */}
                 <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
@@ -164,7 +167,7 @@ export default function Example() {
           </div>
 
           <Disclosure.Panel className="sm:hidden">
-            <div className="pt-2 pb-3 space-y-1">
+            {!loggedIn && <div className="pt-2 pb-3 space-y-1">
               {/* Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700" */}
               <a
                 href="#"
@@ -179,8 +182,8 @@ export default function Example() {
                   Login/Register
                 </a>
               </Link>
-            </div>
-            <div className="pt-4 pb-3 border-t border-gray-200">
+            </div>}
+            {loggedIn && <div className="pt-4 pb-3 border-t border-gray-200">
               <div className="flex items-center px-4">
                 <div className="flex-shrink-0">
                   <img
@@ -230,7 +233,7 @@ export default function Example() {
                   Logout
                 </a>
               </div>
-            </div>
+            </div>}
           </Disclosure.Panel>
         </>
       )}
