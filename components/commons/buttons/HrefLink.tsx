@@ -14,8 +14,8 @@ const HrefLink = (props: iHrefLinkProps) => {
 			<a
 				className={`
 					font-medium
-					text-red-400
-					hover:text-red-300
+					text-red
+					hover:text-red-dark
 					${className}
 				`}
 			>

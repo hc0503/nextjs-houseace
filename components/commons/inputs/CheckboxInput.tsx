@@ -12,9 +12,9 @@ const CheckboxInput = (props: iInputProps) => {
 			className={`
 				min-h-4
 				min-w-4
-				text-red-400
+				text-red
 				rounded
-				checked:bg-red-400
+				checked:bg-red
 				checked:border-transparent
 				${className}
 			`}

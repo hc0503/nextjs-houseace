@@ -3,14 +3,14 @@ import Link from 'next/link';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { login, logout } from '../../redux/slices/authSlice';
-import Layout from '../../components/layouts/Page';
+import Layout from '../../components/layout/Page';
 import Button from '../../components/commons/buttons/Button';
-import SocialButton from '../../components/auths/SocialButton';
+import SocialButton from '../../components/auth/SocialButton';
 import TextInput from '../../components/commons/inputs/TextInput';
 import CheckboxInput from '../../components/commons/inputs/CheckboxInput';
 import HrefLink from '../../components/commons/buttons/HrefLink';
 import Label from '../../components/commons/labels/Label';
-import Logo from '../../components/auths/Logo';
+import Logo from '../../components/commons/Logo';
 
 const Login = () => {
 	const dispatch = useDispatch();
@@ -22,7 +22,7 @@ const Login = () => {
 	
 		await dispatch(login());
 	};
-	const textColor: string = 'text-gray-500';
+	const textColor: string = 'text-gray';
 
 	return (
 		<Layout>

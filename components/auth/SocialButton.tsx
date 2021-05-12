@@ -21,12 +21,12 @@ const Button = (props: iButtonProps) => {
 				text-sm
 				font-medium
 				rounded-md
-				text-gray-700
+				text-gray-dark
 				bg-white
-				hover:bg-gray-50
+				hover:bg-red-lesslight
 				focus:outline-none
-				focus:ring-2
-				focus:ring-red-500
+				focus:ring-1
+				focus:ring-red
 				justify-center
 				${className}
 			`}

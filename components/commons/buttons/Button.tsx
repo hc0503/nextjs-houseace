@@ -15,17 +15,17 @@ const Button = (props: iButtonProps) => {
 				border-transparent
 				rounded
 				focus:outline-none
-				focus:ring-2
-				focus:ring-red-500
+				focus:ring-1
+				focus:ring-red-dark
 				shadow-sm
-				bg-red-400
+				bg-red
 				px-3
 				py-3
 				text-white
 				w-full
 				text-lg
 				font-medium
-				${disabled ? 'opacity-80 cursor-not-allowed' : 'hover:bg-red-500'}
+				${disabled ? 'opacity-80 cursor-not-allowed' : 'hover:bg-red-dark'}
 				${className}
 			`}
 			disabled={disabled}

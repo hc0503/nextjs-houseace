@@ -1,13 +1,13 @@
 import Link from 'next/link';
 
-import Layout from '../../components/layouts/Page';
+import Layout from '../../components/layout/Page';
 import Button from '../../components/commons/buttons/Button';
-import SocialButton from '../../components/auths/SocialButton';
+import SocialButton from '../../components/auth/SocialButton';
 import TextInput from '../../components/commons/inputs/TextInput';
 import CheckboxInput from '../../components/commons/inputs/CheckboxInput';
 import HrefLink from '../../components/commons/buttons/HrefLink';
 import Label from '../../components/commons/labels/Label';
-import Logo from '../../components/auths/Logo';
+import Logo from '../../components/commons/Logo';
 
 const Register = () => {
 	const handleFormSubmit = (e) => {

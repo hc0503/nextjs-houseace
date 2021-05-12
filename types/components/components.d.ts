@@ -25,7 +25,7 @@ interface iHrefLinkProps {
 	children?: ReactNode,
 	href?: string,
 }
-interface iLogoProps {
+interface iImgProps {
 	className?: string,
 	alt?: string,
 	src?: string

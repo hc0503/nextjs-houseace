@@ -1,5 +1,5 @@
 
-const Logo = (props: iLogoProps) => {
+const Logo = (props: iImgProps) => {
 	const {
 		className = '',
 		alt = 'Logo',
@@ -11,7 +11,7 @@ const Logo = (props: iLogoProps) => {
 			src={src}
 			alt={alt}
 			className={`
-				max-h-20
+				max-h-14
 				${className}
 			`}
 		/>
