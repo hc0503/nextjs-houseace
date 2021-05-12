@@ -3,7 +3,7 @@ const CheckboxInput = (props: iInputProps) => {
 	const {
 		id = null,
 		className = '',
-		type = 'text',
+		type = 'checkbox',
 	} = props;
 
 	return (

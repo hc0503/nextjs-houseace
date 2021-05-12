@@ -4,9 +4,11 @@ const TextInput = (props: iInputProps) => {
 		id = null,
 		className = '',
 		type = 'text',
-		placeholder = ''
+		placeholder = '',
+		autoFocus = false,
+		autoComplete = 'off'
 	} = props;
-	
+
 	return (
 		<input
 			className={`
@@ -28,6 +30,8 @@ const TextInput = (props: iInputProps) => {
 			type={type}
 			placeholder={placeholder}
 			id={id}
+			autoFocus={autoFocus}
+			autoComplete={autoComplete}
 		/>
 	);
 }

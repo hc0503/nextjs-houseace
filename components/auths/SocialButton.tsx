@@ -5,27 +5,29 @@ const Button = (props: iButtonProps) => {
 		disabled = false,
 		className = '',
 		type = 'button',
-		onClick
+		onClick,
 	} = props;
 
 	return (
 		<button
 			className={`
+				inline-flex
+				items-center
+				px-4
+				py-2
 				border
-				border-transparent
-				rounded
+				border-red-300
+				shadow-sm
+				text-sm
+				font-medium
+				rounded-md
+				text-gray-700
+				bg-white
+				hover:bg-gray-50
 				focus:outline-none
 				focus:ring-2
 				focus:ring-red-500
-				shadow-sm
-				bg-red-400
-				px-3
-				py-3
-				text-white
-				w-full
-				text-lg
-				font-medium
-				${disabled ? 'opacity-80 cursor-not-allowed' : 'hover:bg-red-500'}
+				justify-center
 				${className}
 			`}
 			disabled={disabled}

@@ -2,9 +2,12 @@ import Link from 'next/link';
 
 import Layout from '../../components/layouts/Page';
 import Button from '../../components/commons/buttons/Button';
+import SocialButton from '../../components/auths/SocialButton';
 import TextInput from '../../components/commons/inputs/TextInput';
 import CheckboxInput from '../../components/commons/inputs/CheckboxInput';
 import HrefLink from '../../components/commons/buttons/HrefLink';
+import Label from '../../components/commons/labels/Label';
+import Logo from '../../components/auths/Logo';
 
 const Login = () => {
 	const handleFormSubmit = (e) => {
@@ -15,60 +18,61 @@ const Login = () => {
 	
 		console.log(email, password);
 	};
-	const labelColor: string = 'text-gray-500';
-	const aStyle: string = 'font-medium text-red-400 hover:text-red-300';
+	const textColor = 'text-gray-500';
 
 	return (
 		<Layout>
-			<div className='h-screen flex bg-gray-bg1'>
+			<div className='h-screen flex bg-gray-bg1 m-2'>
 				<div className='w-full max-w-md m-auto bg-white rounded-lg border border-primaryBorder shadow-default py-10 px-10'>
-					<div className="text-center">
+					<div className="flex justify-center">
 						<Link href="/">
-							<a className={aStyle}><img src="../logo.png" alt="Houseace"/></a>
+							<a><Logo src="../logo.png" alt="Houseace"/></a>
 						</Link>
 					</div>
 					<form onSubmit={handleFormSubmit}>
 						<div>
-							<label
+							<Label
 								htmlFor='email'
-								className={labelColor}>Email</label>
+							>
+								Email
+							</Label>
 							<TextInput
 								type="email"
 								id="email"
 								placeholder="Your Email"
+								autoFocus={true}
 							/>
 						</div>
 						<div>
-							<label
+							<Label
 								htmlFor='password'
-								className={labelColor}
 							>
 								Password
-							</label>
+							</Label>
 							<TextInput
 								type="password"
 								id="password"
 								placeholder="Your Password"
 							/>
 						</div>
-						<div className="flex items-center justify-between">
+						<div className="grid md:grid-cols-2 grid-cols-1 gap-5">
 							<div className="flex items-center">
 								<CheckboxInput
 									type="checkbox"
 									id="remember_me"
 								/>
-								<label
+								<Label
 									htmlFor="remember_me"
-									className={`ml-2 block ${labelColor}`}
+									className={`ml-2 block`}
 								>
 									Remember me
-								</label>
+								</Label>
 							</div>
 							<div>
 								<HrefLink href="/auth/forgot-password">Forgot your password?</HrefLink>
 							</div>
 						</div>
-						<div className='flex justify-center items-center mt-6'>
+						<div className='mt-6'>
 							<Button
 								type="submit"
 								disabled={false}
@@ -76,8 +80,21 @@ const Login = () => {
 								Sign In
 							</Button>
 						</div>
+						<div className="py-3">
+							<Label>Or sign in with</Label>
+							<div className="grid md:grid-cols-2 grid-cols-1 gap-5 py-3">
+								<SocialButton>
+									<img src="../../images/icons/socials/google.svg" className="h-5 mr-1" alt="Google" />
+									With Google
+								</SocialButton>
+								<SocialButton>
+									<img src="../../images/icons/socials/facebook.svg" className="h-7 mr-1" alt="Google" />
+									With Facebook
+								</SocialButton>
+							</div>
+						</div>
 						<div className="text-center py-3 px-3">
-							<p className={labelColor}>
+							<p className={textColor}>
 								Still no account? Please go to <HrefLink href="/auth/register"> Sign Up</HrefLink>
 							</p>
 						</div>
