@@ -22,7 +22,7 @@ const Register = () => {
 
 	return (
 		<Layout>
-			<div className='h-screen flex p-2'>
+			<div className='md:h-screen h-full flex p-2'>
 				<div className='w-full max-w-md m-auto bg-white rounded-lg border border-primaryBorder shadow-default px-10 py-10'>
 					<div className="flex justify-center">
 						<Link href="/">

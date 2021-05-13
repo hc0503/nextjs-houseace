@@ -1,5 +1,5 @@
 import { Fragment, useState } from 'react';
-import { Dialog, Menu, Transition } from '@headlessui/react';
+import { Dialog, Menu, Transition, Disclosure } from '@headlessui/react';
 import {
   BellIcon,
   CalendarIcon,
@@ -11,7 +11,8 @@ import {
   UsersIcon,
   XIcon,
 } from '@heroicons/react/outline';
-import { SearchIcon } from '@heroicons/react/solid';
+import { SearchIcon, ChevronUpIcon } from '@heroicons/react/solid';
+
 import App from '../../components/layout/App';
 import Logo from '../../components/commons/Logo';
 
@@ -137,28 +138,41 @@ export default function Example() {
 								alt="Houseace"
 							/>
 							</div>
-							<div className="mt-5 flex-grow flex flex-col">
-							<nav className="flex-1 px-2 bg-white space-y-1">
-								{navigation.map((item) => (
-									<a
-									key={item.name}
-									href={item.href}
-									className={classNames(
-										item.current ? 'bg-gray-100 text-gray-900' : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900',
-										'group flex items-center px-2 py-2 text-sm font-medium rounded-md'
+							<div className="mt-5 flex-grow flex flex-col p-3 space-y-1">
+								<Disclosure>
+									{({ open }) => (
+										<>
+											<Disclosure.Button className="flex justify-between w-full px-4 py-3 text-sm font-medium text-left text-purple-900 bg-red-lesslight rounded-lg hover:bg-red-200 focus:outline-none focus-visible:ring focus-visible:ring-red focus-visible:ring-opacity-75">
+												<span>Projects</span>
+												<ChevronUpIcon
+													className={`${
+													open ? 'transform rotate-180' : ''
+													} w-5 h-5 text-purple-500`}
+												/>
+											</Disclosure.Button>
+											<div>
+												<Disclosure.Panel className="px-4 pt-1 pb-1 text-sm text-gray-500">
+													<a
+														key="1"
+														href="#"
+														className="bg-gray-100 text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md"
+														>
+														Project1
+													</a>
+												</Disclosure.Panel>
+												<Disclosure.Panel className="px-4 pt-1 pb-1 text-sm text-gray-500">
+													<a
+														key="1"
+														href="#"
+														className="bg-gray-100 text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md"
+														>
+														Project2
+													</a>
+												</Disclosure.Panel>
+											</div>
+										</>
 									)}
-									>
-									<item.icon
-										className={classNames(
-											item.current ? 'text-gray-500' : 'text-gray-400 group-hover:text-gray-500',
-											'mr-3 h-6 w-6'
-										)}
-										aria-hidden="true"
-									/>
-									{item.name}
-									</a>
-								))}
-							</nav>
+								</Disclosure>
 							</div>
 						</div>
 					</div>
@@ -251,7 +265,7 @@ export default function Example() {
 					</div>
 
 					<main className="flex-1 relative overflow-y-auto focus:outline-none bg-white shadow rounded-2xl m-2">
-						Dashboard
+						
 					</main>
 				</div>
 			</div>
