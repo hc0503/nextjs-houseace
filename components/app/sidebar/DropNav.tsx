@@ -55,7 +55,7 @@ const DropNav: React.FC<Props> = ({
 								/>
 							</Disclosure.Button>
 							<div className="space-y-1">
-								{item.sub.map((key, sub) => (
+								{item.sub.map((sub: any, key: number) => (
 									<Disclosure.Panel
 										key={`DisclosusrePanel-${key}`}
 										className={`

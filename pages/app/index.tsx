@@ -248,7 +248,7 @@ export default function Example(): JSX.Element {
 								</div>
 								<div className="mt-5 flex-1 h-0 overflow-y-auto">
 									<nav className="px-2 space-y-1">
-										{navigation.map((key, item: any) => (
+										{navigation.map((item: any, key: number) => (
 											<a
 												key={`Navigation-${key}`}
 												href={item.href}
@@ -296,7 +296,7 @@ export default function Example(): JSX.Element {
 								text-gray-light text-left text-sm
 							`}
 							>
-								{navigations.map((key, item: any) => (
+								{navigations.map((item: any, key: number) => (
 									<DropNav key={`Navigation-${key}`} item={item} />
 									// <Link href={item.href}>
 									// 	<a
@@ -401,21 +401,23 @@ export default function Example(): JSX.Element {
 													static
 													className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
 												>
-													{userNavigation.map((item) => (
-														<Menu.Item key={item.name}>
-															{({ active }) => (
-																<a
-																	href={item.href}
-																	className={classNames(
-																		active ? "bg-gray-100" : "",
-																		"block px-4 py-2 text-sm text-gray-700"
-																	)}
-																>
-																	{item.name}
-																</a>
-															)}
-														</Menu.Item>
-													))}
+													{userNavigation.map(
+														(item: any, key: number) => (
+															<Menu.Item key={`MenuItem-${key}`}>
+																{({ active }) => (
+																	<a
+																		href={item.href}
+																		className={classNames(
+																			active ? "bg-gray-100" : "",
+																			"block px-4 py-2 text-sm text-gray-700"
+																		)}
+																	>
+																		{item.name}
+																	</a>
+																)}
+															</Menu.Item>
+														)
+													)}
 												</Menu.Items>
 											</Transition>
 										</>
