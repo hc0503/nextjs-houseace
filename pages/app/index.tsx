@@ -1,5 +1,6 @@
 import { Fragment, useState } from 'react';
-import { Dialog, Menu, Transition, Disclosure } from '@headlessui/react';
+import Link from 'next/link';
+import { Dialog, Menu, Transition } from '@headlessui/react';
 import {
   BellIcon,
   CalendarIcon,
@@ -11,10 +12,11 @@ import {
   UsersIcon,
   XIcon,
 } from '@heroicons/react/outline';
-import { SearchIcon, ChevronUpIcon } from '@heroicons/react/solid';
+import { SearchIcon, ChevronRightIcon } from '@heroicons/react/solid';
 
 import App from '../../components/layout/App';
 import Logo from '../../components/commons/Logo';
+import DropNav from '../../components/app/sidebar/DropNav';
 
 const navigation = [
   { name: 'Dashboard', href: '#', icon: HomeIcon, current: true },
@@ -23,6 +25,41 @@ const navigation = [
   { name: 'Calendar', href: '#', icon: CalendarIcon, current: false },
   { name: 'Documents', href: '#', icon: InboxIcon, current: false },
   { name: 'Reports', href: '#', icon: ChartBarIcon, current: false },
+];
+const navigations = [
+	{
+		name: 'Projects',
+		href: '#',
+		icon: HomeIcon,
+		sub: [
+			{
+				name: 'Project1', href: '/project1', icon: ''
+			},
+			{
+				name: 'Project2', href: '#', icon: ''
+			}
+		]
+	},
+	{
+		name: 'Payments',
+		href: '#',
+		icon: FolderIcon,
+		sub: [
+			{
+				name: 'Payment1', href: '#', icon: ''
+			},
+			{
+				name: 'Payment2', href: '#', icon: ''
+			}
+		]
+	},
+	{
+		name: 'Options',
+		href: '#',
+		icon: ChartBarIcon,
+		sub: []
+	}
+	
 ];
 const userNavigation = [
   { name: 'Your Profile', href: '#' },
@@ -35,7 +72,88 @@ function classNames(...classes) {
 }
 
 export default function Example() {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+	const [sidebarOpen, setSidebarOpen] = useState(false);
+	const linkTransformer = (menuItem) => {
+		return (
+			<Link href={menuItem.url}>{ menuItem.title }</Link>
+		);
+	}
+	const menu = [
+		{
+			id: 1,
+			title: "Home",
+			url: "/"
+		},
+		{
+			id: 2,
+			title: "About Us",
+			url: "/about-us"
+		},
+		{
+			title: "Team",
+			url: "/team",
+			children: [
+				{
+					id: 8,
+					title: "Tim Drake",
+					url: "/tim-drake"
+				},
+				{
+					id: 9,
+					title: "Jason Todd",
+					url: "/jason-todd"
+				},
+				{
+					id: 10,
+					title: "Richard Grayson",
+					url: "/richard-grayson"
+				}
+			]
+		},
+		{
+			title: "Services",
+			url: "/services",
+			children: [
+				{
+					id: 5,
+					title: "Web Development",
+					url: "/web-development"
+				},
+				{
+					id: 6,
+					title: "UI Design",
+					url: "/ui-design"
+				},
+				{
+					id: 7,
+					title: "Copywriting",
+					url: "/copywriting"
+				}
+			]
+		},
+		{
+			id: 4,
+			title: "Contact",
+			url: "/contact"
+		},
+		{
+			title: "Social",
+			url: "/social",
+			children: [
+				{
+					id: 11,
+					title: "Twitter",
+					url: "/twitter"
+				},
+				{
+					id: 12,
+					title: "Facebook",
+					url: "/facebook"
+				}
+			]
+		},
+  	];
+
 
   return (
 	  <App>
@@ -138,42 +256,41 @@ export default function Example() {
 								alt="Houseace"
 							/>
 							</div>
-							<div className="mt-5 flex-grow flex flex-col p-3 space-y-1">
-								<Disclosure>
-									{({ open }) => (
-										<>
-											<Disclosure.Button className="flex justify-between w-full px-4 py-3 text-sm font-medium text-left text-purple-900 bg-red-lesslight rounded-lg hover:bg-red-200 focus:outline-none focus-visible:ring focus-visible:ring-red focus-visible:ring-opacity-75">
-												<span>Projects</span>
-												<ChevronUpIcon
-													className={`${
-													open ? 'transform rotate-180' : ''
-													} w-5 h-5 text-purple-500`}
-												/>
-											</Disclosure.Button>
-											<div>
-												<Disclosure.Panel className="px-4 pt-1 pb-1 text-sm text-gray-500">
-													<a
-														key="1"
-														href="#"
-														className="bg-gray-100 text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md"
-														>
-														Project1
-													</a>
-												</Disclosure.Panel>
-												<Disclosure.Panel className="px-4 pt-1 pb-1 text-sm text-gray-500">
-													<a
-														key="1"
-														href="#"
-														className="bg-gray-100 text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md"
-														>
-														Project2
-													</a>
-												</Disclosure.Panel>
-											</div>
-										</>
-									)}
-								</Disclosure>
-							</div>
+							<nav className={`
+								mt-5 p-3
+								space-y-1
+								text-gray-light text-left text-sm
+							`}>
+								{navigations.map((item) => (
+									<DropNav item={item} />
+									// <Link href={item.href}>
+									// 	<a
+									// 		key={item.name}
+									// 		href={item.href}
+									// 		className={classNames(
+									// 			true ? 'bg-red-lesslight text-red' : 'hover:bg-red-lesslight hover:text-red',
+									// 			'group flex justify-between items-center px-2 py-2 text-sm font-medium rounded-md'
+									// 		)}
+									// 		>
+									// 		<div className="flex items-center">
+									// 			<item.icon
+									// 				className={classNames(
+									// 					true ? 'text-red' : '',
+									// 					'mr-3 h-6 w-6'
+									// 				)}
+									// 				aria-hidden="true"
+									// 			/>
+									// 			{item.name}
+									// 		</div>
+									// 		<ChevronRightIcon
+									// 			className={`
+									// 			${true ? 'transform rotate-90' : ''}
+									// 			w-5 h-5
+									// 		`}/>
+									// 	</a>
+									// </Link>
+								))}
+							</nav>
 						</div>
 					</div>
 				</div>
