@@ -2,8 +2,6 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import Router from 'next/router';
 
-import envConfig from '../../config/environments';
-
 const initialState = {
 	data: null,
 	loading: true,
@@ -17,7 +15,7 @@ export const login = createAsyncThunk(
 		signal.addEventListener('abort', () => {
 			source.cancel();
 		});
-		const res = await axios.post(`${envConfig.apiURL}/auth/login`, {
+		const res = await axios.post(`${process.env.API_URL}/auth/login`, {
 			cancelToken: source.token
 		});
 		
@@ -31,7 +29,7 @@ export const logout = createAsyncThunk(
 		signal.addEventListener('abort', () => {
 			source.cancel();
 		});
-		const res = await axios.post(`${envConfig.apiURL}/auth/logout`, {
+		const res = await axios.post(`${process.env.API_URL}/auth/logout`, {
 			cancelToken: source.token
 		});
 

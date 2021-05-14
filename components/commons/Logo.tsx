@@ -2,8 +2,8 @@
 const Logo = (props: iImgProps) => {
 	const {
 		className = '',
-		alt = 'Logo',
-		src = ''
+		alt = 'Houseace',
+		src = '/'
 	} = props;
 
 	return (
@@ -11,7 +11,7 @@ const Logo = (props: iImgProps) => {
 			src={src}
 			alt={alt}
 			className={`
-				max-h-14
+				'max-h-14
 				${className}
 			`}
 		/>

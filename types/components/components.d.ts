@@ -1,4 +1,3 @@
-
 interface iInputProps {
 	className?: string,
 	type?: 'text' | 'email' | 'password' | 'number' | 'checkbox',
@@ -35,4 +34,9 @@ interface iLandingStepType {
   index: number,
 	icon: string,
 	title: string
+}
+declare module "*.svg" {
+	import { ReactElement, SVGProps } from "react";
+	const content: (props: SVGProps<SVGElement>) => ReactElement;
+	export default content;
 }
