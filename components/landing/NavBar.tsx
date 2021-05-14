@@ -1,8 +1,23 @@
-import React, { Fragment, useEffect, useState } from "react";
-import { Disclosure, Menu, Transition } from "@headlessui/react";
-import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
+import React, {
+	Fragment,
+	useEffect,
+	useState,
+} from "react";
+import {
+	Disclosure,
+	Menu,
+	Transition,
+} from "@headlessui/react";
+import {
+	BellIcon,
+	MenuIcon,
+	XIcon,
+} from "@heroicons/react/outline";
 import Link from "next/link";
-import { useDispatch, useSelector } from "react-redux";
+import {
+	useDispatch,
+	useSelector,
+} from "react-redux";
 
 import { logout } from "../../redux/slices/authSlice";
 import Logo from "../commons/Logo";
@@ -12,14 +27,19 @@ const Navbar = () => {
 	const classNames = (...classes) => {
 		return classes.filter(Boolean).join(" ");
 	};
-	const userData = useSelector((state: any) => state.auth);
+	const userData = useSelector(
+		(state: any) => state.auth
+	);
 	const dispatch = useDispatch();
 	const handleLogout = () => {
 		dispatch(logout());
 	};
 
 	return (
-		<Disclosure as="nav" className="bg-white container mx-auto">
+		<Disclosure
+			as="nav"
+			className="bg-white container mx-auto"
+		>
 			{({ open }) => (
 				<>
 					<div>
@@ -28,12 +48,20 @@ const Navbar = () => {
 								<div className="flex-shrink-0 flex items-center">
 									<Link href="/">
 										<a>
-											<Logo src="logo.png" alt="Houseace" className="block lg:hidden" />
+											<Logo
+												src="logo.png"
+												alt="Houseace"
+												className="block lg:hidden"
+											/>
 										</a>
 									</Link>
 									<Link href="/">
 										<a>
-											<Logo src="logo.png" alt="Houseace" className="hidden lg:block" />
+											<Logo
+												src="logo.png"
+												alt="Houseace"
+												className="hidden lg:block"
+											/>
 										</a>
 									</Link>
 								</div>
@@ -57,17 +85,27 @@ const Navbar = () => {
 							{userData.loggedIn && (
 								<div className="hidden sm:ml-6 sm:flex sm:items-center">
 									<button className="bg-white p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-1 focus:ring-offset-2 focus:ring-indigo-500">
-										<span className="sr-only">View notifications</span>
-										<BellIcon className="h-6 w-6" aria-hidden="true" />
+										<span className="sr-only">
+											View notifications
+										</span>
+										<BellIcon
+											className="h-6 w-6"
+											aria-hidden="true"
+										/>
 									</button>
 
 									{/* Profile dropdown */}
-									<Menu as="div" className="ml-3 relative">
+									<Menu
+										as="div"
+										className="ml-3 relative"
+									>
 										{({ open }) => (
 											<>
 												<div>
 													<Menu.Button className="bg-white rounded-full flex text-sm focus:outline-none focus:ring-1 focus:ring-offset-2 focus:ring-indigo-500">
-														<span className="sr-only">Open user menu</span>
+														<span className="sr-only">
+															Open user menu
+														</span>
 														<Avatar
 															src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
 															alt="Avatar"
@@ -93,7 +131,9 @@ const Navbar = () => {
 																<a
 																	href="#"
 																	className={classNames(
-																		active ? "bg-gray-100" : "",
+																		active
+																			? "bg-gray-100"
+																			: "",
 																		"block px-4 py-2 text-sm text-gray-700"
 																	)}
 																>
@@ -106,7 +146,9 @@ const Navbar = () => {
 																<a
 																	href="#"
 																	className={classNames(
-																		active ? "bg-gray-100" : "",
+																		active
+																			? "bg-gray-100"
+																			: "",
 																		"block px-4 py-2 text-sm text-gray-700"
 																	)}
 																>
@@ -119,7 +161,9 @@ const Navbar = () => {
 																<a
 																	href="#"
 																	className={classNames(
-																		active ? "bg-gray-100" : "",
+																		active
+																			? "bg-gray-100"
+																			: "",
 																		"block px-4 py-2 text-sm text-gray-700"
 																	)}
 																>
@@ -132,7 +176,9 @@ const Navbar = () => {
 																<a
 																	href="#"
 																	className={classNames(
-																		active ? "bg-gray-100" : "",
+																		active
+																			? "bg-gray-100"
+																			: "",
 																		"block px-4 py-2 text-sm text-gray-700"
 																	)}
 																>
@@ -145,10 +191,14 @@ const Navbar = () => {
 																<a
 																	href="#"
 																	className={classNames(
-																		active ? "bg-gray-100" : "",
+																		active
+																			? "bg-gray-100"
+																			: "",
 																		"block px-4 py-2 text-sm text-gray-700"
 																	)}
-																	onClick={handleLogout}
+																	onClick={
+																		handleLogout
+																	}
 																>
 																	Logout
 																</a>
@@ -164,11 +214,19 @@ const Navbar = () => {
 							<div className="-mr-2 flex items-center sm:hidden">
 								{/* Mobile menu button */}
 								<Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-1 focus:ring-inset focus:ring-indigo-500">
-									<span className="sr-only">Open main menu</span>
+									<span className="sr-only">
+										Open main menu
+									</span>
 									{open ? (
-										<XIcon className="block h-6 w-6" aria-hidden="true" />
+										<XIcon
+											className="block h-6 w-6"
+											aria-hidden="true"
+										/>
 									) : (
-										<MenuIcon className="block h-6 w-6" aria-hidden="true" />
+										<MenuIcon
+											className="block h-6 w-6"
+											aria-hidden="true"
+										/>
 									)}
 								</Disclosure.Button>
 							</div>
@@ -201,12 +259,21 @@ const Navbar = () => {
 										/>
 									</div>
 									<div className="ml-3">
-										<div className="text-base font-medium text-gray-800">Tom Cook</div>
-										<div className="text-sm font-medium text-gray-500">tom@example.com</div>
+										<div className="text-base font-medium text-gray-800">
+											Tom Cook
+										</div>
+										<div className="text-sm font-medium text-gray-500">
+											tom@example.com
+										</div>
 									</div>
 									<button className="ml-auto flex-shrink-0 bg-white p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-1 focus:ring-offset-2 focus:ring-indigo-500">
-										<span className="sr-only">View notifications</span>
-										<BellIcon className="h-6 w-6" aria-hidden="true" />
+										<span className="sr-only">
+											View notifications
+										</span>
+										<BellIcon
+											className="h-6 w-6"
+											aria-hidden="true"
+										/>
 									</button>
 								</div>
 								<div className="mt-3 space-y-1">

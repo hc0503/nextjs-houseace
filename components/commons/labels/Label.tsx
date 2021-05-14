@@ -1,5 +1,9 @@
 const Label = (props: iLabelProps) => {
-	const { htmlFor = null, className = "", children = "Label" } = props;
+	const {
+		htmlFor = null,
+		className = "",
+		children = "Label",
+	} = props;
 
 	return (
 		<label

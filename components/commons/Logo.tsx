@@ -1,5 +1,9 @@
 const Logo = (props: iImgProps) => {
-	const { className = "", alt = "Houseace", src = "/" } = props;
+	const {
+		className = "",
+		alt = "Houseace",
+		src = "/",
+	} = props;
 
 	return (
 		<img

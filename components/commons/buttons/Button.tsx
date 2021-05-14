@@ -1,5 +1,11 @@
 const Button = (props: iButtonProps) => {
-	const { children = "Button", disabled = false, className = "", type = "button", onClick } = props;
+	const {
+		children = "Button",
+		disabled = false,
+		className = "",
+		type = "button",
+		onClick,
+	} = props;
 
 	return (
 		<button
@@ -18,7 +24,11 @@ const Button = (props: iButtonProps) => {
 				w-full
 				text-lg
 				font-medium
-				${disabled ? "opacity-80 cursor-not-allowed" : "hover:bg-red-dark"}
+				${
+					disabled
+						? "opacity-80 cursor-not-allowed"
+						: "hover:bg-red-dark"
+				}
 				${className}
 			`}
 			disabled={disabled}

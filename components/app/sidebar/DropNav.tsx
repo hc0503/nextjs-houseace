@@ -34,7 +34,10 @@ const DropNav = (props: iNavProps) => {
 							>
 								<div className="flex items-center">
 									<item.icon
-										className={classNames(selected ? "text-red" : "", "mr-3 h-6 w-6")}
+										className={classNames(
+											selected ? "text-red" : "",
+											"mr-3 h-6 w-6"
+										)}
 										aria-hidden="true"
 									/>
 									{item.name}
@@ -47,8 +50,9 @@ const DropNav = (props: iNavProps) => {
 								/>
 							</Disclosure.Button>
 							<div className="space-y-1">
-								{item.sub.map((sub) => (
+								{item.sub.map((key, sub) => (
 									<Disclosure.Panel
+										key={`DisclosusrePanel-${key}`}
 										className={`
 										pl-4
 										hover:text-red
@@ -79,13 +83,18 @@ const DropNav = (props: iNavProps) => {
 						key={item.name}
 						href={item.href}
 						className={classNames(
-							selected ? "bg-red-lesslight text-red" : "hover:bg-red-lesslight hover:text-red",
+							selected
+								? "bg-red-lesslight text-red"
+								: "hover:bg-red-lesslight hover:text-red",
 							"group flex justify-between items-center px-2 py-2 text-sm font-medium rounded-md"
 						)}
 					>
 						<div className="flex items-center">
 							<item.icon
-								className={classNames(selected ? "text-red" : "", "mr-3 h-6 w-6")}
+								className={classNames(
+									selected ? "text-red" : "",
+									"mr-3 h-6 w-6"
+								)}
 								aria-hidden="true"
 							/>
 							{item.name}

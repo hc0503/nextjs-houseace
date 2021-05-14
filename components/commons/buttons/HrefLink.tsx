@@ -1,7 +1,11 @@
 import Link from "next/link";
 
 const HrefLink = (props: iHrefLinkProps) => {
-	const { href = "#", className = "", children = "Link" } = props;
+	const {
+		href = "#",
+		className = "",
+		children = "Link",
+	} = props;
 
 	return (
 		<Link href={href}>

@@ -1,5 +1,11 @@
 const Button = (props: iButtonProps) => {
-	const { children = "Button", disabled = false, className = "", type = "button", onClick } = props;
+	const {
+		children = "Button",
+		disabled = false,
+		className = "",
+		type = "button",
+		onClick,
+	} = props;
 
 	return (
 		<button

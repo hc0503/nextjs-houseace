@@ -14,7 +14,8 @@ const Register = () => {
 		e.preventDefault();
 
 		const email = e.target.elements.email?.value;
-		const password = e.target.elements.password?.value;
+		const password =
+			e.target.elements.password?.value;
 
 		console.log(email, password);
 	};
@@ -27,25 +28,46 @@ const Register = () => {
 					<div className="flex justify-center">
 						<Link href="/">
 							<a>
-								<Logo src="../logo.png" alt="Houseace" />
+								<Logo
+									src="../logo.png"
+									alt="Houseace"
+								/>
 							</a>
 						</Link>
 					</div>
 					<form onSubmit={handleFormSubmit}>
 						<div>
-							<Label htmlFor="first_name">First Name</Label>
-							<TextInput type="text" id="first_name" placeholder="First Name" autoFocus={true} />
+							<Label htmlFor="first_name">
+								First Name
+							</Label>
+							<TextInput
+								type="text"
+								id="first_name"
+								placeholder="First Name"
+							/>
 						</div>
 						<div>
-							<Label htmlFor="last_name">Last Name</Label>
-							<TextInput type="text" id="last_name" placeholder="Last Name" />
+							<Label htmlFor="last_name">
+								Last Name
+							</Label>
+							<TextInput
+								type="text"
+								id="last_name"
+								placeholder="Last Name"
+							/>
 						</div>
 						<div>
 							<Label htmlFor="email">Email</Label>
-							<TextInput type="email" id="email" placeholder="Email" />
+							<TextInput
+								type="email"
+								id="email"
+								placeholder="Email"
+							/>
 						</div>
 						<div>
-							<Label htmlFor="password">New Password</Label>
+							<Label htmlFor="password">
+								New Password
+							</Label>
 							<TextInput
 								type="password"
 								id="password"
@@ -54,21 +76,45 @@ const Register = () => {
 							/>
 						</div>
 						<div>
-							<Label htmlFor="confirm_password">Conform Password</Label>
-							<TextInput type="password" id="confirm_password" placeholder="Confirm Password" />
+							<Label htmlFor="confirm_password">
+								Conform Password
+							</Label>
+							<TextInput
+								type="password"
+								id="confirm_password"
+								placeholder="Confirm Password"
+							/>
 						</div>
 						<div>
 							<div className="flex items-start">
-								<CheckboxInput type="checkbox" id="terms_policy" className="mt-2" />
-								<Label htmlFor="terms_policy" className={`ml-2 block`}>
-									By signing up you are accepting the houseace
-									<HrefLink href="/terms-and-conditions"> terms and conditions</HrefLink> and
-									<HrefLink href="/privacy-policy"> privacy policy</HrefLink>
+								<CheckboxInput
+									type="checkbox"
+									id="terms_policy"
+									className="mt-2"
+								/>
+								<Label
+									htmlFor="terms_policy"
+									className={`ml-2 block`}
+								>
+									By signing up you are accepting
+									the houseace
+									<HrefLink href="/terms-and-conditions">
+										{" "}
+										terms and conditions
+									</HrefLink>{" "}
+									and
+									<HrefLink href="/privacy-policy">
+										{" "}
+										privacy policy
+									</HrefLink>
 								</Label>
 							</div>
 						</div>
 						<div className="mt-6">
-							<Button type="submit" disabled={false}>
+							<Button
+								type="submit"
+								disabled={false}
+							>
 								Sign Up
 							</Button>
 						</div>
@@ -95,8 +141,12 @@ const Register = () => {
 						</div>
 						<div className="text-center py-3 px-3">
 							<p className={textColor}>
-								Have an account already? Please go to
-								<HrefLink href="/auth/login"> Sign In</HrefLink>
+								Have an account already? Please go
+								to
+								<HrefLink href="/auth/login">
+									{" "}
+									Sign In
+								</HrefLink>
 							</p>
 						</div>
 					</form>

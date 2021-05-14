@@ -1,5 +1,9 @@
 const Avatar = (props: iImgProps) => {
-	const { className = "", alt = "Avatar", src = "" } = props;
+	const {
+		className = "",
+		alt = "Avatar",
+		src = "",
+	} = props;
 
 	return (
 		<img

@@ -4,7 +4,7 @@ module.exports = {
 		node: true,
 		es6: true,
 	},
-	parserOptions: { ecmaVersion: 8 }, // to enable features such as async/await
+	parserOptions: { ecmaVersion: 2020 }, // to enable features such as async/await
 	ignorePatterns: ["node_modules/*", ".next/*", ".out/*", "!.prettierrc.js"], // We don"t want to lint generated files nor node_modules, but we want to lint .prettierrc.js (ignored by default by eslint)
 	extends: ["eslint:recommended"],
 	overrides: [
@@ -37,11 +37,11 @@ module.exports = {
 				"jsx-a11y/anchor-is-valid": "off",
 
 				// Why would you want unused vars?
-				"no-unused-vars": "off",
-				"@typescript-eslint/no-unused-vars": ["error"],
+				"no-unused-vars": "warn",
+				"@typescript-eslint/no-unused-vars": ["warn"],
 
 				// Any type ignore
-				"@typescript-eslint/no-explicit-any": "off",
+				"@typescript-eslint/no-explicit-any": "warn",
 	
 				// I suggest this setting for requiring return types on functions only where useful
 				"@typescript-eslint/explicit-function-return-type": [

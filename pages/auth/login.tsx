@@ -1,8 +1,14 @@
 import React, { useState } from "react";
 import Link from "next/link";
-import { useDispatch, useSelector } from "react-redux";
+import {
+	useDispatch,
+	useSelector,
+} from "react-redux";
 
-import { login, logout } from "../../redux/slices/authSlice";
+import {
+	login,
+	logout,
+} from "../../redux/slices/authSlice";
 import Layout from "../../components/layout/Page";
 import Button from "../../components/commons/buttons/Button";
 import SocialButton from "../../components/auth/SocialButton";
@@ -16,7 +22,8 @@ const Login = () => {
 	const dispatch = useDispatch();
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
-	const [rememberMe, setRememberMe] = useState(false);
+	const [rememberMe, setRememberMe] =
+		useState(false);
 	const handleFormSubmit = async (e: any) => {
 		e.preventDefault();
 
@@ -31,7 +38,10 @@ const Login = () => {
 					<div className="flex justify-center">
 						<Link href="/">
 							<a>
-								<Logo src="../logo.png" alt="Houseace" />
+								<Logo
+									src="../logo.png"
+									alt="Houseace"
+								/>
 							</a>
 						</Link>
 					</div>
@@ -42,17 +52,22 @@ const Login = () => {
 								type="email"
 								id="email"
 								placeholder="Your Email"
-								autoFocus={true}
-								onChange={(e: any) => setEmail(e.target.value)}
+								onChange={(e: any) =>
+									setEmail(e.target.value)
+								}
 							/>
 						</div>
 						<div>
-							<Label htmlFor="password">Password</Label>
+							<Label htmlFor="password">
+								Password
+							</Label>
 							<TextInput
 								type="password"
 								id="password"
 								placeholder="Your Password"
-								onChange={(e: any) => setPassword(e.target.value)}
+								onChange={(e: any) =>
+									setPassword(e.target.value)
+								}
 							/>
 						</div>
 						<div className="grid md:grid-cols-2 grid-cols-1 gap-5">
@@ -60,18 +75,30 @@ const Login = () => {
 								<CheckboxInput
 									type="checkbox"
 									id="remember_me"
-									onChange={(e: any) => setRememberMe(e.target.checked)}
+									onChange={(e: any) =>
+										setRememberMe(
+											e.target.checked
+										)
+									}
 								/>
-								<Label htmlFor="remember_me" className={`ml-2 block`}>
+								<Label
+									htmlFor="remember_me"
+									className={`ml-2 block`}
+								>
 									Remember me
 								</Label>
 							</div>
 							<div>
-								<HrefLink href="/auth/forgot-password">Forgot your password?</HrefLink>
+								<HrefLink href="/auth/forgot-password">
+									Forgot your password?
+								</HrefLink>
 							</div>
 						</div>
 						<div className="mt-6">
-							<Button type="submit" disabled={false}>
+							<Button
+								type="submit"
+								disabled={false}
+							>
 								Sign In
 							</Button>
 						</div>
@@ -98,7 +125,11 @@ const Login = () => {
 						</div>
 						<div className="text-center py-3 px-3">
 							<p className={textColor}>
-								Still no account? Please go to <HrefLink href="/auth/register"> Sign Up</HrefLink>
+								Still no account? Please go to{" "}
+								<HrefLink href="/auth/register">
+									{" "}
+									Sign Up
+								</HrefLink>
 							</p>
 						</div>
 					</form>

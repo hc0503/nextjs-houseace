@@ -17,8 +17,10 @@ function HeroCard() {
 					Using the Calculator
 				</p>
 				<p className="lg:text-2xl md:text-xl sm:text-lg text-sm">
-					If you're budgeting for a home renovation the Houseace calculator is best place to start.
-					Get an instant estimate or try our quick quotes
+					{`If you're budgeting for a home
+					renovation the Houseace calculator is
+					best place to start. Get an instant
+					estimate or try our quick quotes`}
 				</p>
 				<div className="absolute bottom-0 right-0">
 					<button
@@ -26,7 +28,10 @@ function HeroCard() {
 						className="inline-flex items-center px-6 lg:py-3 md:py-2 sm:py-1 border border-transparent text-base text-white bg-red hover:bg-red-dark focus:outline-none"
 					>
 						Want an online quote instead?
-						<ArrowCircleRightIcon className="ml-3 mr-1 h-5 w-5" aria-hidden="true" />
+						<ArrowCircleRightIcon
+							className="ml-3 mr-1 h-5 w-5"
+							aria-hidden="true"
+						/>
 					</button>
 				</div>
 			</div>
