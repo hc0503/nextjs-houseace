@@ -1,12 +1,12 @@
 interface iUser {
-	id: number,
-	firstname: string,
-	lastname: string,
-	photo?: string,
-	password: string,
+	id: number;
+	firstname: string;
+	lastname: string;
+	photo?: string;
+	password: string;
 }
 interface iUserState {
-	data: iUser,
-	loading: boolean,
-	loggedIn: boolean
+	data: iUser;
+	loading: boolean;
+	loggedIn: boolean;
 }

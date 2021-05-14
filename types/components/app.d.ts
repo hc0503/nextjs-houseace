@@ -1,4 +1,4 @@
 interface iNavProps {
-	className?: string,
-	item: any
+	className?: string;
+	item: any;
 }

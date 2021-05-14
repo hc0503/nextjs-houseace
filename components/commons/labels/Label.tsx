@@ -1,11 +1,6 @@
-
 const Label = (props: iLabelProps) => {
-	const {
-		htmlFor = null,
-		className = '',
-		children = 'Label'
-	} = props;
-	
+	const { htmlFor = null, className = "", children = "Label" } = props;
+
 	return (
 		<label
 			className={`
@@ -17,6 +12,6 @@ const Label = (props: iLabelProps) => {
 			{children}
 		</label>
 	);
-}
+};
 
 export default Label;

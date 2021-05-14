@@ -1,54 +1,48 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import axios from 'axios';
-import Router from 'next/router';
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
+import Router from "next/router";
 
 const initialState = {
 	data: null,
 	loading: true,
-	loggedIn: false
+	loggedIn: false,
 } as iUserState;
 
-export const login = createAsyncThunk(
-	'auth/loginStatus',
-	async (data, { signal }) => {
-		const source = axios.CancelToken.source();
-		signal.addEventListener('abort', () => {
-			source.cancel();
-		});
-		const res = await axios.post(`${process.env.API_URL}/auth/login`, {
-			cancelToken: source.token
-		});
-		
-		return res.data;
-	}
-);
-export const logout = createAsyncThunk(
-	'auth/logoutStatus',
-	async (data, { signal }) => {
-		const source = axios.CancelToken.source();
-		signal.addEventListener('abort', () => {
-			source.cancel();
-		});
-		const res = await axios.post(`${process.env.API_URL}/auth/logout`, {
-			cancelToken: source.token
-		});
+export const login = createAsyncThunk("auth/loginStatus", async (data, { signal }) => {
+	const source = axios.CancelToken.source();
+	signal.addEventListener("abort", () => {
+		source.cancel();
+	});
+	const res = await axios.post(`${process.env.API_URL}/auth/login`, {
+		cancelToken: source.token,
+	});
 
-		return res.data;
-	}
-)
+	return res.data;
+});
+export const logout = createAsyncThunk("auth/logoutStatus", async (data, { signal }) => {
+	const source = axios.CancelToken.source();
+	signal.addEventListener("abort", () => {
+		source.cancel();
+	});
+	const res = await axios.post(`${process.env.API_URL}/auth/logout`, {
+		cancelToken: source.token,
+	});
+
+	return res.data;
+});
 
 export const authSlice = createSlice({
-	name: 'auth',
+	name: "auth",
 	initialState,
 	reducers: {
 		increment: (state) => {
-			// 
+			//
 		},
 		decrement: (state) => {
-			// 
+			//
 		},
 		incrementByAmount: (state, action) => {
-			// 
+			//
 		},
 	},
 	extraReducers: (builder) => {
@@ -61,7 +55,7 @@ export const authSlice = createSlice({
 			state.data = action.payload;
 			state.loading = false;
 			state.loggedIn = true;
-			Router.push('/');
+			Router.push("/");
 		});
 		builder.addCase(login.rejected, (state: any, action) => {
 			state.loading = false;
@@ -77,7 +71,7 @@ export const authSlice = createSlice({
 			state.data = action.payload;
 			state.loading = false;
 			state.loggedIn = false;
-			Router.push('/');
+			Router.push("/");
 		});
 	},
 });

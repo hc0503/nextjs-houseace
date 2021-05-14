@@ -1,13 +1,12 @@
-
 const TextInput = (props: iInputProps) => {
 	const {
 		id = null,
-		className = '',
-		type = 'text',
-		placeholder = '',
+		className = "",
+		type = "text",
+		placeholder = "",
 		autoFocus = false,
-		autoComplete = 'off',
-		onChange
+		autoComplete = "off",
+		onChange,
 	} = props;
 
 	return (
@@ -36,6 +35,6 @@ const TextInput = (props: iInputProps) => {
 			onChange={onChange}
 		/>
 	);
-}
+};
 
 export default TextInput;

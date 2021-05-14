@@ -1,93 +1,98 @@
-import { Fragment, useState } from 'react';
-import Link from 'next/link';
-import { Dialog, Menu, Transition } from '@headlessui/react';
+import { Fragment, useState } from "react";
+import Link from "next/link";
+import { Dialog, Menu, Transition } from "@headlessui/react";
 import {
-  BellIcon,
-  CalendarIcon,
-  ChartBarIcon,
-  FolderIcon,
-  HomeIcon,
-  InboxIcon,
-  MenuAlt2Icon,
-  UsersIcon,
-  XIcon,
-} from '@heroicons/react/outline';
-import { SearchIcon, ChevronRightIcon } from '@heroicons/react/solid';
+	BellIcon,
+	CalendarIcon,
+	ChartBarIcon,
+	FolderIcon,
+	HomeIcon,
+	InboxIcon,
+	MenuAlt2Icon,
+	UsersIcon,
+	XIcon,
+} from "@heroicons/react/outline";
+import { SearchIcon, ChevronRightIcon } from "@heroicons/react/solid";
 
-import App from '../../components/layout/App';
-import Logo from '../../components/commons/Logo';
-import DropNav from '../../components/app/sidebar/DropNav';
+import App from "../../components/layout/App";
+import Logo from "../../components/commons/Logo";
+import DropNav from "../../components/app/sidebar/DropNav";
 
 const navigation = [
-  { name: 'Dashboard', href: '#', icon: HomeIcon, current: true },
-  { name: 'Team', href: '#', icon: UsersIcon, current: false },
-  { name: 'Projects', href: '#', icon: FolderIcon, current: false },
-  { name: 'Calendar', href: '#', icon: CalendarIcon, current: false },
-  { name: 'Documents', href: '#', icon: InboxIcon, current: false },
-  { name: 'Reports', href: '#', icon: ChartBarIcon, current: false },
+	{ name: "Dashboard", href: "#", icon: HomeIcon, current: true },
+	{ name: "Team", href: "#", icon: UsersIcon, current: false },
+	{ name: "Projects", href: "#", icon: FolderIcon, current: false },
+	{ name: "Calendar", href: "#", icon: CalendarIcon, current: false },
+	{ name: "Documents", href: "#", icon: InboxIcon, current: false },
+	{ name: "Reports", href: "#", icon: ChartBarIcon, current: false },
 ];
 const navigations = [
 	{
-		name: 'Projects',
-		href: '#',
+		name: "Projects",
+		href: "#",
 		icon: HomeIcon,
 		sub: [
 			{
-				name: 'Project1', href: '/project1', icon: ''
+				name: "Project1",
+				href: "/project1",
+				icon: "",
 			},
 			{
-				name: 'Project2', href: '#', icon: ''
-			}
-		]
+				name: "Project2",
+				href: "#",
+				icon: "",
+			},
+		],
 	},
 	{
-		name: 'Payments',
-		href: '#',
+		name: "Payments",
+		href: "#",
 		icon: FolderIcon,
 		sub: [
 			{
-				name: 'Payment1', href: '#', icon: ''
+				name: "Payment1",
+				href: "#",
+				icon: "",
 			},
 			{
-				name: 'Payment2', href: '#', icon: ''
-			}
-		]
+				name: "Payment2",
+				href: "#",
+				icon: "",
+			},
+		],
 	},
 	{
-		name: 'Options',
-		href: '#',
+		name: "Options",
+		href: "#",
 		icon: ChartBarIcon,
-		sub: []
-	}
-	
+		sub: [],
+	},
 ];
 const userNavigation = [
-  { name: 'Your Profile', href: '#' },
-  { name: 'Settings', href: '#' },
-  { name: 'Sign out', href: '#' },
+	{ name: "Your Profile", href: "#" },
+	{ name: "Settings", href: "#" },
+	{ name: "Sign out", href: "#" },
 ];
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
+	return classes.filter(Boolean).join(" ");
 }
 
 export default function Example() {
 	const [sidebarOpen, setSidebarOpen] = useState(false);
 	const linkTransformer = (menuItem) => {
-		return (
-			<Link href={menuItem.url}>{ menuItem.title }</Link>
-		);
-	}
+		return <Link href={menuItem.url}>{menuItem.title}</Link>;
+	};
 	const menu = [
 		{
 			id: 1,
 			title: "Home",
-			url: "/"
+			url: "/",
 		},
 		{
 			id: 2,
 			title: "About Us",
-			url: "/about-us"
+			url: "/about-us",
 		},
 		{
 			title: "Team",
@@ -96,19 +101,19 @@ export default function Example() {
 				{
 					id: 8,
 					title: "Tim Drake",
-					url: "/tim-drake"
+					url: "/tim-drake",
 				},
 				{
 					id: 9,
 					title: "Jason Todd",
-					url: "/jason-todd"
+					url: "/jason-todd",
 				},
 				{
 					id: 10,
 					title: "Richard Grayson",
-					url: "/richard-grayson"
-				}
-			]
+					url: "/richard-grayson",
+				},
+			],
 		},
 		{
 			title: "Services",
@@ -117,24 +122,24 @@ export default function Example() {
 				{
 					id: 5,
 					title: "Web Development",
-					url: "/web-development"
+					url: "/web-development",
 				},
 				{
 					id: 6,
 					title: "UI Design",
-					url: "/ui-design"
+					url: "/ui-design",
 				},
 				{
 					id: 7,
 					title: "Copywriting",
-					url: "/copywriting"
-				}
-			]
+					url: "/copywriting",
+				},
+			],
 		},
 		{
 			id: 4,
 			title: "Contact",
-			url: "/contact"
+			url: "/contact",
 		},
 		{
 			title: "Social",
@@ -143,20 +148,19 @@ export default function Example() {
 				{
 					id: 11,
 					title: "Twitter",
-					url: "/twitter"
+					url: "/twitter",
 				},
 				{
 					id: 12,
 					title: "Facebook",
-					url: "/facebook"
-				}
-			]
+					url: "/facebook",
+				},
+			],
 		},
-  	];
+	];
 
-
-  return (
-	  <App>
+	return (
+		<App>
 			<div className="h-screen flex overflow-hidden bg-gray-100">
 				<Transition.Root show={sidebarOpen} as={Fragment}>
 					<Dialog
@@ -198,42 +202,41 @@ export default function Example() {
 								>
 									<div className="absolute top-0 right-0 -mr-12 pt-2">
 										<button
-										className="ml-1 flex items-center justify-center h-10 w-10 rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
-										onClick={() => setSidebarOpen(false)}
+											className="ml-1 flex items-center justify-center h-10 w-10 rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+											onClick={() => setSidebarOpen(false)}
 										>
-										<span className="sr-only">Close sidebar</span>
-										<XIcon className="h-6 w-6 text-white" aria-hidden="true" />
+											<span className="sr-only">Close sidebar</span>
+											<XIcon className="h-6 w-6 text-white" aria-hidden="true" />
 										</button>
 									</div>
 								</Transition.Child>
 								<div className="flex-shrink-0 flex items-center px-4">
-									<Logo
-										src="../logo.png"
-										alt="Houseace"
-									/>
+									<Logo src="../logo.png" alt="Houseace" />
 								</div>
 								<div className="mt-5 flex-1 h-0 overflow-y-auto">
 									<nav className="px-2 space-y-1">
 										{navigation.map((item) => (
-										<a
-											key={item.name}
-											href={item.href}
-											className={classNames(
-												item.current
-												? 'bg-gray-100 text-gray-900'
-												: 'text-gray-600 hover:bg-gray-50 hover:text-gray-900',
-												'group flex items-center px-2 py-2 text-base font-medium rounded-md'
-											)}
-										>
-											<item.icon
+											<a
+												key={item.name}
+												href={item.href}
 												className={classNames(
-												item.current ? 'text-gray-500' : 'text-gray-400 group-hover:text-gray-500',
-												'mr-4 h-6 w-6'
+													item.current
+														? "bg-gray-100 text-gray-900"
+														: "text-gray-600 hover:bg-gray-50 hover:text-gray-900",
+													"group flex items-center px-2 py-2 text-base font-medium rounded-md"
 												)}
-												aria-hidden="true"
-											/>
-											{item.name}
-										</a>
+											>
+												<item.icon
+													className={classNames(
+														item.current
+															? "text-gray-500"
+															: "text-gray-400 group-hover:text-gray-500",
+														"mr-4 h-6 w-6"
+													)}
+													aria-hidden="true"
+												/>
+												{item.name}
+											</a>
 										))}
 									</nav>
 								</div>
@@ -251,16 +254,15 @@ export default function Example() {
 						{/* Sidebar component, swap this element with another sidebar if you like */}
 						<div className="flex flex-col flex-grow border-r border-gray-200 pt-5 pb-4 bg-white overflow-y-auto shadow rounded-2xl m-2">
 							<div className="flex items-center flex-shrink-0 px-4">
-							<Logo
-								src="../logo.png"
-								alt="Houseace"
-							/>
+								<Logo src="../logo.png" alt="Houseace" />
 							</div>
-							<nav className={`
+							<nav
+								className={`
 								mt-5 p-3
 								space-y-1
 								text-gray-light text-left text-sm
-							`}>
+							`}
+							>
 								{navigations.map((item) => (
 									<DropNav item={item} />
 									// <Link href={item.href}>
@@ -305,87 +307,85 @@ export default function Example() {
 						</button>
 						<div className="flex-1 px-4 flex justify-between">
 							<div className="flex-1 flex">
-							<form className="w-full flex md:ml-0" action="#" method="GET">
-								<label htmlFor="search_field" className="sr-only">
-									Search
-								</label>
-								<div className="relative w-full text-gray-400 focus-within:text-gray-600">
-									<div className="absolute inset-y-0 left-0 flex items-center pointer-events-none">
-									<SearchIcon className="h-5 w-5" aria-hidden="true" />
+								<form className="w-full flex md:ml-0" action="#" method="GET">
+									<label htmlFor="search_field" className="sr-only">
+										Search
+									</label>
+									<div className="relative w-full text-gray-400 focus-within:text-gray-600">
+										<div className="absolute inset-y-0 left-0 flex items-center pointer-events-none">
+											<SearchIcon className="h-5 w-5" aria-hidden="true" />
+										</div>
+										<input
+											id="search_field"
+											className="block w-full h-full pl-8 pr-3 py-2 border-transparent text-gray-900 placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-0 focus:border-transparent sm:text-sm"
+											placeholder="Search"
+											type="search"
+											name="search"
+										/>
 									</div>
-									<input
-									id="search_field"
-									className="block w-full h-full pl-8 pr-3 py-2 border-transparent text-gray-900 placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-0 focus:border-transparent sm:text-sm"
-									placeholder="Search"
-									type="search"
-									name="search"
-									/>
-								</div>
-							</form>
+								</form>
 							</div>
 							<div className="ml-4 flex items-center md:ml-6">
-							<button className="bg-white p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-								<span className="sr-only">View notifications</span>
-								<BellIcon className="h-6 w-6" aria-hidden="true" />
-							</button>
+								<button className="bg-white p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+									<span className="sr-only">View notifications</span>
+									<BellIcon className="h-6 w-6" aria-hidden="true" />
+								</button>
 
-							{/* Profile dropdown */}
-							<Menu as="div" className="ml-3 relative">
-								{({ open }) => (
-									<>
-									<div>
-										<Menu.Button className="max-w-xs bg-white flex items-center text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-											<span className="sr-only">Open user menu</span>
-											<img
-											className="h-8 w-8 rounded-full"
-											src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-											alt=""
-											/>
-										</Menu.Button>
-									</div>
-									<Transition
-										show={open}
-										as={Fragment}
-										enter="transition ease-out duration-100"
-										enterFrom="transform opacity-0 scale-95"
-										enterTo="transform opacity-100 scale-100"
-										leave="transition ease-in duration-75"
-										leaveFrom="transform opacity-100 scale-100"
-										leaveTo="transform opacity-0 scale-95"
-									>
-										<Menu.Items
-											static
-											className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
-										>
-											{userNavigation.map((item) => (
-											<Menu.Item key={item.name}>
-												{({ active }) => (
-													<a
-													href={item.href}
-													className={classNames(
-														active ? 'bg-gray-100' : '',
-														'block px-4 py-2 text-sm text-gray-700'
-													)}
-													>
-													{item.name}
-													</a>
-												)}
-											</Menu.Item>
-											))}
-										</Menu.Items>
-									</Transition>
-									</>
-								)}
-							</Menu>
+								{/* Profile dropdown */}
+								<Menu as="div" className="ml-3 relative">
+									{({ open }) => (
+										<>
+											<div>
+												<Menu.Button className="max-w-xs bg-white flex items-center text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+													<span className="sr-only">Open user menu</span>
+													<img
+														className="h-8 w-8 rounded-full"
+														src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+														alt=""
+													/>
+												</Menu.Button>
+											</div>
+											<Transition
+												show={open}
+												as={Fragment}
+												enter="transition ease-out duration-100"
+												enterFrom="transform opacity-0 scale-95"
+												enterTo="transform opacity-100 scale-100"
+												leave="transition ease-in duration-75"
+												leaveFrom="transform opacity-100 scale-100"
+												leaveTo="transform opacity-0 scale-95"
+											>
+												<Menu.Items
+													static
+													className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+												>
+													{userNavigation.map((item) => (
+														<Menu.Item key={item.name}>
+															{({ active }) => (
+																<a
+																	href={item.href}
+																	className={classNames(
+																		active ? "bg-gray-100" : "",
+																		"block px-4 py-2 text-sm text-gray-700"
+																	)}
+																>
+																	{item.name}
+																</a>
+															)}
+														</Menu.Item>
+													))}
+												</Menu.Items>
+											</Transition>
+										</>
+									)}
+								</Menu>
 							</div>
 						</div>
 					</div>
 
-					<main className="flex-1 relative overflow-y-auto focus:outline-none bg-white shadow rounded-2xl m-2">
-						
-					</main>
+					<main className="flex-1 relative overflow-y-auto focus:outline-none bg-white shadow rounded-2xl m-2"></main>
 				</div>
 			</div>
 		</App>
-  	);
+	);
 }

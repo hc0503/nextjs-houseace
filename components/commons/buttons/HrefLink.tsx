@@ -1,16 +1,10 @@
-import Link from 'next/link';
+import Link from "next/link";
 
 const HrefLink = (props: iHrefLinkProps) => {
-	const {
-		href = '#',
-		className = '',
-		children = 'Link',
-	} = props;
+	const { href = "#", className = "", children = "Link" } = props;
 
 	return (
-		<Link
-			href={href}
-		>
+		<Link href={href}>
 			<a
 				className={`
 					font-medium
@@ -23,6 +17,6 @@ const HrefLink = (props: iHrefLinkProps) => {
 			</a>
 		</Link>
 	);
-}
+};
 
 export default HrefLink;

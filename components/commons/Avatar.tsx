@@ -1,10 +1,5 @@
-
 const Avatar = (props: iImgProps) => {
-	const {
-		className = '',
-		alt = 'Avatar',
-		src = ''
-	} = props;
+	const { className = "", alt = "Avatar", src = "" } = props;
 
 	return (
 		<img
@@ -18,6 +13,6 @@ const Avatar = (props: iImgProps) => {
 			`}
 		/>
 	);
-}
+};
 
 export default Avatar;
