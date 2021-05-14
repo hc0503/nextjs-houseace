@@ -1,15 +1,19 @@
-import { Provider } from 'react-redux';
+import { Provider } from "react-redux";
+import { AppProps } from "next/app";
 
-import store from '../redux';
+import store from "../redux";
 
-import 'tailwindcss/tailwind.css';
+import "tailwindcss/tailwind.css";
 
-function App({ Component, pageProps }) {
-  return (
-    <Provider store={store}>
-      <Component {...pageProps} />
-    </Provider>
-  );
-}
+const App: React.FC<AppProps> = ({
+	Component,
+	pageProps,
+}): JSX.Element => {
+	return (
+		<Provider store={store}>
+			<Component {...pageProps} />
+		</Provider>
+	);
+};
 
-export default App
+export default App;

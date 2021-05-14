@@ -1,8 +1,5 @@
-
-const Layout = (props: any) => (
-	<div className="bg-red">
-		{props.children}
-	</div>
+const Layout: React.FC<iChildren> = ({ children }) => (
+	<div className="bg-red">{children}</div>
 );
 
 export default Layout;

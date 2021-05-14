@@ -1,11 +1,13 @@
-
-const Logo = (props: iImgProps) => {
-	const {
-		className = '',
-		alt = 'Houseace',
-		src = '/'
-	} = props;
-
+interface Props {
+	className?: string;
+	alt?: string;
+	src?: string;
+}
+const Logo: React.FC<Props> = ({
+	className = "",
+	alt = "Houseace",
+	src = "/",
+}): JSX.Element => {
 	return (
 		<img
 			src={src}
@@ -16,6 +18,6 @@ const Logo = (props: iImgProps) => {
 			`}
 		/>
 	);
-}
+};
 
 export default Logo;
