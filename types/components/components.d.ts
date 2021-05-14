@@ -30,3 +30,9 @@ interface iImgProps {
 	alt?: string,
 	src?: string
 }
+interface iLandingStepType {
+  status: boolean,
+  index: number,
+	icon: string,
+	title: string
+}
