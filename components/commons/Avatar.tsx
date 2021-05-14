@@ -1,10 +1,13 @@
-const Avatar = (props: iImgProps) => {
-	const {
-		className = "",
-		alt = "Avatar",
-		src = "",
-	} = props;
-
+interface Props {
+	className?: string;
+	alt?: string;
+	src?: string;
+}
+const Avatar: React.FC<Props> = ({
+	className = "",
+	alt = "Avatar",
+	src = "",
+}): JSX.Element => {
 	return (
 		<img
 			src={src}

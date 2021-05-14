@@ -1,11 +1,15 @@
-const CheckboxInput = (props: iInputProps) => {
-	const {
-		id = null,
-		className = "",
-		type = "checkbox",
-		onChange,
-	} = props;
-
+interface Props {
+	id?: string;
+	className?: string;
+	type?: "text" | "email" | "password" | "number" | "checkbox";
+	onChange?: any;
+}
+const CheckboxInput: React.FC<Props> = ({
+	id,
+	className = "",
+	type = "checkbox",
+	onChange,
+}): JSX.Element => {
 	return (
 		<input
 			className={`

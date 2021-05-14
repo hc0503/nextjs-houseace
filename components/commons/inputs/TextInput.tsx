@@ -1,13 +1,20 @@
-const TextInput = (props: iInputProps) => {
-	const {
-		id = null,
-		className = "",
-		type = "text",
-		placeholder = "",
-		autoComplete = "off",
-		onChange,
-	} = props;
+interface Props {
+	className?: string;
+	type?: "text" | "email" | "password" | "number" | "checkbox";
+	id?: string;
+	placeholder?: string;
+	autoComplete?: "off" | "on";
+	onChange?: any;
+}
 
+const TextInput: React.FC<Props> = ({
+	className = "",
+	type = "text",
+	id,
+	placeholder = "",
+	autoComplete = "off",
+	onChange,
+}): JSX.Element => {
 	return (
 		<input
 			className={`

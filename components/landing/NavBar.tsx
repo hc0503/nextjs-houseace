@@ -1,45 +1,25 @@
-import React, {
-	Fragment,
-	useEffect,
-	useState,
-} from "react";
-import {
-	Disclosure,
-	Menu,
-	Transition,
-} from "@headlessui/react";
-import {
-	BellIcon,
-	MenuIcon,
-	XIcon,
-} from "@heroicons/react/outline";
+import React, { Fragment, useEffect, useState } from "react";
+import { Disclosure, Menu, Transition } from "@headlessui/react";
+import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
 import Link from "next/link";
-import {
-	useDispatch,
-	useSelector,
-} from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { logout } from "../../redux/slices/authSlice";
 import Logo from "../commons/Logo";
 import Avatar from "../commons/Avatar";
 
-const Navbar = () => {
-	const classNames = (...classes) => {
+const Navbar: React.FC = (): JSX.Element => {
+	const classNames = (...classes): string => {
 		return classes.filter(Boolean).join(" ");
 	};
-	const userData = useSelector(
-		(state: any) => state.auth
-	);
+	const userData = useSelector((state: any) => state.auth);
 	const dispatch = useDispatch();
-	const handleLogout = () => {
+	const handleLogout = (): void => {
 		dispatch(logout());
 	};
 
 	return (
-		<Disclosure
-			as="nav"
-			className="bg-white container mx-auto"
-		>
+		<Disclosure as="nav" className="bg-white container mx-auto">
 			{({ open }) => (
 				<>
 					<div>
@@ -95,10 +75,7 @@ const Navbar = () => {
 									</button>
 
 									{/* Profile dropdown */}
-									<Menu
-										as="div"
-										className="ml-3 relative"
-									>
+									<Menu as="div" className="ml-3 relative">
 										{({ open }) => (
 											<>
 												<div>
@@ -131,9 +108,7 @@ const Navbar = () => {
 																<a
 																	href="#"
 																	className={classNames(
-																		active
-																			? "bg-gray-100"
-																			: "",
+																		active ? "bg-gray-100" : "",
 																		"block px-4 py-2 text-sm text-gray-700"
 																	)}
 																>
@@ -146,9 +121,7 @@ const Navbar = () => {
 																<a
 																	href="#"
 																	className={classNames(
-																		active
-																			? "bg-gray-100"
-																			: "",
+																		active ? "bg-gray-100" : "",
 																		"block px-4 py-2 text-sm text-gray-700"
 																	)}
 																>
@@ -161,9 +134,7 @@ const Navbar = () => {
 																<a
 																	href="#"
 																	className={classNames(
-																		active
-																			? "bg-gray-100"
-																			: "",
+																		active ? "bg-gray-100" : "",
 																		"block px-4 py-2 text-sm text-gray-700"
 																	)}
 																>
@@ -176,9 +147,7 @@ const Navbar = () => {
 																<a
 																	href="#"
 																	className={classNames(
-																		active
-																			? "bg-gray-100"
-																			: "",
+																		active ? "bg-gray-100" : "",
 																		"block px-4 py-2 text-sm text-gray-700"
 																	)}
 																>
@@ -191,14 +160,10 @@ const Navbar = () => {
 																<a
 																	href="#"
 																	className={classNames(
-																		active
-																			? "bg-gray-100"
-																			: "",
+																		active ? "bg-gray-100" : "",
 																		"block px-4 py-2 text-sm text-gray-700"
 																	)}
-																	onClick={
-																		handleLogout
-																	}
+																	onClick={handleLogout}
 																>
 																	Logout
 																</a>
@@ -214,9 +179,7 @@ const Navbar = () => {
 							<div className="-mr-2 flex items-center sm:hidden">
 								{/* Mobile menu button */}
 								<Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-1 focus:ring-inset focus:ring-indigo-500">
-									<span className="sr-only">
-										Open main menu
-									</span>
+									<span className="sr-only">Open main menu</span>
 									{open ? (
 										<XIcon
 											className="block h-6 w-6"

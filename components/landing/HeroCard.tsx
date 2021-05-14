@@ -1,7 +1,7 @@
 import React from "react";
 import { ArrowCircleRightIcon } from "@heroicons/react/solid";
 
-function HeroCard() {
+function HeroCard(): JSX.Element {
 	return (
 		<div className="relative">
 			<div className="absolute inset-0">

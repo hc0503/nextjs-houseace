@@ -1,12 +1,15 @@
 import Link from "next/link";
 
-const HrefLink = (props: iHrefLinkProps) => {
-	const {
-		href = "#",
-		className = "",
-		children = "Link",
-	} = props;
-
+interface Props {
+	href: string;
+	className?: string;
+	chilren?: string;
+}
+const HrefLink: React.FC<Props> = ({
+	href = "#",
+	className = "",
+	children = "Link",
+}): JSX.Element => {
 	return (
 		<Link href={href}>
 			<a

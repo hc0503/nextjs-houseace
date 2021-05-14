@@ -1,12 +1,17 @@
-const Button = (props: iButtonProps) => {
-	const {
-		children = "Button",
-		disabled = false,
-		className = "",
-		type = "button",
-		onClick,
-	} = props;
-
+interface Props {
+	className?: string;
+	type?: "button" | "submit" | "reset";
+	disabled?: boolean;
+	children?: React.ReactNode;
+	onClick?: any;
+}
+const Button: React.FC<Props> = ({
+	className = "",
+	type = "button",
+	disabled = false,
+	children,
+	onClick,
+}): JSX.Element => {
 	return (
 		<button
 			className={`

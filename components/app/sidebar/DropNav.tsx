@@ -2,12 +2,17 @@ import { Disclosure } from "@headlessui/react";
 import { ChevronRightIcon } from "@heroicons/react/solid";
 import Link from "next/link";
 
-function classNames(...classes) {
+function classNames(...classes): string {
 	return classes.filter(Boolean).join(" ");
 }
-
-const DropNav = (props: iNavProps) => {
-	const { className = "", item } = props;
+interface Props {
+	className?: string;
+	item: any;
+}
+const DropNav: React.FC<Props> = ({
+	className = "",
+	item,
+}): JSX.Element => {
 	const selected = false;
 
 	return (

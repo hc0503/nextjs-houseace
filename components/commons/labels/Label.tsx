@@ -1,10 +1,13 @@
-const Label = (props: iLabelProps) => {
-	const {
-		htmlFor = null,
-		className = "",
-		children = "Label",
-	} = props;
-
+interface Props {
+	className?: string;
+	children?: React.ReactNode;
+	htmlFor?: string;
+}
+const Label: React.FC<Props> = ({
+	htmlFor,
+	className = "",
+	children = "Label",
+}) => {
 	return (
 		<label
 			className={`

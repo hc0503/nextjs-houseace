@@ -2,7 +2,7 @@ import HeroCard from "../components/landing/HeroCard";
 import NavBar from "../components/landing/NavBar";
 import StepItem from "../components/landing/StepItem";
 
-export default function Landing() {
+export default function Landing(): JSX.Element {
 	const steps = [
 		{
 			index: 1,
@@ -34,25 +34,19 @@ export default function Landing() {
 						Real Prices On The Spot
 					</p>
 					<p className="text-black sm:text-lg text-sm">
-						Answer a few questions about your
-						current bathroom and renovation goals
-						to receive a detailed, all-inclusive
+						Answer a few questions about your current bathroom and
+						renovation goals to receive a detailed, all-inclusive
 						estimate.
 					</p>
 				</div>
 				<div className="mt-8 sm:mt-14 w-full sm:w-1/2">
-					{steps.map(
-						(
-							value: iLandingStepType,
-							id: number
-						) => (
-							<StepItem
-								className="my-1"
-								item={value}
-								key={`step-${id}`}
-							/>
-						)
-					)}
+					{steps.map((value: iLandingStepType, id: number) => (
+						<StepItem
+							className="my-1"
+							item={value}
+							key={`step-${id}`}
+						/>
+					))}
 				</div>
 				<div className="mt-8 sm:mt-14 w-full sm:w-1/2"></div>
 			</div>

@@ -1,20 +1,17 @@
 import classNames from "classnames";
 import React from "react";
-
-interface StepItem {
+interface Props {
 	item: iLandingStepType;
 	className?: string;
 }
-
-function StepItem({ className, item }: StepItem) {
+function StepItem({ className, item }: Props): JSX.Element {
 	return (
 		<div
 			className={classNames(
 				"flex items-center h-16 sm:h-24",
 				className,
 				{
-					"bg-red-lesslight":
-						item.status === true,
+					"bg-red-lesslight": item.status === true,
 				}
 			)}
 		>
