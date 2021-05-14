@@ -36,3 +36,6 @@ yarn-error.log*
 # package
 package-lock.json
 yarn.lock
+
+# elsint
+/.husky

@@ -13,6 +13,7 @@ import {
 	XIcon,
 } from "@heroicons/react/outline";
 import { SearchIcon, ChevronRightIcon } from "@heroicons/react/solid";
+import classNames from "classnames";
 
 import App from "../../components/layout/App";
 import Logo from "../../components/commons/Logo";
@@ -103,10 +104,6 @@ const userNavigation = [
 	{ name: "Settings", href: "#" },
 	{ name: "Sign out", href: "#" },
 ];
-
-function classNames(...classes) {
-	return classes.filter(Boolean).join(" ");
-}
 
 export default function Example(): JSX.Element {
 	const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -283,47 +280,21 @@ export default function Example(): JSX.Element {
 
 				{/* Static sidebar for desktop */}
 				<div className="hidden md:flex md:flex-shrink-0">
-					<div className="flex flex-col w-64">
+					<div className="flex flex-col w-70">
 						{/* Sidebar component, swap this element with another sidebar if you like */}
 						<div className="flex flex-col flex-grow border-r border-gray-200 pt-5 pb-4 bg-white overflow-y-auto shadow rounded-2xl m-2">
-							<div className="flex items-center flex-shrink-0 px-4">
+							<div className="flex items-center flex-shrink-0 px-4 mt-6">
 								<Logo src="../logo.png" alt="Houseace" />
 							</div>
 							<nav
-								className={`
-								mt-5 p-3
-								space-y-1
-								text-gray-light text-left text-sm
-							`}
+								className={classNames(
+									`mt-28 p-3
+									space-y-1
+									text-gray-light text-left text-sm`
+								)}
 							>
 								{navigations.map((item: any, key: number) => (
 									<DropNav key={`Navigation-${key}`} item={item} />
-									// <Link href={item.href}>
-									// 	<a
-									// 		key={item.name}
-									// 		href={item.href}
-									// 		className={classNames(
-									// 			true ? 'bg-red-lesslight text-red' : 'hover:bg-red-lesslight hover:text-red',
-									// 			'group flex justify-between items-center px-2 py-2 text-sm font-medium rounded-md'
-									// 		)}
-									// 		>
-									// 		<div className="flex items-center">
-									// 			<item.icon
-									// 				className={classNames(
-									// 					true ? 'text-red' : '',
-									// 					'mr-3 h-6 w-6'
-									// 				)}
-									// 				aria-hidden="true"
-									// 			/>
-									// 			{item.name}
-									// 		</div>
-									// 		<ChevronRightIcon
-									// 			className={`
-									// 			${true ? 'transform rotate-90' : ''}
-									// 			w-5 h-5
-									// 		`}/>
-									// 	</a>
-									// </Link>
 								))}
 							</nav>
 						</div>

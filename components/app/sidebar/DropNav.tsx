@@ -1,10 +1,8 @@
 import { Disclosure } from "@headlessui/react";
 import { ChevronRightIcon } from "@heroicons/react/solid";
 import Link from "next/link";
+import classNames from "classnames";
 
-function classNames(...classes): string {
-	return classes.filter(Boolean).join(" ");
-}
 interface Props {
 	className?: string;
 	item: any;
@@ -14,7 +12,11 @@ const DropNav: React.FC<Props> = ({
 	item,
 }): JSX.Element => {
 	const selected = false;
-
+	const navHeight = "h-16"; // 64px
+	const subNavHeight = "h-12"; // 48px
+	const navFontSetting = "text-base"; // 16px
+	const subNavFontSetting = "text-sm font-normal"; // 14px
+	const navIconSize = "h-7"; // 30px
 	return (
 		<>
 			{item.sub.length > 0 && (
@@ -22,54 +24,53 @@ const DropNav: React.FC<Props> = ({
 					{({ open }) => (
 						<>
 							<Disclosure.Button
-								className={`
-								w-full
-								flex
-								justify-between
-								items-center
-								px-2 py-2
-								font-medium
-								${open ? "bg-red-lesslight text-red" : ""}
-								rounded-lg
-								hover:bg-red-lesslight
-								hover:text-red
-								focus:outline-none
-								${className}
-							`}
+								className={classNames(
+									navHeight,
+									navFontSetting,
+									className,
+									`w-full
+									flex justify-between
+									items-center
+									px-2 py-2
+									rounded-lg
+									hover:bg-red-lesslight hover:text-red hover:font-semibold
+									focus:outline-none`,
+									{ "font-semibold bg-red-lesslight text-red": open }
+								)}
 							>
 								<div className="flex items-center">
 									<item.icon
 										className={classNames(
-											selected ? "text-red" : "",
-											"mr-3 h-6 w-6"
+											{ "text-red": selected },
+											`mr-3`,
+											navIconSize
 										)}
 										aria-hidden="true"
 									/>
 									{item.name}
 								</div>
 								<ChevronRightIcon
-									className={`
-								${open ? "transform rotate-90" : ""}
-								w-5 h-5
-							`}
+									className={classNames(
+										{ "transform rotate-90": open },
+										`w-5 h-5`
+									)}
 								/>
 							</Disclosure.Button>
 							<div className="space-y-1">
 								{item.sub.map((sub: any, key: number) => (
 									<Disclosure.Panel
 										key={`DisclosusrePanel-${key}`}
-										className={`
-										pl-4
-										hover:text-red
-										rounded-lg
-									`}
+										className={classNames(
+											`pl-4
+											hover:text-red
+											rounded-lg`,
+											subNavHeight,
+											subNavFontSetting
+										)}
 									>
 										<a
 											href={sub.href}
-											className={`
-											flex
-											p-2
-										`}
+											className={classNames(`flex p-2`)}
 										>
 											{sub.name}
 										</a>
@@ -88,17 +89,24 @@ const DropNav: React.FC<Props> = ({
 						key={item.name}
 						href={item.href}
 						className={classNames(
-							selected
-								? "bg-red-lesslight text-red"
-								: "hover:bg-red-lesslight hover:text-red",
-							"group flex justify-between items-center px-2 py-2 text-sm font-medium rounded-md"
+							{
+								"bg-red-lesslight text-red font-medium": selected,
+							},
+							`flex justify-between
+							items-center
+							px-2 py-2
+							text-sm font-normal
+							rounded-md
+							hover:bg-red-lesslight hover:text-red`,
+							navHeight,
+							navFontSetting
 						)}
 					>
 						<div className="flex items-center">
 							<item.icon
 								className={classNames(
-									selected ? "text-red" : "",
-									"mr-3 h-6 w-6"
+									{ "text-red": selected },
+									`mr-3 h-7`
 								)}
 								aria-hidden="true"
 							/>
