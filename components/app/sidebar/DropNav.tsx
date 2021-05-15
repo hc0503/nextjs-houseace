@@ -61,7 +61,7 @@ const DropNav: React.FC<Props> = ({
 									<Disclosure.Panel
 										key={`DisclosusrePanel-${key}`}
 										className={classNames(
-											`pl-4
+											`pl-8
 											hover:text-red
 											rounded-lg`,
 											subNavHeight,
