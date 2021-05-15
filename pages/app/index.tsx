@@ -202,7 +202,7 @@ const Dashboard: React.FC = (): JSX.Element => {
 							</div>
 							<nav
 								className={classNames(
-									`mt-28 p-3
+									`mt-28 py-3 pr-3
 									space-y-1
 									text-gray-light text-left text-sm`
 								)}

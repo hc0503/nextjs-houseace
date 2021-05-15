@@ -1,5 +1,5 @@
 import { Disclosure } from "@headlessui/react";
-import { ChevronRightIcon } from "@heroicons/react/solid";
+import { ChevronUpIcon } from "@heroicons/react/solid";
 import Link from "next/link";
 import classNames from "classnames";
 
@@ -32,10 +32,15 @@ const DropNav: React.FC<Props> = ({
 									flex justify-between
 									items-center
 									px-2 py-2
+									border-l-8
+									border-white
 									rounded-lg
-									hover:bg-red-lesslight hover:text-red hover:font-semibold
+									hover:bg-red-lesslight hover:text-red hover:font-semibold hover:border-red
 									focus:outline-none`,
-									{ "font-semibold bg-red-lesslight text-red": open }
+									{
+										"font-semibold bg-red-lesslight text-red border-red":
+											open,
+									}
 								)}
 							>
 								<div className="flex items-center">
@@ -49,9 +54,9 @@ const DropNav: React.FC<Props> = ({
 									/>
 									{item.name}
 								</div>
-								<ChevronRightIcon
+								<ChevronUpIcon
 									className={classNames(
-										{ "transform rotate-90": open },
+										{ "transform rotate-180": open },
 										`w-5 h-5`
 									)}
 								/>
@@ -90,14 +95,17 @@ const DropNav: React.FC<Props> = ({
 						href={item.href}
 						className={classNames(
 							{
-								"bg-red-lesslight text-red font-medium": selected,
+								"bg-red-lesslight text-red font-medium border-red":
+									selected,
 							},
 							`flex justify-between
 							items-center
 							px-2 py-2
 							text-sm font-normal
-							rounded-md
-							hover:bg-red-lesslight hover:text-red`,
+							border-l-8
+							border-white
+							rounded-lg
+							hover:bg-red-lesslight hover:text-red hover:border-red`,
 							navHeight,
 							navFontSetting
 						)}
