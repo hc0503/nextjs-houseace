@@ -15,9 +15,6 @@ import App from "../../components/layout/App";
 import Logo from "../../components/commons/Logo";
 import DropNav from "../../components/app/sidebar/DropNav";
 import NavBar from "../../components/app/topbar/NavBar";
-import ProjectsSVG from "../../public/images/icons/nav/projects.svg";
-import PaymentsSVG from "../../public/images/icons/nav/payments.svg";
-import OptionsSVG from "../../public/images/icons/nav/options.svg";
 
 const navigation = [
 	{
@@ -61,7 +58,7 @@ const navigations = [
 	{
 		name: "Projects",
 		href: "#",
-		icon: ProjectsSVG,
+		icon: HomeIcon,
 		sub: [
 			{
 				name: "Project1",
@@ -78,13 +75,13 @@ const navigations = [
 	{
 		name: "Options",
 		href: "#",
-		icon: OptionsSVG,
+		icon: UsersIcon,
 		sub: [],
 	},
 	{
 		name: "Payments",
 		href: "#",
-		icon: PaymentsSVG,
+		icon: CalendarIcon,
 		sub: [],
 	},
 ];

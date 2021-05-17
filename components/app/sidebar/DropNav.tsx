@@ -16,7 +16,7 @@ const DropNav: React.FC<Props> = ({
 	const subNavHeight = "h-12"; // 48px
 	const navFontSetting = "text-base"; // 16px
 	const subNavFontSetting = "text-sm font-normal"; // 14px
-	const navIconSize = "h-6"; // h-7:30px h-6:24px
+	const navIconSetting = "h-6 mr-3"; // h-7:30px h-6:24px
 	return (
 		<>
 			{item.sub.length > 0 && (
@@ -44,12 +44,7 @@ const DropNav: React.FC<Props> = ({
 								)}
 							>
 								<div className="flex items-center py-2">
-									<item.icon
-										className={classNames(
-											"fill-current mr-3",
-											navIconSize
-										)}
-									/>
+									<item.icon className={classNames(navIconSetting)} />
 									{item.name}
 								</div>
 								<ChevronUpIcon
@@ -109,12 +104,7 @@ const DropNav: React.FC<Props> = ({
 						)}
 					>
 						<div className="flex items-center">
-							<item.icon
-								className={classNames(
-									"fill-current mr-3",
-									navIconSize
-								)}
-							/>
+							<item.icon className={classNames(navIconSetting)} />
 							{item.name}
 						</div>
 					</a>
