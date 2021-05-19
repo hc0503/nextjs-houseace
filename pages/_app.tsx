@@ -1,5 +1,6 @@
 import { Provider } from "react-redux";
 import { AppProps } from "next/app";
+import { Provider as AuthProvider } from "next-auth/client";
 
 import store from "../redux";
 
@@ -11,7 +12,9 @@ const App: React.FC<AppProps> = ({
 }): JSX.Element => {
 	return (
 		<Provider store={store}>
+			{/* <AuthProvider session={pageProps.session}> */}
 			<Component {...pageProps} />
+			{/* </AuthProvider> */}
 		</Provider>
 	);
 };

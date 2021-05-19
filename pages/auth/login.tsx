@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
+import { getCsrfToken, signIn, useSession } from "next-auth/client";
+import { GetServerSideProps, GetServerSidePropsResult } from "next";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
-import { login, logout } from "../../redux/slices/authSlice";
+import { login, logout } from "@/redux/slices/authSlice";
 import Layout from "../../components/layout/Page";
 import Button from "../../components/commons/buttons/Button";
 import SocialButton from "../../components/auth/SocialButton";
@@ -10,19 +14,36 @@ import TextInput from "../../components/commons/inputs/TextInput";
 import CheckboxInput from "../../components/commons/inputs/CheckboxInput";
 import HrefLink from "../../components/commons/buttons/HrefLink";
 import Label from "../../components/commons/labels/Label";
-import Logo from "../../components/commons/Logo";
+import Logo from "@/components/commons/Logo";
 
-const Login: React.FC = (): JSX.Element => {
-	const dispatch = useDispatch();
+const Login: React.FC<any> = ({ csrfToken }): JSX.Element => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [rememberMe, setRememberMe] = useState(false);
-	const handleFormSubmit = async (e: any) => {
+	const router = useRouter();
+	const [loginError, setLoginError] = useState("");
+	const [session, loading] = useSession();
+	const handleFormSubmit = async (
+		e: React.SyntheticEvent
+	): Promise<void> => {
 		e.preventDefault();
-
-		await dispatch(login());
+		e.stopPropagation();
+		signIn("credentials", {
+			email,
+			password,
+			callbackUrl: "http://localhost:3000",
+			redirect: false,
+		}).then((res) => {
+			router.push(res.url);
+		});
 	};
 	const textColor = "text-gray";
+	useEffect(() => {
+		// Getting the error details from URL
+		if (router.query.error) {
+			console.log(router.query.error);
+		}
+	}, [router]);
 
 	return (
 		<Layout>
@@ -35,7 +56,16 @@ const Login: React.FC = (): JSX.Element => {
 							</a>
 						</Link>
 					</div>
-					<form onSubmit={handleFormSubmit}>
+					<form
+						method="post"
+						action="/api/auth/callback/credentials"
+						onSubmit={handleFormSubmit}
+					>
+						<input
+							name="csrfToken"
+							type="hidden"
+							defaultValue={csrfToken}
+						/>
 						<div>
 							<Label htmlFor="email">Email</Label>
 							<TextInput
@@ -110,6 +140,15 @@ const Login: React.FC = (): JSX.Element => {
 			</div>
 		</Layout>
 	);
+};
+
+export const getServerSideProps: GetServerSideProps = async (
+	context
+) => {
+	const csrfToken = await getCsrfToken(context);
+	return {
+		props: { csrfToken },
+	};
 };
 
 export default Login;
