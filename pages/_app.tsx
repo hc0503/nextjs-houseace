@@ -17,9 +17,9 @@ const App: React.FC<AppProps> = ({
 				<title>{`${process.env.APP_NAME}`}</title>
 			</Head>
 			<Provider store={store}>
-				{/* <AuthProvider session={pageProps.session}> */}
-				<Component {...pageProps} />
-				{/* </AuthProvider> */}
+				<AuthProvider session={pageProps.session}>
+					<Component {...pageProps} />
+				</AuthProvider>
 			</Provider>
 		</>
 	);

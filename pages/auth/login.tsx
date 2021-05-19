@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
-import { signIn, SignInResponse } from "next-auth/client";
+import { signIn, SignInResponse, useSession } from "next-auth/client";
 import { useRouter } from "next/router";
 import Head from "next/head";
 
@@ -31,7 +31,7 @@ const Login: React.FC = (): JSX.Element => {
 		signIn("credentials", {
 			email,
 			password,
-			callbackUrl: `${process.env.BASE_URL}`,
+			callbackUrl: `${process.env.BASE_URL}/app`,
 			redirect: false,
 		}).then((res: SignInResponse) => {
 			if (res.ok) {

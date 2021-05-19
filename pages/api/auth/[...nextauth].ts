@@ -67,16 +67,17 @@ const options = {
 			} else if (typeof token !== typeof undefined) {
 				session.token = token;
 			}
-
 			return Promise.resolve(session);
 		},
-		redirect: async (url, baseUrl) => {
-			return url;
+		redirect: async (
+			url: string,
+			baseUrl: string
+		): Promise<string> => {
+			return url.startsWith(baseUrl)
+				? Promise.resolve(url)
+				: Promise.resolve(baseUrl);
 		},
 	},
-	// pages: {
-	// 	error: "/auth/login",
-	// },
 	session: {
 		jwt: true,
 		maxAge: 30 * 24 * 60 * 60,
