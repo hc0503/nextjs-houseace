@@ -66,12 +66,11 @@ const DropNav: React.FC<Props> = ({
 											subNavFontSetting
 										)}
 									>
-										<a
-											href={sub.href}
-											className={classNames(`flex p-2`)}
-										>
-											{sub.name}
-										</a>
+										<Link href={sub.href}>
+											<a className={classNames(`flex p-2`)}>
+												{sub.name}
+											</a>
+										</Link>
 									</Disclosure.Panel>
 								))}
 							</div>
