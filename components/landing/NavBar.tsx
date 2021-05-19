@@ -1,17 +1,15 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
+import classNames from "classnames";
 
 import { logout } from "../../redux/slices/authSlice";
 import Logo from "../commons/Logo";
 import Avatar from "../commons/Avatar";
 
 const Navbar: React.FC = (): JSX.Element => {
-	const classNames = (...classes): string => {
-		return classes.filter(Boolean).join(" ");
-	};
 	const userData = useSelector((state: any) => state.auth);
 	const dispatch = useDispatch();
 	const handleLogout = (): void => {
@@ -108,7 +106,7 @@ const Navbar: React.FC = (): JSX.Element => {
 																<a
 																	href="#"
 																	className={classNames(
-																		active ? "bg-gray-100" : "",
+																		{ "bg-gray-100": active },
 																		"block px-4 py-2 text-sm text-gray-700"
 																	)}
 																>
@@ -121,7 +119,7 @@ const Navbar: React.FC = (): JSX.Element => {
 																<a
 																	href="#"
 																	className={classNames(
-																		active ? "bg-gray-100" : "",
+																		{ "bg-gray-100": active },
 																		"block px-4 py-2 text-sm text-gray-700"
 																	)}
 																>
@@ -134,7 +132,7 @@ const Navbar: React.FC = (): JSX.Element => {
 																<a
 																	href="#"
 																	className={classNames(
-																		active ? "bg-gray-100" : "",
+																		{ "bg-gray-100": active },
 																		"block px-4 py-2 text-sm text-gray-700"
 																	)}
 																>

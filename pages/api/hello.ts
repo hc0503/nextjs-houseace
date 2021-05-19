@@ -1,9 +1,20 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import type { NextApiRequest, NextApiResponse } from "next";
+import { NextApiRequest, NextApiResponse } from "next";
+import Prisma from "../../lib/prisma";
 
-interface Data {
+interface ITest {
+	id: number;
+	email: string;
 	name: string;
 }
-export default (req: NextApiRequest, res: NextApiResponse<Data>) => {
-	res.status(200).json({ name: "John Doe" });
+interface IResponseData {
+	data: ITest[];
+}
+const hello = async (
+	_: NextApiRequest,
+	res: NextApiResponse<IResponseData>
+): Promise<void> => {
+	const tests: ITest[] = await Prisma.test.findMany();
+	res.status(200).json({ data: tests });
 };
+
+export default hello;
