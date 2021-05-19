@@ -6,10 +6,6 @@ import prisma from "@/lib/prisma";
 import Adapters from "next-auth/adapters";
 import { getToken } from "next-auth/jwt";
 
-interface ICredentials {
-	email: string;
-	password: string;
-}
 let userAccount = null;
 const options = {
 	providers: [

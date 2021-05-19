@@ -26,7 +26,7 @@ const TextInput: React.FC<Props> = ({
 				text-sm
 				transition
 				duration-150
-				ease-in-out mb-4
+				ease-in-out
 				focus:outline-none
 				focus:ring-1
 				focus:ring-red
