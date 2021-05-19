@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Children, Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import {
 	CalendarIcon,
@@ -62,7 +62,7 @@ const navigations = [
 		sub: [
 			{
 				name: "Project1",
-				href: "/project1",
+				href: "/app/project1",
 				icon: "",
 			},
 			{
@@ -86,7 +86,7 @@ const navigations = [
 	},
 ];
 
-const Dashboard: React.FC = (): JSX.Element => {
+const Dashboard: React.FC = ({ children }): JSX.Element => {
 	const [sidebarOpen, setSidebarOpen] = useState(false);
 
 	return (
@@ -205,7 +205,9 @@ const Dashboard: React.FC = (): JSX.Element => {
 				</div>
 				<div className="flex flex-col w-0 flex-1 overflow-hidden">
 					<NavBar setSidebarOpen={setSidebarOpen} />
-					<main className="flex-1 relative overflow-y-auto focus:outline-none bg-white shadow rounded-2xl m-2"></main>
+					<main className="flex-1 relative overflow-y-auto focus:outline-none bg-white shadow rounded-2xl m-2">
+						{children}
+					</main>
 				</div>
 			</div>
 		</App>
