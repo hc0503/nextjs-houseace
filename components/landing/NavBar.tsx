@@ -7,10 +7,9 @@ import { useSession, signOut } from "next-auth/client";
 
 import Logo from "../commons/Logo";
 import Avatar from "../commons/Avatar";
-import { logout } from "@/redux/slices/authSlice";
 
 const Navbar: React.FC = (): JSX.Element => {
-	const [session, loading] = useSession();
+	const [session] = useSession();
 
 	return (
 		<Disclosure as="nav" className="bg-white container mx-auto">

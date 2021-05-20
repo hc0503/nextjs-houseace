@@ -1,12 +1,13 @@
 import { NextApiHandler } from "next";
-import NextAuth from "next-auth";
+import NextAuth, { DefaultSession } from "next-auth";
 import Providers from "next-auth/providers";
+import Adapters from "next-auth/adapters";
+import nodemailer from "nodemailer";
 
 import prisma from "@/lib/prisma";
-import Adapters from "next-auth/adapters";
-import { getToken } from "next-auth/jwt";
+import { User } from ".prisma/client";
 
-let userAccount = null;
+let userData: User = null;
 const options = {
 	providers: [
 		Providers.Email({
@@ -25,8 +26,7 @@ const options = {
 			name: "Credentials",
 			authorize: async (credentials: ICredentials): Promise<any> => {
 				try {
-					console.log(credentials.password);
-					const user = await prisma.user.findFirst({
+					const user: User = await prisma.user.findFirst({
 						where: {
 							email: credentials.email,
 							password: credentials.password,
@@ -34,7 +34,7 @@ const options = {
 					});
 
 					if (user !== null) {
-						userAccount = user;
+						userData = user;
 						return user;
 					} else {
 						return null;
@@ -48,25 +48,8 @@ const options = {
 	],
 	adapter: Adapters.Prisma.Adapter({ prisma }),
 	callbacks: {
-		jwt: async (token, user, account, profile, isNewUser) => {
-			if (typeof user !== typeof undefined) {
-				token.user = user;
-			}
-			return Promise.resolve(token);
-		},
-		session: async (session, token) => {
-			if (userAccount !== null) {
-				session.user = userAccount;
-			} else if (
-				typeof token.user !== typeof undefined &&
-				(typeof session.user === typeof undefined ||
-					(typeof session.user !== typeof undefined &&
-						typeof session.user.userId === typeof undefined))
-			) {
-				session.user = token.user;
-			} else if (typeof token !== typeof undefined) {
-				session.token = token;
-			}
+		session: async (session: DefaultSession) => {
+			if (userData) session.user = userData;
 			return Promise.resolve(session);
 		},
 		redirect: async (

@@ -14,11 +14,10 @@ import {
 } from "@heroicons/react/outline";
 import classNames from "classnames";
 
-import App from "../../components/layout/App";
-import Logo from "../../components/commons/Logo";
-import DropNav from "../../components/app/sidebar/DropNav";
-import NavBar from "../../components/app/topbar/NavBar";
-import { useRouter } from "next/router";
+import App from "@/components/layout/App";
+import Logo from "@/components/commons/Logo";
+import DropNav from "@/components/app/sidebar/DropNav";
+import NavBar from "@/components/app/topbar/NavBar";
 
 const navigation = [
 	{
@@ -92,12 +91,8 @@ const navigations = [
 
 const Dashboard: React.FC = ({ children }): JSX.Element => {
 	const [sidebarOpen, setSidebarOpen] = useState(false);
-	const [session, loading] = useSession();
-	const router = useRouter();
-	if (!session?.user) {
-		return null;
-	}
-
+	const [session] = useSession();
+	console.log(session);
 	return (
 		<App>
 			<div className="h-screen flex overflow-hidden bg-gray-100">

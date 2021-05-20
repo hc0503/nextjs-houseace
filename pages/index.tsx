@@ -1,10 +1,5 @@
-import { GetServerSideProps } from "next";
 import { useSession, signIn, signOut } from "next-auth/client";
-import NavBar from "../components/landing/NavBar";
-
-interface Props {
-	session: any;
-}
+import NavBar from "@/components/landing/NavBar";
 
 const Landing: React.FC = (): JSX.Element => {
 	const [session, loading] = useSession();
