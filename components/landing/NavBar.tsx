@@ -3,13 +3,12 @@ import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
 import Link from "next/link";
 import classNames from "classnames";
-import { useSession, signOut } from "next-auth/client";
 
 import Logo from "../commons/Logo";
 import Avatar from "../commons/Avatar";
 
 const Navbar: React.FC = (): JSX.Element => {
-	const [session] = useSession();
+	const session = false;
 
 	return (
 		<Disclosure as="nav" className="bg-white container mx-auto">
@@ -156,7 +155,6 @@ const Navbar: React.FC = (): JSX.Element => {
 																		active ? "bg-gray-100" : "",
 																		"block px-4 py-2 text-sm text-gray-700"
 																	)}
-																	onClick={() => signOut()}
 																>
 																	Logout
 																</a>
@@ -260,7 +258,6 @@ const Navbar: React.FC = (): JSX.Element => {
 									<a
 										href="#"
 										className="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100"
-										onClick={() => signOut()}
 									>
 										Logout
 									</a>

@@ -1,7 +1,6 @@
 import React, { Fragment, useState } from "react";
 import Link from "next/link";
 import { GetServerSideProps } from "next";
-import { useSession, getSession } from "next-auth/client";
 import { Dialog, Transition } from "@headlessui/react";
 import {
 	CalendarIcon,
@@ -91,8 +90,6 @@ const navigations = [
 
 const Dashboard: React.FC = ({ children }): JSX.Element => {
 	const [sidebarOpen, setSidebarOpen] = useState(false);
-	const [session] = useSession();
-	console.log(session);
 	return (
 		<App>
 			<div className="h-screen flex overflow-hidden bg-gray-100">
@@ -225,9 +222,9 @@ const Dashboard: React.FC = ({ children }): JSX.Element => {
 export const getServerSideProps: GetServerSideProps = async (
 	context
 ) => {
-	const session = await getSession(context);
+	const session = true;
 
-	if (!session?.user) {
+	if (!session) {
 		return {
 			redirect: {
 				destination: "/auth/login",
