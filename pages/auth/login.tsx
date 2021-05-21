@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Link from "next/link";
-import { signIn, SignInResponse, useSession } from "next-auth/client";
 import { useRouter } from "next/router";
 import Head from "next/head";
 
@@ -13,6 +12,7 @@ import HrefLink from "@/components/commons/buttons/HrefLink";
 import Label from "@/components/commons/labels/Label";
 import Logo from "@/components/commons/Logo";
 import ValidationAlert from "@/components/commons/inputs/ValidationAlert";
+import axios from "@/lib/axios";
 
 const Login: React.FC = (): JSX.Element => {
 	const textColor = "text-gray";
@@ -27,22 +27,17 @@ const Login: React.FC = (): JSX.Element => {
 		e: React.SyntheticEvent
 	): Promise<void> => {
 		e.preventDefault();
-		e.stopPropagation();
-		signIn("credentials", {
-			email,
-			password,
-			callbackUrl: `${process.env.BASE_URL}/app`,
-			redirect: false,
-		}).then((res: SignInResponse) => {
-			if (res.ok) {
-				router.push(res.url);
-			} else {
-				if (res.status === 401)
-					setLoginErrors({
-						email: "The credentials are incorrect.",
-					});
-			}
-		});
+
+		try {
+			const res = await axios.post("/api/auth/login", {
+				email,
+				password,
+			});
+		} catch (error) {
+			setLoginErrors({
+				email: error.response.data.msg,
+			});
+		}
 	};
 
 	return (
