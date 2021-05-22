@@ -1,6 +1,7 @@
 import { User } from ".prisma/client";
 import { withIronSession } from "next-iron-session";
 import bcrypt from "bcrypt";
+import Validator from "validatorjs";
 
 import prisma from "@/lib/prisma";
 
@@ -8,6 +9,13 @@ export default withIronSession(
 	async (req, res) => {
 		if (req.method === "POST") {
 			const { email, password } = req.body;
+			const validator = new Validator(req.body, {
+				email: "required|email",
+				password: "required",
+			});
+			if (validator.fails()) {
+				return res.status(412).send(validator.errors);
+			}
 			const user: User = await prisma.user.findFirst({
 				where: {
 					email: email,
@@ -22,20 +30,24 @@ export default withIronSession(
 					req.session.set("user", { user });
 					await req.session.save();
 
-					res.status(200).json({ msg: "The login is successed." });
-					return Promise.resolve();
+					return res
+						.status(200)
+						.send({ msg: ["The login is successed."] });
 				} else {
-					res
-						.status(401)
-						.json({ msg: "The credential is incorrect." });
-					return Promise.resolve();
+					return res.status(401).send({
+						errors: {
+							email: ["The credential is incorrect."],
+						},
+					});
 				}
 			}
-			res.status(401).json({ msg: "The account isn't existed." });
-			return Promise.resolve();
+			return res.status(401).send({
+				errors: {
+					email: ["The account isn't existed."],
+				},
+			});
 		} else {
-			res.status(401).json({ msg: "The account isn't existed." });
-			return Promise.resolve();
+			return res.status(404).send();
 		}
 	},
 	{

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import Head from "next/head";
 
+import axios from "@/lib/axios";
 import Layout from "@/components/layout/Page";
 import Button from "@/components/commons/buttons/Button";
 import SocialButton from "@/components/auth/SocialButton";
@@ -12,7 +13,11 @@ import HrefLink from "@/components/commons/buttons/HrefLink";
 import Label from "@/components/commons/labels/Label";
 import Logo from "@/components/commons/Logo";
 import ValidationAlert from "@/components/commons/inputs/ValidationAlert";
-import axios from "@/lib/axios";
+
+interface IErrors {
+	email: string[];
+	password: string[];
+}
 
 const Login: React.FC = (): JSX.Element => {
 	const textColor = "text-gray";
@@ -20,9 +25,10 @@ const Login: React.FC = (): JSX.Element => {
 	const [password, setPassword] = useState("");
 	const [rememberMe, setRememberMe] = useState(false);
 	const router = useRouter();
-	const [loginErrors, setLoginErrors] = useState({
-		email: "",
-	});
+	const [errors, setErrors] = useState({
+		email: [""],
+		password: [""],
+	} as IErrors);
 	const handleFormSubmit = async (
 		e: React.SyntheticEvent
 	): Promise<void> => {
@@ -33,9 +39,13 @@ const Login: React.FC = (): JSX.Element => {
 				email,
 				password,
 			});
+			if (res.status === 200) {
+				router.push("/app");
+			}
 		} catch (error) {
-			setLoginErrors({
-				email: error.response.data.msg,
+			setErrors({
+				email: error.response.data.errors.email ?? [""],
+				password: error.response.data.errors.password ?? [""],
 			});
 		}
 	};
@@ -67,7 +77,7 @@ const Login: React.FC = (): JSX.Element => {
 									placeholder="Your Email"
 									onChange={(e: any) => setEmail(e.target.value)}
 								/>
-								<ValidationAlert>{loginErrors.email}</ValidationAlert>
+								<ValidationAlert>{errors.email[0]}</ValidationAlert>
 							</div>
 							<div>
 								<Label htmlFor="password">Password</Label>
@@ -77,6 +87,9 @@ const Login: React.FC = (): JSX.Element => {
 									placeholder="Your Password"
 									onChange={(e: any) => setPassword(e.target.value)}
 								/>
+								<ValidationAlert>
+									{errors.password[0]}
+								</ValidationAlert>
 							</div>
 							<div className="grid md:grid-cols-2 grid-cols-1 gap-5">
 								<div className="flex items-center">
