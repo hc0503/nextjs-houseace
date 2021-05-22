@@ -1,14 +1,23 @@
+import Link from "next/link";
+import { useRouter } from "next/router";
 import React, { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
-import Link from "next/link";
 import classNames from "classnames";
 
 import Logo from "../commons/Logo";
 import Avatar from "../commons/Avatar";
+import axios from "axios";
 
 const Navbar: React.FC = (): JSX.Element => {
 	const session = false;
+	const router = useRouter();
+	const handleLogout = async (): Promise<void> => {
+		const res = await axios.get("/api/auth/logout");
+		if (res.status === 200) {
+			router.push("/");
+		}
+	};
 
 	return (
 		<Disclosure as="nav" className="bg-white container mx-auto">
@@ -155,6 +164,7 @@ const Navbar: React.FC = (): JSX.Element => {
 																		active ? "bg-gray-100" : "",
 																		"block px-4 py-2 text-sm text-gray-700"
 																	)}
+																	onClick={handleLogout}
 																>
 																	Logout
 																</a>
@@ -258,6 +268,7 @@ const Navbar: React.FC = (): JSX.Element => {
 									<a
 										href="#"
 										className="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100"
+										onClick={handleLogout}
 									>
 										Logout
 									</a>

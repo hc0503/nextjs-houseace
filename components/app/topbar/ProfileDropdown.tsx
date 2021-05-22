@@ -1,12 +1,23 @@
+import { useRouter } from "next/router";
+import { Fragment } from "react";
 import classNames from "classnames";
 import { Menu, Transition } from "@headlessui/react";
-import { Fragment } from "react";
+
+import axios from "@/lib/axios";
 
 const ProfileDropdown: React.FC = (): JSX.Element => {
+	const router = useRouter();
 	const userNavigation = [
 		{ name: "Your Profile", href: "#" },
 		{ name: "Settings", href: "#" },
 	];
+	const handleLogout = async (): Promise<void> => {
+		const res = await axios.get("/api/auth/logout");
+		if (res.status === 200) {
+			router.push("/");
+		}
+	};
+
 	return (
 		<>
 			<Menu as="div" className="ml-3 relative">
@@ -59,6 +70,7 @@ const ProfileDropdown: React.FC = (): JSX.Element => {
 												{ "bg-gray-100": active },
 												"block px-4 py-2 text-sm text-gray-700"
 											)}
+											onClick={handleLogout}
 										>
 											Logout
 										</a>
