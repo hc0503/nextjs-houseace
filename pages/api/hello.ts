@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import Prisma from "../../lib/prisma";
+import Prisma from "@/lib/prisma";
 
 interface ITest {
 	id: number;

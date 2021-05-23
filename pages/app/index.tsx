@@ -1,4 +1,6 @@
-import React, { Children, Fragment, useState } from "react";
+import React, { Fragment, useState } from "react";
+import Link from "next/link";
+import { GetServerSideProps } from "next";
 import { Dialog, Transition } from "@headlessui/react";
 import {
 	CalendarIcon,
@@ -11,10 +13,10 @@ import {
 } from "@heroicons/react/outline";
 import classNames from "classnames";
 
-import App from "../../components/layout/App";
-import Logo from "../../components/commons/Logo";
-import DropNav from "../../components/app/sidebar/DropNav";
-import NavBar from "../../components/app/topbar/NavBar";
+import App from "@/components/layout/App";
+import Logo from "@/components/commons/Logo";
+import DropNav from "@/components/app/sidebar/DropNav";
+import NavBar from "@/components/app/topbar/NavBar";
 
 const navigation = [
 	{
@@ -88,7 +90,6 @@ const navigations = [
 
 const Dashboard: React.FC = ({ children }): JSX.Element => {
 	const [sidebarOpen, setSidebarOpen] = useState(false);
-
 	return (
 		<App>
 			<div className="h-screen flex overflow-hidden bg-gray-100">
@@ -143,9 +144,11 @@ const Dashboard: React.FC = ({ children }): JSX.Element => {
 										</button>
 									</div>
 								</Transition.Child>
-								<div className="flex-shrink-0 flex items-center px-4">
-									<Logo src="../logo.png" alt="Houseace" />
-								</div>
+								<Link href="/">
+									<a className="flex-shrink-0 flex items-center px-4">
+										<Logo src="/logo.png" alt="Houseace" />
+									</a>
+								</Link>
 								<div className="mt-5 flex-1 h-0 overflow-y-auto">
 									<nav className="px-2 space-y-1">
 										{navigation.map((item: any, key: number) => (
@@ -186,9 +189,11 @@ const Dashboard: React.FC = ({ children }): JSX.Element => {
 					<div className="flex flex-col w-70">
 						{/* Sidebar component, swap this element with another sidebar if you like */}
 						<div className="flex flex-col flex-grow border-r border-gray-200 pt-5 pb-4 bg-white overflow-y-auto shadow rounded-2xl m-2">
-							<div className="flex items-center flex-shrink-0 px-4 mt-6">
-								<Logo src="../logo.png" alt="Houseace" />
-							</div>
+							<Link href="/">
+								<a className="flex items-center flex-shrink-0 px-4 mt-6">
+									<Logo src="/logo.png" alt="Houseace" />
+								</a>
+							</Link>
 							<nav
 								className={classNames(
 									`mt-28 py-3 pr-3
@@ -212,6 +217,25 @@ const Dashboard: React.FC = ({ children }): JSX.Element => {
 			</div>
 		</App>
 	);
+};
+
+export const getServerSideProps: GetServerSideProps = async (
+	context
+) => {
+	const session = true;
+
+	if (!session) {
+		return {
+			redirect: {
+				destination: "/auth/login",
+				permanent: false,
+			},
+		};
+	}
+
+	return {
+		props: {},
+	};
 };
 
 export default Dashboard;

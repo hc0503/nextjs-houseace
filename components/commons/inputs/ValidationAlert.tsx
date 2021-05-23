@@ -12,7 +12,10 @@ const ValidationAlert: React.FC<Props> = ({
 }): JSX.Element => {
 	return (
 		<p
-			className={classNames("text-sm text-red-moredark", className)}
+			className={classNames(
+				"text-sm text-red-moredark font-medium",
+				className
+			)}
 			id={id}
 		>
 			{children}

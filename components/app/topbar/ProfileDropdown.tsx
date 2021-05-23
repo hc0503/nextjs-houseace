@@ -6,7 +6,6 @@ const ProfileDropdown: React.FC = (): JSX.Element => {
 	const userNavigation = [
 		{ name: "Your Profile", href: "#" },
 		{ name: "Settings", href: "#" },
-		{ name: "Sign out", href: "#" },
 	];
 	return (
 		<>
@@ -43,7 +42,7 @@ const ProfileDropdown: React.FC = (): JSX.Element => {
 											<a
 												href={item.href}
 												className={classNames(
-													active ? "bg-gray-100" : "",
+													{ "bg-gray-100": active },
 													"block px-4 py-2 text-sm text-gray-700"
 												)}
 											>
@@ -52,6 +51,19 @@ const ProfileDropdown: React.FC = (): JSX.Element => {
 										)}
 									</Menu.Item>
 								))}
+								<Menu.Item>
+									{({ active }) => (
+										<a
+											href="#"
+											className={classNames(
+												{ "bg-gray-100": active },
+												"block px-4 py-2 text-sm text-gray-700"
+											)}
+										>
+											Logout
+										</a>
+									)}
+								</Menu.Item>
 							</Menu.Items>
 						</Transition>
 					</>

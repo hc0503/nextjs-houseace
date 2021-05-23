@@ -1,6 +1,9 @@
 import Link from "next/link";
 import Head from "next/head";
+import { useRouter } from "next/router";
+import { useState } from "react";
 
+import axios from "@/lib/axios";
 import Layout from "@/components/layout/Page";
 import Button from "@/components/commons/buttons/Button";
 import SocialButton from "@/components/auth/SocialButton";
@@ -9,16 +12,58 @@ import CheckboxInput from "@/components/commons/inputs/CheckboxInput";
 import HrefLink from "@/components/commons/buttons/HrefLink";
 import Label from "@/components/commons/labels/Label";
 import Logo from "@/components/commons/Logo";
+import ValidationAlert from "@/components/commons/inputs/ValidationAlert";
+
+interface IErrors {
+	first_name?: string[];
+	last_name?: string[];
+	email?: string[];
+	password?: string[];
+	password_confirmation?: string[];
+}
 
 const Register: React.FC = (): JSX.Element => {
 	const textColor = "text-gray-500";
-	const handleFormSubmit = (e: any): void => {
+	const router = useRouter();
+	const [email, setEmail] = useState("");
+	const [first_name, setFirst_name] = useState("");
+	const [last_name, setLast_name] = useState("");
+	const [password, setPassword] = useState("");
+	const [password_confirmation, setPassword_confirmation] =
+		useState("");
+	const [errors, setErrors] = useState({
+		first_name: [""],
+		last_name: [""],
+		email: [""],
+		password: [""],
+		password_confirmation: [""],
+	} as IErrors);
+	const handleFormSubmit = async (
+		e: React.SyntheticEvent
+	): Promise<void> => {
 		e.preventDefault();
 
-		const email = e.target.elements.email?.value;
-		const password = e.target.elements.password?.value;
-
-		console.log(email, password);
+		try {
+			const res = await axios.post("/api/auth/register", {
+				first_name,
+				last_name,
+				email,
+				password,
+				password_confirmation,
+			});
+			if (res.status === 201) {
+				router.push("/app");
+			}
+		} catch (error) {
+			setErrors({
+				first_name: error.response.data.errors.first_name ?? [""],
+				last_name: error.response.data.errors.last_name ?? [""],
+				email: error.response.data.errors.email ?? [""],
+				password: error.response.data.errors.password ?? [""],
+				password_confirmation: error.response.data.errors
+					.password_confirmation ?? [""],
+			});
+		}
 	};
 
 	return (
@@ -46,7 +91,13 @@ const Register: React.FC = (): JSX.Element => {
 									type="text"
 									id="first_name"
 									placeholder="First Name"
+									onChange={(
+										e: React.ChangeEvent<HTMLInputElement>
+									) => setFirst_name(e.target.value)}
 								/>
+								<ValidationAlert className="text-sm">
+									{errors.first_name[0]}
+								</ValidationAlert>
 							</div>
 							<div>
 								<Label htmlFor="last_name">Last Name</Label>
@@ -54,7 +105,13 @@ const Register: React.FC = (): JSX.Element => {
 									type="text"
 									id="last_name"
 									placeholder="Last Name"
+									onChange={(
+										e: React.ChangeEvent<HTMLInputElement>
+									) => setLast_name(e.target.value)}
 								/>
+								<ValidationAlert className="text-sm">
+									{errors.last_name[0]}
+								</ValidationAlert>
 							</div>
 							<div>
 								<Label htmlFor="email">Email</Label>
@@ -62,7 +119,13 @@ const Register: React.FC = (): JSX.Element => {
 									type="email"
 									id="email"
 									placeholder="Email"
+									onChange={(
+										e: React.ChangeEvent<HTMLInputElement>
+									) => setEmail(e.target.value)}
 								/>
+								<ValidationAlert className="text-sm">
+									{errors.email[0]}
+								</ValidationAlert>
 							</div>
 							<div>
 								<Label htmlFor="password">New Password</Label>
@@ -71,7 +134,13 @@ const Register: React.FC = (): JSX.Element => {
 									id="password"
 									placeholder="New Password"
 									autoComplete="on"
+									onChange={(
+										e: React.ChangeEvent<HTMLInputElement>
+									) => setPassword(e.target.value)}
 								/>
+								<ValidationAlert className="text-sm">
+									{errors.password[0]}
+								</ValidationAlert>
 							</div>
 							<div>
 								<Label htmlFor="confirm_password">
@@ -81,7 +150,13 @@ const Register: React.FC = (): JSX.Element => {
 									type="password"
 									id="confirm_password"
 									placeholder="Confirm Password"
+									onChange={(
+										e: React.ChangeEvent<HTMLInputElement>
+									) => setPassword_confirmation(e.target.value)}
 								/>
+								<ValidationAlert className="text-sm">
+									{errors.password_confirmation[0]}
+								</ValidationAlert>
 							</div>
 							<div>
 								<div className="flex items-start">
