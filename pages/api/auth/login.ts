@@ -10,13 +10,19 @@ import { sessionMiddleware } from "@/lib/iron-session";
 export default nc()
 	.use(sessionMiddleware)
 	.post(async (req: any, res: NextApiResponse) => {
-		const { email, password } = req.body;
-		const validator = new Validator(req.body, {
-			email: "required|email",
-			password: "required",
-		});
-		if (validator.fails()) {
-			return res.status(412).send(validator.errors);
+		const {
+			email,
+			password = "",
+			provider_type = "EMAIL",
+		} = req.body;
+		if (provider_type === "EMAIL") {
+			const validator = new Validator(req.body, {
+				email: ["required", "email"],
+				password: ["required"],
+			});
+			if (validator.fails()) {
+				return res.status(412).send(validator.errors);
+			}
 		}
 		const user: User = await prisma.user.findFirst({
 			where: {
