@@ -53,15 +53,16 @@ model Session {
 }
 
 model User {
-  id            Int       @default(autoincrement()) @id
-  firstName     String?   @map(name: "firstname")
-  lastName      String?   @map(name: "lastname")
-  email         String?   @unique
+  id            Int           @default(autoincrement()) @id
+  firstName     String?       @map(name: "firstname")
+  lastName      String?       @map(name: "lastname")
+  email         String?       @unique
   password      String?
-  emailVerified DateTime? @map(name: "email_verified")
+  emailVerified DateTime?     @map(name: "email_verified")
   image         String?
-  createdAt     DateTime  @default(now()) @map(name: "created_at")
-  updatedAt     DateTime  @default(now()) @map(name: "updated_at")
+  providerType  ProviderType  @default(EMAIL) @map(name: "provider_type")
+  createdAt     DateTime      @default(now()) @map(name: "created_at")
+  updatedAt     DateTime      @default(now()) @map(name: "updated_at")
 
   @@map(name: "users")
 }
@@ -75,4 +76,10 @@ model VerificationRequest {
   updatedAt  DateTime  @default(now()) @map(name: "updated_at")
 
   @@map(name: "verification_requests")
+}
+
+enum ProviderType {
+  EMAIL
+  GOOGLE
+  FACEBOOK
 }
