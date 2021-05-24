@@ -18,6 +18,9 @@ module.exports = {
           dark: '#161616',
           moredark: '#4B5563'
         }
+      },
+      maxWidth: {
+        message: '919px',
       }
     },
   },

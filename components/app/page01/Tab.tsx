@@ -39,7 +39,7 @@ const Tab = ({ className }: TabProps) => {
 					<nav className="-mb-px flex space-x-8" aria-label="Tabs">
 						{tabs.map((tab, id) => (
 							<button
-								key={tab.name}
+								key={id}
 								onClick={(e) => {
 									setTabIndex(id);
 								}}
@@ -58,8 +58,10 @@ const Tab = ({ className }: TabProps) => {
 						))}
 					</nav>
 				</div>
-				{tabs.map((tab, id) => tabIndex === id && <tab.target />)}
 			</div>
+			{tabs.map(
+				(tab, id) => tabIndex === id && <tab.target key={id} />
+			)}
 		</div>
 	);
 };
