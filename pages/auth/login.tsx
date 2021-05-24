@@ -29,6 +29,25 @@ const Login: React.FC = (): JSX.Element => {
 		email: [""],
 		password: [""],
 	} as IErrors);
+	const handleSocialLoginSuccess = async (user): Promise<void> => {
+		try {
+			const res = await axios.post("/api/auth/login", {
+				email: user._profile.email,
+				provider_type: user._provider.toUpperCase(),
+			});
+			if (res.status === 200) {
+				router.push("/app");
+			}
+		} catch (error) {
+			setErrors({
+				email: error.response.data.errors.email ?? [""],
+				password: error.response.data.errors.password ?? [""],
+			});
+		}
+	};
+	const handleSocialLoginFailure = async (error): Promise<void> => {
+		console.log(error);
+	};
 	const handleFormSubmit = async (
 		e: React.SyntheticEvent
 	): Promise<void> => {
@@ -121,7 +140,12 @@ const Login: React.FC = (): JSX.Element => {
 							<div className="py-3">
 								<Label>Or sign in with</Label>
 								<div className="grid md:grid-cols-2 grid-cols-1 gap-5 py-3">
-									<SocialButton>
+									<SocialButton
+										provider="google"
+										appId={process.env.GOOGLE_ID}
+										onLoginSuccess={handleSocialLoginSuccess}
+										onLoginFailure={handleSocialLoginFailure}
+									>
 										<img
 											src="/images/icons/socials/google.svg"
 											className="h-5 mr-1"
@@ -129,7 +153,12 @@ const Login: React.FC = (): JSX.Element => {
 										/>
 										With Google
 									</SocialButton>
-									<SocialButton>
+									<SocialButton
+										provider="google"
+										appId={process.env.GOOGLE_ID}
+										onLoginSuccess={handleSocialLoginSuccess}
+										onLoginFailure={handleSocialLoginFailure}
+									>
 										<img
 											src="/images/icons/socials/facebook.svg"
 											className="h-7 mr-1"

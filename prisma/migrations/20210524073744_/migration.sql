@@ -64,6 +64,7 @@ CREATE TABLE `users` (
     `password` VARCHAR(191),
     `email_verified` DATETIME(3),
     `image` VARCHAR(191),
+    `provider_type` ENUM('EMAIL', 'GOOGLE', 'FACEBOOK') NOT NULL DEFAULT 'EMAIL',
     `created_at` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
     `updated_at` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
 

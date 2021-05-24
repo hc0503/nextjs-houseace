@@ -38,6 +38,35 @@ const Register: React.FC = (): JSX.Element => {
 		password: [""],
 		password_confirmation: [""],
 	} as IErrors);
+	const handleSocialRegisterSuccess = async (
+		user: any
+	): Promise<void> => {
+		try {
+			const res = await axios.post("/api/auth/register", {
+				first_name: user._profile.firstName,
+				last_name: user._profile.lastName,
+				email: user._profile.email,
+				provider_type: user._provider.toUpperCase(),
+			});
+			if (res.status === 201) {
+				router.push("/app");
+			}
+		} catch (error) {
+			setErrors({
+				first_name: error.response.data.errors.first_name ?? [""],
+				last_name: error.response.data.errors.last_name ?? [""],
+				email: error.response.data.errors.email ?? [""],
+				password: error.response.data.errors.password ?? [""],
+				password_confirmation: error.response.data.errors
+					.password_confirmation ?? [""],
+			});
+		}
+	};
+	const handleSocialRegisterFailure = async (
+		error: any
+	): Promise<void> => {
+		console.log(error);
+	};
 	const handleFormSubmit = async (
 		e: React.SyntheticEvent
 	): Promise<void> => {
@@ -190,7 +219,12 @@ const Register: React.FC = (): JSX.Element => {
 							<div className="py-3">
 								<Label>Or sign up with</Label>
 								<div className="grid md:grid-cols-2 grid-cols-1 gap-5 py-3">
-									<SocialButton>
+									<SocialButton
+										provider="google"
+										appId={process.env.GOOGLE_ID}
+										onLoginSuccess={handleSocialRegisterSuccess}
+										onLoginFailure={handleSocialRegisterFailure}
+									>
 										<img
 											src="/images/icons/socials/google.svg"
 											className="h-5 mr-1"
@@ -198,7 +232,12 @@ const Register: React.FC = (): JSX.Element => {
 										/>
 										With Google
 									</SocialButton>
-									<SocialButton>
+									<SocialButton
+										provider="google"
+										appId={process.env.GOOGLE_ID}
+										onLoginSuccess={handleSocialRegisterSuccess}
+										onLoginFailure={handleSocialRegisterFailure}
+									>
 										<img
 											src="/images/icons/socials/facebook.svg"
 											className="h-7 mr-1"
