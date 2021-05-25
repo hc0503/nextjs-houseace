@@ -58,8 +58,7 @@ CREATE TABLE `sessions` (
 -- CreateTable
 CREATE TABLE `users` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
-    `firstname` VARCHAR(191),
-    `lastname` VARCHAR(191),
+    `name` VARCHAR(191),
     `email` VARCHAR(191),
     `password` VARCHAR(191),
     `email_verified` DATETIME(3),
