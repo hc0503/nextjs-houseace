@@ -20,7 +20,10 @@ const Navbar: React.FC = (): JSX.Element => {
 	};
 
 	return (
-		<Disclosure as="nav" className="bg-white container mx-auto">
+		<Disclosure
+			as="nav"
+			className="mix-blend-overlay bg-white container mx-auto"
+		>
 			{({ open }) => (
 				<>
 					<div>
@@ -197,6 +200,7 @@ const Navbar: React.FC = (): JSX.Element => {
 						</div>
 					</div>
 
+					{/* Mobile */}
 					<Disclosure.Panel className="sm:hidden">
 						{!session && (
 							<div className="pt-2 pb-3 space-y-1">

@@ -22,22 +22,14 @@ class SocialButton extends React.Component<Props> {
 			<button
 				className={`
 					inline-flex
+					w-full
 					items-center
-					px-4
-					py-2
+					p-2
 					border
-					border-red-300
-					shadow-sm
-					text-sm
-					font-medium
 					rounded-md
-					text-gray-dark
-					bg-white
-					hover:bg-red-lesslight
-					focus:outline-none
-					focus:ring-1
-					focus:ring-red
+					hover:bg-red-dark hover:border-red
 					justify-center
+					focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-dark
 					${className}
 				`}
 				disabled={disabled}
