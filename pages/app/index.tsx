@@ -1,6 +1,6 @@
-import React, { Fragment, useState } from "react";
 import Link from "next/link";
 import { GetServerSideProps } from "next";
+import React, { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import {
 	CalendarIcon,
@@ -13,10 +13,17 @@ import {
 } from "@heroicons/react/outline";
 import classNames from "classnames";
 
+import { sessionOptions } from "@/lib/iron-session";
 import App from "@/components/layout/App";
 import Logo from "@/components/commons/Logo";
 import DropNav from "@/components/app/sidebar/DropNav";
 import NavBar from "@/components/app/topbar/NavBar";
+import { withIronSession } from "next-iron-session";
+
+interface Props {
+	children?: any;
+	user?: any;
+}
 
 const navigation = [
 	{
@@ -88,7 +95,10 @@ const navigations = [
 	},
 ];
 
-const Dashboard: React.FC = ({ children }): JSX.Element => {
+const Dashboard: React.FC<Props> = ({
+	children,
+	user,
+}): JSX.Element => {
 	const [sidebarOpen, setSidebarOpen] = useState(false);
 	return (
 		<App>
@@ -219,23 +229,23 @@ const Dashboard: React.FC = ({ children }): JSX.Element => {
 	);
 };
 
-export const getServerSideProps: GetServerSideProps = async (
-	context
-) => {
-	const session = true;
+export const getServerSideProps: GetServerSideProps = withIronSession(
+	async ({ req }) => {
+		const user = req.session.get("user");
+		if (!user) {
+			return {
+				redirect: {
+					destination: "/auth/login",
+					permanent: false,
+				},
+			};
+		}
 
-	if (!session) {
 		return {
-			redirect: {
-				destination: "/auth/login",
-				permanent: false,
-			},
+			props: { user },
 		};
-	}
-
-	return {
-		props: {},
-	};
-};
+	},
+	sessionOptions
+);
 
 export default Dashboard;
