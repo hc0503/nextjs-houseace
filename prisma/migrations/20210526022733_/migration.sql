@@ -60,6 +60,7 @@ CREATE TABLE `users` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `name` VARCHAR(191),
     `email` VARCHAR(191),
+    `role_id` INTEGER NOT NULL,
     `password` VARCHAR(191),
     `email_verified` DATETIME(3),
     `image` VARCHAR(191),
@@ -83,3 +84,6 @@ CREATE TABLE `verification_requests` (
     UNIQUE INDEX `verification_requests.token_unique`(`token`),
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- AddForeignKey
+ALTER TABLE `users` ADD FOREIGN KEY (`role_id`) REFERENCES `Role`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
