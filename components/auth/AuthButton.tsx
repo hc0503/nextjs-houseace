@@ -24,10 +24,10 @@ const SubmitButton: React.FC<Props> = ({
 					{ "opacity-50 cursor-not-allowed": disabled },
 					className
 				)}
-				{...disabled}
-				onMouseOver={(e) => setHovered(true)}
+				disabled={disabled}
+				onMouseOver={() => setHovered(true)}
 				onFocus={() => void 0}
-				onMouseLeave={(e) => setHovered(false)}
+				onMouseLeave={() => setHovered(false)}
 			>
 				{hovered && <p className="px-8">{children}</p>}
 				<FiArrowRight className="h-6 w-6" aria-hidden="true" />

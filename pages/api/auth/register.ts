@@ -11,15 +11,15 @@ export default nc()
 	.use(sessionMiddleware)
 	.post(async (req: any, res: NextApiResponse) => {
 		const {
+			role,
 			name,
 			email,
 			password = "",
-			password_confirmation,
 			provider_type = "EMAIL",
 		} = req.body;
 		if (provider_type === "EMAIL") {
-			console.log(password_confirmation);
 			const validator = new Validator(req.body, {
+				role: ["required"],
 				name: ["required"],
 				email: ["required", "email"],
 				password: ["required", "min:6", "confirmed"],
@@ -28,10 +28,18 @@ export default nc()
 			if (validator.fails()) {
 				return res.status(412).send(validator.errors);
 			}
+		} else {
+			const validator = new Validator(req.body, {
+				role: ["required"],
+			});
+			if (validator.fails()) {
+				return res.status(412).send(validator.errors);
+			}
 		}
 		try {
 			const user: User = await prisma.user.create({
 				data: {
+					roleId: Number(role),
 					name: name,
 					email: email,
 					password: bcrypt.hashSync(password, bcrypt.genSaltSync()),

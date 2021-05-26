@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaGooglePlus, FaFacebook } from "react-icons/fa";
 import { FiMail, FiLock, FiUser } from "react-icons/fi";
 
@@ -12,34 +12,43 @@ import AuthTitle from "./AuthTitle";
 import AuthSelectGroup from "./AuthSelectGroup";
 
 interface IErrors {
+	role: string[];
 	name: string[];
 	email: string[];
 	password: string[];
 	password_confirmation: string[];
 }
-const roles = [
-	{ value: "us", text: "USA" },
-	{ value: "uk", text: "United Kingdom" },
-];
 const RegisterForm: React.FC = (): JSX.Element => {
+	useEffect(() => {
+		getRoles();
+	}, []);
+	const [roles, setRoles] = useState([]);
 	const router = useRouter();
+	const [role, setRole] = useState("");
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [password_confirmation, setPassword_confirmation] =
 		useState("");
 	const [errors, setErrors] = useState({
+		role: [""],
 		name: [""],
 		email: [""],
 		password: [""],
 		password_confirmation: [""],
 	} as IErrors);
+	const [isValied, setIsValied] = useState(false);
+	const getRoles = async () => {
+		const res = await axios.get("http://localhost:3000/api/roles");
+		setRoles(res.data.data);
+	};
 	const handleFormSubmit = async (
 		e: React.SyntheticEvent
 	): Promise<void> => {
 		e.preventDefault();
 		try {
 			const res = await axios.post("/api/auth/register", {
+				role,
 				name,
 				email,
 				password,
@@ -50,6 +59,7 @@ const RegisterForm: React.FC = (): JSX.Element => {
 			}
 		} catch (error) {
 			setErrors({
+				role: error.response.data.errors.role ?? [""],
 				name: error.response.data.errors.name ?? [""],
 				email: error.response.data.errors.email ?? [""],
 				password: error.response.data.errors.password ?? [""],
@@ -63,6 +73,7 @@ const RegisterForm: React.FC = (): JSX.Element => {
 	): Promise<void> => {
 		try {
 			const res = await axios.post("/api/auth/register", {
+				role: role,
 				name: user._profile.firstName + " " + user._profile.lastName,
 				email: user._profile.email,
 				password: password,
@@ -74,6 +85,7 @@ const RegisterForm: React.FC = (): JSX.Element => {
 			}
 		} catch (error) {
 			setErrors({
+				role: error.response.data.errors.role ?? [""],
 				name: error.response.data.errors.name ?? [""],
 				email: error.response.data.errors.email ?? [""],
 				password: error.response.data.errors.password ?? [""],
@@ -99,6 +111,20 @@ const RegisterForm: React.FC = (): JSX.Element => {
 								options={roles}
 								defaultValue={0}
 								description="Choose your profile..."
+								onChange={(
+									e: React.ChangeEvent<HTMLInputElement>
+								) => {
+									setRole(e.target.value);
+									setErrors({
+										role: [""],
+										name: errors?.name,
+										email: errors?.email,
+										password: errors?.password,
+										password_confirmation:
+											errors?.password_confirmation,
+									});
+								}}
+								errorMessage={errors?.role[0]}
 							/>
 							<AuthInputGroup
 								id="name"
@@ -110,6 +136,7 @@ const RegisterForm: React.FC = (): JSX.Element => {
 								) => {
 									setName(e.target.value);
 									setErrors({
+										role: errors?.role,
 										name: [""],
 										email: errors?.email,
 										password: errors?.password,
@@ -132,6 +159,7 @@ const RegisterForm: React.FC = (): JSX.Element => {
 								) => {
 									setEmail(e.target.value);
 									setErrors({
+										role: errors?.role,
 										name: errors?.name,
 										email: [""],
 										password: errors?.password,
@@ -154,6 +182,7 @@ const RegisterForm: React.FC = (): JSX.Element => {
 								) => {
 									setPassword(e.target.value);
 									setErrors({
+										role: errors?.role,
 										name: errors?.name,
 										email: errors?.email,
 										password: [""],
@@ -176,6 +205,7 @@ const RegisterForm: React.FC = (): JSX.Element => {
 								) => {
 									setPassword_confirmation(e.target.value);
 									setErrors({
+										role: errors?.role,
 										name: errors?.name,
 										email: errors?.email,
 										password: errors?.password,
@@ -193,6 +223,9 @@ const RegisterForm: React.FC = (): JSX.Element => {
 										name="terms"
 										type="checkbox"
 										className="focus:ring-red-moredark h-4 w-4 text-red-moredark border-gray-300 rounded"
+										onChange={(e) => {
+											setIsValied(e.target.checked);
+										}}
 									/>
 									<label
 										htmlFor="terms"
@@ -204,7 +237,9 @@ const RegisterForm: React.FC = (): JSX.Element => {
 								</div>
 							</div>
 							<div className="text-right">
-								<AuthButton type="submit">Register</AuthButton>
+								<AuthButton type="submit" disabled={!isValied}>
+									Register
+								</AuthButton>
 							</div>
 						</form>
 					</div>
