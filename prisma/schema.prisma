@@ -17,8 +17,10 @@ model Role {
   id          Int      @id @default(autoincrement())
   name        String   @unique
   users       User[]
-  created_at  DateTime @default(now())
-  updated_at  DateTime @updatedAt
+  createdAt   DateTime @default(now()) @map(name: "created_at")
+  updatedAt   DateTime @default(now()) @map(name: "updated_at")
+
+  @@map(name: "roles")
 }
 
 model Account {
