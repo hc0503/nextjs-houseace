@@ -2,7 +2,7 @@ import Layout from "@/components/layout/Page";
 import AuthBackground from "@/components/auth/AuthBackground";
 import LoginForm from "@/components/auth/LoginForm";
 
-export default function Example() {
+const Login: React.FC = (): JSX.Element => {
 	return (
 		<Layout>
 			<div className="min-h-screen bg-red flex">
@@ -14,4 +14,6 @@ export default function Example() {
 			</div>
 		</Layout>
 	);
-}
+};
+
+export default Login;

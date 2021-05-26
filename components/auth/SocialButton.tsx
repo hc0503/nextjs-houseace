@@ -9,7 +9,7 @@ interface Props {
 	triggerLogin?: any;
 }
 class SocialButton extends React.Component<Props> {
-	render() {
+	render(): JSX.Element {
 		const {
 			className = "",
 			type = "button",
