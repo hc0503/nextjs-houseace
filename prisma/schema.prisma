@@ -16,6 +16,7 @@ model Test {
 model Role {
   id          Int      @id @default(autoincrement())
   name        String   @unique
+  users       User[]
   created_at  DateTime @default(now())
   updated_at  DateTime @updatedAt
 }
@@ -54,9 +55,10 @@ model Session {
 
 model User {
   id            Int           @default(autoincrement()) @id
-  firstName     String?       @map(name: "firstname")
-  lastName      String?       @map(name: "lastname")
+  name          String?
   email         String?       @unique
+  role          Role          @relation(fields: [roleId], references: [id])
+  roleId        Int           @map(name: "role_id")
   password      String?
   emailVerified DateTime?     @map(name: "email_verified")
   image         String?

@@ -14,7 +14,7 @@ export default function Avatar({
 	description,
 	name,
 	className,
-}: AvatarProps) {
+}: AvatarProps): JSX.Element {
 	return (
 		<a
 			href="#"

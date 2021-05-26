@@ -66,8 +66,8 @@ const LoginForm: React.FC = (): JSX.Element => {
 			<div className="flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24 text-white">
 				<div className="mx-auto w-full max-w-sm lg:w-96">
 					<AuthTitle />
-					<div className="mt-20">
-						<form onSubmit={handleFormSubmit} className="space-y-6">
+					<div className="mt-10">
+						<form onSubmit={handleFormSubmit} className="space-y-2">
 							<AuthInputGroup
 								id="email"
 								name="email"
@@ -144,18 +144,17 @@ const LoginForm: React.FC = (): JSX.Element => {
 								onLoginSuccess={handleSocialLoginSuccess}
 								onLoginFailure={handleSocialLoginFailure}
 							>
-								<FaGooglePlus size="23" className="mr-1" />
-								Login with Google
+								<FaFacebook size="23" className="mr-1" />
+								Login with Facebook
 							</SocialButton>
-
 							<SocialButton
 								provider="google"
 								appId={process.env.GOOGLE_ID}
 								onLoginSuccess={handleSocialLoginSuccess}
 								onLoginFailure={handleSocialLoginFailure}
 							>
-								<FaFacebook size="23" className="mr-1" />
-								Login with Facebook
+								<FaGooglePlus size="23" className="mr-1" />
+								Login with Google
 							</SocialButton>
 						</div>
 					</div>

@@ -6,7 +6,7 @@ interface Props {
 	name?: string;
 	label?: string;
 	type?: "email" | "text" | "number" | "password";
-	autoComplete?: "email" | "password";
+	autoComplete?: "on" | "off";
 	required?: boolean;
 	className?: string;
 	placeholder?: string;
@@ -19,7 +19,7 @@ const AuthInputGroup: React.FC<Props> = ({
 	name,
 	label,
 	type = "text",
-	autoComplete,
+	autoComplete = "off",
 	required = false,
 	className = "",
 	placeholder,

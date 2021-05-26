@@ -18,7 +18,7 @@ const tabs = [
 	{ name: "Quotes", target: Quotes, current: false },
 ];
 
-const Tab = ({ className }: TabProps) => {
+const Tab = ({ className }: TabProps): JSX.Element => {
 	const [tabIndex, setTabIndex] = useState(0);
 	return (
 		<div>
