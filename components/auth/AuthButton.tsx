@@ -20,7 +20,7 @@ const SubmitButton: React.FC<Props> = ({
 			<button
 				type={type}
 				className={classNames(
-					"inline-flex items-center p-2 border border-white border-transparent rounded-full text-white bg-red hover:bg-red-dark hover:border-red focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-moredark",
+					"inline-flex items-center p-2 border border-white border-transparent rounded-full text-white bg-red hover:bg-red-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-moredark hover:border-red-moredark transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-100",
 					{ "opacity-50 cursor-not-allowed": disabled },
 					className
 				)}

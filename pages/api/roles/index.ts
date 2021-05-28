@@ -21,8 +21,12 @@ const getRoles = nc()
 			_: NextApiRequest,
 			res: NextApiResponse<IResponseData>
 		): Promise<void> => {
-			const roles = await prisma.role.findMany();
-			return res.json({ success: true, data: roles });
+			try {
+				const roles = await prisma.role.findMany();
+				return res.json({ success: true, data: roles });
+			} catch (error) {
+				return res.json({ success: false, data: [] });
+			}
 		}
 	);
 

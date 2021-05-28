@@ -39,7 +39,7 @@ const RegisterForm: React.FC = (): JSX.Element => {
 	} as IErrors);
 	const [isValied, setIsValied] = useState(false);
 	const getRoles = async () => {
-		const res = await axios.get("http://localhost:3000/api/roles");
+		const res = await axios.get("/api/roles");
 		setRoles(res.data.data);
 	};
 	const handleFormSubmit = async (
