@@ -1,7 +1,8 @@
-import NavBar from "@/components/landing/NavBar";
-import { sessionOptions } from "@/lib/iron-session";
 import { GetServerSideProps } from "next";
 import { withIronSession } from "next-iron-session";
+
+import { sessionOptions } from "@/lib/iron-session";
+import NavBar from "@/components/landing/nav/NavBar";
 
 interface Props {
 	user?: any;

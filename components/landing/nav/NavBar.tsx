@@ -1,13 +1,13 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { Fragment } from "react";
+import axios from "axios";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
 import classNames from "classnames";
 
-import Logo from "../commons/Logo";
-import Avatar from "../commons/Avatar";
-import axios from "axios";
+import Logo from "@/components/commons/Logo";
+import Avatar from "@/components/commons/Avatar";
 
 const Navbar: React.FC = (): JSX.Element => {
 	const session = false;
@@ -65,7 +65,7 @@ const Navbar: React.FC = (): JSX.Element => {
 									</a>
 									<button
 										type="button"
-										className="inline-flex items-center px-3 text-sm font-medium rounded-full text-white bg-red-light hover:bg-red focus:outline-none"
+										className="inline-flex items-center px-5 text-sm font-medium rounded-full text-white bg-red-light hover:bg-red focus:outline-none"
 									>
 										Instant Quote
 									</button>
