@@ -16,7 +16,7 @@
   "dependencies": {
     "@headlessui/react": "^1.1.1",
     "@heroicons/react": "^1.0.1",
-    "@prisma/client": "2.22.1",
+    "@prisma/client": "^2.23.0",
     "@reduxjs/toolkit": "^1.5.1",
     "@tailwindcss/forms": "^0.3.2",
     "@types/react-icons": "^3.0.0",
@@ -59,7 +59,7 @@
     "lint-staged": "^11.0.0",
     "postcss": "^8.2.14",
     "prettier": "^2.3.0",
-    "prisma": "2.22.1",
+    "prisma": "^2.23.0",
     "react-test-renderer": "^17.0.2",
     "tailwindcss": "^2.1.2",
     "ts-node": "^10.0.0",

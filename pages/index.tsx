@@ -18,7 +18,6 @@ const Landing: React.FC<Props> = ({ user }): JSX.Element => {
 				}}
 			>
 				<NavBar />
-				Hello World
 			</div>
 		</>
 	);

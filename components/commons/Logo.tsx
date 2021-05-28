@@ -13,7 +13,7 @@ const Logo: React.FC<Props> = ({
 			src={src}
 			alt={alt}
 			className={`
-				max-h-14
+				max-h-10
 				${className}
 			`}
 		/>
