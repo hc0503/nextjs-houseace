@@ -6,7 +6,7 @@ interface Props {
 	type?: "submit" | "button";
 	disabled?: boolean;
 	children?: React.ReactNode;
-	arrowSize?: number;
+	arrowSize?: string;
 	fontsize?: string;
 	padding?: string;
 }
@@ -14,7 +14,7 @@ const ArrowCircleButton: React.FC<Props> = ({
 	type = "button",
 	disabled = false,
 	children,
-	arrowSize = 8,
+	arrowSize = "h-8 w-8",
 	fontsize,
 	padding = "px-5",
 }): JSX.Element => {
@@ -36,7 +36,7 @@ const ArrowCircleButton: React.FC<Props> = ({
 					<p className={classNames(fontsize, padding)}>{children}</p>
 				)}
 				<FiArrowRight
-					className={classNames(`h-${arrowSize} w-${arrowSize}`)}
+					className={classNames(arrowSize)}
 					aria-hidden="true"
 				/>
 			</button>

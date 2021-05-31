@@ -2,7 +2,7 @@ import SearchQuote from "@/components/landing/banner/SearchQuote";
 
 const Banner: React.FC = () => {
 	return (
-		<div className="text-center mt-16">
+		<div className="container mx-auto text-center mt-16">
 			<div className="text-white">
 				<p className="text-5xl font-bold">
 					Home Renovation Made Easy
