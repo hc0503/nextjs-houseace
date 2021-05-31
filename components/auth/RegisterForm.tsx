@@ -7,7 +7,7 @@ import { FiMail, FiLock, FiUser } from "react-icons/fi";
 import axios from "@/lib/axios";
 import SocialButton from "./SocialButton";
 import AuthInputGroup from "./AuthInputGroup";
-import AuthButton from "./AuthButton";
+import ArrowCircleButton from "./ArrowCircleButton";
 import AuthTitle from "./AuthTitle";
 import AuthSelectGroup from "./AuthSelectGroup";
 
@@ -237,9 +237,9 @@ const RegisterForm: React.FC = (): JSX.Element => {
 								</div>
 							</div>
 							<div className="text-right">
-								<AuthButton type="submit" disabled={!isValied}>
+								<ArrowCircleButton type="submit" disabled={!isValied}>
 									Register
-								</AuthButton>
+								</ArrowCircleButton>
 							</div>
 						</form>
 					</div>

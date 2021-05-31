@@ -1,13 +1,9 @@
 import Link from "next/link";
-import { useRouter } from "next/router";
-import React, { Fragment } from "react";
-import axios from "axios";
-import { Disclosure, Menu, Transition } from "@headlessui/react";
-import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
-import classNames from "classnames";
+import React from "react";
+import { Disclosure } from "@headlessui/react";
+import { MenuIcon, XIcon } from "@heroicons/react/outline";
 
 import Logo from "@/components/commons/Logo";
-import Avatar from "@/components/commons/Avatar";
 import AvatarDropdown from "./AvatarDropdown";
 
 const Navbar: React.FC = (): JSX.Element => {

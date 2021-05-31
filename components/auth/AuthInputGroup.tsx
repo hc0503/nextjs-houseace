@@ -1,19 +1,11 @@
 import classNames from "classnames";
 import { ExclamationCircleIcon } from "@heroicons/react/solid";
 
-interface Props {
-	id?: string;
-	name?: string;
-	label?: string;
-	type?: "email" | "text" | "number" | "password";
-	autoComplete?: "on" | "off";
-	required?: boolean;
-	className?: string;
-	placeholder?: string;
+interface Props extends IInputGroup {
 	children?: React.ReactNode;
-	onChange?: any;
 	errorMessage?: string;
 }
+
 const AuthInputGroup: React.FC<Props> = ({
 	id,
 	name,
@@ -42,7 +34,7 @@ const AuthInputGroup: React.FC<Props> = ({
 						name={name}
 						type={type}
 						autoComplete={autoComplete}
-						{...required}
+						required={required}
 						placeholder={placeholder}
 						onChange={onChange}
 						className={classNames(

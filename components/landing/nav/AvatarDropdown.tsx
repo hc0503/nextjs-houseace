@@ -6,16 +6,16 @@ import { Menu, Transition } from "@headlessui/react";
 
 import axios from "@/lib/axios";
 
-interface Props {
+interface IProps {
 	className?: string;
-	navigations: Navigation[];
+	navigations: INavigation[];
 }
-interface Navigation {
+interface INavigation {
 	name: string;
 	href: string;
 }
 
-const AvatarDropdown: React.FC<Props> = ({
+const AvatarDropdown: React.FC<IProps> = ({
 	className,
 	navigations,
 }): JSX.Element => {
@@ -67,7 +67,7 @@ const AvatarDropdown: React.FC<Props> = ({
 								static
 								className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
 							>
-								{navigations.map((item: any, key: number) => (
+								{navigations.map((item: INavigation, key: number) => (
 									<Menu.Item key={`MenuItem-${key}`}>
 										<Link href={item.href}>
 											<a
