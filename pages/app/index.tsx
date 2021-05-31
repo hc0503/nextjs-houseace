@@ -21,7 +21,7 @@ import DropNav from "@/components/app/sidebar/DropNav";
 import NavBar from "@/components/app/topbar/NavBar";
 
 interface Props {
-	children?: any;
+	children?: React.ReactNode;
 	user?: any;
 }
 

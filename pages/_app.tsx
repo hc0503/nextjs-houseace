@@ -14,6 +14,7 @@ const App: React.FC<AppProps> = ({
 		<>
 			<Head>
 				<title>{`${process.env.APP_NAME}`}</title>
+				<link rel="shortcut icon" href="/favicon.png" />
 			</Head>
 			<Provider store={store}>
 				<Component {...pageProps} />

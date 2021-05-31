@@ -33,6 +33,7 @@
     "react-icons": "^4.2.0",
     "react-redux": "^7.2.4",
     "react-social-login": "^3.4.13",
+    "react-star-rating-component": "^1.4.1",
     "redux": "^4.1.0",
     "sass": "^1.32.12",
     "validatorjs": "^3.22.1"

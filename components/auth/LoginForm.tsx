@@ -7,7 +7,7 @@ import { FiMail, FiLock } from "react-icons/fi";
 import axios from "@/lib/axios";
 import SocialButton from "./SocialButton";
 import AuthInputGroup from "./AuthInputGroup";
-import AuthButton from "./AuthButton";
+import ArrowCircleButton from "./ArrowCircleButton";
 import AuthTitle from "./AuthTitle";
 
 interface IErrors {
@@ -132,7 +132,9 @@ const LoginForm: React.FC = (): JSX.Element => {
 								</div>
 							</div>
 							<div className="text-right">
-								<AuthButton type="submit">Login</AuthButton>
+								<ArrowCircleButton type="submit">
+									Login
+								</ArrowCircleButton>
 							</div>
 						</form>
 					</div>

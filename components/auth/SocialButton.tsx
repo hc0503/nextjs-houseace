@@ -6,7 +6,7 @@ interface Props {
 	type?: "button" | "submit" | "reset";
 	disabled?: boolean;
 	children?: React.ReactNode;
-	triggerLogin?: any;
+	triggerLogin?: () => void;
 }
 class SocialButton extends React.Component<Props> {
 	render(): JSX.Element {
@@ -28,7 +28,7 @@ class SocialButton extends React.Component<Props> {
 					border
 					rounded-md
 					hover:bg-red-dark hover:border-red-moredark
-					transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-100
+					transition duration-500 ease-in-out transform hover:scale-100
 					justify-center
 					focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-dark
 					${className}

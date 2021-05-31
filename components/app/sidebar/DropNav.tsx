@@ -3,11 +3,11 @@ import { ChevronUpIcon } from "@heroicons/react/solid";
 import Link from "next/link";
 import classNames from "classnames";
 
-interface Props {
+interface IProps {
 	className?: string;
 	item: any;
 }
-const DropNav: React.FC<Props> = ({
+const DropNav: React.FC<IProps> = ({
 	className = "",
 	item,
 }): JSX.Element => {
