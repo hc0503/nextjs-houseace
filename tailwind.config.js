@@ -21,7 +21,11 @@ module.exports = {
       },
       maxWidth: {
         message: '919px',
-      }
+      },
+      height: {
+        '550': '550px',
+        '634': '634px',
+      },
     },
   },
   variants: {
