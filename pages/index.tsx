@@ -7,6 +7,8 @@ import Background from "@/components/landing/banner/Background";
 import Banner from "@/components/landing/banner/Banner";
 import Introduce from "@/components/landing/introduce/Introduce";
 import GettingDone from "@/components/landing/gettingdone/GettingDone";
+import Popular from "@/components/landing/popular/Popular";
+import HowWorks from "@/components/landing/howworks/HowWorks";
 
 interface Props {
 	user?: any;
@@ -22,8 +24,18 @@ const Landing: React.FC<Props> = ({ user }): JSX.Element => {
 				<NavBar />
 				<Banner />
 			</Background>
-			<Introduce />
-			<GettingDone />
+			<div className="container mx-auto">
+				<Introduce />
+				<div className="mt-36">
+					<GettingDone />
+				</div>
+				<div className="mt-36">
+					<Popular />
+				</div>
+				<div className="mt-36">
+					<HowWorks />
+				</div>
+			</div>
 		</>
 	);
 };
