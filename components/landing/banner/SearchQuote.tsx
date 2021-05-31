@@ -15,9 +15,7 @@ const SearchQuote: React.FC = (): JSX.Element => {
 				placeholder="Where you live?"
 			/>
 			<div className="w-48 text-right">
-				<ArrowCircleButton className="">
-					Instant Quote
-				</ArrowCircleButton>
+				<ArrowCircleButton>Instant Quote</ArrowCircleButton>
 			</div>
 		</div>
 	);
