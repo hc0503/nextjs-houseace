@@ -3,23 +3,25 @@ import { withIronSession } from "next-iron-session";
 
 import { sessionOptions } from "@/lib/iron-session";
 import NavBar from "@/components/landing/nav/NavBar";
+import Background from "@/components/landing/banner/Background";
+import Banner from "@/components/landing/banner/Banner";
+import Introduce from "@/components/landing/introduce/Introduce";
 
 interface Props {
 	user?: any;
 }
+
 const Landing: React.FC<Props> = ({ user }): JSX.Element => {
 	return (
 		<>
-			<div
-				style={{
-					backgroundImage: "url(/images/landing/banner.png)",
-					height: "800px",
-					backgroundRepeat: "no-repeat",
-					backgroundPosition: "center",
-				}}
+			<Background
+				src="url(/images/landing/banner.png)"
+				height="800px"
 			>
 				<NavBar />
-			</div>
+				<Banner />
+			</Background>
+			<Introduce />
 		</>
 	);
 };
