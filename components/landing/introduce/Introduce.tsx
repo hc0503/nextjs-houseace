@@ -1,7 +1,7 @@
 import IntroduceItem from "./IntroduceItem";
 
 const Introduce: React.FC = () => (
-	<div className="flex justify-between items-start p-24">
+	<div className="flex justify-between items-start pt-16 px-36">
 		<IntroduceItem
 			src="/images/landing/entrepreneur.png"
 			alt="Entrepreneur"
