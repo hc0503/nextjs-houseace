@@ -8,7 +8,7 @@ interface Props {
 	disabled?: boolean;
 	children?: React.ReactNode;
 }
-const SubmitButton: React.FC<Props> = ({
+const ArrowCircleButton: React.FC<Props> = ({
 	type = "button",
 	className = "",
 	disabled = false,
@@ -20,7 +20,7 @@ const SubmitButton: React.FC<Props> = ({
 			<button
 				type={type}
 				className={classNames(
-					"inline-flex items-center p-2 border border-white border-transparent rounded-full text-white bg-red hover:bg-red-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-moredark hover:border-red-moredark transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-100",
+					"inline-flex justify-center items-center p-2 border border-white border-transparent rounded-full text-white bg-red hover:bg-red-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-moredark hover:border-red-moredark transition duration-500 ease-in-out transform hover:scale-100",
 					{ "opacity-50 cursor-not-allowed": disabled },
 					className
 				)}
@@ -29,11 +29,11 @@ const SubmitButton: React.FC<Props> = ({
 				onFocus={() => void 0}
 				onMouseLeave={() => setHovered(false)}
 			>
-				{hovered && <p className="px-8">{children}</p>}
-				<FiArrowRight className="h-6 w-6" aria-hidden="true" />
+				{hovered && <p className="px-5">{children}</p>}
+				<FiArrowRight className="h-8 w-8" aria-hidden="true" />
 			</button>
 		</>
 	);
 };
 
-export default SubmitButton;
+export default ArrowCircleButton;
