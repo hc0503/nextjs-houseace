@@ -12,3 +12,7 @@ interface IInputGroup {
 	placeholder?: string;
 	onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
+interface IButton {
+	children: React.ReactNode;
+	onClick?: () => void;
+}
