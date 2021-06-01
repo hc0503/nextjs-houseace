@@ -1,4 +1,5 @@
 import { GetServerSideProps } from "next";
+import Head from "next/head";
 import { withIronSession } from "next-iron-session";
 
 import { sessionOptions } from "@/lib/iron-session";
@@ -11,6 +12,7 @@ import Popular from "@/components/landing/popular/Popular";
 import HowWorks from "@/components/landing/howworks/HowWorks";
 import Renovation from "@/components/landing/renovation/Renovation";
 import Faq from "@/components/landing/faq/Faq";
+import Article from "@/components/landing/article/Article";
 
 interface Props {
 	user?: any;
@@ -19,6 +21,9 @@ interface Props {
 const Landing: React.FC<Props> = ({ user }): JSX.Element => {
 	return (
 		<>
+			<Head>
+				<title>{`${process.env.APP_NAME} - Landing`}</title>
+			</Head>
 			<Background
 				src="url(/images/landing/banner.png)"
 				height="800px"
@@ -42,6 +47,9 @@ const Landing: React.FC<Props> = ({ user }): JSX.Element => {
 				</div>
 				<div className="mt-36">
 					<Faq />
+				</div>
+				<div className="mt-36">
+					<Article />
 				</div>
 			</div>
 		</>

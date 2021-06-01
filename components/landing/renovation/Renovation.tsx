@@ -1,6 +1,6 @@
 import { FaGooglePlay, FaAppStoreIos } from "react-icons/fa";
 
-import DownloadButton from "./DownloadButton";
+import RoundButton from "./RoundButton";
 
 const Renovation: React.FC = (): JSX.Element => {
 	return (
@@ -28,17 +28,17 @@ const Renovation: React.FC = (): JSX.Element => {
 					</p>
 				</div>
 				<div className="pt-32 flex justify-between">
-					<DownloadButton>
+					<RoundButton>
 						<div className="flex items-center space-x-2.5">
 							<FaAppStoreIos height={24} width={24} /> Get it on IOS
 						</div>
-					</DownloadButton>
-					<DownloadButton>
+					</RoundButton>
+					<RoundButton>
 						<div className="flex items-center space-x-2.5">
 							<FaGooglePlay height={24} width={24} /> Get it on
 							Android
 						</div>
-					</DownloadButton>
+					</RoundButton>
 				</div>
 			</div>
 			<div>
