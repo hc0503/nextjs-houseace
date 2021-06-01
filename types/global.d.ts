@@ -1,3 +1,4 @@
+declare module "react-faq-component";
 interface iChildren {
 	children: React.ReactNode;
 }

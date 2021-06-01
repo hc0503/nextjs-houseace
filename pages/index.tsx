@@ -10,6 +10,7 @@ import GettingDone from "@/components/landing/gettingdone/GettingDone";
 import Popular from "@/components/landing/popular/Popular";
 import HowWorks from "@/components/landing/howworks/HowWorks";
 import Renovation from "@/components/landing/renovation/Renovation";
+import Faq from "@/components/landing/faq/Faq";
 
 interface Props {
 	user?: any;
@@ -38,6 +39,9 @@ const Landing: React.FC<Props> = ({ user }): JSX.Element => {
 				</div>
 				<div className="mt-36">
 					<Renovation />
+				</div>
+				<div className="mt-36">
+					<Faq />
 				</div>
 			</div>
 		</>
