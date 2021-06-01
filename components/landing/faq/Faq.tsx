@@ -36,6 +36,7 @@ const Faq: React.FC = (): JSX.Element => {
 		],
 	};
 	const styles = {
+		bgColor: "#F3F4F6",
 		rowTitleColor: "black",
 		rowContentColor: "grey",
 	};
