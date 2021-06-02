@@ -11,7 +11,7 @@ const RoundButton: React.FC<IProps> = ({
 	return (
 		<button
 			className={classNames(
-				"rounded-full bg-white border hover:bg-red-lesslight focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-light transition duration-500 ease-in-out transform hover:scale-100",
+				"rounded-full bg-white border hover:bg-red focus:outline-none transition duration-500 ease-in-out transform hover:scale-100",
 				padding
 			)}
 		>
