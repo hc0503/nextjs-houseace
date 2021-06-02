@@ -28,25 +28,25 @@ const AvatarDropdown: React.FC<IProps> = ({
 	};
 	return (
 		<>
-			<Menu as="div" className="ml-3 relative">
+			<Menu as="div" className="ml-3">
 				{({ open }) => (
 					<>
 						<div>
 							<Menu.Button
 								className={classNames(
-									"max-w-xs bg-white flex items-center text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500",
+									"bg-white flex items-center text-sm rounded-full focus:outline-none",
 									className
 								)}
 							>
 								<span className="sr-only">Open user menu</span>
-								<div className="flex items-center py-1 px-2 space-x-2">
+								<div className="flex items-center py-2 px-2 space-x-4">
 									<img
-										className="h-3 pl-1"
+										className="h-4 pl-1"
 										src="/images/landing/menu.png"
 										alt=""
 									/>
 									<img
-										className="h-9"
+										className="h-10"
 										src="/images/landing/avatar.png"
 										alt=""
 									/>

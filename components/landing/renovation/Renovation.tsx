@@ -29,14 +29,15 @@ const Renovation: React.FC = (): JSX.Element => {
 				</div>
 				<div className="pt-32 flex justify-between">
 					<RoundButton>
-						<div className="flex items-center space-x-2.5">
-							<FaAppStoreIos height={24} width={24} /> Get it on IOS
+						<div className="flex items-center">
+							<FaAppStoreIos height={24} width={24} />
+							&nbsp;Get it on IOS
 						</div>
 					</RoundButton>
 					<RoundButton>
-						<div className="flex items-center space-x-2.5">
-							<FaGooglePlay height={24} width={24} /> Get it on
-							Android
+						<div className="flex items-center">
+							<FaGooglePlay height={24} width={24} />
+							&nbsp;Get it on Android
 						</div>
 					</RoundButton>
 				</div>

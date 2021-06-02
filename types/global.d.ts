@@ -15,5 +15,12 @@ interface IInputGroup {
 }
 interface IButton {
 	children: React.ReactNode;
+	fontSize?: string;
+	fontWeight?: string;
+	textColor?: string;
+	bgColor?: string;
+	borderColor?: string;
+	hoverBgColor?: string;
+	padding?: string;
 	onClick?: () => void;
 }

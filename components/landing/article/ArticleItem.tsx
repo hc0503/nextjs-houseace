@@ -31,8 +31,8 @@ const ArticleItem: React.FC<Props> = ({
 					{description}
 				</p>
 				<div className="pt-9">
-					<RoundButton padding="px-8 py-2.5">
-						<p className="text-xs">Read More</p>
+					<RoundButton padding="px-8 py-2.5" fontSize="text-xs">
+						Read More
 					</RoundButton>
 				</div>
 			</div>
