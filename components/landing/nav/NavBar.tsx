@@ -1,24 +1,38 @@
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { Disclosure } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
+import { useScrollPosition } from "@n8tb1t/use-scroll-position";
+import classNames from "classnames";
 
 import Logo from "@/components/commons/Logo";
 import AvatarDropdown from "./AvatarDropdown";
+import RoundButton from "../renovation/RoundButton";
+
+const session = false;
+const dropNavs = [
+	{ name: "Log In", href: "/auth/login" },
+	{ name: "Registration", href: "/auth/register" },
+	{ name: "Renovation Calculator", href: "#" },
+	{ name: "Blog", href: "#" },
+];
 
 const Navbar: React.FC = (): JSX.Element => {
-	const session = false;
-	const dropNavs = [
-		{ name: "Log In", href: "/auth/login" },
-		{ name: "Registration", href: "/auth/register" },
-		{ name: "Renovation Calculator", href: "#" },
-		{ name: "Blog", href: "#" },
-	];
-
+	const [sticky, setSticky] = useState(false);
+	useScrollPosition(({ prevPos, currPos }) => {
+		if (currPos.y < -100) {
+			setSticky(true);
+		} else {
+			setSticky(false);
+		}
+	});
 	return (
 		<Disclosure
 			as="nav"
-			className="bg-white sm:bg-transparent backdrop-filter backdrop-blur-lg"
+			className={classNames(
+				"bg-white backdrop-filter backdrop-blur-lg fixed w-full z-50 h-24 flex items-center",
+				{ "sm:bg-transparent": !sticky }
+			)}
 		>
 			{({ open }) => (
 				<>
@@ -46,27 +60,28 @@ const Navbar: React.FC = (): JSX.Element => {
 							</div>
 							{!session && (
 								<div className="hidden sm:ml-6 sm:flex sm:space-x-8 items-center">
-									{/* Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
-									<a
-										href="#"
-										className="text-black text-sm sm:text-base font-medium inline-flex items-center"
-									>
+									<a href="#" className="text-xl font-semibold">
 										How it works
 									</a>
-									<a
-										href="#"
-										className="text-black text-sm sm:text-base font-medium inline-flex items-center"
-									>
+									<a href="#" className="text-xl font-semibold">
 										Gallery
 									</a>
-									<button
-										type="button"
-										className="inline-flex items-center px-6 py-3 text-sm font-medium rounded-full text-white bg-red-light hover:bg-red focus:outline-none"
+									<RoundButton
+										padding="py-4 px-9"
+										borderColor="border-red"
+										bgColor={sticky ? "bg-white" : "bg-red"}
+										textColor={sticky ? "text-black" : "text-white"}
+										hoverBgColor={
+											sticky ? "hover:bg-red" : "hover:bg-red-dark"
+										}
+										fontWeight="font-semibold"
 									>
 										Instant Quote
-									</button>
+									</RoundButton>
 									<AvatarDropdown
-										className="bg-gray-300"
+										className={classNames("border border-white", {
+											"bg-custom-1": !sticky,
+										})}
 										navigations={dropNavs}
 									/>
 								</div>
