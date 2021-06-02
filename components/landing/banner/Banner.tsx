@@ -2,7 +2,7 @@ import SearchQuote from "@/components/landing/banner/SearchQuote";
 
 const Banner: React.FC = () => {
 	return (
-		<div className="container mx-auto text-center mt-16">
+		<div className="text-center pt-44 pb-96">
 			<div className="text-white">
 				<p className="text-5xl font-bold">
 					Home Renovation Made Easy
@@ -11,7 +11,7 @@ const Banner: React.FC = () => {
 					Get a free, no obligation quote in 2 minutes.
 				</p>
 			</div>
-			<div className="flex justify-center mt-2">
+			<div className="flex justify-center pt-2 pb-40">
 				<SearchQuote />
 			</div>
 		</div>
