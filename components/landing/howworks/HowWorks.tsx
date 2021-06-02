@@ -1,7 +1,7 @@
 const HowWorks: React.FC = (): JSX.Element => {
 	return (
 		<>
-			<div className="flex justify-between space-x-12">
+			<div className="flex justify-between items-center space-x-12">
 				<div className="pl-28">
 					<p className="text-4xl font-bold">How Houseace Works</p>
 					<p className="pt-3 text-base text-gray-light">
@@ -52,7 +52,7 @@ const HowWorks: React.FC = (): JSX.Element => {
 				<img
 					src="/images/landing/video.png"
 					alt="Video"
-					className="h-550"
+					className="h-full"
 				/>
 			</div>
 		</>
