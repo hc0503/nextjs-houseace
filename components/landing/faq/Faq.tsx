@@ -36,14 +36,17 @@ const Faq: React.FC = (): JSX.Element => {
 		],
 	};
 	const styles = {
-		bgColor: "#F3F4F6",
+		bgColor: "#FFF3F3",
 		rowTitleColor: "black",
 		rowContentColor: "grey",
+		rowContentPaddingTop: "7px",
+		rowContentPaddingLeft: "47px",
+		rowContentPaddingBottom: "44px",
 	};
 	return (
 		<div>
 			<p className="text-xl font-montserrat-bold">Common Questions</p>
-			<div className="pt-14 pl-11">
+			<div className="pt-14">
 				<FaqComponent data={data} styles={styles} />
 			</div>
 		</div>
