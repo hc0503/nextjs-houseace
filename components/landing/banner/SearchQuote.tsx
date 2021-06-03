@@ -1,7 +1,6 @@
 import classNames from "classnames";
 
 import ArrowCircleButton from "@/components/auth/ArrowCircleButton";
-import SearchInputGroup from "./SearchInputGroup";
 
 const SearchQuote: React.FC = (): JSX.Element => {
 	return (

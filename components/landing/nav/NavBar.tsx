@@ -6,7 +6,8 @@ import { useScrollPosition } from "@n8tb1t/use-scroll-position";
 import React, { useState } from "react";
 import classNames from "classnames";
 
-import RoundButton from "../renovation/RoundButton";
+import RoundButton from "@/components/landing/renovation/RoundButton";
+import ArrowCircleButton from "@/components/auth/ArrowCircleButton";
 
 const navigations: INavigation[] = [
 	{ name: "Login", href: "/auth/login" },
@@ -36,7 +37,7 @@ const NavBar: React.FC = (): JSX.Element => {
 		>
 			{({ open }) => (
 				<>
-					<div className="container mx-auto px-4 sm:px-6 lg:px-8">
+					<div className="mx-auto px-4 sm:px-6 lg:px-8">
 						<div className="flex justify-between py-3">
 							<div className="flex">
 								<div className="-ml-2 mr-2 flex items-center md:hidden">
@@ -75,6 +76,31 @@ const NavBar: React.FC = (): JSX.Element => {
 							</div>
 							<div className="flex items-center md:space-x-8">
 								<div className="hidden md:flex md:space-x-8 lg:text-xl font-montserrat-semibold">
+									<div
+										className={classNames(
+											"flex space-x-2 rounded-full border items-center bg-white pl-3 text-left",
+											{ hidden: !sticky }
+										)}
+									>
+										<input
+											id="project"
+											name="project"
+											className={classNames(
+												"text-xs rounded-full focus:outline-none border-0 px-1 py-1 font-montserrat"
+											)}
+											placeholder="Search here"
+										/>
+
+										<div className="w-36 text-right">
+											<ArrowCircleButton
+												fontsize="text-xs"
+												arrowSize="h-4 w-4"
+												buttonSize="h-12 w-12"
+											>
+												Search
+											</ArrowCircleButton>
+										</div>
+									</div>
 									<a href="#" className="inline-flex items-center">
 										How it works
 									</a>
