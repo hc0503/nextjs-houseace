@@ -13,7 +13,9 @@ const GettingItem: React.FC = () => {
 					/>
 				</div>
 				<div className="text-left">
-					<p className="text-lg font-bold">Bathroom Renovation</p>
+					<p className="text-lg font-montserrat-bold">
+						Bathroom Renovation
+					</p>
 					<p className="text-sm text-gray-light">
 						38 McKillop Street, Victoria-3375
 					</p>
@@ -26,7 +28,9 @@ const GettingItem: React.FC = () => {
 							className="h-10"
 						/>
 						<div>
-							<p className="text-sm font-bold">Ashley B Lay</p>
+							<p className="text-sm font-montserrat-bold">
+								Ashley B Lay
+							</p>
 							<StarRatingComponent
 								name="rate"
 								editing={false}

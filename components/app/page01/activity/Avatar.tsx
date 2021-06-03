@@ -30,10 +30,10 @@ export default function Avatar({
 						/>
 					</div>
 					<div className="ml-3">
-						<p className="text-sm font-medium text-gray-700 group-hover:text-gray-900">
+						<p className="text-sm font-montserrat-medium text-gray-700 group-hover:text-gray-900">
 							{name}
 						</p>
-						<p className="text-xs font-medium text-gray-500 group-hover:text-gray-700">
+						<p className="text-xs font-montserrat-medium text-gray-500 group-hover:text-gray-700">
 							{description}
 						</p>
 					</div>
@@ -41,10 +41,10 @@ export default function Avatar({
 			) : (
 				<div className="flex items-center">
 					<div>
-						<p className="text-sm font-medium text-gray-700 group-hover:text-gray-900">
+						<p className="text-sm font-montserrat-medium text-gray-700 group-hover:text-gray-900">
 							{name}
 						</p>
-						<p className="text-xs font-medium text-gray-500 group-hover:text-gray-700">
+						<p className="text-xs font-montserrat-medium text-gray-500 group-hover:text-gray-700">
 							{description}
 						</p>
 					</div>

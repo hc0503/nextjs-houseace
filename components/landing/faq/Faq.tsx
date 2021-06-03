@@ -42,7 +42,7 @@ const Faq: React.FC = (): JSX.Element => {
 	};
 	return (
 		<div>
-			<p className="text-xl font-bold">Common Questions</p>
+			<p className="text-xl font-montserrat-bold">Common Questions</p>
 			<div className="pt-14 pl-11">
 				<FaqComponent data={data} styles={styles} />
 			</div>

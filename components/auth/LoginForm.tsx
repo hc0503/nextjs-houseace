@@ -125,7 +125,7 @@ const LoginForm: React.FC = (): JSX.Element => {
 								<div className="text-sm">
 									<a
 										href="#"
-										className="font-medium hover:text-red-moredark"
+										className="font-montserrat-medium hover:text-red-moredark"
 									>
 										Forgot your password?
 									</a>
@@ -164,7 +164,7 @@ const LoginForm: React.FC = (): JSX.Element => {
 						<p className="text-sm">
 							Still no account? Please
 							<Link href="/auth/register">
-								<a className="font-bold hover:text-red-moredark">
+								<a className="font-montserrat-bold hover:text-red-moredark">
 									{" "}
 									Register Now
 								</a>

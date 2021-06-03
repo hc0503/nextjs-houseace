@@ -70,7 +70,7 @@ const Footer: React.FC = (): JSX.Element => {
 				</div>
 				<div className="grid grid-cols-2">
 					<div>
-						<h3 className="text-2xl font-bold">Help</h3>
+						<h3 className="text-2xl font-montserrat-bold">Help</h3>
 						<div className="grid col-1 pt-16 space-y-4 text-base">
 							{navigation.help.map((item: INavItem, key: number) => (
 								<Link href={item.href} key={`HelpNav-${key}`}>
@@ -80,7 +80,9 @@ const Footer: React.FC = (): JSX.Element => {
 						</div>
 					</div>
 					<div>
-						<h3 className="text-2xl font-bold">About Us</h3>
+						<h3 className="text-2xl font-montserrat-bold">
+							About Us
+						</h3>
 						<div className="grid col-1 pt-16 space-y-4 text-base">
 							{navigation.aboutUs.map(
 								(item: INavItem, key: number) => (

@@ -269,7 +269,7 @@ const RegisterForm: React.FC = (): JSX.Element => {
 						<p className="text-sm">
 							Have an account already? Please go to
 							<Link href="/auth/login">
-								<a className="font-bold hover:text-red-moredark">
+								<a className="font-montserrat-bold hover:text-red-moredark">
 									{" "}
 									Sign In
 								</a>

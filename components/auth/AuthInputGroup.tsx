@@ -22,7 +22,10 @@ const AuthInputGroup: React.FC<Props> = ({
 	return (
 		<>
 			<div>
-				<label htmlFor={id} className="block text-sm font-medium">
+				<label
+					htmlFor={id}
+					className="block text-sm font-montserrat-medium"
+				>
 					{label}
 				</label>
 				<div className="mt-1 relative rounded-md shadow-sm">
@@ -55,7 +58,7 @@ const AuthInputGroup: React.FC<Props> = ({
 					)}
 				</div>
 				{errorMessage && (
-					<p className="mt-2 text-sm text-red-moredark font-bold">
+					<p className="mt-2 text-sm text-red-moredark font-montserrat-bold">
 						{errorMessage}
 					</p>
 				)}

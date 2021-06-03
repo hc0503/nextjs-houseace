@@ -35,10 +35,10 @@ const DropNav: React.FC<IProps> = ({
 									border-l-8
 									border-white
 									rounded-lg
-									hover:bg-red-lesslight hover:text-red hover:font-semibold hover:border-red
+									hover:bg-red-lesslight hover:text-red hover:font-montserrat-semibold hover:border-red
 									focus:outline-none`,
 									{
-										"font-semibold bg-red-lesslight text-red border-red":
+										"font-montserrat-semibold bg-red-lesslight text-red border-red":
 											open,
 									}
 								)}
@@ -87,7 +87,7 @@ const DropNav: React.FC<IProps> = ({
 						href={item.href}
 						className={classNames(
 							{
-								"bg-red-lesslight text-red font-medium border-red":
+								"bg-red-lesslight text-red font-montserrat-medium border-red":
 									selected,
 							},
 							`flex justify-between

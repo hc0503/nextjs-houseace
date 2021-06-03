@@ -7,7 +7,7 @@ const Renovation: React.FC = (): JSX.Element => {
 		<div className="flex justify-between rounded-3xl items-center bg-gradient-to-r from-gray-200">
 			<div className="pl-28 pb-14">
 				<div className="pt-14">
-					<p className="text-4xl font-bold">
+					<p className="text-4xl font-montserrat-bold">
 						Your Renovation Sidekick
 					</p>
 				</div>

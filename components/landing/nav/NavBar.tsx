@@ -1,23 +1,13 @@
-import Link from "next/link";
-import React, { useState } from "react";
-import { Disclosure } from "@headlessui/react";
-import { MenuIcon, XIcon } from "@heroicons/react/outline";
+import { Fragment } from "react";
+import { Disclosure, Menu, Transition } from "@headlessui/react";
+import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
+import { PlusIcon } from "@heroicons/react/solid";
 import { useScrollPosition } from "@n8tb1t/use-scroll-position";
+import React, { useState } from "react";
 import classNames from "classnames";
-
-import Logo from "@/components/commons/Logo";
-import AvatarDropdown from "./AvatarDropdown";
 import RoundButton from "../renovation/RoundButton";
 
-const session = false;
-const dropNavs = [
-	{ name: "Log In", href: "/auth/login" },
-	{ name: "Registration", href: "/auth/register" },
-	{ name: "Renovation Calculator", href: "#" },
-	{ name: "Blog", href: "#" },
-];
-
-const Navbar: React.FC = (): JSX.Element => {
+export default function Example() {
 	const [sticky, setSticky] = useState(false);
 	useScrollPosition(({ prevPos, currPos }) => {
 		if (currPos.y < -100) {
@@ -30,103 +20,251 @@ const Navbar: React.FC = (): JSX.Element => {
 		<Disclosure
 			as="nav"
 			className={classNames(
-				"bg-white backdrop-filter backdrop-blur-lg fixed w-full z-50 h-24 flex items-center",
-				{ "sm:bg-transparent": !sticky }
+				"bg-white shadow fixed w-full z-50 backdrop-filter backdrop-blur-lg",
+				{ "md:bg-transparent": !sticky }
 			)}
 		>
 			{({ open }) => (
 				<>
-					<div className="container mx-auto flex py-3 sm:py-6">
-						<div className="flex w-full justify-between">
-							<div className="flex-shrink-0 flex items-center">
-								<Link href="/">
-									<a>
-										<Logo
-											src="logo.png"
-											alt="Houseace"
-											className="block lg:hidden ml-3"
-										/>
-									</a>
-								</Link>
-								<Link href="/">
-									<a>
-										<Logo
-											src="logo.png"
-											alt="Houseace"
-											className="hidden lg:block"
-										/>
-									</a>
-								</Link>
+					<div className="container mx-auto px-4 sm:px-6 lg:px-8">
+						<div className="flex justify-between py-3">
+							<div className="flex">
+								<div className="-ml-2 mr-2 flex items-center md:hidden">
+									{/* Mobile menu button */}
+									<Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+										<span className="sr-only">Open main menu</span>
+										{open ? (
+											<XIcon
+												className="block h-6 w-6"
+												aria-hidden="true"
+											/>
+										) : (
+											<MenuIcon
+												className="block h-6 w-6"
+												aria-hidden="true"
+											/>
+										)}
+									</Disclosure.Button>
+								</div>
+								<div className="flex-shrink-0 flex items-center">
+									<img
+										className="block md:hidden"
+										src="/favicon.png"
+										alt="Workflow"
+										height={41}
+										width={41}
+									/>
+									<img
+										className="hidden md:block"
+										src="/logo.png"
+										alt="Workflow"
+										height={41}
+										width="auto"
+									/>
+								</div>
 							</div>
-							{!session && (
-								<div className="hidden sm:ml-6 sm:flex sm:space-x-8 items-center">
-									<a href="#" className="text-xl font-semibold">
+							<div className="flex items-center md:space-x-8">
+								<div className="hidden md:flex md:space-x-8 lg:text-xl font-montserrat-semibold">
+									<a href="#" className="inline-flex items-center">
 										How it works
 									</a>
-									<a href="#" className="text-xl font-semibold">
+									<a href="#" className="inline-flex items-center">
 										Gallery
 									</a>
+								</div>
+								<div className="flex-shrink-0">
 									<RoundButton
-										padding="py-4 px-9"
+										padding="py-3 px-9"
 										borderColor="border-red"
 										bgColor={sticky ? "bg-white" : "bg-red"}
-										textColor={sticky ? "text-black" : "text-white"}
+										textColor={sticky ? "text-red" : "text-white"}
 										hoverBgColor={
 											sticky ? "hover:bg-red" : "hover:bg-red-dark"
 										}
-										fontWeight="font-semibold"
+										hoverTextColor={
+											!sticky ? "hover:text-white" : "hover:text-red"
+										}
 									>
 										Instant Quote
 									</RoundButton>
-									<AvatarDropdown
-										className={classNames("border border-white", {
-											"bg-custom-1": !sticky,
-										})}
-										navigations={dropNavs}
-									/>
 								</div>
-							)}
-						</div>
-						<div className="mr-2 flex items-center sm:hidden">
-							{/* Mobile menu button */}
-							<Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-1 focus:ring-inset focus:ring-indigo-500">
-								<span className="sr-only">Open main menu</span>
-								{open ? (
-									<XIcon
-										className="block h-6 w-6"
-										aria-hidden="true"
-									/>
-								) : (
-									<MenuIcon
-										className="block h-6 w-6"
-										aria-hidden="true"
-									/>
-								)}
-							</Disclosure.Button>
+								<div className="hidden md:ml-4 md:flex-shrink-0 md:flex md:items-center">
+									{/* Profile dropdown */}
+									<Menu as="div" className="ml-3 relative">
+										{({ open }) => (
+											<>
+												<div>
+													<Menu.Button
+														className={classNames(
+															"bg-custom-1 rounded-full flex text-sm focus:outline-none",
+															{ "bg-custom-profile": !sticky }
+														)}
+													>
+														<span className="sr-only">
+															Open user menu
+														</span>
+														<div className="flex items-center py-1 px-2 space-x-4">
+															<img
+																className="h-4 pl-1"
+																src="/images/landing/menu.png"
+																alt=""
+															/>
+															<img
+																className="h-10"
+																src="/images/landing/avatar.png"
+																alt=""
+															/>
+														</div>
+													</Menu.Button>
+												</div>
+												<Transition
+													show={open}
+													as={Fragment}
+													enter="transition ease-out duration-200"
+													enterFrom="transform opacity-0 scale-95"
+													enterTo="transform opacity-100 scale-100"
+													leave="transition ease-in duration-75"
+													leaveFrom="transform opacity-100 scale-100"
+													leaveTo="transform opacity-0 scale-95"
+												>
+													<Menu.Items
+														static
+														className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+													>
+														<Menu.Item>
+															{({ active }) => (
+																<a
+																	href="#"
+																	className={classNames(
+																		active ? "bg-gray-100" : "",
+																		"block px-4 py-2 text-sm"
+																	)}
+																>
+																	Login
+																</a>
+															)}
+														</Menu.Item>
+														<Menu.Item>
+															{({ active }) => (
+																<a
+																	href="#"
+																	className={classNames(
+																		active ? "bg-gray-100" : "",
+																		"block px-4 py-2 text-sm"
+																	)}
+																>
+																	Registration
+																</a>
+															)}
+														</Menu.Item>
+														<div className="w-full border-t border-gray-less" />
+														<Menu.Item>
+															{({ active }) => (
+																<a
+																	href="#"
+																	className={classNames(
+																		active ? "bg-gray-100" : "",
+																		"block px-4 py-2 text-sm text-gray"
+																	)}
+																>
+																	Renovation Calculator
+																</a>
+															)}
+														</Menu.Item>
+														<Menu.Item>
+															{({ active }) => (
+																<a
+																	href="#"
+																	className={classNames(
+																		active ? "bg-gray-100" : "",
+																		"block px-4 py-2 text-sm text-gray"
+																	)}
+																>
+																	Blog
+																</a>
+															)}
+														</Menu.Item>
+														<Menu.Item>
+															{({ active }) => (
+																<a
+																	href="#"
+																	className={classNames(
+																		active ? "bg-gray-100" : "",
+																		"block px-4 py-2 text-sm text-gray"
+																	)}
+																>
+																	Contractor Signup
+																</a>
+															)}
+														</Menu.Item>
+													</Menu.Items>
+												</Transition>
+											</>
+										)}
+									</Menu>
+								</div>
+							</div>
 						</div>
 					</div>
-					{/* Mobile */}
-					<Disclosure.Panel className="sm:hidden">
-						{!session && (
-							<div className="pt-2 pb-3 space-y-1">
+
+					<Disclosure.Panel className="md:hidden bg-white">
+						<div className="pt-2 pb-3 space-y-1">
+							{/* Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700" */}
+							<a
+								href="#"
+								className="bg-indigo-50 border-indigo-500 text-indigo-700 block pl-3 pr-4 py-2 border-l-4 text-base font-montserrat-semibold sm:pl-5 sm:pr-6"
+							>
+								How it works
+							</a>
+							<a
+								href="#"
+								className="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-montserrat-semibold sm:pl-5 sm:pr-6"
+							>
+								Gallery
+							</a>
+						</div>
+						<div className="pt-4 pb-3 border-t border-gray-200">
+							<div className="flex items-center px-4 sm:px-6">
+								<div className="flex-shrink-0">
+									<img
+										className="h-10 w-10 rounded-full"
+										src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+										alt=""
+									/>
+								</div>
+								<div className="ml-3">
+									<div className="text-base font-montserrat-medium text-gray-800">
+										Tom Cook
+									</div>
+									<div className="text-sm font-montserrat-medium text-gray-500">
+										tom@example.com
+									</div>
+								</div>
+							</div>
+							<div className="mt-3 space-y-1">
 								<a
 									href="#"
-									className="bg-indigo-50 border-indigo-500 text-indigo-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
+									className="block px-4 py-2 text-base font-montserrat-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100 sm:px-6"
 								>
-									Start a Project
+									Your Profile
 								</a>
-								<Link href="/auth/login">
-									<a className="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">
-										Login/Register
-									</a>
-								</Link>
+								<a
+									href="#"
+									className="block px-4 py-2 text-base font-montserrat-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100 sm:px-6"
+								>
+									Settings
+								</a>
+								<a
+									href="#"
+									className="block px-4 py-2 text-base font-montserrat-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100 sm:px-6"
+								>
+									Sign out
+								</a>
 							</div>
-						)}
+						</div>
 					</Disclosure.Panel>
 				</>
 			)}
 		</Disclosure>
 	);
-};
-
-export default Navbar;
+}

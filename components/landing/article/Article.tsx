@@ -21,7 +21,9 @@ const Popular: React.FC = (): JSX.Element => {
 	return (
 		<>
 			<div className="flex justify-between items-center">
-				<p className="text-4xl font-bold">Popular projects</p>
+				<p className="text-4xl font-montserrat-bold">
+					Popular projects
+				</p>
 				<div className="flex text-gray">
 					<button
 						className="button"

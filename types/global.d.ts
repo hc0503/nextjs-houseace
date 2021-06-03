@@ -21,6 +21,7 @@ interface IButton {
 	bgColor?: string;
 	borderColor?: string;
 	hoverBgColor?: string;
+	hoverTextColor?: string;
 	padding?: string;
 	type?: "button" | "submit" | "reset";
 	disabled?: boolean;

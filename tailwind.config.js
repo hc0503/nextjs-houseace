@@ -19,7 +19,7 @@ module.exports = {
           moredark: "#4B5563"
         },
         custom: {
-          1: "#D5D2C8"
+          profile: "#D5D2C8"
         }
       },
       maxWidth: {
@@ -27,6 +27,12 @@ module.exports = {
       },
       backgroundImage: {
         "hero-pattern": "url('/images/landing/banner.png')",
+      },
+      fontFamily: {
+        'montserrat': 'MontserratRegular',
+        'montserrat-bold': 'MontserratBold',
+        'montserrat-semibold': 'MontserratSemiBold',
+        'montserrat-medium': 'MontserratMedium',
       }
     },
   },
