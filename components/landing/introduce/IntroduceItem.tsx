@@ -9,9 +9,9 @@ const IntroduceItem: React.FC<IProps> = ({
 	alt = "Introduce Image",
 	description = "",
 }) => (
-	<div className="w-44 text-center">
+	<div className="w-32 text-center pt-32 pb-10">
 		<div className="flex justify-center">
-			<img src={src} alt={alt} className="h-14" />
+			<img src={src} alt={alt} className="w-full h-auto" />
 		</div>
 		<p className="text-xs">{description}</p>
 	</div>

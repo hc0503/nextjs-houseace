@@ -21,8 +21,13 @@ interface IButton {
 	bgColor?: string;
 	borderColor?: string;
 	hoverBgColor?: string;
+	hoverTextColor?: string;
 	padding?: string;
 	type?: "button" | "submit" | "reset";
 	disabled?: boolean;
 	onClick?: () => void;
+}
+interface INavigation {
+	name: string;
+	href: string;
 }

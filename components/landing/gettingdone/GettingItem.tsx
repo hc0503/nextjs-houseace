@@ -4,16 +4,18 @@ import StarRatingComponent from "react-star-rating-component";
 const GettingItem: React.FC = () => {
 	return (
 		<>
-			<div className="p-5 w-80 border rounded-xl shadow-lg">
+			<div className="my-2 mx-1 p-5 border rounded-xl shadow-sm">
 				<div className="flex justify-end">
 					<img
 						src="/images/landing/gettingdone.png"
 						alt=""
-						className="h-14 rounded-md"
+						className="h-14 w-auto rounded-md"
 					/>
 				</div>
 				<div className="text-left">
-					<p className="text-lg font-bold">Bathroom Renovation</p>
+					<p className="text-lg font-montserrat-bold">
+						Bathroom Renovation
+					</p>
 					<p className="text-sm text-gray-light">
 						38 McKillop Street, Victoria-3375
 					</p>
@@ -26,7 +28,9 @@ const GettingItem: React.FC = () => {
 							className="h-10"
 						/>
 						<div>
-							<p className="text-sm font-bold">Ashley B Lay</p>
+							<p className="text-sm font-montserrat-bold">
+								Ashley B Lay
+							</p>
 							<StarRatingComponent
 								name="rate"
 								editing={false}
@@ -37,7 +41,7 @@ const GettingItem: React.FC = () => {
 					</div>
 					<ArrowCircleButton
 						arrowSize="h-4 w-4"
-						fontsize="text-xs"
+						fontsize="text-2xs"
 						padding="px-1"
 					>
 						Instant Quote

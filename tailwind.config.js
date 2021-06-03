@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       colors: {
         red: {
+          150: "#EEEEEE",
           lesslight: "#FFE8E8",
           light: "#F87171",
           DEFAULT: "#F96868",
@@ -19,7 +20,7 @@ module.exports = {
           moredark: "#4B5563"
         },
         custom: {
-          1: "#D5D2C8"
+          profile: "#D5D2C8"
         }
       },
       maxWidth: {
@@ -27,7 +28,19 @@ module.exports = {
       },
       backgroundImage: {
         "hero-pattern": "url('/images/landing/banner.png')",
-      }
+      },
+      fontFamily: {
+        'montserrat': 'MontserratRegular',
+        'montserrat-bold': 'MontserratBold',
+        'montserrat-semibold': 'MontserratSemiBold',
+        'montserrat-medium': 'MontserratMedium',
+      },
+      fontSize: {
+        '2xs': '.375rem'
+      },
+      container: {
+        padding: '1rem',
+      },
     },
   },
   variants: {

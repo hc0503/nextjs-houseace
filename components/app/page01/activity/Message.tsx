@@ -65,7 +65,7 @@ export default function Message({
 					</div>
 					<button
 						type="button"
-						className="inline-flex items-center ml-10 px-3 py-1 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-red-light hover:bg-red focus:bg-red-dark"
+						className="inline-flex items-center ml-10 px-3 py-1 border border-transparent text-xs font-montserrat-medium rounded-full shadow-sm text-white bg-red-light hover:bg-red focus:bg-red-dark"
 					>
 						View
 					</button>

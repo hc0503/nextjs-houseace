@@ -15,7 +15,7 @@ const SearchInputGroup: React.FC<IInputGroup> = ({
 		<div>
 			<label
 				htmlFor={id}
-				className="block font-semibold text-sm pl-3"
+				className="block font-montserrat-semibold text-sm pl-3"
 			>
 				{label}
 			</label>

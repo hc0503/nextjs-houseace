@@ -4,10 +4,10 @@ const Banner: React.FC = () => {
 	return (
 		<div className="text-center pt-44 pb-96">
 			<div className="text-white">
-				<p className="text-5xl font-bold">
+				<p className="text-5xl font-montserrat-bold">
 					Home Renovation Made Easy
 				</p>
-				<p className="text-2xl font-normal">
+				<p className="text-2xl">
 					Get a free, no obligation quote in 2 minutes.
 				</p>
 			</div>

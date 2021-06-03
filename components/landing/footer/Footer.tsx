@@ -3,15 +3,11 @@ import { FaGooglePlay, FaAppStoreIos } from "react-icons/fa";
 
 import RoundButton from "../renovation/RoundButton";
 
-interface INavItem {
-	name: string;
-	href: string;
+interface IFooterNavigations {
+	help: INavigation[];
+	aboutUs: INavigation[];
 }
-interface INavigation {
-	help: INavItem[];
-	aboutUs: INavItem[];
-}
-const navigation: INavigation = {
+const navigation: IFooterNavigations = {
 	help: [
 		{ name: "FAQ", href: "#" },
 		{ name: "Terms & Conditions", href: "#" },
@@ -32,58 +28,69 @@ const navigation: INavigation = {
 const Footer: React.FC = (): JSX.Element => {
 	return (
 		<footer>
-			<div className="grid grid-cols-2 pt-16 pb-24">
-				<div>
+			<div className="grid md:grid-cols-2 grid-cols-1 pt-16 pb-24">
+				<div className="md:pr-20">
 					<Link href="/">
 						<a>
 							<img
 								src="/logo.png"
 								alt="Logo"
 								height={69}
-								width={232}
+								width="auto"
 							/>
 						</a>
 					</Link>
 					<p className="pt-9 text-base">
 						Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-						sed diam
-						<br />
-						nonumy eirmod tempor invidunt ut labore et dolore magna
-						aliquyam
-						<br />
-						erat, sed diam voluptua. At vero eos et accusam{" "}
+						sed diam nonumy eirmod tempor invidunt ut labore et dolore
+						magna aliquyam erat, sed diam voluptua. At vero eos et
+						accusam
 					</p>
-					<div className="flex pt-9 space-x-7">
-						<RoundButton>
+					<div className="flex pt-9 justify-between">
+						<RoundButton
+							fontSize="xl:text-base md:text-sm text-xs"
+							padding="px-10 py-4"
+						>
 							<div className="flex items-center">
-								<FaAppStoreIos height={24} width={24} />
-								&nbsp;Get it on IOS
+								<FaAppStoreIos height={24} width="auto" />
+								<span className="md:block hidden">
+									&nbsp;Get it on IOS
+								</span>
 							</div>
 						</RoundButton>
-						<RoundButton>
+						<RoundButton
+							fontSize="xl:text-base md:text-sm text-xs"
+							padding="px-10 py-4"
+						>
 							<div className="flex items-center">
-								<FaGooglePlay height={24} width={24} />
-								&nbsp;Get it on Android
+								<FaGooglePlay height={24} width="auto" />
+								<span className="md:block hidden">
+									&nbsp;Get it on Android
+								</span>
 							</div>
 						</RoundButton>
 					</div>
 				</div>
-				<div className="grid grid-cols-2">
+				<div className="grid grid-cols-2 md:pt-0 pt-2">
 					<div>
-						<h3 className="text-2xl font-bold">Help</h3>
+						<h3 className="text-2xl font-montserrat-bold">Help</h3>
 						<div className="grid col-1 pt-16 space-y-4 text-base">
-							{navigation.help.map((item: INavItem, key: number) => (
-								<Link href={item.href} key={`HelpNav-${key}`}>
-									<a>{item.name}</a>
-								</Link>
-							))}
+							{navigation.help.map(
+								(item: INavigation, key: number) => (
+									<Link href={item.href} key={`HelpNav-${key}`}>
+										<a>{item.name}</a>
+									</Link>
+								)
+							)}
 						</div>
 					</div>
 					<div>
-						<h3 className="text-2xl font-bold">About Us</h3>
+						<h3 className="text-2xl font-montserrat-bold">
+							About Us
+						</h3>
 						<div className="grid col-1 pt-16 space-y-4 text-base">
 							{navigation.aboutUs.map(
-								(item: INavItem, key: number) => (
+								(item: INavigation, key: number) => (
 									<Link href={item.href} key={`AboutUsNav-${key}`}>
 										<a>{item.name}</a>
 									</Link>
@@ -93,11 +100,11 @@ const Footer: React.FC = (): JSX.Element => {
 					</div>
 				</div>
 			</div>
-			<div className="flex justify-between py-10 px-12 text-sm text-gray-light">
+			<div className="md:flex justify-between py-10 text-sm text-gray-light">
 				<p className="">
 					Copyright © 2021 HOUSEACE GROUP PTY LTD. All Rights Reserved
 				</p>
-				<div className="flex space-x-20">
+				<div className="flex space-x-20 md:pt-0 pt-2">
 					<Link href="#">
 						<a>Privacy Policy</a>
 					</Link>

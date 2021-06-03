@@ -1,9 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: MontserratRegular;
+    src: url(/fonts/Montserrat/Montserrat-Regular.ttf) format('truetype');
+  }
+  @font-face {
+    font-family: MontserratBold;
+    src: url(/fonts/Montserrat/Montserrat-Bold.ttf) format('truetype');
+  }
+  @font-face {
+    font-family: MontserratMedium;
+    src: url(/fonts/Montserrat/Montserrat-Medium.ttf) format('truetype');
+  }
+  @font-face {
+    font-family: MontserratSemiBold;
+    src: url(/fonts/Montserrat/Montserrat-SemiBold.ttf) format('truetype');
+  }
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: -apple-system, MontserratRegular;
 }
 
 a {
@@ -13,4 +35,8 @@ a {
 
 * {
   box-sizing: border-box;
+}
+/* FAQ */
+.row-title-text.styles_row-title-text__1MuhU {
+	margin-left: 47px;
 }

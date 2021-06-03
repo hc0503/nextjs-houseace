@@ -27,7 +27,7 @@ const AuthSelectGroup: React.FC<Props> = ({
 		<div>
 			<label
 				htmlFor={id}
-				className="block text-sm font-medium text-gray-700"
+				className="block text-sm font-montserrat-medium text-gray-700"
 			>
 				{label}
 			</label>
@@ -55,7 +55,7 @@ const AuthSelectGroup: React.FC<Props> = ({
 				))}
 			</select>
 			{errorMessage && (
-				<p className="mt-2 text-sm text-red-moredark font-bold">
+				<p className="mt-2 text-sm text-red-moredark font-montserrat-bold">
 					{errorMessage}
 				</p>
 			)}
