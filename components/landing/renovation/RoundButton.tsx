@@ -4,12 +4,9 @@ const RoundButton: React.FC<IButton> = ({
 	children,
 	padding = "px-14 py-4",
 	fontSize = "md:text-base text-sm",
-	textColor = "text-black",
-	bgColor = "bg-white",
-	borderColor = "",
-	hoverBgColor = "hover:bg-red",
-	hoverTextColor = "hover:text-black",
-	fontWeight = "font-normal",
+	textColor = "text-black hover:text-black",
+	bgColor = "bg-white hover:bg-red",
+	borderColor,
 }): JSX.Element => {
 	return (
 		<button
@@ -19,10 +16,7 @@ const RoundButton: React.FC<IButton> = ({
 				fontSize,
 				textColor,
 				bgColor,
-				borderColor,
-				fontWeight,
-				hoverBgColor,
-				hoverTextColor
+				borderColor
 			)}
 		>
 			{children}

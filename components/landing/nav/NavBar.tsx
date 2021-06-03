@@ -76,13 +76,15 @@ export default function Example() {
 									<RoundButton
 										padding="py-3 px-9"
 										borderColor="border-red"
-										bgColor={sticky ? "bg-white" : "bg-red"}
-										textColor={sticky ? "text-red" : "text-white"}
-										hoverBgColor={
-											sticky ? "hover:bg-red" : "hover:bg-red-dark"
+										bgColor={
+											sticky
+												? "bg-white hover:bg-red"
+												: "bg-red hover:bg-red-dark"
 										}
-										hoverTextColor={
-											!sticky ? "hover:text-white" : "hover:text-red"
+										textColor={
+											sticky
+												? "text-red hover:text-white"
+												: "text-white hover:text-white"
 										}
 									>
 										Instant Quote
