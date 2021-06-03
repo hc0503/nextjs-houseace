@@ -19,12 +19,9 @@ const Renovation: React.FC = (): JSX.Element => {
 				<div className="pt-20">
 					<p className="text-base text-gray-light">
 						Keep a finger on the pulse and stay and stay informed
-						throughout your
-						<br />
-						project with the Houseace app - Get messages and updates
-						from
-						<br />
-						your team directly to your phone.
+						throughout your project with the Houseace app - Get
+						messages and updates from your team directly to your
+						phone.
 					</p>
 				</div>
 				<div className="pt-32 flex justify-between">

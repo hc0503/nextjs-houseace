@@ -3,7 +3,7 @@ import classNames from "classnames";
 const RoundButton: React.FC<IButton> = ({
 	children,
 	padding = "px-14 py-4",
-	fontSize = "md:text-base text-sm",
+	fontSize = "text-base",
 	textColor = "text-black hover:text-black",
 	bgColor = "bg-white hover:bg-red",
 	borderColor,

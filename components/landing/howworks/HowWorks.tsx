@@ -22,9 +22,7 @@ const HowWorks: React.FC = (): JSX.Element => {
 							</p>
 							<p className="pt-3 text-base text-gray-light">
 								We will walk you through every step in the process,
-								ensuring
-								<br />
-								you never feel lost and overwhelmed.
+								ensuring you never feel lost and overwhelmed.
 							</p>
 						</div>
 					</div>
@@ -41,9 +39,7 @@ const HowWorks: React.FC = (): JSX.Element => {
 							<p className="pt-3 text-base text-gray-light">
 								{`
 								We'll carefully devise a detailed project plan,
-								guaranteeing the`}
-								<br />
-								best possible results for your project.
+								guaranteeing the best possible results for your project.`}
 							</p>
 						</div>
 					</div>
@@ -60,9 +56,7 @@ const HowWorks: React.FC = (): JSX.Element => {
 							<p className="pt-3 text-base text-gray-light">
 								{`
 								We'll carefully devise a detailsed project plan,
-								guaranteeing the`}
-								<br />
-								best possible results for your project.
+								guaranteeing the best possible results for your project.`}
 							</p>
 						</div>
 					</div>

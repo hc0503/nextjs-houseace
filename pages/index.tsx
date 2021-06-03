@@ -44,7 +44,7 @@ const Landing: React.FC<Props> = ({ user }): JSX.Element => {
 				<div className="mt-36">
 					<Renovation />
 				</div>
-				{/* <div className="mt-36">
+				<div className="mt-36">
 					<Faq />
 				</div>
 				<div className="mt-36">
@@ -52,7 +52,7 @@ const Landing: React.FC<Props> = ({ user }): JSX.Element => {
 				</div>
 				<div className="mt-36">
 					<Footer />
-				</div> */}
+				</div>
 			</div>
 		</>
 	);
