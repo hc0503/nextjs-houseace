@@ -4,12 +4,12 @@ import StarRatingComponent from "react-star-rating-component";
 const GettingItem: React.FC = () => {
 	return (
 		<>
-			<div className="p-5 w-80 border rounded-xl shadow-lg">
+			<div className="m-2 p-5 border rounded-xl shadow-lg">
 				<div className="flex justify-end">
 					<img
 						src="/images/landing/gettingdone.png"
 						alt=""
-						className="h-14 rounded-md"
+						className="h-14 w-auto rounded-md"
 					/>
 				</div>
 				<div className="text-left">
@@ -41,7 +41,7 @@ const GettingItem: React.FC = () => {
 					</div>
 					<ArrowCircleButton
 						arrowSize="h-4 w-4"
-						fontsize="text-xs"
+						fontsize="text-2xs"
 						padding="px-1"
 					>
 						Instant Quote

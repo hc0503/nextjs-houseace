@@ -33,6 +33,9 @@ module.exports = {
         'montserrat-bold': 'MontserratBold',
         'montserrat-semibold': 'MontserratSemiBold',
         'montserrat-medium': 'MontserratMedium',
+      },
+      fontSize: {
+        '2xs': '.375rem'
       }
     },
   },
