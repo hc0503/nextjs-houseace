@@ -30,4 +30,5 @@ interface IButton {
 interface INavigation {
 	name: string;
 	href: string;
+	color?: string;
 }

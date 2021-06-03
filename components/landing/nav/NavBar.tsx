@@ -10,12 +10,16 @@ import RoundButton from "@/components/landing/renovation/RoundButton";
 import ArrowCircleButton from "@/components/auth/ArrowCircleButton";
 
 const navigations: INavigation[] = [
-	{ name: "Login", href: "/auth/login" },
-	{ name: "Registration", href: "/auth/register" },
+	{ name: "Login", href: "/auth/login", color: "text-black" },
+	{
+		name: "Registration",
+		href: "/auth/register",
+		color: "text-black",
+	},
 	{ name: "#", href: "#" },
-	{ name: "Renovation Calculator", href: "#" },
-	{ name: "Blog", href: "#" },
-	{ name: "Contractor Signup", href: "#" },
+	{ name: "Renovation Calculator", href: "#", color: "text-gray" },
+	{ name: "Blog", href: "#", color: "text-gray" },
+	{ name: "Contractor Signup", href: "#", color: "text-gray" },
 ];
 
 const NavBar: React.FC = (): JSX.Element => {
@@ -178,7 +182,8 @@ const NavBar: React.FC = (): JSX.Element => {
 																		<Link href={item.href}>
 																			<a
 																				className={classNames(
-																					"hover:bg-gray-100 block px-4 py-2 text-sm"
+																					"hover:bg-gray-100 block px-4 py-2 text-sm",
+																					item.color
 																				)}
 																			>
 																				{item.name}
@@ -241,7 +246,12 @@ const NavBar: React.FC = (): JSX.Element => {
 											href={item.href}
 											key={`MobileDropNav-${key}`}
 										>
-											<a className="block px-4 py-2 text-base font-montserrat-medium hover:bg-gray-100 sm:px-6">
+											<a
+												className={classNames(
+													"block px-4 py-2 text-base font-montserrat-medium hover:bg-gray-100 sm:px-6",
+													item.color
+												)}
+											>
 												{item.name}
 											</a>
 										</Link>

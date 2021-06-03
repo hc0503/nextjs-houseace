@@ -78,7 +78,7 @@ const Footer: React.FC = (): JSX.Element => {
 							{navigation.help.map(
 								(item: INavigation, key: number) => (
 									<Link href={item.href} key={`HelpNav-${key}`}>
-										<a>{item.name}</a>
+										<a className="hover:text-red">{item.name}</a>
 									</Link>
 								)
 							)}
@@ -92,7 +92,7 @@ const Footer: React.FC = (): JSX.Element => {
 							{navigation.aboutUs.map(
 								(item: INavigation, key: number) => (
 									<Link href={item.href} key={`AboutUsNav-${key}`}>
-										<a>{item.name}</a>
+										<a className="hover:text-red">{item.name}</a>
 									</Link>
 								)
 							)}
