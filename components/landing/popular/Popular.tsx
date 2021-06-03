@@ -9,13 +9,32 @@ import "slick-carousel/slick/slick-theme.css";
 const Popular: React.FC = (): JSX.Element => {
 	const settings: Settings = {
 		className: "center",
-		centerMode: true,
 		infinite: true,
-		centerPadding: "60px",
+		speed: 2000,
+		autoplaySpeed: 2000,
+		autoplay: false,
 		slidesToShow: 3,
-		speed: 500,
-		rows: 1,
-		slidesPerRow: 1,
+		slidesToScroll: 3,
+		initialSlide: 0,
+		arrows: false,
+		responsive: [
+			{
+				breakpoint: 1025,
+				settings: {
+					slidesToShow: 2,
+					slidesToScroll: 2,
+					initialSlide: 0,
+				},
+			},
+			{
+				breakpoint: 601,
+				settings: {
+					slidesToShow: 1,
+					slidesToScroll: 1,
+					initialSlide: 0,
+				},
+			},
+		],
 	};
 	const [slide, setSlide] = useState<Slider>();
 	return (

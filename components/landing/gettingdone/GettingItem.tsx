@@ -4,7 +4,7 @@ import StarRatingComponent from "react-star-rating-component";
 const GettingItem: React.FC = () => {
 	return (
 		<>
-			<div className="m-2 p-5 border rounded-xl shadow-lg">
+			<div className="my-2 mx-1 p-5 border rounded-xl shadow-sm">
 				<div className="flex justify-end">
 					<img
 						src="/images/landing/gettingdone.png"

@@ -1,8 +1,8 @@
 const HowWorks: React.FC = (): JSX.Element => {
 	return (
 		<>
-			<div className="flex justify-between items-center space-x-12">
-				<div className="pl-28">
+			<div className="grid md:grid-cols-2 grid-cols-1 justify-items-center items-center">
+				<div className="">
 					<p className="text-4xl font-montserrat-bold">
 						How Houseace Works
 					</p>
@@ -10,7 +10,7 @@ const HowWorks: React.FC = (): JSX.Element => {
 						Houseace is the all-in-one platform that makes home
 						renovation easy
 					</p>
-					<div className="flex pt-24 items-center">
+					<div className="flex lg:pt-24 pt-10 items-center">
 						<img
 							src="/images/landing/icon_managed.png"
 							alt="Managed"
@@ -22,11 +22,13 @@ const HowWorks: React.FC = (): JSX.Element => {
 							</p>
 							<p className="pt-3 text-base text-gray-light">
 								We will walk you through every step in the process,
-								ensuring you never feel lost and overwhelmed.
+								ensuring
+								<br />
+								you never feel lost and overwhelmed.
 							</p>
 						</div>
 					</div>
-					<div className="flex pt-24 items-center">
+					<div className="flex lg:pt-24 pt-10 items-center">
 						<img
 							src="/images/landing/icon_planned.png"
 							alt="Planned"
@@ -36,10 +38,16 @@ const HowWorks: React.FC = (): JSX.Element => {
 							<p className="text-2xl font-montserrat-semibold">
 								Meticulously planned
 							</p>
-							<p className="pt-3 text-base text-gray-light">{`We'll carefully devise a detailed project plan, guaranteeing the best possible results for your project.`}</p>
+							<p className="pt-3 text-base text-gray-light">
+								{`
+								We'll carefully devise a detailed project plan,
+								guaranteeing the`}
+								<br />
+								best possible results for your project.
+							</p>
 						</div>
 					</div>
-					<div className="flex pt-24 items-center">
+					<div className="flex lg:pt-24 pt-10 items-center">
 						<img
 							src="/images/landing/icon_budgeted.png"
 							alt="Budgeted"
@@ -49,14 +57,20 @@ const HowWorks: React.FC = (): JSX.Element => {
 							<p className="text-2xl font-montserrat-semibold">
 								Accurately budgeted
 							</p>
-							<p className="pt-3 text-base text-gray-light">{`We'll carefully devise a detailsed project plan, guaranteeing the best possible results for your project.`}</p>
+							<p className="pt-3 text-base text-gray-light">
+								{`
+								We'll carefully devise a detailsed project plan,
+								guaranteeing the`}
+								<br />
+								best possible results for your project.
+							</p>
 						</div>
 					</div>
 				</div>
 				<img
 					src="/images/landing/video.png"
 					alt="Video"
-					className="h-full"
+					className="md:pt-0 pt-10 w-full h-auto"
 				/>
 			</div>
 		</>

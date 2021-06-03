@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       colors: {
         red: {
+          150: "#EEEEEE",
           lesslight: "#FFE8E8",
           light: "#F87171",
           DEFAULT: "#F96868",
@@ -36,7 +37,10 @@ module.exports = {
       },
       fontSize: {
         '2xs': '.375rem'
-      }
+      },
+      container: {
+        padding: '1rem',
+      },
     },
   },
   variants: {

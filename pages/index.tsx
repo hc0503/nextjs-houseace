@@ -30,9 +30,11 @@ const Landing: React.FC<Props> = ({ user }): JSX.Element => {
 			</div>
 			<div className="container mx-auto">
 				<Introduce />
-				<div className="mt-36">
-					<GettingDone />
-				</div>
+			</div>
+			<div className="mt-36">
+				<GettingDone />
+			</div>
+			<div className="container mx-auto">
 				<div className="mt-36">
 					<Popular />
 				</div>
@@ -42,7 +44,7 @@ const Landing: React.FC<Props> = ({ user }): JSX.Element => {
 				<div className="mt-36">
 					<Renovation />
 				</div>
-				<div className="mt-36">
+				{/* <div className="mt-36">
 					<Faq />
 				</div>
 				<div className="mt-36">
@@ -50,7 +52,7 @@ const Landing: React.FC<Props> = ({ user }): JSX.Element => {
 				</div>
 				<div className="mt-36">
 					<Footer />
-				</div>
+				</div> */}
 			</div>
 		</>
 	);

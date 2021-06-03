@@ -1,14 +1,17 @@
-import Slider from "react-slick";
+import Slider, { Settings } from "react-slick";
+
 import GettingItem from "./GettingItem";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const GettingDone: React.FC = (): JSX.Element => {
-	const settings = {
+	const settings: Settings = {
 		className: "center",
 		infinite: true,
-		speed: 500,
+		speed: 2000,
+		autoplaySpeed: 2000,
+		autoplay: true,
 		slidesToShow: 4,
 		slidesToScroll: 4,
 		initialSlide: 0,
