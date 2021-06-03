@@ -27,3 +27,7 @@ interface IButton {
 	disabled?: boolean;
 	onClick?: () => void;
 }
+interface INavigation {
+	name: string;
+	href: string;
+}

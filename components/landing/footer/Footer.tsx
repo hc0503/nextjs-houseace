@@ -3,15 +3,11 @@ import { FaGooglePlay, FaAppStoreIos } from "react-icons/fa";
 
 import RoundButton from "../renovation/RoundButton";
 
-interface INavItem {
-	name: string;
-	href: string;
+interface IFooterNavigations {
+	help: INavigation[];
+	aboutUs: INavigation[];
 }
-interface INavigation {
-	help: INavItem[];
-	aboutUs: INavItem[];
-}
-const navigation: INavigation = {
+const navigation: IFooterNavigations = {
 	help: [
 		{ name: "FAQ", href: "#" },
 		{ name: "Terms & Conditions", href: "#" },
@@ -79,11 +75,13 @@ const Footer: React.FC = (): JSX.Element => {
 					<div>
 						<h3 className="text-2xl font-montserrat-bold">Help</h3>
 						<div className="grid col-1 pt-16 space-y-4 text-base">
-							{navigation.help.map((item: INavItem, key: number) => (
-								<Link href={item.href} key={`HelpNav-${key}`}>
-									<a>{item.name}</a>
-								</Link>
-							))}
+							{navigation.help.map(
+								(item: INavigation, key: number) => (
+									<Link href={item.href} key={`HelpNav-${key}`}>
+										<a>{item.name}</a>
+									</Link>
+								)
+							)}
 						</div>
 					</div>
 					<div>
@@ -92,7 +90,7 @@ const Footer: React.FC = (): JSX.Element => {
 						</h3>
 						<div className="grid col-1 pt-16 space-y-4 text-base">
 							{navigation.aboutUs.map(
-								(item: INavItem, key: number) => (
+								(item: INavigation, key: number) => (
 									<Link href={item.href} key={`AboutUsNav-${key}`}>
 										<a>{item.name}</a>
 									</Link>
