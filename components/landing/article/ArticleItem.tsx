@@ -24,13 +24,13 @@ const ArticleItem: React.FC<Props> = ({
 				width={572}
 				className="bg-cover bg-center"
 			/>
-			<div className="px-5 py-5">
-				<p className="text-xl font-montserrat-bold">{title}</p>
+			<div className="px-5">
+				<p className="mt-5 text-xl font-montserrat-bold">{title}</p>
 				<p className="pt-2.5 text-sm text-gray-light">{date}</p>
 				<p className="pt-8 text-base text-gray-light">
 					{description}
 				</p>
-				<div className="pt-9">
+				<div className="pt-8">
 					<RoundButton padding="px-8 py-2.5" fontSize="text-xs">
 						Read More
 					</RoundButton>

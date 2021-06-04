@@ -77,7 +77,7 @@ const Footer: React.FC = (): JSX.Element => {
 							Help
 							<div className="w-16 border-t border-red mt-2" />
 						</h3>
-						<div className="grid col-1 pt-16 space-y-4 text-base">
+						<div className="grid col-1 pt-12 space-y-4 text-base">
 							{navigation.help.map(
 								(item: INavigation, key: number) => (
 									<Link href={item.href} key={`HelpNav-${key}`}>
@@ -92,7 +92,7 @@ const Footer: React.FC = (): JSX.Element => {
 							About Us
 							<div className="w-16 border-t border-red mt-2" />
 						</h3>
-						<div className="grid col-1 pt-16 space-y-4 text-base">
+						<div className="grid col-1 pt-12 space-y-4 text-base">
 							{navigation.aboutUs.map(
 								(item: INavigation, key: number) => (
 									<Link href={item.href} key={`AboutUsNav-${key}`}>
