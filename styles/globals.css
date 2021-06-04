@@ -44,11 +44,3 @@ a {
 .slick-slide {
   margin-top: 30px;
 }
-/* React start rating */
-.dv-star-rating {
-  display: flex !important;
-}
-label.dv-star-rating-star > i {
-  line-height: 13px !important;
-  font-size: 22px !important;
-}

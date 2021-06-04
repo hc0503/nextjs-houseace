@@ -32,3 +32,12 @@ interface INavigation {
 	href: string;
 	color?: string;
 }
+interface IGettingDoneItem {
+	src: string;
+	alt: string;
+	title: string;
+	location: string;
+	userAvatar: string;
+	userName: string;
+	rate: number;
+}

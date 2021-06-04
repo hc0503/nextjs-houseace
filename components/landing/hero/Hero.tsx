@@ -1,4 +1,4 @@
-import SearchQuote from "@/components/landing/hero/SearchQuote";
+import HeroSearch from "@/components/landing/Hero/HeroSearch";
 
 const Hero: React.FC = () => {
 	return (
@@ -12,7 +12,7 @@ const Hero: React.FC = () => {
 				</p>
 			</div>
 			<div className="flex justify-center mt-2">
-				<SearchQuote />
+				<HeroSearch />
 			</div>
 		</div>
 	);

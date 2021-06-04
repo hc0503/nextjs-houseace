@@ -4,15 +4,15 @@ import { withIronSession } from "next-iron-session";
 
 import { sessionOptions } from "@/lib/iron-session";
 import NavBar from "@/components/landing/nav/NavBar";
-import Hero from "@/components/landing/hero/Hero";
+import Hero from "@/components/landing/Hero/Hero";
 import Introduce from "@/components/landing/introduce/Introduce";
-import GettingDone from "@/components/landing/gettingdone/GettingDone";
+import GettingDone from "@/components/landing/GettingDone/GettingDone";
 import Popular from "@/components/landing/popular/Popular";
 import HowWorks from "@/components/landing/howworks/HowWorks";
 import Renovation from "@/components/landing/renovation/Renovation";
-import Faq from "@/components/landing/faq/Faq";
-import Article from "@/components/landing/article/Article";
-import Footer from "@/components/landing/footer/Footer";
+import Faq from "@/components/landing/FAQ/Faq";
+import ArticleGuide from "@/components/landing/ArticleGuide/ArticleGuide";
+import Footer from "@/components/landing/Footer/Footer";
 
 interface Props {
 	user?: any;
@@ -48,7 +48,7 @@ const Landing: React.FC<Props> = ({ user }): JSX.Element => {
 					<Faq />
 				</div>
 				<div className="mt-36">
-					<Article />
+					<ArticleGuide />
 				</div>
 			</div>
 			<div className="mt-36">

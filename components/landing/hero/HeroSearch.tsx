@@ -2,7 +2,7 @@ import classNames from "classnames";
 
 import ArrowCircleButton from "@/components/auth/ArrowCircleButton";
 
-const SearchQuote: React.FC = (): JSX.Element => {
+const HeroSearch: React.FC = (): JSX.Element => {
 	return (
 		<div className="flex space-x-2 rounded-full items-center bg-white pl-3 text-left">
 			<div>
@@ -35,4 +35,4 @@ const SearchQuote: React.FC = (): JSX.Element => {
 	);
 };
 
-export default SearchQuote;
+export default HeroSearch;
