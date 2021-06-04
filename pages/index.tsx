@@ -28,13 +28,13 @@ const Landing: React.FC<Props> = ({ user }): JSX.Element => {
 				<NavBar />
 				<Banner />
 			</div>
-			<div className="container mx-auto">
+			<div className="md:px-16 px-2">
 				<Introduce />
 			</div>
 			<div className="mt-36">
 				<GettingDone />
 			</div>
-			<div className="container mx-auto">
+			<div className="md:px-16 px-2">
 				<div className="mt-36">
 					<Popular />
 				</div>
