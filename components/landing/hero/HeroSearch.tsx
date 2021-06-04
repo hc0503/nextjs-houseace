@@ -21,11 +21,10 @@ const HeroSearch: React.FC = (): JSX.Element => {
 					placeholder="What do you need done?"
 				/>
 			</div>
-			<div className="text-right w-full">
+			<div className="text-right w-32">
 				<ArrowCircleButton
 					fontsize="text-xs"
-					arrowSize="h-4 w-4"
-					buttonPadding="p-6"
+					buttonSize="w-16 h-16 hover:w-32"
 				>
 					Instant Quote
 				</ArrowCircleButton>

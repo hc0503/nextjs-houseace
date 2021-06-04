@@ -42,11 +42,15 @@ module.exports = {
       container: {
         padding: '1rem',
       },
+      transitionProperty: {
+        'width': 'width, all',
+      }
     },
   },
   variants: {
     extend: {
-      display: ['group-hover']
+      display: ['group-hover'],
+      width: ['hover'],
     },
   },
   plugins: [
