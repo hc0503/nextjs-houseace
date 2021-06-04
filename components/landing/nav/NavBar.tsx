@@ -79,7 +79,7 @@ const NavBar: React.FC = (): JSX.Element => {
 								</div>
 							</div>
 							<div className="flex items-center md:space-x-8">
-								<div className="hidden md:flex md:space-x-8 xl:text-xl text-base font-montserrat-semibold">
+								<div className="hidden md:flex md:space-x-8 md:text-base font-montserrat-semibold">
 									<div
 										className={classNames(
 											"flex space-x-2 rounded-full border items-center bg-white pl-3 text-left",
@@ -126,6 +126,7 @@ const NavBar: React.FC = (): JSX.Element => {
 												? "text-red hover:text-white"
 												: "text-white hover:text-white"
 										}
+										fontSize="text-sm"
 									>
 										Instant Quote
 									</RoundButton>
@@ -145,14 +146,14 @@ const NavBar: React.FC = (): JSX.Element => {
 														<span className="sr-only">
 															Open user menu
 														</span>
-														<div className="flex items-center py-1 px-2 space-x-4">
+														<div className="flex items-center py-1 px-2 space-x-3">
 															<img
-																className="h-4 pl-1"
+																className="h-4 w-auto pl-1"
 																src="/images/landing/menu.png"
 																alt=""
 															/>
 															<img
-																className="h-10"
+																className="h-9 w-9"
 																src="/images/landing/avatar.png"
 																alt=""
 															/>
