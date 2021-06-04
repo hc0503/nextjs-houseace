@@ -73,7 +73,10 @@ const Footer: React.FC = (): JSX.Element => {
 				</div>
 				<div className="grid grid-cols-2 md:pt-0 pt-2">
 					<div>
-						<h3 className="text-2xl font-montserrat-bold">Help</h3>
+						<h3 className="text-2xl font-montserrat-bold">
+							Help
+							<div className="w-16 border-t border-red mt-2" />
+						</h3>
 						<div className="grid col-1 pt-16 space-y-4 text-base">
 							{navigation.help.map(
 								(item: INavigation, key: number) => (
@@ -87,6 +90,7 @@ const Footer: React.FC = (): JSX.Element => {
 					<div>
 						<h3 className="text-2xl font-montserrat-bold">
 							About Us
+							<div className="w-16 border-t border-red mt-2" />
 						</h3>
 						<div className="grid col-1 pt-16 space-y-4 text-base">
 							{navigation.aboutUs.map(
