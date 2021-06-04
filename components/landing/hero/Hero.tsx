@@ -2,7 +2,7 @@ import HeroSearch from "@/components/landing/Hero/HeroSearch";
 
 const Hero: React.FC = () => {
 	return (
-		<div className="text-center pt-44">
+		<div className="text-center pt-44 xl:pt-72">
 			<div className="text-white">
 				<p className="text-5xl font-montserrat-bold">
 					Home Renovation Made Easy
