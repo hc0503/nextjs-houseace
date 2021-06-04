@@ -4,7 +4,7 @@ import { withIronSession } from "next-iron-session";
 
 import { sessionOptions } from "@/lib/iron-session";
 import NavBar from "@/components/landing/nav/NavBar";
-import Banner from "@/components/landing/banner/Banner";
+import Hero from "@/components/landing/hero/Hero";
 import Introduce from "@/components/landing/introduce/Introduce";
 import GettingDone from "@/components/landing/gettingdone/GettingDone";
 import Popular from "@/components/landing/popular/Popular";
@@ -24,9 +24,9 @@ const Landing: React.FC<Props> = ({ user }): JSX.Element => {
 			<Head>
 				<title>{`${process.env.APP_NAME} - Landing`}</title>
 			</Head>
-			<div className="bg-hero-pattern bg-no-repeat bg-cover">
+			<div className="bg-hero-pattern bg-no-repeat bg-cover h-screen">
 				<NavBar />
-				<Banner />
+				<Hero />
 			</div>
 			<div className="md:px-16 px-2">
 				<Introduce />
