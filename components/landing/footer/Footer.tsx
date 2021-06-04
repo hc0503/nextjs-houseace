@@ -46,7 +46,7 @@ const Footer: React.FC = (): JSX.Element => {
 						magna aliquyam erat, sed diam voluptua. At vero eos et
 						accusam
 					</p>
-					<div className="flex pt-9 justify-between">
+					<div className="flex pt-9 justify-center space-x-4">
 						<RoundButton
 							fontSize="xl:text-base md:text-sm text-xs"
 							padding="px-10 py-4"
