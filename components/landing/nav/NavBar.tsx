@@ -41,7 +41,7 @@ const NavBar: React.FC = (): JSX.Element => {
 		>
 			{({ open }) => (
 				<>
-					<div className="mx-auto px-4 sm:px-6 lg:px-8">
+					<div className="md:px-16 px-2">
 						<div className="flex justify-between py-3">
 							<div className="flex">
 								<div className="-ml-2 mr-2 flex items-center md:hidden">
@@ -79,7 +79,7 @@ const NavBar: React.FC = (): JSX.Element => {
 								</div>
 							</div>
 							<div className="flex items-center md:space-x-8">
-								<div className="hidden md:flex md:space-x-8 lg:text-xl font-montserrat-semibold">
+								<div className="hidden md:flex md:space-x-8 xl:text-xl text-base font-montserrat-semibold">
 									<div
 										className={classNames(
 											"flex space-x-2 rounded-full border items-center bg-white pl-3 text-left",
@@ -90,7 +90,7 @@ const NavBar: React.FC = (): JSX.Element => {
 											id="project"
 											name="project"
 											className={classNames(
-												"text-xs rounded-full focus:outline-none border-0 px-1 py-1 font-montserrat"
+												"text-xs rounded-full focus:outline-none border-0 px-2 py-1 font-montserrat"
 											)}
 											placeholder="Search here"
 										/>

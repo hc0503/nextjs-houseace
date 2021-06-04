@@ -28,7 +28,7 @@ const navigation: IFooterNavigations = {
 const Footer: React.FC = (): JSX.Element => {
 	return (
 		<footer>
-			<div className="grid md:grid-cols-2 grid-cols-1 pt-16 px-16 pb-24 bg-red-160">
+			<div className="grid md:grid-cols-2 grid-cols-1 pt-16 md:px-16 px-2 pb-24 bg-red-160">
 				<div className="md:pr-20">
 					<Link href="/">
 						<a>
@@ -104,7 +104,7 @@ const Footer: React.FC = (): JSX.Element => {
 					</div>
 				</div>
 			</div>
-			<div className="md:flex justify-between py-10 text-sm text-gray-light">
+			<div className="md:flex justify-between py-10 text-sm text-gray-light px-36">
 				<p className="">
 					Copyright © 2021 HOUSEACE GROUP PTY LTD. All Rights Reserved
 				</p>
