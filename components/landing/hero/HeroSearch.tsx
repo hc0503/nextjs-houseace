@@ -16,16 +16,16 @@ const HeroSearch: React.FC = (): JSX.Element => {
 					id="project"
 					name="project"
 					className={classNames(
-						"text-sm rounded-full focus:outline-none border-0 px-1 py-2 w-full"
+						"text-sm rounded-full focus:outline-none border-0 px-1 pt-1 pb-2 w-full"
 					)}
 					placeholder="What do you need done?"
 				/>
 			</div>
 			<div className="text-right w-full">
 				<ArrowCircleButton
-					fontsize="text-xs md:text-sm"
+					fontsize="text-xs"
 					arrowSize="h-4 w-4"
-					buttonSize="h-16 w-16"
+					buttonPadding="p-6"
 				>
 					Instant Quote
 				</ArrowCircleButton>

@@ -99,7 +99,7 @@ const NavBar: React.FC = (): JSX.Element => {
 											<ArrowCircleButton
 												fontsize="text-xs"
 												arrowSize="h-4 w-4"
-												buttonSize="h-12 w-12"
+												buttonPadding="p-3"
 											>
 												Search
 											</ArrowCircleButton>
