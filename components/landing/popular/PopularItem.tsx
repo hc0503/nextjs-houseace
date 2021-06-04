@@ -9,7 +9,7 @@ const PopularItem: React.FC<IPopularItem> = ({
 				src={src}
 				alt={alt}
 				height="h-580"
-				className="rounded-lg"
+				className="rounded-xl"
 			/>
 			<p className="text-base pt-5">{title}</p>
 		</div>

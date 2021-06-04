@@ -16,13 +16,13 @@ const ArticleGuideItem: React.FC<IProps> = ({
 	description,
 }): JSX.Element => {
 	return (
-		<div className="mx-2 pb-14 rounded-lg border">
+		<div className="mx-2 pb-14 rounded-2xl border">
 			<img
 				src={srcImage}
 				alt={alt}
 				height={360}
 				width={572}
-				className="bg-cover bg-center"
+				className="bg-cover bg-center rounded-t-xl"
 			/>
 			<div className="px-5">
 				<p className="mt-5 text-xl font-montserrat-bold">{title}</p>
