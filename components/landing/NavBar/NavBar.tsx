@@ -95,11 +95,10 @@ const NavBar: React.FC = (): JSX.Element => {
 											placeholder="Search here"
 										/>
 
-										<div className="w-36 text-right">
+										<div className="w-24 text-right">
 											<ArrowCircleButton
 												fontsize="text-xs"
-												arrowSize="h-4 w-4"
-												buttonSize="h-12 w-12"
+												buttonSize="w-12 h-12 hover:w-24"
 											>
 												Search
 											</ArrowCircleButton>

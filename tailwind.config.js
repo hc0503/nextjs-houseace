@@ -42,10 +42,16 @@ module.exports = {
       container: {
         padding: '1rem',
       },
+      transitionProperty: {
+        'width': 'width, all',
+      }
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      display: ['group-hover'],
+      width: ['hover'],
+    },
   },
   plugins: [
     require("@tailwindcss/forms")

@@ -42,11 +42,11 @@ const GettingDoneItem: React.FC<IGettingDoneItem> = ({
 							/>
 						</div>
 					</div>
-					<div className="w-24 text-right">
+					<div className="w-24 flex justify-items-center justify-end">
 						<ArrowCircleButton
-							arrowSize="h-4 w-4"
 							fontsize="text-2xs"
-							padding="px-1"
+							buttonSize="w-9 h-9 hover:w-20"
+							itemPadding="pr-1"
 						>
 							Instant Quote
 						</ArrowCircleButton>

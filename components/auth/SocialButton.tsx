@@ -28,7 +28,7 @@ class SocialButton extends React.Component<Props> {
 					border
 					rounded-md
 					hover:bg-red-dark hover:border-red-dark
-					transition duration-500 ease-in-out transform hover:scale-100
+					transition duration-500
 					justify-center
 					focus:outline-none
 					${className}
