@@ -36,13 +36,15 @@ a {
 * {
   box-sizing: border-box;
 }
-/* FAQ */
+/* React FAQ */
 .row-title-text.styles_row-title-text__1MuhU {
 	margin-left: 47px;
 }
+/* React slick slide */
 .slick-slide {
   margin-top: 30px;
 }
+/* React start rating */
 .dv-star-rating {
   display: flex !important;
 }
