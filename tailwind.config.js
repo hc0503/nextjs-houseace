@@ -6,6 +6,7 @@ module.exports = {
       colors: {
         red: {
           150: "#EEEEEE",
+          160: "#FAF9FC",
           lesslight: "#FFE8E8",
           light: "#F87171",
           DEFAULT: "#F96868",

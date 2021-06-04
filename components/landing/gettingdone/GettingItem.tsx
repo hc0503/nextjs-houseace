@@ -4,12 +4,12 @@ import StarRatingComponent from "react-star-rating-component";
 const GettingItem: React.FC = () => {
 	return (
 		<>
-			<div className="my-2 mx-1 p-5 border rounded-xl shadow-sm">
+			<div className="my-14 mx-4 p-7 border rounded-xl shadow-sm bg-white relative">
 				<div className="flex justify-end">
 					<img
 						src="/images/landing/gettingdone.png"
 						alt=""
-						className="h-14 w-auto rounded-md"
+						className="h-14 w-auto rounded-md absolute right-7 -top-7"
 					/>
 				</div>
 				<div className="text-left">

@@ -1,7 +1,7 @@
 import IntroduceItem from "./IntroduceItem";
 
 const Introduce: React.FC = () => (
-	<div className="grid md:grid-cols-4 grid-cols-2 w-full items-center justify-items-center">
+	<div className="grid md:grid-cols-4 grid-cols-2 w-full items-center justify-items-center pb-10">
 		<IntroduceItem
 			src="/images/landing/entrepreneur.png"
 			alt="Entrepreneur"

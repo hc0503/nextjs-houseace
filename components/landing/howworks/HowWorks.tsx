@@ -1,8 +1,8 @@
 const HowWorks: React.FC = (): JSX.Element => {
 	return (
 		<>
-			<div className="grid md:grid-cols-2 grid-cols-1 justify-items-center items-center">
-				<div className="">
+			<div className="md:flex justify-items-center items-center">
+				<div className="md:w-2/5 md:pr-20 w-full pr-0">
 					<p className="text-4xl font-montserrat-bold">
 						How Houseace Works
 					</p>
@@ -64,7 +64,7 @@ const HowWorks: React.FC = (): JSX.Element => {
 				<img
 					src="/images/landing/video.png"
 					alt="Video"
-					className="md:pt-0 pt-10 w-full h-auto"
+					className="md:pt-0 pt-10 md:w-3/5 w-full h-auto"
 				/>
 			</div>
 		</>

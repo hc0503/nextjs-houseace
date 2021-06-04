@@ -28,7 +28,7 @@ const navigation: IFooterNavigations = {
 const Footer: React.FC = (): JSX.Element => {
 	return (
 		<footer>
-			<div className="grid md:grid-cols-2 grid-cols-1 pt-16 pb-24">
+			<div className="grid md:grid-cols-2 grid-cols-1 pt-16 px-16 pb-24 bg-red-160">
 				<div className="md:pr-20">
 					<Link href="/">
 						<a>

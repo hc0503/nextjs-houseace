@@ -16,7 +16,7 @@ const ArticleItem: React.FC<Props> = ({
 	description,
 }): JSX.Element => {
 	return (
-		<div className="px-2 pb-14 rounded-lg">
+		<div className="mx-2 pb-14 rounded-lg border">
 			<img
 				src={srcImage}
 				alt={alt}

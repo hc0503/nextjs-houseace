@@ -50,9 +50,9 @@ const Landing: React.FC<Props> = ({ user }): JSX.Element => {
 				<div className="mt-36">
 					<Article />
 				</div>
-				<div className="mt-36">
-					<Footer />
-				</div>
+			</div>
+			<div className="mt-36">
+				<Footer />
 			</div>
 		</>
 	);

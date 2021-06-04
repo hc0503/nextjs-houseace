@@ -11,7 +11,7 @@ const GettingDone: React.FC = (): JSX.Element => {
 		infinite: true,
 		speed: 2000,
 		autoplaySpeed: 2000,
-		autoplay: true,
+		autoplay: false,
 		slidesToShow: 4,
 		slidesToScroll: 4,
 		initialSlide: 0,
@@ -48,7 +48,7 @@ const GettingDone: React.FC = (): JSX.Element => {
 		],
 	};
 	return (
-		<div className="">
+		<div className="bg-red-160 pb-9">
 			<div className="container mx-auto text-center">
 				<h3 className="pt-16 text-4xl font-montserrat-bold">
 					See what others are getting done
@@ -62,7 +62,7 @@ const GettingDone: React.FC = (): JSX.Element => {
 					your project.
 				</p>
 			</div>
-			<div className="pt-16">
+			<div className="mt-3">
 				<Slider {...settings}>
 					<GettingItem />
 					<GettingItem />
