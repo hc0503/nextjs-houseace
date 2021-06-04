@@ -1,18 +1,12 @@
-interface Props {
-	srcImage: string;
-	alt: string;
-	title: string;
-}
-
-const PopularItem: React.FC<Props> = ({
-	srcImage,
+const PopularItem: React.FC<IPopularItem> = ({
+	src,
 	title,
 	alt,
 }): JSX.Element => {
 	return (
 		<div className="px-2">
 			<img
-				src={srcImage}
+				src={src}
 				alt={alt}
 				height="h-580"
 				className="rounded-lg"

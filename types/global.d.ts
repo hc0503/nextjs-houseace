@@ -41,3 +41,13 @@ interface IGettingDoneItem {
 	userName: string;
 	rate: number;
 }
+interface IIntroduceItem {
+	src: string;
+	alt: string;
+	description: string;
+}
+interface IPopularItem {
+	src: string;
+	alt: string;
+	title: string;
+}

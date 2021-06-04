@@ -1,10 +1,4 @@
-interface IProps {
-	src: string;
-	alt: string;
-	description?: string;
-}
-
-const IntroduceItem: React.FC<IProps> = ({
+const IntroduceItem: React.FC<IIntroduceItem> = ({
 	src,
 	alt = "Introduce Image",
 	description = "",

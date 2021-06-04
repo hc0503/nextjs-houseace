@@ -6,36 +6,59 @@ import PopularItem from "./PopularItem";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+const slickSettings: Settings = {
+	className: "center",
+	infinite: true,
+	speed: 2000,
+	autoplaySpeed: 2000,
+	autoplay: false,
+	slidesToShow: 3,
+	slidesToScroll: 3,
+	initialSlide: 0,
+	arrows: false,
+	responsive: [
+		{
+			breakpoint: 1025,
+			settings: {
+				slidesToShow: 2,
+				slidesToScroll: 2,
+				initialSlide: 0,
+			},
+		},
+		{
+			breakpoint: 601,
+			settings: {
+				slidesToShow: 1,
+				slidesToScroll: 1,
+				initialSlide: 0,
+			},
+		},
+	],
+};
+const popularItems: IPopularItem[] = [
+	{
+		src: "/images/landing/popular1.png",
+		alt: "Popular1",
+		title: "Bathroom renovation",
+	},
+	{
+		src: "/images/landing/popular2.png",
+		alt: "Popular2",
+		title: "Bathroom renovation",
+	},
+	{
+		src: "/images/landing/popular3.png",
+		alt: "Popular3",
+		title: "Bathroom renovation",
+	},
+	{
+		src: "/images/landing/popular2.png",
+		alt: "Popular2",
+		title: "Bathroom renovation",
+	},
+];
+
 const Popular: React.FC = (): JSX.Element => {
-	const settings: Settings = {
-		className: "center",
-		infinite: true,
-		speed: 2000,
-		autoplaySpeed: 2000,
-		autoplay: false,
-		slidesToShow: 3,
-		slidesToScroll: 3,
-		initialSlide: 0,
-		arrows: false,
-		responsive: [
-			{
-				breakpoint: 1025,
-				settings: {
-					slidesToShow: 2,
-					slidesToScroll: 2,
-					initialSlide: 0,
-				},
-			},
-			{
-				breakpoint: 601,
-				settings: {
-					slidesToShow: 1,
-					slidesToScroll: 1,
-					initialSlide: 0,
-				},
-			},
-		],
-	};
 	const [slide, setSlide] = useState<Slider>();
 	return (
 		<>
@@ -59,27 +82,15 @@ const Popular: React.FC = (): JSX.Element => {
 				</div>
 			</div>
 			<div className="pt-11">
-				<Slider ref={(slider) => setSlide(slider)} {...settings}>
-					<PopularItem
-						srcImage="/images/landing/popular1.png"
-						alt="Popular"
-						title="Bathroom renovation"
-					/>
-					<PopularItem
-						srcImage="/images/landing/popular2.png"
-						alt="Popular"
-						title="Bathroom renovation"
-					/>
-					<PopularItem
-						srcImage="/images/landing/popular3.png"
-						alt="Popular"
-						title="Bathroom renovation"
-					/>
-					<PopularItem
-						srcImage="/images/landing/popular2.png"
-						alt="Popular"
-						title="Bathroom renovation"
-					/>
+				<Slider ref={(slider) => setSlide(slider)} {...slickSettings}>
+					{popularItems.map((item: IPopularItem, key: number) => (
+						<PopularItem
+							key={`PopularItem-${key}`}
+							src={item.src}
+							alt={item.alt}
+							title={item.title}
+						/>
+					))}
 				</Slider>
 			</div>
 		</>

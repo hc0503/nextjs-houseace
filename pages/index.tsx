@@ -3,13 +3,13 @@ import Head from "next/head";
 import { withIronSession } from "next-iron-session";
 
 import { sessionOptions } from "@/lib/iron-session";
-import NavBar from "@/components/landing/nav/NavBar";
+import NavBar from "@/components/landing/NavBar/NavBar";
 import Hero from "@/components/landing/Hero/Hero";
-import Introduce from "@/components/landing/introduce/Introduce";
+import Introduce from "@/components/landing/Introduce/Introduce";
 import GettingDone from "@/components/landing/GettingDone/GettingDone";
-import Popular from "@/components/landing/popular/Popular";
-import HowWorks from "@/components/landing/howworks/HowWorks";
-import Renovation from "@/components/landing/renovation/Renovation";
+import Popular from "@/components/landing/Popular/Popular";
+import HowItWorks from "@/components/landing/HowItWorks/HowItWorks";
+import Renovation from "@/components/landing/Renovation/Renovation";
 import Faq from "@/components/landing/FAQ/Faq";
 import ArticleGuide from "@/components/landing/ArticleGuide/ArticleGuide";
 import Footer from "@/components/landing/Footer/Footer";
@@ -39,7 +39,7 @@ const Landing: React.FC<Props> = ({ user }): JSX.Element => {
 					<Popular />
 				</div>
 				<div className="mt-36">
-					<HowWorks />
+					<HowItWorks />
 				</div>
 				<div className="mt-36">
 					<Renovation />

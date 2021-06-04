@@ -1,4 +1,4 @@
-import RoundButton from "../renovation/RoundButton";
+import RoundButton from "../Renovation/RoundButton";
 
 interface IProps {
 	srcImage: string;

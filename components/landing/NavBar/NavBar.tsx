@@ -6,7 +6,7 @@ import { useScrollPosition } from "@n8tb1t/use-scroll-position";
 import React, { useState } from "react";
 import classNames from "classnames";
 
-import RoundButton from "@/components/landing/renovation/RoundButton";
+import RoundButton from "@/components/landing/Renovation/RoundButton";
 import ArrowCircleButton from "@/components/auth/ArrowCircleButton";
 
 const navigations: INavigation[] = [
