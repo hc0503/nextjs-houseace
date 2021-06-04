@@ -3,16 +3,16 @@ import Head from "next/head";
 import { withIronSession } from "next-iron-session";
 
 import { sessionOptions } from "@/lib/iron-session";
-import NavBar from "@/components/landing/nav/NavBar";
-import Banner from "@/components/landing/banner/Banner";
-import Introduce from "@/components/landing/introduce/Introduce";
-import GettingDone from "@/components/landing/gettingdone/GettingDone";
-import Popular from "@/components/landing/popular/Popular";
-import HowWorks from "@/components/landing/howworks/HowWorks";
-import Renovation from "@/components/landing/renovation/Renovation";
-import Faq from "@/components/landing/faq/Faq";
-import Article from "@/components/landing/article/Article";
-import Footer from "@/components/landing/footer/Footer";
+import NavBar from "@/components/landing/NavBar/NavBar";
+import Hero from "@/components/landing/Hero/Hero";
+import Introduce from "@/components/landing/Introduce/Introduce";
+import GettingDone from "@/components/landing/GettingDone/GettingDone";
+import Popular from "@/components/landing/Popular/Popular";
+import HowItWorks from "@/components/landing/HowItWorks/HowItWorks";
+import Renovation from "@/components/landing/Renovation/Renovation";
+import Faq from "@/components/landing/FAQ/Faq";
+import ArticleGuide from "@/components/landing/ArticleGuide/ArticleGuide";
+import Footer from "@/components/landing/Footer/Footer";
 
 interface Props {
 	user?: any;
@@ -24,9 +24,9 @@ const Landing: React.FC<Props> = ({ user }): JSX.Element => {
 			<Head>
 				<title>{`${process.env.APP_NAME} - Landing`}</title>
 			</Head>
-			<div className="bg-hero-pattern bg-no-repeat bg-cover">
+			<div className="bg-hero-pattern bg-no-repeat bg-cover h-screen">
 				<NavBar />
-				<Banner />
+				<Hero />
 			</div>
 			<div className="md:px-16 px-2">
 				<Introduce />
@@ -39,7 +39,7 @@ const Landing: React.FC<Props> = ({ user }): JSX.Element => {
 					<Popular />
 				</div>
 				<div className="mt-36">
-					<HowWorks />
+					<HowItWorks />
 				</div>
 				<div className="mt-36">
 					<Renovation />
@@ -48,7 +48,7 @@ const Landing: React.FC<Props> = ({ user }): JSX.Element => {
 					<Faq />
 				</div>
 				<div className="mt-36">
-					<Article />
+					<ArticleGuide />
 				</div>
 			</div>
 			<div className="mt-36">

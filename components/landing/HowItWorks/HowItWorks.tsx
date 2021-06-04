@@ -1,4 +1,4 @@
-const HowWorks: React.FC = (): JSX.Element => {
+const HowItWorks: React.FC = (): JSX.Element => {
 	return (
 		<>
 			<div className="md:flex justify-items-center items-center">
@@ -71,4 +71,4 @@ const HowWorks: React.FC = (): JSX.Element => {
 	);
 };
 
-export default HowWorks;
+export default HowItWorks;

@@ -36,17 +36,11 @@ a {
 * {
   box-sizing: border-box;
 }
-/* FAQ */
+/* React FAQ */
 .row-title-text.styles_row-title-text__1MuhU {
 	margin-left: 47px;
 }
+/* React slick slide */
 .slick-slide {
   margin-top: 30px;
-}
-.dv-star-rating {
-  display: flex !important;
-}
-label.dv-star-rating-star > i {
-  line-height: 13px !important;
-  font-size: 22px !important;
 }

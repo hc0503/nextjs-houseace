@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { FaGooglePlay, FaAppStoreIos } from "react-icons/fa";
 
-import RoundButton from "../renovation/RoundButton";
+import RoundButton from "../Renovation/RoundButton";
 
 interface IFooterNavigations {
 	help: INavigation[];

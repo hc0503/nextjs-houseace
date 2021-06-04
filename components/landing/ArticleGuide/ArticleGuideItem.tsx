@@ -1,6 +1,6 @@
-import RoundButton from "../renovation/RoundButton";
+import RoundButton from "../Renovation/RoundButton";
 
-interface Props {
+interface IProps {
 	srcImage: string;
 	alt: string;
 	title: string;
@@ -8,7 +8,7 @@ interface Props {
 	description: string;
 }
 
-const ArticleItem: React.FC<Props> = ({
+const ArticleGuideItem: React.FC<IProps> = ({
 	srcImage,
 	title,
 	alt,
@@ -40,4 +40,4 @@ const ArticleItem: React.FC<Props> = ({
 	);
 };
 
-export default ArticleItem;
+export default ArticleGuideItem;
