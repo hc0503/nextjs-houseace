@@ -1,3 +1,5 @@
+import ReactPlayer from "react-player";
+
 const HowItWorks: React.FC = (): JSX.Element => {
 	return (
 		<>
@@ -61,11 +63,75 @@ const HowItWorks: React.FC = (): JSX.Element => {
 						</div>
 					</div>
 				</div>
-				<img
+				<div className="md:pt-0 pt-10 md:w-3/5 w-full h-auto">
+					<ReactPlayer
+						url="https://www.houseace.com.au/wp-content/uploads/2021/05/4162.-designnz.mp4"
+						light="/images/landing/video.png"
+						className="react-player"
+						playing
+						width="100%"
+						height="680px"
+						controls={true}
+						playIcon={
+							<button className="hover:text-red">
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									width="198"
+									height="198"
+									viewBox="0 0 198 198"
+								>
+									<g
+										id="Group_632"
+										data-name="Group 632"
+										transform="translate(-1156 -2215)"
+									>
+										<circle
+											id="Ellipse_70"
+											data-name="Ellipse 70"
+											cx="99"
+											cy="99"
+											r="99"
+											transform="translate(1156 2215)"
+											fill="rgba(0,0,0,0.2)"
+										/>
+										<g
+											id="Icon_feather-play-circle"
+											data-name="Icon feather-play-circle"
+											transform="translate(1188 2247)"
+										>
+											<path
+												id="Path_307"
+												data-name="Path 307"
+												d="M130.758,66.879A63.879,63.879,0,1,1,66.879,3,63.879,63.879,0,0,1,130.758,66.879Z"
+												fill="none"
+												stroke="#fff"
+												strokeLinecap="round"
+												strokeLinejoin="round"
+												strokeWidth="6"
+											/>
+											<path
+												id="Path_308"
+												data-name="Path 308"
+												d="M15,12,56.624,39.749,15,67.5Z"
+												transform="translate(37.219 27.13)"
+												fill="none"
+												stroke="#fff"
+												strokeLinecap="round"
+												strokeLinejoin="round"
+												strokeWidth="6"
+											/>
+										</g>
+									</g>
+								</svg>
+							</button>
+						}
+					/>
+				</div>
+				{/* <img
 					src="/images/landing/video.png"
 					alt="Video"
 					className="md:pt-0 pt-10 md:w-3/5 w-full h-auto"
-				/>
+				/> */}
 			</div>
 		</>
 	);
