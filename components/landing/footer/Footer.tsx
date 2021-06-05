@@ -104,7 +104,7 @@ const Footer: React.FC = (): JSX.Element => {
 					</div>
 				</div>
 			</div>
-			<div className="md:flex justify-between py-10 text-sm text-gray-light px-36">
+			<div className="md:flex justify-between py-10 text-sm text-gray-light md:px-16 px-2">
 				<p className="">
 					Copyright © 2021 HOUSEACE GROUP PTY LTD. All Rights Reserved
 				</p>
