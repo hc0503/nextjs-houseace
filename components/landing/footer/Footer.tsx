@@ -53,7 +53,7 @@ const Footer: React.FC = (): JSX.Element => {
 							bgColor="white hover:bg-black"
 						>
 							<div className="flex items-center">
-								<FaAppStoreIos height={24} width="auto" />
+								<FaAppStoreIos />
 								<span className="md:block hidden">
 									&nbsp;Get it on IOS
 								</span>
@@ -65,7 +65,7 @@ const Footer: React.FC = (): JSX.Element => {
 							bgColor="white hover:bg-black"
 						>
 							<div className="flex items-center">
-								<FaGooglePlay height={24} width="auto" />
+								<FaGooglePlay />
 								<span className="md:block hidden">
 									&nbsp;Get it on Android
 								</span>
