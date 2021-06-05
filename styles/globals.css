@@ -40,6 +40,10 @@ a {
 .row-title-text.styles_row-title-text__1MuhU {
 	margin-left: 47px;
 }
+.faq-row.styles_faq-row__2YF3c {
+  border-color: white !important;
+  border-width: 2px !important;
+}
 /* React slick slide */
 .slick-slide {
   margin-top: 30px;
