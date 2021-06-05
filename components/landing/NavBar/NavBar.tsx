@@ -176,7 +176,10 @@ const NavBar: React.FC = (): JSX.Element => {
 														{navigations.map(
 															(item: INavigation, key: number) => {
 																return item.name === "#" ? (
-																	<div className="w-full border-t border-gray-less pt-3 mt-3"></div>
+																	<div
+																		key={`DropNav-${key}`}
+																		className="w-full border-t border-gray-less pt-3 mt-3"
+																	></div>
 																) : (
 																	<Menu.Item key={`DropNav-${key}`}>
 																		<Link href={item.href}>
@@ -240,7 +243,10 @@ const NavBar: React.FC = (): JSX.Element => {
 							<div className="mt-3 space-y-1">
 								{navigations.map((item: INavigation, key: number) => {
 									return item.name === "#" ? (
-										<div className="w-full border-t border-gray-less" />
+										<div
+											key={`MobileDropNav-${key}`}
+											className="w-full border-t border-gray-less"
+										/>
 									) : (
 										<Link
 											href={item.href}
