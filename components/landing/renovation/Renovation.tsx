@@ -29,6 +29,7 @@ const Renovation: React.FC = (): JSX.Element => {
 						<RoundButton
 							fontSize="xl:text-base md:text-sm text-xs"
 							padding="px-10 py-4"
+							bgColor="white hover:bg-black"
 						>
 							<div className="flex items-center">
 								<FaAppStoreIos height={24} width="auto" />
@@ -40,6 +41,7 @@ const Renovation: React.FC = (): JSX.Element => {
 						<RoundButton
 							fontSize="xl:text-base md:text-sm text-xs"
 							padding="px-10 py-4"
+							bgColor="white hover:bg-black"
 						>
 							<div className="flex items-center">
 								<FaGooglePlay height={24} width="auto" />
