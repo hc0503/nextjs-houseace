@@ -14,9 +14,9 @@ const DropNav: React.FC<IProps> = ({
 	const selected = false;
 	const navHeight = "h-16"; // 64px
 	const subNavHeight = "h-12"; // 48px
-	const navFontSetting = "text-base"; // 16px
+	const navFontSetting = "md:text-base text-sm"; // 16px
 	const subNavFontSetting = "text-sm font-normal"; // 14px
-	const navIconSetting = "h-6 mr-3"; // h-7:30px h-6:24px
+	const navIconSetting = "md:h-6 h-5 w-auto mr-3"; // h-7:30px h-6:24px
 	return (
 		<>
 			{item.sub.length > 0 && (

@@ -25,44 +25,6 @@ interface Props {
 	user?: any;
 }
 
-const navigation = [
-	{
-		name: "Dashboard",
-		href: "#",
-		icon: HomeIcon,
-		current: true,
-	},
-	{
-		name: "Team",
-		href: "#",
-		icon: UsersIcon,
-		current: false,
-	},
-	{
-		name: "Projects",
-		href: "#",
-		icon: FolderIcon,
-		current: false,
-	},
-	{
-		name: "Calendar",
-		href: "#",
-		icon: CalendarIcon,
-		current: false,
-	},
-	{
-		name: "Documents",
-		href: "#",
-		icon: InboxIcon,
-		current: false,
-	},
-	{
-		name: "Reports",
-		href: "#",
-		icon: ChartBarIcon,
-		current: false,
-	},
-];
 const navigations = [
 	{
 		name: "Projects",
@@ -155,34 +117,17 @@ const Dashboard: React.FC<Props> = ({
 									</div>
 								</Transition.Child>
 								<Link href="/">
-									<a className="flex-shrink-0 flex items-center px-4">
+									<a className="flex-shrink-0 flex items-center justify-center">
 										<Logo src="/logo.png" alt="Houseace" />
 									</a>
 								</Link>
 								<div className="mt-5 flex-1 h-0 overflow-y-auto">
 									<nav className="px-2 space-y-1">
-										{navigation.map((item: any, key: number) => (
-											<a
-												key={`Navigation-${key}`}
-												href={item.href}
-												className={classNames(
-													item.current
-														? "bg-gray-100 text-gray-900"
-														: "text-gray-600 hover:bg-gray-50 hover:text-gray-900",
-													"group flex items-center px-2 py-2 text-base font-montserrat-medium rounded-md"
-												)}
-											>
-												<item.icon
-													className={classNames(
-														item.current
-															? "text-gray-500"
-															: "text-gray-400 group-hover:text-gray-500",
-														"mr-4 h-6 w-6"
-													)}
-													aria-hidden="true"
-												/>
-												{item.name}
-											</a>
+										{navigations.map((item: any, key: number) => (
+											<DropNav
+												key={`NavigationMobile-${key}`}
+												item={item}
+											/>
 										))}
 									</nav>
 								</div>
@@ -200,8 +145,12 @@ const Dashboard: React.FC<Props> = ({
 						{/* Sidebar component, swap this element with another sidebar if you like */}
 						<div className="flex flex-col flex-grow border-r border-gray-200 pt-5 pb-4 bg-white overflow-y-auto shadow rounded-2xl m-2">
 							<Link href="/">
-								<a className="flex items-center flex-shrink-0 px-4 mt-6">
-									<Logo src="/logo.png" alt="Houseace" />
+								<a className="flex items-center flex-shrink-0 mt-4 justify-center">
+									<Logo
+										src="/logo.png"
+										alt="Houseace"
+										className="h-14 w-auto"
+									/>
 								</a>
 							</Link>
 							<nav
