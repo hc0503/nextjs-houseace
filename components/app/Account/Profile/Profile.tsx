@@ -17,10 +17,10 @@ const Profile: React.FC = (): JSX.Element => {
 	return (
 		<>
 			{/* User info card */}
-			<div className="flex focus:outline-none bg-red shadow rounded-2xl mt-5 px-28 py-8">
-				<div className="md:flex items-center space-x-20 w-full">
+			<div className="flex focus:outline-none bg-red shadow rounded-2xl mt-5 md:px-28 px-2 md:py-8 py-2">
+				<div className="md:flex items-center md:space-x-20 w-full">
 					{/* Avatar */}
-					<div className="mt-6 flex-grow lg:mt-0 lg:ml-6 lg:flex-grow-0 lg:flex-shrink-0">
+					<div className="flex-grow lg:mt-0 lg:ml-6 lg:flex-grow-0 lg:flex-shrink-0">
 						<div className="mt-1 lg:hidden">
 							<div className="flex items-center">
 								<div
@@ -75,27 +75,31 @@ const Profile: React.FC = (): JSX.Element => {
 						</div>
 					</div>
 
-					<div className="w-full md:flex items-stretch flex-wrap relative h-full">
-						<div className="flex justify-between items-center w-full">
-							<InfoLabel
-								label="Full Name"
-								value={user.fullName}
-								icon={<FiUser className="h-4 w-4" />}
-							/>
-							<InfoLabel
-								label="Phone Number"
-								value={user.phoneNumber}
-								icon={<BiPhoneCall className="h-4 w-4" />}
-							/>
+					<div className="w-full h-full md:flex items-stretch flex-wrap md:mt-0 mt-2 relative">
+						<div className="md:flex justify-between items-center w-full">
+							<div>
+								<InfoLabel
+									label="Full Name"
+									value={user.fullName}
+									icon={<FiUser className="h-4 w-4" />}
+								/>
+							</div>
+							<div className="md:mt-0 mt-2">
+								<InfoLabel
+									label="Phone Number"
+									value={user.phoneNumber}
+									icon={<BiPhoneCall className="h-4 w-4" />}
+								/>
+							</div>
 						</div>
-						<div className="flex items-end">
+						<div className="flex items-end md:mt-0 mt-2">
 							<InfoLabel
 								label="Address"
 								value={user.address}
 								icon={<GoLocation className="h-4 w-4" />}
 							/>
 						</div>
-						<div className="absolute -right-24 -top-4">
+						<div className="absolute md:-right-24 md:-top-4 right-0 -top-14">
 							<FiEdit className="text-white w-7 h-7" />
 						</div>
 					</div>
