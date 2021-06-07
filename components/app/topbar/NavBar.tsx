@@ -9,7 +9,7 @@ interface Props {
 const NavBar: React.FC<Props> = ({ setSidebarOpen }): JSX.Element => {
 	return (
 		<>
-			<div className="relative z-10 flex-shrink-0 flex h-16 bg-white shadow rounded-2xl m-2">
+			<div className="relative z-10 flex-shrink-0 flex h-16 bg-white shadow rounded-2xl">
 				<HamburgerNav setSidebarOpen={setSidebarOpen} />
 				<div className="flex-1 px-4 flex justify-between">
 					<div className="flex-1 flex">
