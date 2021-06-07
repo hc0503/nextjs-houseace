@@ -12,7 +12,14 @@ import classNames from "classnames";
 import Logo from "@/components/commons/Logo";
 import DropNav from "@/components/app/SideBar/DropNav";
 
-const navigations = [
+interface IProps {
+	sidebarOpen: boolean;
+	setSidebarOpen: (sidebarOpen: boolean) => void;
+}
+interface INavigations extends INavigation {
+	sub: INavigation[];
+}
+const navigations: INavigations[] = [
 	{
 		name: "Projects",
 		href: "#",
@@ -43,8 +50,11 @@ const navigations = [
 		sub: [],
 	},
 ];
-const SideBar: React.FC = (): JSX.Element => {
-	const [sidebarOpen, setSidebarOpen] = useState(false);
+
+const SideBar: React.FC<IProps> = ({
+	sidebarOpen,
+	setSidebarOpen,
+}): JSX.Element => {
 	return (
 		<>
 			<Transition.Root show={sidebarOpen} as={Fragment}>
@@ -103,14 +113,16 @@ const SideBar: React.FC = (): JSX.Element => {
 									<Logo src="/logo.png" alt="Houseace" />
 								</a>
 							</Link>
-							<div className="mt-5 flex-1 h-0 overflow-y-auto">
+							<div className="mt-5 flex-1 h-0 overflow-y-auto text-gray-light">
 								<nav className="px-2 space-y-1">
-									{navigations.map((item: any, key: number) => (
-										<DropNav
-											key={`NavigationMobile-${key}`}
-											item={item}
-										/>
-									))}
+									{navigations.map(
+										(item: INavigations, key: number) => (
+											<DropNav
+												key={`NavigationMobile-${key}`}
+												item={item}
+											/>
+										)
+									)}
 								</nav>
 							</div>
 						</div>
@@ -142,7 +154,7 @@ const SideBar: React.FC = (): JSX.Element => {
 								text-gray-light text-left text-sm`
 							)}
 						>
-							{navigations.map((item: any, key: number) => (
+							{navigations.map((item: INavigations, key: number) => (
 								<DropNav key={`Navigation-${key}`} item={item} />
 							))}
 						</nav>

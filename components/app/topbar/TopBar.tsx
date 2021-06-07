@@ -4,9 +4,9 @@ import HamburgerNav from "./HamburgerNav";
 import ProfileDropdown from "./ProfileDropdown";
 
 interface Props {
-	setSidebarOpen: any;
+	setSidebarOpen: (sidebarOpen: boolean) => void;
 }
-const NavBar: React.FC<Props> = ({ setSidebarOpen }): JSX.Element => {
+const TopBar: React.FC<Props> = ({ setSidebarOpen }): JSX.Element => {
 	return (
 		<>
 			<div className="relative z-10 flex-shrink-0 flex h-16 bg-white shadow rounded-2xl">
@@ -25,4 +25,4 @@ const NavBar: React.FC<Props> = ({ setSidebarOpen }): JSX.Element => {
 	);
 };
 
-export default NavBar;
+export default TopBar;

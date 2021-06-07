@@ -30,6 +30,7 @@ interface IButton {
 interface INavigation {
 	name: string;
 	href: string;
+	icon?: React.ReactNode;
 	color?: string;
 }
 interface IGettingDoneItem {
