@@ -10,7 +10,6 @@ const Account: React.FC = (): JSX.Element => {
 				<title>{`${process.env.APP_NAME} - Account`}</title>
 			</Head>
 			<AccountTab />
-			<main className="flex-1 relative overflow-y-auto focus:outline-none bg-white shadow rounded-2xl m-2"></main>
 		</AppLayout>
 	);
 };

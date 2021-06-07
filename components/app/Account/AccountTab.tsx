@@ -1,13 +1,13 @@
 import classNames from "classnames";
 import { useState } from "react";
 
-import AccountProfile from "./AccountProfile";
+import Profile from "./Profile/Profile";
 import AccountCompany from "./AccountCompany";
 import AccountPricing from "./AccountPricing";
 import AccountCalendar from "./AccountCalendar";
 
 const tabs = [
-	{ name: "Profile", target: AccountProfile, current: true },
+	{ name: "Profile", target: Profile, current: true },
 	{ name: "Company", target: AccountCompany, current: true },
 	{ name: "Pricing", target: AccountPricing, current: true },
 	{ name: "Calendar", target: AccountCalendar, current: true },
@@ -32,7 +32,10 @@ const AccountTab: React.FC = (): JSX.Element => {
 			</div>
 			<div className={classNames("hidden sm:block")}>
 				<div className="ml-2 border-b border-gray-200">
-					<nav className="-mb-px flex space-x-8" aria-label="Tabs">
+					<nav
+						className="flex space-x-8 pl-10 mt-10"
+						aria-label="Tabs"
+					>
 						{tabs.map((tab, id) => (
 							<button
 								key={id}

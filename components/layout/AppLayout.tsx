@@ -16,7 +16,8 @@ const AppLayout: React.FC<Props> = ({ children }): JSX.Element => {
 				sidebarOpen={sidebarOpen}
 				setSidebarOpen={setSidebarOpen}
 			/>
-			<div className="flex flex-col w-0 flex-1 overflow-hidden m-2">
+
+			<div className="flex flex-col w-0 flex-1 overflow-hidden m-4">
 				<TopBar setSidebarOpen={setSidebarOpen} />
 				{children}
 			</div>
