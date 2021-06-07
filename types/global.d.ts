@@ -52,3 +52,7 @@ interface IPopularItem {
 	alt: string;
 	title: string;
 }
+interface ITab {
+	name: string;
+	target: React.ReactNode<T>;
+}

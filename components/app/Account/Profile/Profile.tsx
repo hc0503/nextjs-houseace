@@ -24,7 +24,7 @@ const Profile: React.FC = (): JSX.Element => {
 						<div className="mt-1 lg:hidden">
 							<div className="flex items-center">
 								<div
-									className="flex-shrink-0 inline-block rounded-full overflow-hidden h-12 w-12"
+									className="flex-shrink-0 inline-block rounded-full overflow-hidden h-16 w-16"
 									aria-hidden="true"
 								>
 									<img
