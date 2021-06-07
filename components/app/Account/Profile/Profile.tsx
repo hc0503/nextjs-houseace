@@ -1,4 +1,4 @@
-import { FiUser } from "react-icons/fi";
+import { FiUser, FiEdit } from "react-icons/fi";
 import { GoLocation } from "react-icons/go";
 import { BiPhoneCall } from "react-icons/bi";
 
@@ -17,8 +17,8 @@ const Profile: React.FC = (): JSX.Element => {
 	return (
 		<>
 			{/* User info card */}
-			<div className="flex focus:outline-none bg-red shadow rounded-2xl mt-5">
-				<div className="md:flex items-center">
+			<div className="flex focus:outline-none bg-red shadow rounded-2xl mt-5 px-28 py-8">
+				<div className="md:flex items-center space-x-20 w-full">
 					{/* Avatar */}
 					<div className="mt-6 flex-grow lg:mt-0 lg:ml-6 lg:flex-grow-0 lg:flex-shrink-0">
 						<div className="mt-1 lg:hidden">
@@ -75,8 +75,8 @@ const Profile: React.FC = (): JSX.Element => {
 						</div>
 					</div>
 
-					<div>
-						<div className="md:flex">
+					<div className="w-full md:flex items-stretch flex-wrap relative h-full">
+						<div className="flex justify-between items-center w-full">
 							<InfoLabel
 								label="Full Name"
 								value={user.fullName}
@@ -88,12 +88,15 @@ const Profile: React.FC = (): JSX.Element => {
 								icon={<BiPhoneCall className="h-4 w-4" />}
 							/>
 						</div>
-						<div>
+						<div className="flex items-end">
 							<InfoLabel
 								label="Address"
 								value={user.address}
 								icon={<GoLocation className="h-4 w-4" />}
 							/>
+						</div>
+						<div className="absolute -right-24 -top-4">
+							<FiEdit className="text-white w-7 h-7" />
 						</div>
 					</div>
 				</div>
