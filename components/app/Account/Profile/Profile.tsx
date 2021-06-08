@@ -5,8 +5,17 @@ import { FiLock } from "react-icons/fi";
 
 import InfoLabel from "./InfoLabel";
 import OutlineInput from "./OutlineInput";
+import ArrowCircleButton from "@/components/auth/ArrowCircleButton";
 
-const user = {
+interface IUser {
+	fullName: string;
+	address: string;
+	phoneNumber: string;
+	type: number;
+	createdAt: string;
+	imageUrl: string;
+}
+const user: IUser = {
 	fullName: "Madeline T Heagney",
 	address: "98 Garden Place, FENTONS CREEK, Victoria-3518",
 	phoneNumber: "(03) 5348 5891",
@@ -79,7 +88,7 @@ const Profile: React.FC = (): JSX.Element => {
 						</div>
 					</div>
 
-					<div className="h-full md:flex items-stretch flex-wrap mt-10">
+					<div className="h-full md:flex items-stretch flex-wrap md:mt-0 mt-10">
 						<div>
 							<InfoLabel
 								label="Full Name"
@@ -110,62 +119,101 @@ const Profile: React.FC = (): JSX.Element => {
 					</div>
 				</div>
 			</div>
-			<div className="grid grid-cols-2 mt-6">
-				<div className="overflow-y-auto focus:outline-none bg-white shadow rounded-2xl pl-10 py-11">
+
+			{/* Password setting card */}
+			<div className="grid md:grid-cols-2 grid-cols-1 mt-6">
+				<div className="overflow-y-auto focus:outline-none bg-white shadow rounded-2xl xl:pl-10 pl-5 xl:py-11 py-6 pr-1">
 					<div>
-						<p className="font-bold text-2xl">Password Setting</p>
+						<p className="font-bold xl:text-2xl text-base">
+							Password Setting
+						</p>
 					</div>
-					<div className="flex">
-						<div className="w-2/3 text-base">
-							<div className="mt-4">
-								<label
-									htmlFor="current_password"
-									className="block font-montserrat text-gray"
-								>
-									Current Password:
-								</label>
-								<div className="mt-5">
-									<OutlineInput
-										id="current_password"
-										name="current_password"
-										placeHolder="Enter your current password"
+					<div className="">
+						<div className="flex space-x-2 xl:text-base text-xs">
+							<div className="w-2/3 mt-4">
+								<div className="">
+									<label htmlFor="current_password" className="block">
+										Current Password:
+									</label>
+									<div className="mt-5">
+										<OutlineInput
+											id="current_password"
+											name="current_password"
+											placeHolder="Enter your current password"
+											type="password"
+										>
+											<FiLock
+												className="h-5 w-5"
+												aria-hidden="true"
+											/>
+										</OutlineInput>
+									</div>
+								</div>
+								<div className="mt-4">
+									<label htmlFor="new_password" className="block">
+										Change your password:
+									</label>
+									<div className="mt-5">
+										<OutlineInput
+											id="new_password"
+											name="new_password"
+											placeHolder="New Password"
+											type="password"
+										>
+											<FiLock
+												className="h-5 w-5"
+												aria-hidden="true"
+											/>
+										</OutlineInput>
+									</div>
+									<div className="mt-5">
+										<OutlineInput
+											id="confirm_password"
+											name="confirm_password"
+											placeHolder="Confirm New Password"
+											type="password"
+										>
+											<FiLock
+												className="h-5 w-5"
+												aria-hidden="true"
+											/>
+										</OutlineInput>
+									</div>
+								</div>
+								<div className="w-full text-right mt-5">
+									<ArrowCircleButton
+										fontsize="text-xs"
+										buttonSize="w-9 h-9 hover:w-24"
 									>
-										<FiLock className="h-5 w-5" aria-hidden="true" />
-									</OutlineInput>
+										Save
+									</ArrowCircleButton>
 								</div>
 							</div>
-
-							<div className="mt-4">
-								<label
-									htmlFor="new_password"
-									className="block font-montserrat text-gray"
-								>
-									Change your password:
-								</label>
-								<div className="mt-5">
-									<OutlineInput
-										id="new_password"
-										name="new_password"
-										placeHolder="New Password"
-									>
-										<FiLock className="h-5 w-5" aria-hidden="true" />
-									</OutlineInput>
-								</div>
-								<div className="mt-5">
-									<OutlineInput
-										id="confirm_password"
-										name="confirm_password"
-										placeHolder="Confirm New Password"
-									>
-										<FiLock className="h-5 w-5" aria-hidden="true" />
-									</OutlineInput>
+							<div className="w-1/3 flex items-center">
+								<div className="bg-red-140 rounded-2xl text-2sm p-2">
+									<p>YOUR PASSWORD MUST CONTAIN</p>
+									<p className="mt-5">
+										<span className="text-gray-light">o</span>{" "}
+										Between8-20 characters
+									</p>
+									<p className="mt-4">
+										<span className="text-gray-light">o</span> At
+										least 1 UPPER case letter
+									</p>
+									<p className="mt-4">
+										<span className="text-gray-light">o</span> At
+										least 1 Special character
+									</p>
+									<p className="mt-4">
+										<span className="text-gray-light">o</span> At
+										least 1 Number
+									</p>
 								</div>
 							</div>
 						</div>
-						<div className="w-1/3"></div>
 					</div>
 				</div>
-				<div className="overflow-y-auto focus:outline-none bg-white shadow rounded-2xl pt-10"></div>
+				<div className="focus:outline-none bg-white shadow rounded-2xl pt-10 ml-4"></div>
 			</div>
 		</>
 	);

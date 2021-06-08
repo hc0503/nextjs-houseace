@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       colors: {
         red: {
+          140: "#FFF8F8",
           150: "#EEEEEE",
           160: "#FAF9FC",
           lesslight: "#FFE8E8",
@@ -37,7 +38,8 @@ module.exports = {
         'montserrat-medium': 'MontserratMedium',
       },
       fontSize: {
-        '2xs': '.375rem'
+        '2xs': '.375rem',
+        '2sm': '.6875rem',
       },
       container: {
         padding: '1rem',
