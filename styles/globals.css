@@ -25,9 +25,10 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, MontserratRegular;
+  @apply text-gray;
+  @apply placeholder-gray-light;
+  @apply font-montserrat;
 }
-
 a {
   color: inherit;
   text-decoration: none;
