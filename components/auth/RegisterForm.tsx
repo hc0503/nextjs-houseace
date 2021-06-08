@@ -130,7 +130,7 @@ const RegisterForm: React.FC = (): JSX.Element => {
 								id="name"
 								name="name"
 								label="Full Name"
-								placeholder="Full Name"
+								placeHolder="Full Name"
 								onChange={(
 									e: React.ChangeEvent<HTMLInputElement>
 								) => {
@@ -153,7 +153,7 @@ const RegisterForm: React.FC = (): JSX.Element => {
 								name="email"
 								type="email"
 								label="Email address"
-								placeholder="Email"
+								placeHolder="Email"
 								onChange={(
 									e: React.ChangeEvent<HTMLInputElement>
 								) => {
@@ -176,7 +176,7 @@ const RegisterForm: React.FC = (): JSX.Element => {
 								name="password"
 								type="password"
 								label="Password"
-								placeholder="Password"
+								placeHolder="Password"
 								onChange={(
 									e: React.ChangeEvent<HTMLInputElement>
 								) => {
@@ -199,7 +199,7 @@ const RegisterForm: React.FC = (): JSX.Element => {
 								name="password_confirmation"
 								type="password"
 								label="Confirm Password"
-								placeholder="Confirm Password"
+								placeHolder="Confirm Password"
 								onChange={(
 									e: React.ChangeEvent<HTMLInputElement>
 								) => {
