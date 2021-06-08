@@ -19,7 +19,7 @@ const AppLayout: React.FC<Props> = ({ children }): JSX.Element => {
 
 			<div className="flex flex-col w-0 flex-1 overflow-hidden m-4">
 				<TopBar setSidebarOpen={setSidebarOpen} />
-				{children}
+				<main className="overflow-y-auto">{children}</main>
 			</div>
 		</div>
 	);
