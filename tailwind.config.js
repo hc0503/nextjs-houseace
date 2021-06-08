@@ -54,6 +54,7 @@ module.exports = {
     },
   },
   plugins: [
-    require("@tailwindcss/forms")
+    // This makes outline in elements like input which type is password.
+    // require("@tailwindcss/forms")
   ],
 }
