@@ -4,7 +4,7 @@ import { BiPhoneCall } from "react-icons/bi";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { fetchRoleList, IRoleState } from "@/redux/slices/roleSlice";
+import { fetchRoleList } from "@/redux/slices/roleSlice";
 import InfoLabel from "./InfoLabel";
 import OutlineInput from "./OutlineInput";
 import Avatar from "./Avatar";
@@ -44,20 +44,20 @@ const Profile: React.FC = (): JSX.Element => {
 	return (
 		<>
 			{/* User info card */}
-			<div className="flex focus:outline-none bg-red shadow rounded-2xl mt-5 px-2 md:py-8 py-2">
+			<div className="flex focus:outline-none bg-red shadow rounded-2xl md:h-72 w-full mt-5 px-2 md:py-8 py-2">
 				<div className="grid md:grid-cols-3 grid-cols-1 gap-4 items-center relative">
 					{/* Avatar */}
 					<Avatar imageUrl={user.imageUrl} />
 
-					<div className="h-full md:flex items-stretch flex-wrap">
-						<div>
+					<div className="grid grid-rows-2 h-full">
+						<div className="flex items-center">
 							<InfoLabel
 								label="Full Name"
 								value={user.fullName}
 								icon={<FiUser className="h-4 w-4" />}
 							/>
 						</div>
-						<div className="flex items-center md:mt-0 mt-4">
+						<div className="flex items-center">
 							<InfoLabel
 								label="Address"
 								value={user.address}
@@ -66,12 +66,14 @@ const Profile: React.FC = (): JSX.Element => {
 						</div>
 					</div>
 
-					<div className="h-full">
-						<InfoLabel
-							label="Phone Number"
-							value={user.phoneNumber}
-							icon={<BiPhoneCall className="h-4 w-4" />}
-						/>
+					<div className="grid md:grid-rows-2 h-full">
+						<div className="flex items-center">
+							<InfoLabel
+								label="Phone Number"
+								value={user.phoneNumber}
+								icon={<BiPhoneCall className="h-4 w-4" />}
+							/>
+						</div>
 					</div>
 					<div className="absolute right-0 md:-top-6 top-0">
 						<button className="focus:outline-none hover:text-red-lesslight text-white">
