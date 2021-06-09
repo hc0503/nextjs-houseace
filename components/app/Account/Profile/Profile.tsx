@@ -45,7 +45,7 @@ const Profile: React.FC = (): JSX.Element => {
 		<>
 			{/* User info card */}
 			<div className="flex focus:outline-none bg-red shadow rounded-2xl md:h-72 w-full mt-5 px-2 md:py-8 py-2">
-				<div className="grid md:grid-cols-3 grid-cols-1 gap-4 items-center relative">
+				<div className="grid md:grid-cols-3 grid-cols-1 gap-4 items-center relative text-white">
 					{/* Avatar */}
 					<Avatar imageUrl={user.imageUrl} />
 
@@ -83,7 +83,7 @@ const Profile: React.FC = (): JSX.Element => {
 				</div>
 			</div>
 
-			<div className="grid md:grid-cols-2 grid-cols-1 gap-4 mt-6">
+			<div className="grid md:grid-cols-2 grid-cols-1 gap-4 mt-4">
 				{/* Password Settings card */}
 				<div className="focus:outline-none bg-white shadow rounded-2xl xl:pl-10 pl-5 pt-11 pb-9 pr-1">
 					<div>

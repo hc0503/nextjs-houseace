@@ -10,7 +10,7 @@ const InfoLabel: React.FC<IProps> = ({
 	value,
 }): JSX.Element => {
 	return (
-		<div className="text-white">
+		<div className="">
 			<div className="flex space-x-2">
 				<div className="flex items-end">
 					<div className="flex items-center h-7">{icon}</div>
