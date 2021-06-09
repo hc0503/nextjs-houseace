@@ -2,7 +2,10 @@ import { FiUser, FiEdit } from "react-icons/fi";
 import { GoLocation } from "react-icons/go";
 import { BiPhoneCall } from "react-icons/bi";
 import { FiLock } from "react-icons/fi";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
+import { fetchRoleList, IRoleState } from "@/redux/slices/roleSlice";
 import InfoLabel from "./InfoLabel";
 import OutlineInput from "./OutlineInput";
 import ArrowCircleButton from "@/components/auth/ArrowCircleButton";
@@ -25,6 +28,19 @@ const user: IUser = {
 };
 
 const Profile: React.FC = (): JSX.Element => {
+	let roleOptions: React.ReactNode = <option disabled></option>;
+	const roles: IRole[] = useSelector((state: any) => state.role.data);
+	const dispatch = useDispatch();
+	useEffect(() => {
+		dispatch(fetchRoleList());
+	}, []);
+	if (roles.length !== 0) {
+		roleOptions = roles.map((role: IRole, key: number) => (
+			<option key={`RoleOption-${key}`} value={role.name}>
+				{role.name}
+			</option>
+		));
+	}
 	return (
 		<>
 			{/* User info card */}
@@ -120,17 +136,17 @@ const Profile: React.FC = (): JSX.Element => {
 				</div>
 			</div>
 
-			{/* Password setting card */}
 			<div className="grid md:grid-cols-2 grid-cols-1 mt-6">
-				<div className="overflow-y-auto focus:outline-none bg-white shadow rounded-2xl xl:pl-10 pl-5 xl:py-11 py-6 pr-1">
+				{/* Password Settings card */}
+				<div className="focus:outline-none bg-white shadow rounded-2xl xl:pl-10 pl-5 pt-11 pb-9 pr-1">
 					<div>
-						<p className="font-bold xl:text-2xl text-base">
+						<p className="font-montserrat-bold xl:text-2xl text-base text-gray-dark">
 							Password Setting
 						</p>
 					</div>
 					<div className="">
 						<div className="flex space-x-2 xl:text-base text-xs">
-							<div className="w-2/3 mt-4">
+							<form className="w-2/3 mt-4">
 								<div className="">
 									<label htmlFor="current_password" className="block">
 										Current Password:
@@ -188,9 +204,9 @@ const Profile: React.FC = (): JSX.Element => {
 										Save
 									</ArrowCircleButton>
 								</div>
-							</div>
+							</form>
 							<div className="w-1/3 flex items-center">
-								<div className="bg-red-140 rounded-2xl text-2sm p-2">
+								<div className="bg-red-140 rounded-2xl text-2sm xl:p-6 p-2">
 									<p>YOUR PASSWORD MUST CONTAIN</p>
 									<p className="mt-5">
 										<span className="text-gray-light">o</span>{" "}
@@ -213,7 +229,64 @@ const Profile: React.FC = (): JSX.Element => {
 						</div>
 					</div>
 				</div>
-				<div className="focus:outline-none bg-white shadow rounded-2xl pt-10 ml-4"></div>
+
+				{/* Account Type */}
+				<div className="focus:outline-none bg-white shadow rounded-2xl xl:pl-10 pl-5 pt-11 pb-9 pr-1 md:ml-4 md:mt-0 mt-4">
+					<div>
+						<p className="font-montserrat-bold xl:text-2xl text-base text-gray-dark">
+							Account Type
+						</p>
+					</div>
+
+					<div className="flex flex-wrap justify-center items-stretch">
+						<div className="mt-10">
+							<div className="flex items-center space-x-3">
+								<div className="flex-shrink-0">
+									<img
+										className="xl:h-20 h-16 xl:w-20 w-16 rounded-full"
+										src="/images/app/normal_avatar.png"
+										alt=""
+									/>
+								</div>
+								<div className="flex-1 min-w-0">
+									<p className="xl:text-lg font-montserrat-semibold">
+										Normal Account
+									</p>
+									<p className="text-xs">
+										Creation date: {user.createdAt}
+									</p>
+								</div>
+							</div>
+							<div className="mt-5">
+								<select
+									id="location"
+									name="location"
+									className="block w-full pl-3 pr-10 py-2 xl:text-base border text-sm border-gray-lesslight focus:outline-none rounded-md"
+								>
+									{roleOptions}
+								</select>
+							</div>
+							<div className="w-full text-right mt-7">
+								<ArrowCircleButton
+									fontsize="text-xs"
+									buttonSize="w-9 h-9 hover:w-24"
+								>
+									Save
+								</ArrowCircleButton>
+							</div>
+						</div>
+
+						<div className="">
+							<h3 className="text-sm">Normal Account</h3>
+							<p className="text-2sm text-gray-310 montserrat-italic">
+								Lorem ipsum dolor sit amet, consectetuer adipiscing
+								elit. Aenean commodo ligula eget dolor. Aenean massa.
+								Cum sociis natoque penatibus et magnis dis parturient
+								montes, nascetur ridiculus mus.
+							</p>
+						</div>
+					</div>
+				</div>
 			</div>
 		</>
 	);

@@ -15,6 +15,7 @@ module.exports = {
           moredark: "#DC2626"
         },
         gray: {
+          310: "#B8B8B8",
           lesslight: "#E5E7EB",
           light: "#959595",
           DEFAULT: "#616161",
@@ -32,27 +33,28 @@ module.exports = {
         "hero-pattern": "url('/images/landing/banner.png')",
       },
       fontFamily: {
-        'montserrat': 'MontserratRegular',
-        'montserrat-bold': 'MontserratBold',
-        'montserrat-semibold': 'MontserratSemiBold',
-        'montserrat-medium': 'MontserratMedium',
+        "montserrat": "MontserratRegular",
+        "montserrat-bold": "MontserratBold",
+        "montserrat-semibold": "MontserratSemiBold",
+        "montserrat-medium": "MontserratMedium",
+        "montserrat-italic": "MontserratItalic",
       },
       fontSize: {
-        '2xs': '.375rem',
-        '2sm': '.6875rem',
+        "2xs": ".375rem",
+        "2sm": ".6875rem",
       },
       container: {
-        padding: '1rem',
+        padding: "1rem",
       },
       transitionProperty: {
-        'width': 'width, all',
+        "width": "width, all",
       }
     },
   },
   variants: {
     extend: {
-      display: ['group-hover'],
-      width: ['hover'],
+      display: ["group-hover"],
+      width: ["hover"],
     },
   },
   plugins: [

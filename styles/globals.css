@@ -19,6 +19,10 @@
     font-family: MontserratSemiBold;
     src: url(/fonts/Montserrat/Montserrat-SemiBold.ttf) format('truetype');
   }
+  @font-face {
+    font-family: MontserratItalic;
+    src: url(/fonts/Montserrat/Montserrat-Italic.ttf) format('truetype');
+  }
 }
 
 html,
