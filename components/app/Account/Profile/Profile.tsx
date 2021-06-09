@@ -1,13 +1,13 @@
 import { FiUser, FiEdit, FiLock } from "react-icons/fi";
 import { GoLocation } from "react-icons/go";
 import { BiPhoneCall } from "react-icons/bi";
-import { AiOutlineCamera } from "react-icons/ai";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { fetchRoleList, IRoleState } from "@/redux/slices/roleSlice";
 import InfoLabel from "./InfoLabel";
 import OutlineInput from "./OutlineInput";
+import Avatar from "./Avatar";
 import ArrowCircleButton from "@/components/auth/ArrowCircleButton";
 
 interface IUser {
@@ -45,68 +45,11 @@ const Profile: React.FC = (): JSX.Element => {
 		<>
 			{/* User info card */}
 			<div className="flex focus:outline-none bg-red shadow rounded-2xl mt-5 px-2 md:py-8 py-2">
-				<div className="grid md:grid-cols-3 grid-cols-1 items-center relative">
+				<div className="grid md:grid-cols-3 grid-cols-1 gap-4 items-center relative">
 					{/* Avatar */}
-					<div className="flex-grow lg:mt-0 lg:ml-6 lg:flex-grow-0 lg:flex-shrink-0">
-						<div className="mt-1 lg:hidden">
-							<div className="flex items-center">
-								<div
-									className="flex-shrink-0 inline-block rounded-full overflow-hidden h-16 w-16"
-									aria-hidden="true"
-								>
-									<img
-										className="rounded-full h-full w-full"
-										src={user.imageUrl}
-										alt=""
-									/>
-								</div>
-								<div className="ml-5 rounded-md shadow-sm">
-									<div className="group relative border border-gray-300 rounded-md py-2 px-3 flex items-center justify-center hover:bg-gray-50 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-light-blue-500">
-										<label
-											htmlFor="user_photo"
-											className="relative text-sm leading-4 font-medium text-gray-700"
-										>
-											<span>Change</span>
-											<span className="sr-only"> user photo</span>
-										</label>
-										<input
-											id="user_photo"
-											name="user_photo"
-											type="file"
-											className="absolute w-full h-full opacity-0 cursor-pointer border-gray-300 rounded-md"
-										/>
-									</div>
-								</div>
-							</div>
-						</div>
+					<Avatar imageUrl={user.imageUrl} />
 
-						<div className="flex items-center justify-center">
-							<div className="hidden relative rounded-full overflow-hidden lg:block w-52 h-52">
-								<img
-									className="relative rounded-full"
-									src={user.imageUrl}
-									alt=""
-								/>
-								<label
-									htmlFor="user-photo"
-									className="absolute inset-0 w-full h-full bg-black bg-opacity-75 flex items-center justify-center text-sm text-white opacity-0 hover:opacity-100"
-								>
-									<span>
-										<AiOutlineCamera className="h-9 w-9" />
-									</span>
-									<span className="sr-only"> user photo</span>
-									<input
-										type="file"
-										id="user-photo"
-										name="user-photo"
-										className="absolute inset-0 w-full h-full opacity-0 cursor-pointer border-gray-300 rounded-md"
-									/>
-								</label>
-							</div>
-						</div>
-					</div>
-
-					<div className="h-full md:flex items-stretch flex-wrap md:mt-0 mt-10">
+					<div className="h-full md:flex items-stretch flex-wrap">
 						<div>
 							<InfoLabel
 								label="Full Name"
@@ -138,7 +81,7 @@ const Profile: React.FC = (): JSX.Element => {
 				</div>
 			</div>
 
-			<div className="grid md:grid-cols-2 grid-cols-1 mt-6">
+			<div className="grid md:grid-cols-2 grid-cols-1 gap-4 mt-6">
 				{/* Password Settings card */}
 				<div className="focus:outline-none bg-white shadow rounded-2xl xl:pl-10 pl-5 pt-11 pb-9 pr-1">
 					<div>
@@ -233,7 +176,7 @@ const Profile: React.FC = (): JSX.Element => {
 				</div>
 
 				{/* Account Type */}
-				<div className="focus:outline-none bg-white shadow rounded-2xl xl:pl-10 pl-5 pt-11 pb-9 pr-1 md:ml-4 md:mt-0 mt-4">
+				<div className="focus:outline-none bg-white shadow rounded-2xl xl:pl-10 pl-5 pt-11 pb-9 pr-1">
 					<div>
 						<p className="font-montserrat-bold xl:text-2xl text-base text-gray-dark">
 							Account Type
