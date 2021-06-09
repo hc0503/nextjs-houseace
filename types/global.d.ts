@@ -54,3 +54,7 @@ interface ITab {
 	name: string;
 	target: React.ReactNode<T>;
 }
+// Redux
+interface IState {
+	loading: boolean;
+}
