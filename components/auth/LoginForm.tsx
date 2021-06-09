@@ -73,7 +73,7 @@ const LoginForm: React.FC = (): JSX.Element => {
 								name="email"
 								type="email"
 								label="Email address"
-								placeholder="Email"
+								placeHolder="Email"
 								onChange={(
 									e: React.ChangeEvent<HTMLInputElement>
 								) => {
@@ -92,7 +92,7 @@ const LoginForm: React.FC = (): JSX.Element => {
 								name="password"
 								type="password"
 								label="Password"
-								placeholder="Password"
+								placeHolder="Password"
 								onChange={(
 									e: React.ChangeEvent<HTMLInputElement>
 								) => {

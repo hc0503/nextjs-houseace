@@ -2,11 +2,15 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import Router from "next/router";
 
-const initialState = {
-	data: null,
+interface IUserState extends IState {
+	data: IUser[];
+	loggedIn: boolean;
+}
+const initialState: IUserState = {
+	data: [],
 	loading: true,
 	loggedIn: false,
-} as iUserState;
+};
 
 export const login = createAsyncThunk(
 	"auth/loginStatus",

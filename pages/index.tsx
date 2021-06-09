@@ -18,7 +18,7 @@ interface Props {
 	user?: any;
 }
 
-const Landing: React.FC<Props> = ({ user }): JSX.Element => {
+const Landing: React.FC<Props> = (): JSX.Element => {
 	return (
 		<>
 			<Head>

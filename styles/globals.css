@@ -19,15 +19,20 @@
     font-family: MontserratSemiBold;
     src: url(/fonts/Montserrat/Montserrat-SemiBold.ttf) format('truetype');
   }
+  @font-face {
+    font-family: MontserratItalic;
+    src: url(/fonts/Montserrat/Montserrat-Italic.ttf) format('truetype');
+  }
 }
 
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, MontserratRegular;
+  @apply text-gray;
+  @apply placeholder-gray-light;
+  @apply font-montserrat;
 }
-
 a {
   color: inherit;
   text-decoration: none;

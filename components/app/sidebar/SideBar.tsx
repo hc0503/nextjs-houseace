@@ -134,8 +134,8 @@ const SideBar: React.FC<IProps> = ({
 			</Transition.Root>
 
 			{/* Static sidebar for desktop */}
-			<div className="hidden md:flex md:flex-shrink-0 mt-4 ml-4">
-				<div className="flex flex-col w-72">
+			<div className="hidden md:flex md:flex-shrink-0 my-4 ml-4">
+				<div className="flex flex-col w-64">
 					{/* Sidebar component, swap this element with another sidebar if you like */}
 					<div className="flex flex-col flex-grow border-r border-gray-200 pt-5 pb-4 bg-white overflow-y-auto shadow rounded-2xl">
 						<Link href="/">

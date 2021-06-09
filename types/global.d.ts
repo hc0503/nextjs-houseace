@@ -2,15 +2,13 @@ declare module "react-faq-component";
 interface iChildren {
 	children: React.ReactNode;
 }
-interface IInputGroup {
-	id?: string;
-	name?: string;
-	label?: string;
+interface IInput {
+	id: string;
+	name: string;
 	type?: "email" | "text" | "number" | "password";
 	autoComplete?: "on" | "off";
 	required?: boolean;
-	className?: string;
-	placeholder?: string;
+	placeHolder?: string;
 	onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 interface IButton {
@@ -51,4 +49,12 @@ interface IPopularItem {
 	src: string;
 	alt: string;
 	title: string;
+}
+interface ITab {
+	name: string;
+	target: React.ReactNode<T>;
+}
+// Redux
+interface IState {
+	loading: boolean;
 }
