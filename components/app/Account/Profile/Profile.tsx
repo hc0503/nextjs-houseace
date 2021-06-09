@@ -1,7 +1,7 @@
-import { FiUser, FiEdit } from "react-icons/fi";
+import { FiUser, FiEdit, FiLock } from "react-icons/fi";
 import { GoLocation } from "react-icons/go";
 import { BiPhoneCall } from "react-icons/bi";
-import { FiLock } from "react-icons/fi";
+import { AiOutlineCamera } from "react-icons/ai";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -91,7 +91,9 @@ const Profile: React.FC = (): JSX.Element => {
 									htmlFor="user-photo"
 									className="absolute inset-0 w-full h-full bg-black bg-opacity-75 flex items-center justify-center text-sm text-white opacity-0 hover:opacity-100"
 								>
-									<span>Change</span>
+									<span>
+										<AiOutlineCamera className="h-9 w-9" />
+									</span>
 									<span className="sr-only"> user photo</span>
 									<input
 										type="file"
@@ -238,7 +240,7 @@ const Profile: React.FC = (): JSX.Element => {
 						</p>
 					</div>
 
-					<div className="flex flex-wrap justify-center items-stretch">
+					<div className="flex flex-wrap justify-center items-stretch h-full">
 						<div className="mt-10">
 							<div className="flex items-center space-x-3">
 								<div className="flex-shrink-0">
