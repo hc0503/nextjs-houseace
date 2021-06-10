@@ -20,7 +20,7 @@ interface Props {
 
 const Landing: React.FC<Props> = (): JSX.Element => {
 	return (
-		<>
+		<div className="text-gray-dark">
 			<Head>
 				<title>{`${process.env.APP_NAME} - Landing`}</title>
 			</Head>
@@ -54,7 +54,7 @@ const Landing: React.FC<Props> = (): JSX.Element => {
 			<div className="mt-36">
 				<Footer />
 			</div>
-		</>
+		</div>
 	);
 };
 
