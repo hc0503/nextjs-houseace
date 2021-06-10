@@ -1,13 +1,17 @@
+import classNames from "classnames";
+
 interface IProps {
 	label: string;
 	icon: React.ReactNode;
 	value: string;
+	valueClass?: string;
 }
 
 const InfoLabel: React.FC<IProps> = ({
 	label,
 	icon,
 	value,
+	valueClass,
 }): JSX.Element => {
 	return (
 		<div className="">
@@ -17,7 +21,11 @@ const InfoLabel: React.FC<IProps> = ({
 				</div>
 				<div className="flex flex-wrap items-stretch">
 					<p className="text-xs w-full">{label}</p>
-					<p className="text-lg">{value}</p>
+					<p
+						className={classNames("xl:text-lg text-base", valueClass)}
+					>
+						{value}
+					</p>
 				</div>
 			</div>
 		</div>
