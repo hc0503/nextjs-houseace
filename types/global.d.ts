@@ -58,3 +58,6 @@ interface ITab {
 interface IState {
 	loading: boolean;
 }
+interface IService {
+	name: string;
+}
