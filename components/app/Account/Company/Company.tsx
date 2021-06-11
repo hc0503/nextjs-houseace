@@ -10,9 +10,10 @@ import Avatar from "@/components/app/Account/Profile/Avatar";
 import InfoLabel from "@/components/app/Account/Profile/InfoLabel";
 import SearchInput from "@/components/app/TopBar/SearchInput";
 import ServiceItem from "./ServiceItem";
-import FileUpload from "./FileUpload";
+import DropdownFileUpload from "./DropdownFileUpload";
 import UploadItem from "./UploadItem";
 import SocialShareButton from "./SocialShareButton";
+import FileUploadButton from "./FileUploadButton";
 
 interface ICompany {
 	businessName: string;
@@ -57,12 +58,9 @@ export const Company: React.FC = (): JSX.Element => {
 						size="w-44 h-44"
 					/>
 				</div>
-				<button
-					type="button"
-					className="inline-flex items-center p-3 border border-transparent rounded-full shadow-sm text-white hover:bg-white hover:text-gray focus:outline-none absolute bottom-5 right-5"
-				>
+				<FileUploadButton name="company_hero" id="company_hero">
 					<AiOutlineCamera className="h-7 w-7" aria-hidden="true" />
-				</button>
+				</FileUploadButton>
 			</div>
 			<div className="grid md:grid-cols-2 grid-cols-1 gap-4 mt-4">
 				<div className="bg-white shadow rounded-2xl xl:px-10 px-4 py-11 space-y-10 relative">
@@ -156,7 +154,7 @@ export const Company: React.FC = (): JSX.Element => {
 						</p>
 					</div>
 					<div className="mt-5 w-full">
-						<FileUpload />
+						<DropdownFileUpload />
 					</div>
 					<div className="flex mt-10 space-x-2">
 						{imageList.map((image: IUploadItem, key: number) => (
@@ -174,7 +172,7 @@ export const Company: React.FC = (): JSX.Element => {
 						</p>
 					</div>
 					<div className="mt-5 w-full">
-						<FileUpload />
+						<DropdownFileUpload />
 					</div>
 				</div>
 				<div className="bg-white shadow rounded-2xl xl:px-10 px-4 py-8 md:col-span-2 flex md:space-x-14 space-x-5">

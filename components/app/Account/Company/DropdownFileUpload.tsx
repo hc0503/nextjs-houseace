@@ -1,6 +1,6 @@
 import { FaCloudUploadAlt } from "react-icons/fa";
 
-const FileUpload: React.FC = (): JSX.Element => (
+const DropdownFileUpload: React.FC = (): JSX.Element => (
 	<>
 		<div className="text-xs">
 			<div className="flex justify-center items-center px-6 pt-5 pb-6 border-2 border-gray-light border-dashed rounded-md">
@@ -27,4 +27,4 @@ const FileUpload: React.FC = (): JSX.Element => (
 	</>
 );
 
-export default FileUpload;
+export default DropdownFileUpload;

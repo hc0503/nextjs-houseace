@@ -5,7 +5,7 @@ interface iChildren {
 interface IInput {
 	id: string;
 	name: string;
-	type?: "email" | "text" | "number" | "password";
+	type?: "email" | "text" | "number" | "password" | "file";
 	autoComplete?: "on" | "off";
 	required?: boolean;
 	placeHolder?: string;
