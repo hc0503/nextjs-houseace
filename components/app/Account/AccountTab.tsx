@@ -2,13 +2,13 @@ import classNames from "classnames";
 import React, { useState } from "react";
 
 import Profile from "./Profile/Profile";
-import AccountCompany from "./AccountCompany";
+import Company from "./Company/Company";
 import AccountPricing from "./AccountPricing";
 import AccountCalendar from "./AccountCalendar";
 
 const tabs: ITab[] = [
 	{ name: "Profile", target: Profile },
-	{ name: "Company", target: AccountCompany },
+	{ name: "Company", target: Company },
 	{ name: "Pricing", target: AccountPricing },
 	{ name: "Calendar", target: AccountCalendar },
 ];

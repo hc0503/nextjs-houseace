@@ -1,0 +1,3 @@
+interface IUploadItem {
+	imageUrl: string;
+}
