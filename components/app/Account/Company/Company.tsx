@@ -177,21 +177,21 @@ export const Company: React.FC = (): JSX.Element => {
 						<FileUpload />
 					</div>
 				</div>
-				<div className="bg-white shadow rounded-2xl xl:px-10 px-4 py-8 md:col-span-2 flex space-x-5">
+				<div className="bg-white shadow rounded-2xl xl:px-10 px-4 py-8 md:col-span-2 flex md:space-x-14 space-x-5">
 					<div>
 						<p className="xl:text-2xl text-xl font-montserrat-bold text-gray-dark">
 							Social Media:
 						</p>
 					</div>
-					<div className="flex items-center space-x-2">
+					<div className="flex items-center md:space-x-8 space-x-2">
 						<SocialShareButton>
-							<FaFacebookF className="xl:w-7 w-6 xl:h-7 h-6" />
+							<FaFacebookF className="xl:w-8 w-7 xl:h-8 h-7" />
 						</SocialShareButton>
 						<SocialShareButton>
-							<FaTwitter className="xl:w-7 w-6 xl:h-7 h-6" />
+							<FaTwitter className="xl:w-8 w-7 xl:h-8 h-7" />
 						</SocialShareButton>
 						<SocialShareButton>
-							<FaLinkedinIn className="xl:w-7 w-6 xl:h-7 h-6" />
+							<FaLinkedinIn className="xl:w-8 w-7 xl:h-8 h-7" />
 						</SocialShareButton>
 					</div>
 				</div>
