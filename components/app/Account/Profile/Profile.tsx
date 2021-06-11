@@ -85,15 +85,15 @@ const Profile: React.FC = (): JSX.Element => {
 
 			<div className="grid md:grid-cols-2 grid-cols-1 gap-4 mt-4">
 				{/* Password Settings card */}
-				<div className="focus:outline-none bg-white shadow rounded-2xl xl:pl-10 pl-5 pt-11 pb-9 pr-1">
+				<div className="focus:outline-none bg-white shadow rounded-2xl xl:pl-10 pl-5 pt-11 pb-9 md:pr-1 pr-5">
 					<div>
 						<p className="font-montserrat-bold xl:text-2xl text-base text-gray-dark">
 							Password Setting
 						</p>
 					</div>
 					<div className="">
-						<div className="flex space-x-2 xl:text-base text-xs">
-							<form className="w-2/3 mt-4">
+						<div className="flex space-x-2">
+							<form className="mt-4 w-full xl:text-base text-sm">
 								<div className="">
 									<label htmlFor="current_password" className="block">
 										Current Password:
@@ -152,25 +152,27 @@ const Profile: React.FC = (): JSX.Element => {
 									</ArrowCircleButton>
 								</div>
 							</form>
-							<div className="w-1/3 flex items-center">
-								<div className="bg-red-140 rounded-2xl text-2sm xl:p-6 p-2">
+							<div className="md:flex hidden items-end mb-14 whitespace-nowrap">
+								<div className="bg-red-140 rounded-2xl xl:text-2sm text-2xs xl:p-6 p-2">
 									<p>YOUR PASSWORD MUST CONTAIN</p>
-									<p className="mt-5">
-										<span className="text-gray-light">o</span>{" "}
-										Between8-20 characters
-									</p>
-									<p className="mt-4">
-										<span className="text-gray-light">o</span> At
-										least 1 UPPER case letter
-									</p>
-									<p className="mt-4">
-										<span className="text-gray-light">o</span> At
-										least 1 Special character
-									</p>
-									<p className="mt-4">
-										<span className="text-gray-light">o</span> At
-										least 1 Number
-									</p>
+									<div className="xl:mt-5 mt-3 xl:space-y-4 xpace-y-3 leading-3">
+										<p className="">
+											<span className="text-gray-light">o</span>{" "}
+											Between8-20 characters
+										</p>
+										<p className="">
+											<span className="text-gray-light">o</span> At
+											least 1 UPPER case letter
+										</p>
+										<p className="">
+											<span className="text-gray-light">o</span> At
+											least 1 Special character
+										</p>
+										<p className="">
+											<span className="text-gray-light">o</span> At
+											least 1 Number
+										</p>
+									</div>
 								</div>
 							</div>
 						</div>
