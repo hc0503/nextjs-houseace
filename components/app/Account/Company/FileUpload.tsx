@@ -2,8 +2,8 @@ import { FaCloudUploadAlt } from "react-icons/fa";
 
 const FileUpload: React.FC = (): JSX.Element => (
 	<>
-		<div className="mt-1 sm:mt-0 sm:col-span-2 text-xs">
-			<div className="max-w-lg flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
+		<div className="text-xs">
+			<div className="flex justify-center items-center px-6 pt-5 pb-6 border-2 border-gray-light border-dashed rounded-md">
 				<div className="space-x-1 text-center flex items-center">
 					<FaCloudUploadAlt className="h-5 w-5 text-red" />
 					<p className="pl-1">Drag & Drop Files Here or</p>

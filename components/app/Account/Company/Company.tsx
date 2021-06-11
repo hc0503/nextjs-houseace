@@ -4,11 +4,15 @@ import { FiEdit } from "react-icons/fi";
 import { BiPhoneCall, BiRectangle } from "react-icons/bi";
 import { GoLocation } from "react-icons/go";
 import { IoMdBriefcase } from "react-icons/io";
+import { FaFacebookF, FaTwitter, FaLinkedinIn } from "react-icons/fa";
 
 import Avatar from "@/components/app/Account/Profile/Avatar";
 import InfoLabel from "@/components/app/Account/Profile/InfoLabel";
 import SearchInput from "@/components/app/TopBar/SearchInput";
 import ServiceItem from "./ServiceItem";
+import FileUpload from "./FileUpload";
+import UploadItem from "./UploadItem";
+import SocialShareButton from "./SocialShareButton";
 
 interface ICompany {
 	businessName: string;
@@ -31,6 +35,10 @@ export const Company: React.FC = (): JSX.Element => {
 	const [serviceList, setServiceList] = useState([
 		{ name: "Bathroom" },
 		{ name: "Kitchen" },
+	]);
+	const [imageList, setImageList] = useState([
+		{ imageUrl: "/images/app/upload_image1.png" },
+		{ imageUrl: "/images/app/upload_image2.png" },
 	]);
 	return (
 		<>
@@ -57,7 +65,7 @@ export const Company: React.FC = (): JSX.Element => {
 				</button>
 			</div>
 			<div className="grid md:grid-cols-2 grid-cols-1 gap-4 mt-4">
-				<div className="focus:outline-none bg-white shadow rounded-2xl space-y-3 xl:px-8 px-4 py-5 relative">
+				<div className="bg-white shadow rounded-2xl xl:px-10 px-4 py-11 space-y-3 relative">
 					<div className="">
 						<InfoLabel
 							label="Business Name"
@@ -109,7 +117,7 @@ export const Company: React.FC = (): JSX.Element => {
 						</button>
 					</div>
 				</div>
-				<div className="focus:outline-none bg-white shadow rounded-2xl xl:px-8 px-4 py-8">
+				<div className="bg-white shadow rounded-2xl xl:px-10 px-4 py-11">
 					<div>
 						<p className="xl:text-2xl text-xl font-montserrat-bold text-gray-dark">
 							Service Provided
@@ -141,11 +149,51 @@ export const Company: React.FC = (): JSX.Element => {
 						))}
 					</div>
 				</div>
-				<div className="focus:outline-none bg-white shadow rounded-2xl">
-					OK
+				<div className="bg-white shadow rounded-2xl xl:px-10 px-4 py-11">
+					<div>
+						<p className="xl:text-2xl text-xl font-montserrat-bold text-gray-dark">
+							Images
+						</p>
+					</div>
+					<div className="mt-5 w-full">
+						<FileUpload />
+					</div>
+					<div className="flex mt-10 space-x-2">
+						{imageList.map((image: IUploadItem, key: number) => (
+							<UploadItem
+								imageUrl={image.imageUrl}
+								key={`UploadedItem-${key}`}
+							/>
+						))}
+					</div>
 				</div>
-				<div className="focus:outline-none bg-white shadow rounded-2xl">
-					OK
+				<div className="bg-white shadow rounded-2xl xl:px-10 px-4 py-11">
+					<div>
+						<p className="xl:text-2xl text-xl font-montserrat-bold text-gray-dark">
+							License
+						</p>
+					</div>
+					<div className="mt-5 w-full">
+						<FileUpload />
+					</div>
+				</div>
+				<div className="bg-white shadow rounded-2xl xl:px-10 px-4 py-8 col-span-2 flex space-x-5">
+					<div>
+						<p className="xl:text-2xl text-xl font-montserrat-bold text-gray-dark">
+							Social Media:
+						</p>
+					</div>
+					<div className="flex items-center space-x-2">
+						<SocialShareButton>
+							<FaFacebookF className="xl:w-7 w-6 xl:h-7 h-6" />
+						</SocialShareButton>
+						<SocialShareButton>
+							<FaTwitter className="xl:w-7 w-6 xl:h-7 h-6" />
+						</SocialShareButton>
+						<SocialShareButton>
+							<FaLinkedinIn className="xl:w-7 w-6 xl:h-7 h-6" />
+						</SocialShareButton>
+					</div>
 				</div>
 			</div>
 		</>
