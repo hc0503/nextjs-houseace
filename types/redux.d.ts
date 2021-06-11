@@ -1,0 +1,3 @@
+interface IState {
+	loading: boolean;
+}
