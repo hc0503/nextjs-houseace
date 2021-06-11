@@ -65,7 +65,7 @@ export const Company: React.FC = (): JSX.Element => {
 				</button>
 			</div>
 			<div className="grid md:grid-cols-2 grid-cols-1 gap-4 mt-4">
-				<div className="bg-white shadow rounded-2xl xl:px-10 px-4 py-11 space-y-3 relative">
+				<div className="bg-white shadow rounded-2xl xl:px-10 px-4 py-11 space-y-10 relative">
 					<div className="">
 						<InfoLabel
 							label="Business Name"
@@ -177,7 +177,7 @@ export const Company: React.FC = (): JSX.Element => {
 						<FileUpload />
 					</div>
 				</div>
-				<div className="bg-white shadow rounded-2xl xl:px-10 px-4 py-8 col-span-2 flex space-x-5">
+				<div className="bg-white shadow rounded-2xl xl:px-10 px-4 py-8 md:col-span-2 flex space-x-5">
 					<div>
 						<p className="xl:text-2xl text-xl font-montserrat-bold text-gray-dark">
 							Social Media:
