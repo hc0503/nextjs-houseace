@@ -67,45 +67,57 @@ export const Company: React.FC = (): JSX.Element => {
 					<div className="">
 						<InfoLabel
 							label="Business Name"
-							value={company.businessName}
+							defaultValue={company.businessName}
 							valueClass="font-montserrat-bold text-gray-dark"
 							icon={<IoMdBriefcase className="h-4 w-4 text-red" />}
+							id="business_name"
+							name="bussiness_name"
 						/>
 					</div>
 					<div className="">
 						<InfoLabel
 							label="Phone Number"
-							value={company.phoneNumber}
+							defaultValue={company.phoneNumber}
 							icon={<BiPhoneCall className="h-4 w-4 text-red" />}
+							id="phone"
+							name="phone"
 						/>
 					</div>
 					<div className="">
 						<InfoLabel
 							label="Address"
-							value={company.address}
+							defaultValue={company.address}
 							icon={<GoLocation className="h-4 w-4 text-red" />}
+							id="address"
+							name="address"
 						/>
 					</div>
 					<div className="flex justify-between">
 						<div className="">
 							<InfoLabel
 								label="License Number"
-								value={company.licenseNumber}
+								defaultValue={company.licenseNumber}
 								icon={<BiRectangle className="h-4 w-4 text-red" />}
+								id="license"
+								name="license"
 							/>
 						</div>
 						<div className="">
 							<InfoLabel
 								label="Year Founded"
-								value={company.yearFounded}
+								defaultValue={company.yearFounded}
 								icon={<BiRectangle className="h-4 w-4 text-red" />}
+								id="year_founded"
+								name="year_founded"
 							/>
 						</div>
 						<div className="">
 							<InfoLabel
 								label="ABN Number"
-								value={company.abnNumber}
+								defaultValue={company.abnNumber}
 								icon={<BiRectangle className="h-4 w-4 text-red" />}
+								id="abn_number"
+								name="abn_number"
 							/>
 						</div>
 					</div>
