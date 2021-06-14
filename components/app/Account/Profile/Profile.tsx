@@ -15,6 +15,7 @@ import {
 	updateProfileData,
 	fetchProfileData,
 } from "@/redux/slices/account/profileSlice";
+import { successToast } from "@/lib/global-functions";
 import InfoLabel from "./InfoLabel";
 import OutlineInput from "./OutlineInput";
 import Avatar from "./Avatar";
@@ -49,15 +50,7 @@ const Profile: React.FC = (): JSX.Element => {
 	const handleUpdateProfileData = handleSubmit((data: IProfile) => {
 		dispatch(updateProfileData(data));
 		setProfileEditable(false);
-		toast.success("Update successfully.", {
-			position: "top-right",
-			autoClose: 5000,
-			hideProgressBar: false,
-			closeOnClick: true,
-			pauseOnHover: true,
-			draggable: true,
-			progress: undefined,
-		});
+		successToast("update successfully.");
 	});
 	let roleOptions: React.ReactNode = <option disabled></option>;
 	const [profileEditable, setProfileEditable] = useState(false);
