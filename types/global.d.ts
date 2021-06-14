@@ -6,6 +6,7 @@ interface IInput {
 	required?: boolean;
 	placeHolder?: string;
 	onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+	disabled?: boolean;
 }
 interface IButton {
 	children: React.ReactNode;
