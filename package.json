@@ -38,6 +38,8 @@
     "react-redux": "^7.2.4",
     "react-slick": "^0.28.1",
     "react-social-login": "^3.4.13",
+    "react-spinners-kit": "^1.9.1",
+    "react-toast-notifications": "^2.4.4",
     "react-toastify": "^7.0.4",
     "redux": "^4.1.0",
     "sass": "^1.32.12",
