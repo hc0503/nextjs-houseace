@@ -1,32 +1,57 @@
 import classNames from "classnames";
+import React, { useState } from "react";
+import { SortAscendingIcon, UsersIcon } from "@heroicons/react/solid";
 
-interface IProps {
+import { handelFocus } from "@/lib/global-functions";
+
+interface IProps extends IInput {
 	label: string;
 	icon: React.ReactNode;
-	value: string;
+	defaultValue: string;
 	valueClass?: string;
+	register?: any;
+	errorMessage?: string;
 }
 
 const InfoLabel: React.FC<IProps> = ({
 	label,
 	icon,
-	value,
+	defaultValue,
 	valueClass,
+	disabled,
+	id,
+	name,
+	type = "text",
+	register,
+	errorMessage,
 }): JSX.Element => {
 	return (
-		<div className="">
-			<div className="flex space-x-2">
-				<div className="flex items-end">
-					<div className="flex items-center h-7">{icon}</div>
+		<div className="w-full">
+			<label htmlFor={id} className="block text-xs pl-7">
+				{label}
+			</label>
+			<div className="mt-1 flex flex-wrap rounded-md">
+				<div className="relative flex items-stretch flex-grow focus-within:z-10 w-full">
+					<div className="absolute inset-y-0 left-0 pl-2 flex items-center pointer-events-none">
+						{icon}
+					</div>
+					<input
+						type={type}
+						id={id}
+						name={name}
+						className={classNames(
+							"block pl-7 py-1 pr-1 xl:text-lg text-base w-full focus:outline-none",
+							valueClass
+						)}
+						disabled={disabled}
+						defaultValue={defaultValue}
+						onFocus={handelFocus}
+						{...register}
+					/>
 				</div>
-				<div className="flex flex-wrap items-stretch">
-					<p className="text-xs w-full">{label}</p>
-					<p
-						className={classNames("xl:text-lg text-base", valueClass)}
-					>
-						{value}
-					</p>
-				</div>
+				<span className="text-xs font-montserrat-semibold">
+					{errorMessage}
+				</span>
 			</div>
 		</div>
 	);
