@@ -1,9 +1,10 @@
+import { User } from ".prisma/client";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import Router from "next/router";
 
 interface IUserState extends IState {
-	data: IUser[];
+	data: User[];
 	loggedIn: boolean;
 }
 const initialState: IUserState = {
