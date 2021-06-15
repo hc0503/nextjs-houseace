@@ -31,13 +31,13 @@ export const Avatar: React.FC<IProps> = ({
 					<div className="ml-5 rounded-md shadow-sm">
 						<div className="group relative border border-gray-300 rounded-md py-2 px-3 flex items-center justify-center hover:bg-gray-50 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-light-blue-500">
 							<label
-								htmlFor="user_photo"
+								htmlFor="mobile-user-photo"
 								className="relative text-sm leading-4 font-medium text-gray-700"
 							>
 								<span>Change</span>
 							</label>
 							<input
-								id="user_photo"
+								id="mobile-user-photo"
 								name="user_photo"
 								type="file"
 								className="absolute w-full h-full opacity-0 cursor-pointer border-gray-300 rounded-md"
@@ -60,7 +60,7 @@ export const Avatar: React.FC<IProps> = ({
 						alt=""
 					/>
 					<label
-						htmlFor="user_photo"
+						htmlFor="user-photo"
 						className="absolute inset-0 w-full h-full bg-black bg-opacity-75 flex items-center justify-center text-sm text-white opacity-0 hover:opacity-100"
 					>
 						<span className="absolute -bottom-0">
@@ -68,7 +68,7 @@ export const Avatar: React.FC<IProps> = ({
 						</span>
 						<input
 							type="file"
-							id="user_photo"
+							id="user-photo"
 							name="user_photo"
 							className="absolute inset-0 w-full h-full opacity-0 cursor-pointer border-gray-300 rounded-md"
 							accept="image/*"

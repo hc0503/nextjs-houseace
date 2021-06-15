@@ -16,3 +16,6 @@ interface IProfile {
 interface IProfilePhoto {
 	image: string;
 }
+interface IProfileType {
+	role: number;
+}
