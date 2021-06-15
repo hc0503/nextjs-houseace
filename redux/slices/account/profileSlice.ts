@@ -1,9 +1,10 @@
+import { User } from ".prisma/client";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 import axios from "axios";
 
 export interface IProfileState extends IState {
-	data: IProfile;
+	data: User;
 }
 const initialState: IProfileState = {
 	data: null,
@@ -22,10 +23,22 @@ export const fetchProfileData = createAsyncThunk(
 
 export const updateProfileData = createAsyncThunk(
 	"profiles/updateDataStatus",
-	async (userData: IProfile) => {
+	async (data: IProfile) => {
 		const res = await axios.post(
 			`${process.env.BASE_URL}/api/profiles`,
-			userData
+			data
+		);
+
+		return res.data.data;
+	}
+);
+
+export const updateProfilePhoto = createAsyncThunk(
+	"profiles/updatePhotoStatus",
+	async (data: FormData) => {
+		const res = await axios.post(
+			`${process.env.BASE_URL}/api/profiles/photo`,
+			data
 		);
 
 		return res.data.data;
@@ -48,6 +61,14 @@ export const profileSlice = createSlice({
 		// Update profile data
 		builder.addCase(
 			updateProfileData.fulfilled,
+			(state: IProfileState, action) => {
+				state.loading = false;
+				state.data = action.payload;
+			}
+		);
+		// Update profile photo
+		builder.addCase(
+			updateProfilePhoto.fulfilled,
 			(state: IProfileState, action) => {
 				state.loading = false;
 				state.data = action.payload;

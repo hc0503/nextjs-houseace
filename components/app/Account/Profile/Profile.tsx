@@ -14,13 +14,15 @@ import { fetchRoleList } from "@/redux/slices/roleSlice";
 import {
 	updateProfileData,
 	fetchProfileData,
+	updateProfilePhoto,
 } from "@/redux/slices/account/profileSlice";
 import { successToast } from "@/lib/global-functions";
 import InfoLabel from "./InfoLabel";
 import OutlineInput from "./OutlineInput";
 import Avatar from "./Avatar";
 import ArrowCircleButton from "@/components/auth/ArrowCircleButton";
-import { User } from ".prisma/client";
+import { Role, User } from ".prisma/client";
+import axios from "@/lib/axios";
 
 import "react-toastify/dist/ReactToastify.css";
 
@@ -52,12 +54,20 @@ const Profile: React.FC = (): JSX.Element => {
 		setProfileEditable(false);
 		successToast("update successfully.");
 	});
+	const handleAvatarChange = (
+		e: React.ChangeEvent<HTMLInputElement>
+	) => {
+		const body = new FormData();
+		body.append("file", e.target.files[0]);
+		dispatch(updateProfilePhoto(body));
+		successToast("update successfully.");
+	};
 	let roleOptions: React.ReactNode = <option disabled></option>;
 	const [profileEditable, setProfileEditable] = useState(false);
 	const handleEditableClick = (_: React.MouseEvent<HTMLElement>) => {
 		setProfileEditable(true);
 	};
-	const roles: IRole[] = useSelector((state: any) => state.role.data);
+	const roles: Role[] = useSelector((state: any) => state.role.data);
 	const profileData: User = useSelector(
 		(state: any) => state.profile.data
 	);
@@ -67,12 +77,13 @@ const Profile: React.FC = (): JSX.Element => {
 		dispatch(fetchProfileData());
 	}, []);
 	if (roles.length !== 0) {
-		roleOptions = roles.map((role: IRole, key: number) => (
+		roleOptions = roles.map((role: Role, key: number) => (
 			<option key={`RoleOption-${key}`} value={role.name}>
 				{role.name}
 			</option>
 		));
 	}
+	console.log(profileData);
 	return (
 		<>
 			<ToastContainer />
@@ -89,7 +100,10 @@ const Profile: React.FC = (): JSX.Element => {
 				>
 					{/* Avatar */}
 					<div className="md:row-span-2">
-						<Avatar imageUrl={user.imageUrl} />
+						<Avatar
+							imageUrl={profileData.image}
+							onChange={handleAvatarChange}
+						/>
 					</div>
 					<div className="flex flex-wrap items-center">
 						<InfoLabel

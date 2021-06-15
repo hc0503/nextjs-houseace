@@ -8,6 +8,7 @@ import { sessionMiddleware } from "@/lib/iron-session";
 
 export default nc()
 	.use(sessionMiddleware)
+	// Update profile data
 	.post(async (req: any, res: NextApiResponse) => {
 		const sessionUser: User = req.session.get("user");
 		const { name, phone, address } = req.body;
@@ -32,7 +33,7 @@ export default nc()
 			});
 
 			req.session.set("user", user);
-			return res.status(201).json({
+			return res.json({
 				msg: "The profile data is updated successfully.",
 				data: user,
 			});
@@ -44,6 +45,7 @@ export default nc()
 			});
 		}
 	})
+	// Get profile data
 	.get(async (req: any, res: NextApiResponse) => {
 		const sessionUser: User = req.session.get("user");
 		try {
@@ -57,7 +59,7 @@ export default nc()
 				data: user,
 			});
 		} catch (error) {
-			return res.status(400).send({
+			return res.status(422).send({
 				errors: {
 					email: error,
 				},
