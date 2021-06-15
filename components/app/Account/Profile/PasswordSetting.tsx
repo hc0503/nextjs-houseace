@@ -1,6 +1,5 @@
 import React, { useRef } from "react";
 import { FiLock } from "react-icons/fi";
-import { ToastContainer } from "react-toastify";
 import { useForm } from "react-hook-form";
 
 import OutlineInput from "./OutlineInput";
@@ -45,8 +44,7 @@ const PasswordSetting: React.FC = (): JSX.Element => {
 	);
 
 	return (
-		<>
-			<ToastContainer />
+		<div className="focus:outline-none bg-white shadow rounded-2xl xl:pl-10 pl-5 pt-11 pb-9 md:pr-1 pr-5">
 			<div>
 				<p className="font-montserrat-bold xl:text-2xl text-base text-gray-dark">
 					Password Setting
@@ -158,7 +156,7 @@ const PasswordSetting: React.FC = (): JSX.Element => {
 					</div>
 				</div>
 			</div>
-		</>
+		</div>
 	);
 };
 

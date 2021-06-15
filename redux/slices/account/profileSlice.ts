@@ -20,7 +20,6 @@ export const fetchProfileData = createAsyncThunk(
 		return res.data.data;
 	}
 );
-
 export const updateProfileData = createAsyncThunk(
 	"profiles/updateDataStatus",
 	async (data: IProfile) => {
@@ -28,11 +27,9 @@ export const updateProfileData = createAsyncThunk(
 			`${process.env.BASE_URL}/api/profiles`,
 			data
 		);
-
 		return res.data.data;
 	}
 );
-
 export const updateProfilePhoto = createAsyncThunk(
 	"profiles/updatePhotoStatus",
 	async (data: FormData) => {
@@ -40,11 +37,19 @@ export const updateProfilePhoto = createAsyncThunk(
 			`${process.env.BASE_URL}/api/profiles/update-photo`,
 			data
 		);
-
 		return res.data.data;
 	}
 );
-
+export const updateProfileType = createAsyncThunk(
+	"profiles/updateTypeStatus",
+	async (data: IProfileType) => {
+		const res = await axios.post(
+			`${process.env.BASE_URL}/api/profiles/update-role`,
+			data
+		);
+		return res.data.data;
+	}
+);
 export const profileSlice = createSlice({
 	name: "profiles",
 	initialState,
@@ -69,6 +74,14 @@ export const profileSlice = createSlice({
 		// Update profile photo
 		builder.addCase(
 			updateProfilePhoto.fulfilled,
+			(state: IProfileState, action) => {
+				state.loading = false;
+				state.data = action.payload;
+			}
+		);
+		// Update profile type
+		builder.addCase(
+			updateProfileType.fulfilled,
 			(state: IProfileState, action) => {
 				state.loading = false;
 				state.data = action.payload;

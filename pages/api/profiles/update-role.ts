@@ -10,11 +10,9 @@ import { sessionMiddleware } from "@/lib/iron-session";
 export default nc()
 	.use(sessionMiddleware)
 	.post(async (req: any, res: NextApiResponse) => {
-		const { current_password, password } = req.body;
+		const { role } = req.body;
 		const validator = new Validator(req.body, {
-			current_password: ["required"],
-			password: ["required", "min:8", "confirmed"],
-			password_confirmation: ["required"],
+			role: ["required"],
 		});
 		if (validator.fails()) {
 			return res.status(412).send(validator.errors);
@@ -25,34 +23,23 @@ export default nc()
 				id: Number(sessionUser.id),
 			},
 		});
-		const doesPasswordMatch: boolean = bcrypt.compareSync(
-			current_password,
-			user.password
-		);
-		if (!doesPasswordMatch) {
-			return res.status(403).json({
-				errors: {
-					current_password: ["The current password is incorrect."],
-				},
-			});
-		}
 		try {
 			user = await prisma.user.update({
 				where: {
 					id: Number(sessionUser.id),
 				},
 				data: {
-					password: bcrypt.hashSync(password, bcrypt.genSaltSync()),
+					roleId: Number(role),
 				},
 			});
 			return res.json({
-				msg: "The password is updated successfully.",
+				msg: "The role is updated successfully.",
 				data: user,
 			});
 		} catch (error) {
 			return res.status(403).json({
 				errors: {
-					current_password: ["The database connection is wrong."],
+					role: ["The database connection is wrong."],
 				},
 			});
 		}
