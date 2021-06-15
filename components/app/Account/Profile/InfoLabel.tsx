@@ -1,6 +1,5 @@
 import classNames from "classnames";
-import React, { useState } from "react";
-import { SortAscendingIcon, UsersIcon } from "@heroicons/react/solid";
+import React from "react";
 
 import { handelFocus } from "@/lib/global-functions";
 

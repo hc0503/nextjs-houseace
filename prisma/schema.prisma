@@ -65,7 +65,7 @@ model User {
   emailVerified DateTime?     @map(name: "email_verified")
   phone         String?
   address       String?
-  image         String?
+  image         String?       @default("/images/users/default.png")
   providerType  ProviderType  @default(EMAIL) @map(name: "provider_type")
   createdAt     DateTime      @default(now()) @map(name: "created_at")
   updatedAt     DateTime      @default(now()) @map(name: "updated_at")

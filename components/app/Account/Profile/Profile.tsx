@@ -1,5 +1,5 @@
 import React from "react";
-import { FiUser, FiEdit, FiLock } from "react-icons/fi";
+import { FiUser, FiEdit } from "react-icons/fi";
 import { GoLocation } from "react-icons/go";
 import { BiPhoneCall } from "react-icons/bi";
 import { FaRegSave } from "react-icons/fa";
@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import classNames from "classnames";
 import { useForm } from "react-hook-form";
 import { RotateSpinner } from "react-spinners-kit";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 
 import { fetchRoleList } from "@/redux/slices/roleSlice";
 import {
@@ -18,30 +18,12 @@ import {
 } from "@/redux/slices/account/profileSlice";
 import { successToast } from "@/lib/global-functions";
 import InfoLabel from "./InfoLabel";
-import OutlineInput from "./OutlineInput";
+import PasswordSetting from "./PasswordSetting";
 import Avatar from "./Avatar";
 import ArrowCircleButton from "@/components/auth/ArrowCircleButton";
 import { Role, User } from ".prisma/client";
-import axios from "@/lib/axios";
 
 import "react-toastify/dist/ReactToastify.css";
-
-interface IUser {
-	fullName: string;
-	address: string;
-	phoneNumber: string;
-	type: number;
-	createdAt: string;
-	imageUrl: string;
-}
-const user: IUser = {
-	fullName: "Madeline T Heagney",
-	address: "98 Garden Place, FENTONS CREEK, Victoria-3518",
-	phoneNumber: "(03) 5348 5891",
-	type: 1,
-	createdAt: "24/03/2020",
-	imageUrl: "/images/app/profile.png",
-};
 
 const Profile: React.FC = (): JSX.Element => {
 	const {
@@ -54,7 +36,7 @@ const Profile: React.FC = (): JSX.Element => {
 		setProfileEditable(false);
 		successToast("update successfully.");
 	});
-	const handleAvatarChange = (
+	const handleUpdatePhoto = (
 		e: React.ChangeEvent<HTMLInputElement>
 	) => {
 		const body = new FormData();
@@ -83,7 +65,7 @@ const Profile: React.FC = (): JSX.Element => {
 			</option>
 		));
 	}
-	console.log(profileData);
+
 	return (
 		<>
 			<ToastContainer />
@@ -101,8 +83,8 @@ const Profile: React.FC = (): JSX.Element => {
 					{/* Avatar */}
 					<div className="md:row-span-2">
 						<Avatar
-							imageUrl={profileData.image}
-							onChange={handleAvatarChange}
+							imageUrl={profileData?.image}
+							onChange={handleUpdatePhoto}
 						/>
 					</div>
 					<div className="flex flex-wrap items-center">
@@ -110,7 +92,7 @@ const Profile: React.FC = (): JSX.Element => {
 							id="name"
 							name="name"
 							label="Full Name"
-							defaultValue={profileData.name}
+							defaultValue={profileData?.name}
 							icon={<FiUser className="h-4 w-4" />}
 							valueClass={classNames("bg-red rounded", {
 								"border border-white": profileEditable,
@@ -129,7 +111,7 @@ const Profile: React.FC = (): JSX.Element => {
 							id="phone"
 							name="phone"
 							label="Phone Number"
-							defaultValue={profileData.phone}
+							defaultValue={profileData?.phone}
 							icon={<BiPhoneCall className="h-4 w-4" />}
 							valueClass={classNames("bg-red rounded", {
 								"border border-white": profileEditable,
@@ -148,7 +130,7 @@ const Profile: React.FC = (): JSX.Element => {
 							id="address"
 							name="address"
 							label="Address"
-							defaultValue={profileData.address}
+							defaultValue={profileData?.address}
 							icon={<GoLocation className="h-4 w-4" />}
 							valueClass={classNames("bg-red rounded", {
 								"border border-white": profileEditable,
@@ -187,97 +169,7 @@ const Profile: React.FC = (): JSX.Element => {
 			<div className="grid md:grid-cols-2 grid-cols-1 gap-4 mt-4">
 				{/* Password Settings card */}
 				<div className="focus:outline-none bg-white shadow rounded-2xl xl:pl-10 pl-5 pt-11 pb-9 md:pr-1 pr-5">
-					<div>
-						<p className="font-montserrat-bold xl:text-2xl text-base text-gray-dark">
-							Password Setting
-						</p>
-					</div>
-					<div className="">
-						<div className="flex space-x-2">
-							<form className="mt-4 w-full xl:text-base text-sm">
-								<div className="">
-									<label htmlFor="current_password" className="block">
-										Current Password:
-									</label>
-									<div className="mt-5">
-										<OutlineInput
-											id="current_password"
-											name="current_password"
-											placeHolder="Enter your current password"
-											type="password"
-										>
-											<FiLock
-												className="h-5 w-5"
-												aria-hidden="true"
-											/>
-										</OutlineInput>
-									</div>
-								</div>
-								<div className="mt-4">
-									<label htmlFor="new_password" className="block">
-										Change your password:
-									</label>
-									<div className="mt-5">
-										<OutlineInput
-											id="new_password"
-											name="new_password"
-											placeHolder="New Password"
-											type="password"
-										>
-											<FiLock
-												className="h-5 w-5"
-												aria-hidden="true"
-											/>
-										</OutlineInput>
-									</div>
-									<div className="mt-5">
-										<OutlineInput
-											id="confirm_password"
-											name="confirm_password"
-											placeHolder="Confirm New Password"
-											type="password"
-										>
-											<FiLock
-												className="h-5 w-5"
-												aria-hidden="true"
-											/>
-										</OutlineInput>
-									</div>
-								</div>
-								<div className="w-full text-right mt-5">
-									<ArrowCircleButton
-										fontsize="text-xs"
-										buttonSize="w-9 h-9 hover:w-24"
-									>
-										Save
-									</ArrowCircleButton>
-								</div>
-							</form>
-							<div className="md:flex hidden items-end mb-14 whitespace-nowrap">
-								<div className="bg-red-140 rounded-2xl xl:text-2sm text-2xs xl:p-6 p-2">
-									<p>YOUR PASSWORD MUST CONTAIN</p>
-									<div className="xl:mt-5 mt-3 xl:space-y-4 xpace-y-3 leading-3">
-										<p className="">
-											<span className="text-gray-light">o</span>{" "}
-											Between8-20 characters
-										</p>
-										<p className="">
-											<span className="text-gray-light">o</span> At
-											least 1 UPPER case letter
-										</p>
-										<p className="">
-											<span className="text-gray-light">o</span> At
-											least 1 Special character
-										</p>
-										<p className="">
-											<span className="text-gray-light">o</span> At
-											least 1 Number
-										</p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+					<PasswordSetting />
 				</div>
 
 				{/* Account Type */}
@@ -303,7 +195,7 @@ const Profile: React.FC = (): JSX.Element => {
 										Normal Account
 									</p>
 									<p className="text-xs">
-										Creation date: {user.createdAt}
+										Creation date: {profileData?.createdAt}
 									</p>
 								</div>
 							</div>

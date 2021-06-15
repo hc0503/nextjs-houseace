@@ -1,7 +1,6 @@
 import { NextApiResponse } from "next";
 import nc from "next-connect";
 import { User } from ".prisma/client";
-import Validator from "validatorjs";
 import formidable from "formidable";
 import fs from "fs";
 import randomstring from "randomstring";
