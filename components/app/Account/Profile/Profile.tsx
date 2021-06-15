@@ -22,7 +22,6 @@ import OutlineInput from "./OutlineInput";
 import Avatar from "./Avatar";
 import ArrowCircleButton from "@/components/auth/ArrowCircleButton";
 import { Role, User } from ".prisma/client";
-import axios from "@/lib/axios";
 
 import "react-toastify/dist/ReactToastify.css";
 
