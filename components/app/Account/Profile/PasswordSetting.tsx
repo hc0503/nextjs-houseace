@@ -81,7 +81,7 @@ const PasswordSetting: React.FC = (): JSX.Element => {
 							</div>
 						</div>
 						<div className="mt-4">
-							<label htmlFor="new_password" className="block">
+							<label htmlFor="password" className="block">
 								Change your password:
 							</label>
 							<div className="mt-5">
