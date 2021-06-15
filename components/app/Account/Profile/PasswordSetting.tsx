@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import OutlineInput from "./OutlineInput";
 import ArrowCircleButton from "@/components/auth/ArrowCircleButton";
 import { successToast } from "@/lib/global-functions";
+import axios from "@/lib/axios";
 
 interface IPassword {
 	current_password: string;
@@ -16,16 +17,32 @@ interface IPassword {
 const PasswordSetting: React.FC = (): JSX.Element => {
 	const {
 		register,
+		setError,
 		formState: { errors },
 		handleSubmit,
 		watch,
 	} = useForm();
 	const password = useRef({});
 	password.current = watch("password", "");
-	const handleUpdatePassword = handleSubmit((data: IPassword) => {
-		console.log(data);
-		successToast("update successfully.");
-	});
+	const handleUpdatePassword = handleSubmit(
+		async (data: IPassword) => {
+			try {
+				const res = await axios.post(
+					"/api/profiles/update-password",
+					data
+				);
+				successToast("update successfully.");
+			} catch (e) {
+				const errors = Object.keys(e.response.data.errors);
+				errors.map((error) => {
+					setError(error, {
+						type: "manual",
+						message: e.response.data.errors[error][0],
+					});
+				});
+			}
+		}
+	);
 
 	return (
 		<>
