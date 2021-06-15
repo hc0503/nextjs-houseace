@@ -37,7 +37,7 @@ export const updateProfilePhoto = createAsyncThunk(
 	"profiles/updatePhotoStatus",
 	async (data: FormData) => {
 		const res = await axios.post(
-			`${process.env.BASE_URL}/api/profiles/photo`,
+			`${process.env.BASE_URL}/api/profiles/update-photo`,
 			data
 		);
 
