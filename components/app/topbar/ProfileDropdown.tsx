@@ -33,7 +33,7 @@ const ProfileDropdown: React.FC = (): JSX.Element => {
 								<span className="sr-only">Open user menu</span>
 								<img
 									className="h-8 w-8 rounded-full object-cover"
-									src={profileData.image}
+									src={profileData?.image}
 									alt=""
 								/>
 							</Menu.Button>
