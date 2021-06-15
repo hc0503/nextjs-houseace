@@ -1,3 +1,9 @@
+interface IReponse {
+	error: string | undefined;
+	status: number;
+	ok: boolean;
+	data: any;
+}
 interface IInput {
 	id: string;
 	name: string;
