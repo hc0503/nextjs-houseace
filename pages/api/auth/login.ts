@@ -35,7 +35,7 @@ export default nc()
 				user.password
 			);
 			if (doesPasswordMatch) {
-				req.session.set("user", { user });
+				req.session.set("user", user);
 				await req.session.save();
 
 				return res

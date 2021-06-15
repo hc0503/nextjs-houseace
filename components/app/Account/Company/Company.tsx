@@ -10,9 +10,10 @@ import Avatar from "@/components/app/Account/Profile/Avatar";
 import InfoLabel from "@/components/app/Account/Profile/InfoLabel";
 import SearchInput from "@/components/app/TopBar/SearchInput";
 import ServiceItem from "./ServiceItem";
-import FileUpload from "./FileUpload";
+import DropdownFileUpload from "./DropdownFileUpload";
 import UploadItem from "./UploadItem";
 import SocialShareButton from "./SocialShareButton";
+import FileUploadButton from "./FileUploadButton";
 
 interface ICompany {
 	businessName: string;
@@ -57,57 +58,66 @@ export const Company: React.FC = (): JSX.Element => {
 						size="w-44 h-44"
 					/>
 				</div>
-				<button
-					type="button"
-					className="inline-flex items-center p-3 border border-transparent rounded-full shadow-sm text-white hover:bg-white hover:text-gray focus:outline-none absolute bottom-5 right-5"
-				>
+				<FileUploadButton name="company_hero" id="company_hero">
 					<AiOutlineCamera className="h-7 w-7" aria-hidden="true" />
-				</button>
+				</FileUploadButton>
 			</div>
 			<div className="grid md:grid-cols-2 grid-cols-1 gap-4 mt-4">
 				<div className="bg-white shadow rounded-2xl xl:px-10 px-4 py-11 space-y-10 relative">
 					<div className="">
 						<InfoLabel
 							label="Business Name"
-							value={company.businessName}
+							defaultValue={company.businessName}
 							valueClass="font-montserrat-bold text-gray-dark"
 							icon={<IoMdBriefcase className="h-4 w-4 text-red" />}
+							id="business_name"
+							name="bussiness_name"
 						/>
 					</div>
 					<div className="">
 						<InfoLabel
 							label="Phone Number"
-							value={company.phoneNumber}
+							defaultValue={company.phoneNumber}
 							icon={<BiPhoneCall className="h-4 w-4 text-red" />}
+							id="phone"
+							name="phone"
 						/>
 					</div>
 					<div className="">
 						<InfoLabel
 							label="Address"
-							value={company.address}
+							defaultValue={company.address}
 							icon={<GoLocation className="h-4 w-4 text-red" />}
+							id="address"
+							name="address"
 						/>
 					</div>
 					<div className="flex justify-between">
 						<div className="">
 							<InfoLabel
 								label="License Number"
-								value={company.licenseNumber}
+								defaultValue={company.licenseNumber}
 								icon={<BiRectangle className="h-4 w-4 text-red" />}
+								id="license"
+								name="license"
 							/>
 						</div>
 						<div className="">
 							<InfoLabel
 								label="Year Founded"
-								value={company.yearFounded}
+								defaultValue={company.yearFounded}
 								icon={<BiRectangle className="h-4 w-4 text-red" />}
+								id="year_founded"
+								name="year_founded"
 							/>
 						</div>
 						<div className="">
 							<InfoLabel
 								label="ABN Number"
-								value={company.abnNumber}
+								defaultValue={company.abnNumber}
 								icon={<BiRectangle className="h-4 w-4 text-red" />}
+								id="abn_number"
+								name="abn_number"
 							/>
 						</div>
 					</div>
@@ -156,7 +166,7 @@ export const Company: React.FC = (): JSX.Element => {
 						</p>
 					</div>
 					<div className="mt-5 w-full">
-						<FileUpload />
+						<DropdownFileUpload />
 					</div>
 					<div className="flex mt-10 space-x-2">
 						{imageList.map((image: IUploadItem, key: number) => (
@@ -174,7 +184,7 @@ export const Company: React.FC = (): JSX.Element => {
 						</p>
 					</div>
 					<div className="mt-5 w-full">
-						<FileUpload />
+						<DropdownFileUpload />
 					</div>
 				</div>
 				<div className="bg-white shadow rounded-2xl xl:px-10 px-4 py-8 md:col-span-2 flex md:space-x-14 space-x-5">

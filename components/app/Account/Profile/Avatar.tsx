@@ -4,11 +4,13 @@ import classNames from "classnames";
 interface IProps {
 	imageUrl: string;
 	size?: string;
+	onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export const Avatar: React.FC<IProps> = ({
 	imageUrl,
 	size = "h-52 w-52",
+	onChange,
 }): JSX.Element => {
 	return (
 		<div className="flex-grow lg:flex-grow-0 lg:flex-shrink-0 left-0 top-0 z-50">
@@ -53,7 +55,7 @@ export const Avatar: React.FC<IProps> = ({
 					)}
 				>
 					<img
-						className="rounded-full h-full w-full"
+						className="rounded-full h-full w-full object-cover"
 						src={imageUrl}
 						alt=""
 					/>
@@ -69,6 +71,8 @@ export const Avatar: React.FC<IProps> = ({
 							id="user_photo"
 							name="user_photo"
 							className="absolute inset-0 w-full h-full opacity-0 cursor-pointer border-gray-300 rounded-md"
+							accept="image/*"
+							onChange={onChange}
 						/>
 					</label>
 				</div>
