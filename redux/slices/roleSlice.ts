@@ -14,7 +14,7 @@ const initialState: IRoleState = {
 export const fetchRoleList = createAsyncThunk(
 	"roles/fetchAllStatus",
 	async () => {
-		const res = await axios.get(`${process.env.BASE_URL}/api/roles`);
+		const res = await axios.get(`/api/roles`);
 
 		return res.data.data;
 	}

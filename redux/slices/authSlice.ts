@@ -20,12 +20,9 @@ export const login = createAsyncThunk(
 		signal.addEventListener("abort", () => {
 			source.cancel();
 		});
-		const res = await axios.post(
-			`${process.env.API_URL}/auth/login`,
-			{
-				cancelToken: source.token,
-			}
-		);
+		const res = await axios.post(`/auth/login`, {
+			cancelToken: source.token,
+		});
 
 		return res.data;
 	}
@@ -37,12 +34,9 @@ export const logout = createAsyncThunk(
 		signal.addEventListener("abort", () => {
 			source.cancel();
 		});
-		const res = await axios.post(
-			`${process.env.API_URL}/auth/logout`,
-			{
-				cancelToken: source.token,
-			}
-		);
+		const res = await axios.post(`/auth/logout`, {
+			cancelToken: source.token,
+		});
 
 		return res.data;
 	}
