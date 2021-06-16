@@ -26,6 +26,10 @@ export const Avatar: React.FC<IProps> = ({
 							className="rounded-full h-full w-full"
 							src={imageUrl}
 							alt=""
+							onError={(e) => {
+								e.currentTarget.onerror = null;
+								e.currentTarget.src = "/images/default-user.png";
+							}}
 						/>
 					</div>
 					<div className="ml-5 rounded-md shadow-sm">
@@ -41,6 +45,7 @@ export const Avatar: React.FC<IProps> = ({
 								name="user_photo"
 								type="file"
 								className="absolute w-full h-full opacity-0 cursor-pointer border-gray-300 rounded-md"
+								onChange={onChange}
 							/>
 						</div>
 					</div>
@@ -58,6 +63,10 @@ export const Avatar: React.FC<IProps> = ({
 						className="rounded-full h-full w-full object-cover"
 						src={imageUrl}
 						alt=""
+						onError={(e) => {
+							e.currentTarget.onerror = null;
+							e.currentTarget.src = "/images/default-user.png";
+						}}
 					/>
 					<label
 						htmlFor="user-photo"

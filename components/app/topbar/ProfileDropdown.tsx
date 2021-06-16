@@ -35,6 +35,10 @@ const ProfileDropdown: React.FC = (): JSX.Element => {
 									className="h-8 w-8 rounded-full object-cover"
 									src={profileData?.image}
 									alt=""
+									onError={(e) => {
+										e.currentTarget.onerror = null;
+										e.currentTarget.src = "/images/default-user.png";
+									}}
 								/>
 							</Menu.Button>
 						</div>
