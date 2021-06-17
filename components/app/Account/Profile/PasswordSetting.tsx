@@ -27,7 +27,7 @@ const PasswordSetting: React.FC = (): JSX.Element => {
 		async (data: IPassword) => {
 			try {
 				const res = await axios.post(
-					"/api/profiles/update-password",
+					"/api/account/profiles/update-password",
 					data
 				);
 				successToast("update successfully.");
