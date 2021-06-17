@@ -49,7 +49,7 @@ const saveAndDelete = async (
 	const regex = /[^.]*/;
 	const data = fs.readFileSync(file.path);
 	const fileName = file.name.replace(regex, randomstring.generate());
-	const imagePath = `/images/users/${fileName}`;
+	const imagePath = `/upload/account/profile/${fileName}`;
 	fs.writeFileSync(`./public${imagePath}`, data);
 	await fs.unlinkSync(file.path);
 	if (fs.existsSync(`./public${oldFilePath}`))
