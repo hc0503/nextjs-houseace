@@ -1,7 +1,7 @@
 import { User } from ".prisma/client";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-import axios from "axios";
+import axios from "@/lib/axios";
 
 export interface IProfileState extends IState {
 	data: User;
@@ -14,19 +14,14 @@ const initialState: IProfileState = {
 export const fetchProfileData = createAsyncThunk(
 	"profiles/fetchDataStatus",
 	async () => {
-		const res = await axios.get(
-			`${process.env.BASE_URL}/api/profiles`
-		);
+		const res = await axios.get(`/api/account/profiles`);
 		return res.data.data;
 	}
 );
 export const updateProfileData = createAsyncThunk(
 	"profiles/updateDataStatus",
 	async (data: IProfile) => {
-		const res = await axios.post(
-			`${process.env.BASE_URL}/api/profiles`,
-			data
-		);
+		const res = await axios.post(`/api/account/profiles`, data);
 		return res.data.data;
 	}
 );
@@ -34,7 +29,7 @@ export const updateProfilePhoto = createAsyncThunk(
 	"profiles/updatePhotoStatus",
 	async (data: FormData) => {
 		const res = await axios.post(
-			`${process.env.BASE_URL}/api/profiles/update-photo`,
+			`/api/account/profiles/update-photo`,
 			data
 		);
 		return res.data.data;
@@ -44,7 +39,7 @@ export const updateProfileType = createAsyncThunk(
 	"profiles/updateTypeStatus",
 	async (data: IProfileType) => {
 		const res = await axios.post(
-			`${process.env.BASE_URL}/api/profiles/update-role`,
+			`/api/account/profiles/update-role`,
 			data
 		);
 		return res.data.data;

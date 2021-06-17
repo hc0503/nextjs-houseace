@@ -1,5 +1,3 @@
-declare module "react-faq-component";
-
 interface IGettingDoneItem {
 	src: string;
 	alt: string;

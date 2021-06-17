@@ -8,31 +8,48 @@ generator client {
 }
 
 model Role {
-  id          Int      @id @default(autoincrement())
-  name        String   @unique
-  users       User[]
-  createdAt   DateTime @default(now()) @map(name: "created_at")
-  updatedAt   DateTime @default(now()) @map(name: "updated_at")
+  id        Int      @id @default(autoincrement())
+  name      String   @unique
+  users     User[]
+  createdAt DateTime @default(now()) @map(name: "created_at")
+  updatedAt DateTime @default(now()) @map(name: "updated_at")
 
   @@map(name: "roles")
 }
 
 model User {
-  id            Int           @default(autoincrement()) @id
+  id            Int          @id @default(autoincrement())
   name          String?
-  email         String?       @unique
-  role          Role          @relation(fields: [roleId], references: [id])
-  roleId        Int           @map(name: "role_id")
+  email         String?      @unique
+  role          Role         @relation(fields: [roleId], references: [id])
+  roleId        Int          @map(name: "role_id")
+  company       Company?
   password      String?
-  emailVerified DateTime?     @map(name: "email_verified")
+  emailVerified DateTime?    @map(name: "email_verified")
   phone         String?
   address       String?
-  image         String?       @default("/images/users/default.png")
-  providerType  ProviderType  @default(EMAIL) @map(name: "provider_type")
-  createdAt     DateTime      @default(now()) @map(name: "created_at")
-  updatedAt     DateTime      @default(now()) @map(name: "updated_at")
+  image         String?      @default("/images/users/default.png")
+  providerType  ProviderType @default(EMAIL) @map(name: "provider_type")
+  createdAt     DateTime     @default(now()) @map(name: "created_at")
+  updatedAt     DateTime     @default(now()) @map(name: "updated_at")
 
   @@map(name: "users")
+}
+
+model Company {
+  id            Int     @id @default(autoincrement())
+  userId        Int     @map(name: "user_id")
+  user          User    @relation(fields: [userId], references: [id])
+  heroImage     String? @map(name: "hero_image")
+  logoImage     String? @map(name: "logo_image")
+  businessName  String? @map(name: "business_name")
+  phone         String?
+  address       String?
+  licenseNumber String? @map(name: "license_number")
+  yearFounded   String? @map(name: "year_founded")
+  abnNumber     String? @map(name: "abn_number")
+
+  @@map(name: "companies")
 }
 
 enum ProviderType {

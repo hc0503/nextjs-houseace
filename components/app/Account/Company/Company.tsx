@@ -1,19 +1,17 @@
 import { useState } from "react";
-import { AiOutlineCamera } from "react-icons/ai";
 import { FiEdit } from "react-icons/fi";
 import { BiPhoneCall, BiRectangle } from "react-icons/bi";
 import { GoLocation } from "react-icons/go";
 import { IoMdBriefcase } from "react-icons/io";
 import { FaFacebookF, FaTwitter, FaLinkedinIn } from "react-icons/fa";
 
-import Avatar from "@/components/app/Account/Profile/Avatar";
 import InfoLabel from "@/components/app/Account/Profile/InfoLabel";
 import SearchInput from "@/components/app/TopBar/SearchInput";
 import ServiceItem from "./ServiceItem";
 import DropdownFileUpload from "./DropdownFileUpload";
 import UploadItem from "./UploadItem";
 import SocialShareButton from "./SocialShareButton";
-import FileUploadButton from "./FileUploadButton";
+import CompanyHero from "./CompanyHero";
 
 interface ICompany {
 	businessName: string;
@@ -43,25 +41,7 @@ export const Company: React.FC = (): JSX.Element => {
 	]);
 	return (
 		<>
-			<div
-				className="mt-5 h-72 rounded-2xl relative"
-				style={{
-					backgroundImage: "url('/images/app/company_hero.png')",
-					backgroundSize: "cover",
-					backgroundPosition: "center",
-					backgroundRepeat: "no-repeat",
-				}}
-			>
-				<div className="flex items-center h-full ml-10">
-					<Avatar
-						imageUrl="/images/app/company_logo.png"
-						size="w-44 h-44"
-					/>
-				</div>
-				<FileUploadButton name="company_hero" id="company_hero">
-					<AiOutlineCamera className="h-7 w-7" aria-hidden="true" />
-				</FileUploadButton>
-			</div>
+			<CompanyHero />
 			<div className="grid md:grid-cols-2 grid-cols-1 gap-4 mt-4">
 				<div className="bg-white shadow rounded-2xl xl:px-10 px-4 py-11 space-y-10 relative">
 					<div className="">

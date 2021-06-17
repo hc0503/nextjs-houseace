@@ -1,3 +1,6 @@
+declare module "react-faq-component";
+declare module "formidable";
+declare module "randomstring";
 interface IReponse {
 	error: string | undefined;
 	status: number;
