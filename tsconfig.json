@@ -1,10 +1,11 @@
 {
-  "compilerOptions": {
+	"compilerOptions": {
 		"baseUrl": ".",
 		"paths": {
-      "@/*": ["*"],
-			"@/assets/*": ["public/*"],
-    },
+			"@/*": [
+				"*"
+			],
+		},
 		"target": "es5",
 		"lib": [
 			"dom",
