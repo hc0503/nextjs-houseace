@@ -1,4 +1,5 @@
 import { User } from ".prisma/client";
+import { postLogin } from "@/services/AuthService";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import Router from "next/router";
@@ -15,16 +16,10 @@ const initialState: IUserState = {
 
 export const login = createAsyncThunk(
 	"auth/loginStatus",
-	async (data, { signal }) => {
-		const source = axios.CancelToken.source();
-		signal.addEventListener("abort", () => {
-			source.cancel();
-		});
-		const res = await axios.post(`/auth/login`, {
-			cancelToken: source.token,
-		});
+	async (credential: ICredentials) => {
+		const res = await postLogin(credential);
 
-		return res.data;
+		return res.user;
 	}
 );
 export const logout = createAsyncThunk(
@@ -66,7 +61,7 @@ export const authSlice = createSlice({
 			state.data = action.payload;
 			state.loading = false;
 			state.loggedIn = true;
-			Router.push("/");
+			Router.push("/app");
 		});
 		builder.addCase(login.rejected, (state: any, action) => {
 			state.loading = false;
