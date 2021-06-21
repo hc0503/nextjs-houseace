@@ -1,6 +1,12 @@
 import axios from "@/lib/axios";
 
 export const getRoles = async (): Promise<any> => {
-	const res = await axios.get(`${process.env.API_URL}/roles`);
-	return res.data.data;
+	try {
+		const res = await axios.get(
+			`${process.env.API_URL}/api/v1/roles`
+		);
+		return Promise.resolve(res.data.data);
+	} catch (error) {
+		return Promise.reject(error);
+	}
 };

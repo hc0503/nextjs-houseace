@@ -1,11 +1,9 @@
-import { Role } from ".prisma/client";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-import axios from "@/lib/axios";
 import { getRoles } from "@/services/RoleService";
 
 export interface IRoleState extends IState {
-	data: Role[];
+	data: IRole[];
 }
 const initialState: IRoleState = {
 	data: [],

@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { RotateSpinner } from "react-spinners-kit";
 import { FaGooglePlus, FaFacebook } from "react-icons/fa";
 import { FiMail, FiLock, FiUser } from "react-icons/fi";
-import { Role } from ".prisma/client";
 
 import axios from "@/lib/axios";
 import { fetchRoleList } from "@/redux/slices/roleSlice";
@@ -24,7 +23,7 @@ interface IErrors {
 }
 const RegisterForm: React.FC = (): JSX.Element => {
 	const dispatch = useDispatch();
-	const roleList: Role[] = useSelector(
+	const roleList: IRole[] = useSelector(
 		(state: any) => state.role.data
 	);
 	useEffect(() => {
