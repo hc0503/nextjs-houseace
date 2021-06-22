@@ -3,9 +3,9 @@ import { FiLock } from "react-icons/fi";
 import { useForm } from "react-hook-form";
 
 import OutlineInput from "./OutlineInput";
-import ArrowCircleButton from "@/components/auth/ArrowCircleButton";
-import { successToast } from "@/lib/global-functions";
-import axios from "@/lib/axios";
+import ArrowCircleButton from "../../../auth/ArrowCircleButton";
+import { successToast } from "../../../../lib/global-functions";
+import axios from "../../../../lib/axios";
 
 interface IPassword {
 	current_password: string;

@@ -1,8 +1,8 @@
 import Head from "next/head";
 
-import Layout from "@/components/layout/Page";
-import AuthBackground from "@/components/auth/AuthBackground";
-import LoginForm from "@/components/auth/LoginForm";
+import Layout from "../../components/layout/Page";
+import AuthBackground from "../../components/auth/AuthBackground";
+import LoginForm from "../../components/auth/LoginForm";
 
 const Login: React.FC = (): JSX.Element => {
 	return (

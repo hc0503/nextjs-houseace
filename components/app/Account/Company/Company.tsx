@@ -5,8 +5,8 @@ import { GoLocation } from "react-icons/go";
 import { IoMdBriefcase } from "react-icons/io";
 import { FaFacebookF, FaTwitter, FaLinkedinIn } from "react-icons/fa";
 
-import InfoLabel from "@/components/app/Account/Profile/InfoLabel";
-import SearchInput from "@/components/app/TopBar/SearchInput";
+import InfoLabel from "../Profile/InfoLabel";
+import SearchInput from "../../TopBar/SearchInput";
 import ServiceItem from "./ServiceItem";
 import DropdownFileUpload from "./DropdownFileUpload";
 import UploadItem from "./UploadItem";

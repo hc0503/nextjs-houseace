@@ -1,4 +1,4 @@
-import axios from "@/lib/axios";
+import axios from "../lib/axios";
 
 export const postLogin = async (
 	credential: ICredentials
@@ -11,7 +11,7 @@ export const postLogin = async (
 				password: credential.password,
 			}
 		);
-		return Promise.resolve(res.data.data);
+		return Promise.resolve(res.data);
 	} catch (error) {
 		return Promise.reject(error);
 	}

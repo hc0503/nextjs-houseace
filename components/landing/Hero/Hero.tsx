@@ -1,4 +1,4 @@
-import HeroSearch from "@/components/landing/Hero/HeroSearch";
+import HeroSearch from "./HeroSearch";
 
 const Hero: React.FC = () => {
 	return (

@@ -6,8 +6,8 @@ import { RotateSpinner } from "react-spinners-kit";
 import { FaGooglePlus, FaFacebook } from "react-icons/fa";
 import { FiMail, FiLock, FiUser } from "react-icons/fi";
 
-import axios from "@/lib/axios";
-import { fetchRoleList } from "@/redux/slices/roleSlice";
+import axios from "../../lib/axios";
+import { fetchRoleList } from "../../redux/reducers/roleReducer";
 import SocialButton from "./SocialButton";
 import AuthInputGroup from "./AuthInputGroup";
 import ArrowCircleButton from "./ArrowCircleButton";

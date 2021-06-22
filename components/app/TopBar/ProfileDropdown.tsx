@@ -4,12 +4,11 @@ import classNames from "classnames";
 import { Menu, Transition } from "@headlessui/react";
 import { useSelector } from "react-redux";
 
-import axios from "@/lib/axios";
-import { User } from ".prisma/client";
+import axios from "../../../lib/axios";
 
 const ProfileDropdown: React.FC = (): JSX.Element => {
 	const router = useRouter();
-	const profileData: User = useSelector(
+	const profileData: IUser = useSelector(
 		(state: any) => state.profile.data
 	);
 	const userNavigation = [

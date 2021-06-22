@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-import { getRoles } from "@/services/RoleService";
+import { getRoles } from "../../services/RoleService";
 
 export interface IRoleState extends IState {
 	data: IRole[];

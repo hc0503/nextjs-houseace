@@ -5,8 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { FaGooglePlus, FaFacebook } from "react-icons/fa";
 import { FiMail, FiLock } from "react-icons/fi";
 
-import { login } from "@/redux/slices/authSlice";
-import axios from "@/lib/axios";
+import { login } from "../../redux/reducers/authReducer";
+import axios from "../../lib/axios";
 import SocialButton from "./SocialButton";
 import AuthInputGroup from "./AuthInputGroup";
 import ArrowCircleButton from "./ArrowCircleButton";

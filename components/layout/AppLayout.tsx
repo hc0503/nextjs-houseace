@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { ToastContainer } from "react-toastify";
 
-import TopBar from "@/components/app/TopBar/TopBar";
-import SideBar from "@/components/app/SideBar/SideBar";
+import TopBar from "../../components/app/TopBar/TopBar";
+import SideBar from "../../components/app/SideBar/SideBar";
 
 interface Props {
 	children?: React.ReactNode;

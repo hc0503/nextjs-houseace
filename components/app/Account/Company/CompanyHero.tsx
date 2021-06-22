@@ -1,9 +1,9 @@
 import { AiOutlineCamera } from "react-icons/ai";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
-import { successToast } from "@/lib/global-functions";
-import { updateCompanyLogo } from "@/redux/slices/account/companySlice";
-import Avatar from "@/components/app/Account/Profile/Avatar";
+import { successToast } from "../../../../lib/global-functions";
+import { updateCompanyLogo } from "../../../../redux/reducers/account/companyReducer";
+import Avatar from "../Profile/Avatar";
 import FileUploadButton from "./FileUploadButton";
 
 const CompanyHero: React.FC = (): JSX.Element => {

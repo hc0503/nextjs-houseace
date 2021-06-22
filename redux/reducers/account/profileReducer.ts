@@ -1,10 +1,9 @@
-import { User } from ".prisma/client";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-import axios from "@/lib/axios";
+import axios from "../../../lib/axios";
 
 export interface IProfileState extends IState {
-	data: User;
+	data: IUser;
 }
 const initialState: IProfileState = {
 	data: null,

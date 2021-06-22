@@ -1,6 +1,6 @@
 import classNames from "classnames";
 
-import ArrowCircleButton from "@/components/auth/ArrowCircleButton";
+import ArrowCircleButton from "../../auth/ArrowCircleButton";
 
 const HeroSearch: React.FC = (): JSX.Element => {
 	return (

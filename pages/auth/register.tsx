@@ -1,8 +1,8 @@
 import Head from "next/head";
 
-import Layout from "@/components/layout/Page";
-import AuthBackground from "@/components/auth/AuthBackground";
-import RegisterForm from "@/components/auth/RegisterForm";
+import Layout from "../../components/layout/Page";
+import AuthBackground from "../../components/auth/AuthBackground";
+import RegisterForm from "../../components/auth/RegisterForm";
 
 const Register: React.FC = (): JSX.Element => {
 	return (
