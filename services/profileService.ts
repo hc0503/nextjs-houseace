@@ -34,3 +34,16 @@ export const postUpdateProfileData = async (
 		return Promise.reject(error);
 	}
 };
+export const postUpdateProfilePassword = async (
+	data: IPassword
+): Promise<any> => {
+	try {
+		const res = await axios.post(
+			"/api/v1/private/profiles/me/update-password",
+			data
+		);
+		return Promise.resolve(res.data);
+	} catch (error) {
+		return Promise.reject(error);
+	}
+};
