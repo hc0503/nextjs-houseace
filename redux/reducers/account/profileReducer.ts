@@ -2,8 +2,9 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 import axios from "../../../lib/axios";
 import {
-	getProfileData,
-	postUpdatePhoto,
+	getFetchProfileData,
+	postUpdateProfileData,
+	postUpdateProfilePhoto,
 } from "../../../services/profileService";
 
 export interface IProfileState extends IState {
@@ -17,21 +18,21 @@ const initialState: IProfileState = {
 export const fetchProfileData = createAsyncThunk(
 	"profiles/fetchDataStatus",
 	async () => {
-		const res = await getProfileData();
+		const res = await getFetchProfileData();
 		return res.data;
 	}
 );
 export const updateProfileData = createAsyncThunk(
 	"profiles/updateDataStatus",
 	async (data: IProfile) => {
-		const res = await axios.post(`/api/account/profiles`, data);
+		const res = await postUpdateProfileData(data);
 		return res.data.data;
 	}
 );
 export const updateProfilePhoto = createAsyncThunk(
 	"profiles/updatePhotoStatus",
 	async (data: FormData) => {
-		const res = await postUpdatePhoto(data);
+		const res = await postUpdateProfilePhoto(data);
 
 		return res.data;
 	}
@@ -64,7 +65,7 @@ export const profileSlice = createSlice({
 			updateProfileData.fulfilled,
 			(state: IProfileState, action: any) => {
 				state.loading = false;
-				state.data = action.payload;
+				state.data = action.payload.me;
 			}
 		);
 		// Update profile photo
@@ -72,7 +73,7 @@ export const profileSlice = createSlice({
 			updateProfilePhoto.fulfilled,
 			(state: IProfileState, action: any) => {
 				state.loading = false;
-				state.data = action.payload.user;
+				state.data = action.payload.me;
 			}
 		);
 		// Update profile type
