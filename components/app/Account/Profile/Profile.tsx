@@ -23,6 +23,7 @@ import AccountType from "./AccountType";
 import "react-toastify/dist/ReactToastify.css";
 
 const Profile: React.FC = (): JSX.Element => {
+	const dispatch = useDispatch();
 	const {
 		register,
 		formState: { errors },
@@ -48,10 +49,6 @@ const Profile: React.FC = (): JSX.Element => {
 	const profileData: IUser = useSelector(
 		(state: any) => state.profile.data
 	);
-	const dispatch = useDispatch();
-	useEffect(() => {
-		dispatch(fetchProfileData());
-	}, []);
 
 	return (
 		<>
@@ -70,7 +67,7 @@ const Profile: React.FC = (): JSX.Element => {
 						{/* Avatar */}
 						<div className="md:row-span-2">
 							<Avatar
-								imageUrl={profileData?.image}
+								imageUrl={profileData?.photo}
 								onChange={handleUpdatePhoto}
 							/>
 						</div>

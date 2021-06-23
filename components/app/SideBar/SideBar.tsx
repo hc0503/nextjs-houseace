@@ -59,14 +59,12 @@ const SideBar: React.FC<IProps> = ({
 	setSidebarOpen,
 }): JSX.Element => {
 	const router = useRouter();
-	const token = useSelector(
-		(state: any) => state?.auth?.data?.tokens?.accessToken?.token
-	);
+	const accessToken = localStorage.getItem("accessToken");
 	useEffect(() => {
-		if (!token) {
+		if (!accessToken) {
 			router.push("/auth/login");
 		}
-	}, [token]);
+	}, [accessToken]);
 
 	return (
 		<>

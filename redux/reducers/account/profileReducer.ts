@@ -1,6 +1,10 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 import axios from "../../../lib/axios";
+import {
+	getProfileData,
+	postUpdatePhoto,
+} from "../../../services/profileService";
 
 export interface IProfileState extends IState {
 	data: IUser;
@@ -13,8 +17,8 @@ const initialState: IProfileState = {
 export const fetchProfileData = createAsyncThunk(
 	"profiles/fetchDataStatus",
 	async () => {
-		const res = await axios.get(`/api/account/profiles`);
-		return res.data.data;
+		const res = await getProfileData();
+		return res.data;
 	}
 );
 export const updateProfileData = createAsyncThunk(
@@ -27,11 +31,9 @@ export const updateProfileData = createAsyncThunk(
 export const updateProfilePhoto = createAsyncThunk(
 	"profiles/updatePhotoStatus",
 	async (data: FormData) => {
-		const res = await axios.post(
-			`/api/account/profiles/update-photo`,
-			data
-		);
-		return res.data.data;
+		const res = await postUpdatePhoto(data);
+
+		return res.data;
 	}
 );
 export const updateProfileType = createAsyncThunk(
@@ -52,15 +54,15 @@ export const profileSlice = createSlice({
 		// Get profile data
 		builder.addCase(
 			fetchProfileData.fulfilled,
-			(state: IProfileState, action) => {
+			(state: IProfileState, action: any) => {
 				state.loading = false;
-				state.data = action.payload;
+				state.data = action.payload.me;
 			}
 		);
 		// Update profile data
 		builder.addCase(
 			updateProfileData.fulfilled,
-			(state: IProfileState, action) => {
+			(state: IProfileState, action: any) => {
 				state.loading = false;
 				state.data = action.payload;
 			}
@@ -68,15 +70,15 @@ export const profileSlice = createSlice({
 		// Update profile photo
 		builder.addCase(
 			updateProfilePhoto.fulfilled,
-			(state: IProfileState, action) => {
+			(state: IProfileState, action: any) => {
 				state.loading = false;
-				state.data = action.payload;
+				state.data = action.payload.user;
 			}
 		);
 		// Update profile type
 		builder.addCase(
 			updateProfileType.fulfilled,
-			(state: IProfileState, action) => {
+			(state: IProfileState, action: any) => {
 				state.loading = false;
 				state.data = action.payload;
 			}

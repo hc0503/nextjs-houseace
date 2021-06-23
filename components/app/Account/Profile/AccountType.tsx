@@ -14,7 +14,7 @@ const AccountType: React.FC = (): JSX.Element => {
 		dispatch(fetchRoleList());
 	}, []);
 	const profileData: IUser = useSelector(
-		(state: any) => state.profile.data
+		(state: any) => state.auth.data.user
 	);
 	const roleList: IRole[] = useSelector(
 		(state: any) => state.role.data

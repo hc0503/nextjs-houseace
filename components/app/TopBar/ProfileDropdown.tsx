@@ -1,14 +1,19 @@
 import { useRouter } from "next/router";
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import classNames from "classnames";
 import { Menu, Transition } from "@headlessui/react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 import axios from "../../../lib/axios";
+import { fetchProfileData } from "../../../redux/reducers/account/profileReducer";
 
 const ProfileDropdown: React.FC = (): JSX.Element => {
 	const router = useRouter();
-	const profileData: IUser = useSelector(
+	const dispatch = useDispatch();
+	useEffect(() => {
+		dispatch(fetchProfileData());
+	}, []);
+	const userData: IUser = useSelector(
 		(state: any) => state.profile.data
 	);
 	const userNavigation = [
@@ -32,7 +37,7 @@ const ProfileDropdown: React.FC = (): JSX.Element => {
 								<span className="sr-only">Open user menu</span>
 								<img
 									className="h-8 w-8 rounded-full object-cover"
-									src={profileData?.image}
+									src={userData?.photo}
 									alt=""
 									onError={(e) => {
 										e.currentTarget.onerror = null;

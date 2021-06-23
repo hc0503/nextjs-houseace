@@ -1,16 +1,25 @@
 import axios from "axios";
-import { useSelector } from "react-redux";
 
-// const token = useSelector(
-// 	(state: any) => state?.auth?.data?.tokens?.accessToken?.token ?? ""
-// );
-const token = "SSS";
-
-const instance = axios.create({
-	headers: {
-		"Content-Type": "application/json",
-		Authorization: `Bearer ${token}`,
-	},
+const api = axios.create({
+	baseURL: process.env.API_URL,
 });
 
-export default instance;
+// Add request interceptor
+api.interceptors.request.use(
+	async (config) => {
+		const acessToken = localStorage.getItem("accessToken");
+
+		if (acessToken) {
+			config.headers["Authorization"] = "Bearer " + acessToken;
+		}
+		config.headers["Content-Type"] = "application/json";
+		config.headers["Accept"] = "application/json";
+
+		return config;
+	},
+	(error) => {
+		Promise.reject(error);
+	}
+);
+
+export default api;

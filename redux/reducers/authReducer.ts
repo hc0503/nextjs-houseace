@@ -1,6 +1,11 @@
-import { postLogin } from "../../services/AuthService";
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import Router from "next/router";
+import {
+	createAsyncThunk,
+	createSlice,
+	PayloadAction,
+} from "@reduxjs/toolkit";
+
+import { postLogin } from "../../services/AuthService";
 
 interface IUserState extends IState {
 	data: IUser[];
@@ -33,13 +38,17 @@ export const authSlice = createSlice({
 	initialState,
 	reducers: {},
 	extraReducers: (builder) => {
-		builder.addCase(login.fulfilled, (state: any, action) => {
+		builder.addCase(login.fulfilled, (state: any, action: any) => {
 			state.data = action.payload;
 			state.loading = false;
 			state.loggedIn = true;
+			localStorage.setItem(
+				"accessToken",
+				action?.payload?.tokens?.accessToken?.token
+			);
 			Router.push("/app");
 		});
-		builder.addCase(logout.fulfilled, (state: any, action) => {
+		builder.addCase(logout.fulfilled, (state: any, action: any) => {
 			state.data = action.payload;
 			state.loading = false;
 			state.loggedIn = false;

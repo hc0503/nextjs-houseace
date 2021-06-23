@@ -13,7 +13,7 @@ interface IUser {
 	emailVerified: Date | null;
 	phone: string | null;
 	address: string | null;
-	image: string | null;
+	photo: string | null;
 	providerType: ProviderType;
 	createdAt: Date;
 	updatedAt: Date;
