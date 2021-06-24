@@ -3,21 +3,20 @@ import { useEffect } from "react";
 import { RotateSpinner } from "react-spinners-kit";
 import { useForm } from "react-hook-form";
 
-import { fetchRoleList } from "@/redux/slices/roleSlice";
-import { Role, User } from ".prisma/client";
-import ArrowCircleButton from "@/components/auth/ArrowCircleButton";
-import { updateProfileType } from "@/redux/slices/account/profileSlice";
-import { successToast } from "@/lib/global-functions";
+import { fetchRoleList } from "../../../../redux/reducers/roleReducer";
+import ArrowCircleButton from "../../../auth/ArrowCircleButton";
+import { updateProfileType } from "../../../../redux/reducers/account/profileReducer";
+import { successToast } from "../../../../lib/global-functions";
 
 const AccountType: React.FC = (): JSX.Element => {
 	const dispatch = useDispatch();
 	useEffect(() => {
 		dispatch(fetchRoleList());
 	}, []);
-	const profileData: User = useSelector(
-		(state: any) => state.profile.data
+	const profileData: IUser = useSelector(
+		(state: any) => state.auth.data.user
 	);
-	const roleList: Role[] = useSelector(
+	const roleList: IRole[] = useSelector(
 		(state: any) => state.role.data
 	);
 	const { register, handleSubmit } = useForm();
@@ -66,11 +65,11 @@ const AccountType: React.FC = (): JSX.Element => {
 								<select
 									id="role"
 									name="role"
-									defaultValue={profileData.roleId}
+									defaultValue={profileData?.roleId}
 									className="block w-full pl-3 pr-10 py-2 xl:text-base text-sm border border-gray-lesslight focus:outline-none rounded-md"
 									{...register("role", { required: true })}
 								>
-									{roleList.map((role: Role, key: number) => (
+									{roleList.map((role: IRole, key: number) => (
 										<option key={`RoleOption-${key}`} value={role.id}>
 											{role.name}
 										</option>

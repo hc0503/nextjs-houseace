@@ -3,15 +3,9 @@ import { FiLock } from "react-icons/fi";
 import { useForm } from "react-hook-form";
 
 import OutlineInput from "./OutlineInput";
-import ArrowCircleButton from "@/components/auth/ArrowCircleButton";
-import { successToast } from "@/lib/global-functions";
-import axios from "@/lib/axios";
-
-interface IPassword {
-	current_password: string;
-	password: string;
-	password_confirmation: string;
-}
+import ArrowCircleButton from "../../../auth/ArrowCircleButton";
+import { successToast } from "../../../../lib/global-functions";
+import { postUpdateProfilePassword } from "../../../../services/profileService";
 
 const PasswordSetting: React.FC = (): JSX.Element => {
 	const {
@@ -26,17 +20,14 @@ const PasswordSetting: React.FC = (): JSX.Element => {
 	const handleUpdatePassword = handleSubmit(
 		async (data: IPassword) => {
 			try {
-				const res = await axios.post(
-					"/api/account/profiles/update-password",
-					data
-				);
+				const res = await postUpdateProfilePassword(data);
 				successToast("update successfully.");
 			} catch (e) {
-				const errors = Object.keys(e.response.data.errors);
+				const errors = Object.keys(e.response.data.error.errors);
 				errors.map((error) => {
 					setError(error, {
 						type: "manual",
-						message: e.response.data.errors[error][0],
+						message: e.response.data.error.errors[error][0],
 					});
 				});
 			}

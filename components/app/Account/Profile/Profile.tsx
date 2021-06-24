@@ -13,17 +13,17 @@ import {
 	updateProfileData,
 	fetchProfileData,
 	updateProfilePhoto,
-} from "@/redux/slices/account/profileSlice";
-import { successToast } from "@/lib/global-functions";
+} from "../../../../redux/reducers/account/profileReducer";
+import { successToast } from "../../../../lib/global-functions";
 import InfoLabel from "./InfoLabel";
 import PasswordSetting from "./PasswordSetting";
 import Avatar from "./Avatar";
 import AccountType from "./AccountType";
-import { User } from ".prisma/client";
 
 import "react-toastify/dist/ReactToastify.css";
 
 const Profile: React.FC = (): JSX.Element => {
+	const dispatch = useDispatch();
 	const {
 		register,
 		formState: { errors },
@@ -46,13 +46,9 @@ const Profile: React.FC = (): JSX.Element => {
 	const handleEditableClick = (_: React.MouseEvent<HTMLElement>) => {
 		setProfileEditable(true);
 	};
-	const profileData: User = useSelector(
+	const profileData: IUser = useSelector(
 		(state: any) => state.profile.data
 	);
-	const dispatch = useDispatch();
-	useEffect(() => {
-		dispatch(fetchProfileData());
-	}, []);
 
 	return (
 		<>
@@ -71,7 +67,7 @@ const Profile: React.FC = (): JSX.Element => {
 						{/* Avatar */}
 						<div className="md:row-span-2">
 							<Avatar
-								imageUrl={profileData?.image}
+								imageUrl={profileData?.photo}
 								onChange={handleUpdatePhoto}
 							/>
 						</div>

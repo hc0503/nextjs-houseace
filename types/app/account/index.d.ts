@@ -19,3 +19,8 @@ interface IProfilePhoto {
 interface IProfileType {
 	role: number;
 }
+interface IPassword {
+	current_password: string;
+	password: string;
+	password_confirmation: string;
+}

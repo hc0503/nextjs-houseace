@@ -1,10 +1,12 @@
 import { useRouter } from "next/router";
 import Link from "next/link";
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { FaGooglePlus, FaFacebook } from "react-icons/fa";
 import { FiMail, FiLock } from "react-icons/fi";
 
-import axios from "@/lib/axios";
+import { login } from "../../redux/reducers/authReducer";
+import axios from "../../lib/axios";
 import SocialButton from "./SocialButton";
 import AuthInputGroup from "./AuthInputGroup";
 import ArrowCircleButton from "./ArrowCircleButton";
@@ -16,6 +18,7 @@ interface IErrors {
 }
 
 const LoginForm: React.FC = (): JSX.Element => {
+	const dispatch = useDispatch();
 	const router = useRouter();
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
@@ -27,20 +30,25 @@ const LoginForm: React.FC = (): JSX.Element => {
 		e: React.SyntheticEvent
 	): Promise<void> => {
 		e.preventDefault();
-		try {
-			const res = await axios.post("/api/auth/login", {
-				email,
-				password,
-			});
-			if (res.status === 200) {
-				router.push("/app");
-			}
-		} catch (error) {
-			setErrors({
-				email: error.response.data.errors.email ?? [""],
-				password: error.response.data.errors.password ?? [""],
-			});
-		}
+		const credential: ICredentials = {
+			email: email,
+			password: password,
+		};
+		dispatch(login(credential));
+		// try {
+		// 	const res = await axios.post("/api/auth/login", {
+		// 		email,
+		// 		password,
+		// 	});
+		// 	if (res.status === 200) {
+		// 		router.push("/app");
+		// 	}
+		// } catch (error) {
+		// 	setErrors({
+		// 		email: error.response.data.errors.email ?? [""],
+		// 		password: error.response.data.errors.password ?? [""],
+		// 	});
+		// }
 	};
 	const handleSocialLoginSuccess = async (user): Promise<void> => {
 		try {

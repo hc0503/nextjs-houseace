@@ -8,9 +8,12 @@ import {
 	XIcon,
 } from "@heroicons/react/outline";
 import classNames from "classnames";
+import { useSelector } from "react-redux";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
-import Logo from "@/components/commons/Logo";
-import DropNav from "@/components/app/SideBar/DropNav";
+import Logo from "../../commons/Logo";
+import DropNav from "../../app/SideBar/DropNav";
 
 interface IProps {
 	sidebarOpen: boolean;
@@ -55,6 +58,14 @@ const SideBar: React.FC<IProps> = ({
 	sidebarOpen,
 	setSidebarOpen,
 }): JSX.Element => {
+	const router = useRouter();
+	const accessToken = localStorage.getItem("accessToken");
+	useEffect(() => {
+		if (!accessToken) {
+			router.push("/auth/login");
+		}
+	}, [accessToken]);
+
 	return (
 		<>
 			<Transition.Root show={sidebarOpen} as={Fragment}>

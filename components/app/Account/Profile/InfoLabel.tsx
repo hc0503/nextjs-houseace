@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import React from "react";
 
-import { handelFocus } from "@/lib/global-functions";
+import { handelFocus } from "../../../../lib/global-functions";
 
 interface IProps extends IInput {
 	label: string;

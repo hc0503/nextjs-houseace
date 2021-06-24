@@ -1,9 +1,8 @@
-import { Company } from ".prisma/client";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "@/lib/axios";
+import axios from "../../../lib/axios";
 
 export interface ICompanyState extends IState {
-	data: Company;
+	data: ICompany;
 }
 const initialState: ICompanyState = {
 	data: null,

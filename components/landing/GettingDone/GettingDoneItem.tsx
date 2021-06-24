@@ -1,4 +1,4 @@
-import ArrowCircleButton from "@/components/auth/ArrowCircleButton";
+import ArrowCircleButton from "../../auth/ArrowCircleButton";
 import ReactStars from "react-rating-stars-component";
 import { AiOutlineStar, AiFillStar } from "react-icons/ai";
 

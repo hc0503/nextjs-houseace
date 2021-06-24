@@ -49,7 +49,7 @@ const AuthSelectGroup: React.FC<Props> = ({
 					</option>
 				)}
 				{options.map((option, key) => (
-					<option key={`role-${key}`} value={option.id}>
+					<option key={`Option-${key}`} value={option.id}>
 						{option.name}
 					</option>
 				))}
