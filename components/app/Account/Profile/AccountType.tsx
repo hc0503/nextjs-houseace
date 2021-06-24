@@ -65,7 +65,7 @@ const AccountType: React.FC = (): JSX.Element => {
 								<select
 									id="role"
 									name="role"
-									defaultValue={profileData.roleId}
+									defaultValue={profileData?.roleId}
 									className="block w-full pl-3 pr-10 py-2 xl:text-base text-sm border border-gray-lesslight focus:outline-none rounded-md"
 									{...register("role", { required: true })}
 								>

@@ -1,10 +1,10 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-import axios from "../../../lib/axios";
 import {
 	getFetchProfileData,
 	postUpdateProfileData,
 	postUpdateProfilePhoto,
+	postUpdateProfileType,
 } from "../../../services/profileService";
 
 export interface IProfileState extends IState {
@@ -26,7 +26,7 @@ export const updateProfileData = createAsyncThunk(
 	"profiles/updateDataStatus",
 	async (data: IProfile) => {
 		const res = await postUpdateProfileData(data);
-		return res.data.data;
+		return res.data;
 	}
 );
 export const updateProfilePhoto = createAsyncThunk(
@@ -40,11 +40,8 @@ export const updateProfilePhoto = createAsyncThunk(
 export const updateProfileType = createAsyncThunk(
 	"profiles/updateTypeStatus",
 	async (data: IProfileType) => {
-		const res = await axios.post(
-			`/api/account/profiles/update-role`,
-			data
-		);
-		return res.data.data;
+		const res = await postUpdateProfileType(data);
+		return res.data;
 	}
 );
 export const profileSlice = createSlice({
@@ -81,7 +78,7 @@ export const profileSlice = createSlice({
 			updateProfileType.fulfilled,
 			(state: IProfileState, action: any) => {
 				state.loading = false;
-				state.data = action.payload;
+				state.data = action.payload.me;
 			}
 		);
 	},
