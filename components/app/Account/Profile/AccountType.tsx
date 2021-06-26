@@ -26,7 +26,6 @@ const AccountType: React.FC = (): JSX.Element => {
 			successToast("update successfully.");
 		}
 	);
-	console.log(profileData);
 	return (
 		<div className="focus:outline-none bg-white shadow rounded-2xl xl:pl-10 pl-5 pt-11 pb-9 pr-1">
 			{(!profileData || !roleList) && (

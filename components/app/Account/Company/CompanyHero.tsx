@@ -2,11 +2,18 @@ import { AiOutlineCamera } from "react-icons/ai";
 import { useDispatch } from "react-redux";
 
 import { successToast } from "../../../../lib/global-functions";
-import { updateCompanyLogo } from "../../../../redux/reducers/account/companyReducer";
+import { updateCompanyLogo } from "../../../../redux/reducers/account/profileReducer";
 import Avatar from "../Profile/Avatar";
 import FileUploadButton from "./FileUploadButton";
 
-const CompanyHero: React.FC = (): JSX.Element => {
+interface IProps {
+	logoImage: string;
+	heroImage: string;
+}
+const CompanyHero: React.FC<IProps> = ({
+	logoImage,
+	heroImage,
+}): JSX.Element => {
 	const dispatch = useDispatch();
 	const handleUpdateLogo = (
 		e: React.ChangeEvent<HTMLInputElement>
@@ -20,7 +27,7 @@ const CompanyHero: React.FC = (): JSX.Element => {
 		<div
 			className="mt-5 h-72 rounded-2xl relative"
 			style={{
-				backgroundImage: "url('/images/app/company_hero.png')",
+				backgroundImage: `url('${heroImage}')`,
 				backgroundSize: "cover",
 				backgroundPosition: "center",
 				backgroundRepeat: "no-repeat",
@@ -28,7 +35,7 @@ const CompanyHero: React.FC = (): JSX.Element => {
 		>
 			<div className="flex items-center h-full ml-10">
 				<Avatar
-					imageUrl="/images/app/company_logo.png"
+					imageUrl={logoImage}
 					size="w-44 h-44"
 					onChange={handleUpdateLogo}
 				/>
