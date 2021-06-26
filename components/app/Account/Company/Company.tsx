@@ -44,7 +44,6 @@ export const Company: React.FC = (): JSX.Element => {
 	const profileData: IUser = useSelector(
 		(state: any) => state.profile.data
 	);
-	console.log(profileData?.company?.logoImage);
 	return (
 		<>
 			{!profileData && (
