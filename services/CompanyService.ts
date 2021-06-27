@@ -13,3 +13,16 @@ export const postUpdateCompanyLogo = async (
 		return Promise.reject(error);
 	}
 };
+export const postUpdateCompanyHero = async (
+	data: FormData
+): Promise<any> => {
+	try {
+		const res = await axios.post(
+			"/api/v1/private/companies/me/update-hero",
+			data
+		);
+		return Promise.resolve(res.data);
+	} catch (error) {
+		return Promise.reject(error);
+	}
+};

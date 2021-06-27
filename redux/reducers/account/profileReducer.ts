@@ -6,7 +6,10 @@ import {
 	postUpdateProfilePhoto,
 	postUpdateProfileType,
 } from "../../../services/profileService";
-import { postUpdateCompanyLogo } from "../../../services/CompanyService";
+import {
+	postUpdateCompanyHero,
+	postUpdateCompanyLogo,
+} from "../../../services/CompanyService";
 
 export interface IProfileState extends IState {
 	data: IUser;
@@ -52,6 +55,13 @@ export const updateCompanyLogo = createAsyncThunk(
 		return res.data;
 	}
 );
+export const updateCompanyHero = createAsyncThunk(
+	"profiles/updateCompanyHeroStatus",
+	async (data: FormData) => {
+		const res = await postUpdateCompanyHero(data);
+		return res.data;
+	}
+);
 export const profileSlice = createSlice({
 	name: "profiles",
 	initialState,
@@ -92,6 +102,14 @@ export const profileSlice = createSlice({
 		// Update company logo
 		builder.addCase(
 			updateCompanyLogo.fulfilled,
+			(state: IProfileState, action: any) => {
+				state.loading = false;
+				state.data = action.payload.me;
+			}
+		);
+		// Update company hero
+		builder.addCase(
+			updateCompanyHero.fulfilled,
 			(state: IProfileState, action: any) => {
 				state.loading = false;
 				state.data = action.payload.me;
