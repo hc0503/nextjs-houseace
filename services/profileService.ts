@@ -26,7 +26,7 @@ export const postUpdateProfileData = async (
 ): Promise<any> => {
 	try {
 		const res = await axios.post(
-			"/api/v1/private/profiles/me/update",
+			"/api/v1/private/profiles/me/update-data",
 			data
 		);
 		return Promise.resolve(res.data);
