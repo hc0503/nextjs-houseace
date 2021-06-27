@@ -23,7 +23,9 @@ const PasswordSetting: React.FC = (): JSX.Element => {
 				const res = await postUpdateProfilePassword(data);
 				successToast("update successfully.");
 			} catch (e) {
-				const errors = Object.keys(e.response.data.error.errors);
+				const errors = Object.keys(
+					e.response?.data?.error?.errors ?? []
+				);
 				errors.map((error) => {
 					setError(error, {
 						type: "manual",

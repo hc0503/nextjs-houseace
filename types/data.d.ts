@@ -17,6 +17,7 @@ interface IUser {
 	providerType: ProviderType;
 	createdAt: Date;
 	updatedAt: Date;
+	company?: ICompany;
 }
 interface ICompany {
 	id: string;
