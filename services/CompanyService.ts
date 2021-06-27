@@ -26,3 +26,16 @@ export const postUpdateCompanyHero = async (
 		return Promise.reject(error);
 	}
 };
+export const postUpdateCompanyData = async (
+	data: ICompanyData
+): Promise<any> => {
+	try {
+		const res = await axios.post(
+			"/api/v1/private/companies/me/update-data",
+			data
+		);
+		return Promise.resolve(res.data);
+	} catch (error) {
+		return Promise.reject(error);
+	}
+};

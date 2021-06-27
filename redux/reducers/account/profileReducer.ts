@@ -7,6 +7,7 @@ import {
 	postUpdateProfileType,
 } from "../../../services/profileService";
 import {
+	postUpdateCompanyData,
 	postUpdateCompanyHero,
 	postUpdateCompanyLogo,
 } from "../../../services/CompanyService";
@@ -28,7 +29,7 @@ export const fetchProfileData = createAsyncThunk(
 );
 export const updateProfileData = createAsyncThunk(
 	"profiles/updateDataStatus",
-	async (data: IProfile) => {
+	async (data: IProfileData) => {
 		const res = await postUpdateProfileData(data);
 		return res.data;
 	}
@@ -59,6 +60,13 @@ export const updateCompanyHero = createAsyncThunk(
 	"profiles/updateCompanyHeroStatus",
 	async (data: FormData) => {
 		const res = await postUpdateCompanyHero(data);
+		return res.data;
+	}
+);
+export const updateCompanyData = createAsyncThunk(
+	"profiles/updateCompanyDataStatus",
+	async (data: ICompanyData) => {
+		const res = await postUpdateCompanyData(data);
 		return res.data;
 	}
 );
@@ -110,6 +118,14 @@ export const profileSlice = createSlice({
 		// Update company hero
 		builder.addCase(
 			updateCompanyHero.fulfilled,
+			(state: IProfileState, action: any) => {
+				state.loading = false;
+				state.data = action.payload.me;
+			}
+		);
+		// Update company data
+		builder.addCase(
+			updateCompanyData.fulfilled,
 			(state: IProfileState, action: any) => {
 				state.loading = false;
 				state.data = action.payload.me;

@@ -22,7 +22,7 @@ export const postUpdateProfilePhoto = async (
 	}
 };
 export const postUpdateProfileData = async (
-	data: IProfile
+	data: IProfileData
 ): Promise<any> => {
 	try {
 		const res = await axios.post(

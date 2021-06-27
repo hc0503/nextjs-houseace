@@ -29,11 +29,13 @@ const Profile: React.FC = (): JSX.Element => {
 		formState: { errors },
 		handleSubmit,
 	} = useForm();
-	const handleUpdateProfileData = handleSubmit((data: IProfile) => {
-		dispatch(updateProfileData(data));
-		setProfileEditable(false);
-		successToast("update successfully.");
-	});
+	const handleUpdateProfileData = handleSubmit(
+		(data: IProfileData) => {
+			dispatch(updateProfileData(data));
+			setProfileEditable(false);
+			successToast("update successfully.");
+		}
+	);
 	const handleUpdatePhoto = (
 		e: React.ChangeEvent<HTMLInputElement>
 	) => {
