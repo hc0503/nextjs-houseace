@@ -4,6 +4,9 @@ interface IUploadItem {
 interface IService {
 	name: string;
 }
+interface IServices {
+	services: IService[];
+}
 interface ITab {
 	name: string;
 	target: React.ReactNode<T>;

@@ -22,13 +22,12 @@ import DropdownFileUpload from "./DropdownFileUpload";
 import UploadItem from "./UploadItem";
 import SocialShareButton from "./SocialShareButton";
 import CompanyHero from "./CompanyHero";
-import { updateCompanyData } from "../../../../redux/reducers/account/profileReducer";
+import {
+	updateCompanyData,
+	updateCompanyServices,
+} from "../../../../redux/reducers/account/profileReducer";
 
 export const Company: React.FC = (): JSX.Element => {
-	const [serviceList, setServiceList] = useState([
-		{ name: "Bathroom" },
-		{ name: "Kitchen" },
-	]);
 	const [imageList, setImageList] = useState([
 		{ imageUrl: "/images/app/upload_image1.png" },
 		{ imageUrl: "/images/app/upload_image2.png" },
@@ -56,6 +55,32 @@ export const Company: React.FC = (): JSX.Element => {
 			successToast("update successfully.");
 		}
 	);
+	const handleDeleteService = () => {
+		console.log();
+	};
+	const handleAddService = (
+		e: React.KeyboardEvent<HTMLInputElement>
+	) => {
+		if (e.key === "Enter") {
+			const value = e.currentTarget.value;
+			const uniqueNames = [];
+			const tempList = [
+				...profileData.company.services,
+				{ name: value },
+			];
+			tempList.map((service) => {
+				if (uniqueNames.indexOf(service.name) === -1) {
+					uniqueNames.push(service.name);
+				}
+			});
+			const services = [];
+			uniqueNames.map((uniqueName) => {
+				services.push({ name: uniqueName });
+			});
+			e.currentTarget.value = "";
+			dispatch(updateCompanyServices({ services: services }));
+		}
+	};
 	return (
 		<>
 			{!profileData && (
@@ -240,6 +265,7 @@ export const Company: React.FC = (): JSX.Element => {
 									placeHolder="Search here"
 									border="border border-gray-less focus:border-red"
 									rounded="rounded-full"
+									onKeyPress={handleAddService}
 								/>
 								<p className="text-xs mt-1">
 									e.g. Bathroom, designing, interior, kitchen
@@ -251,12 +277,15 @@ export const Company: React.FC = (): JSX.Element => {
 								</p>
 							</div>
 							<div className="mt-4 space-x-2">
-								{serviceList.map((service: IService, key: number) => (
-									<ServiceItem
-										key={`ServiceItem-${key}`}
-										name={service.name}
-									/>
-								))}
+								{profileData.company.services.map(
+									(service: IService, key: number) => (
+										<ServiceItem
+											key={`ServiceItem-${key}`}
+											name={service.name}
+											onDelete={handleDeleteService}
+										/>
+									)
+								)}
 							</div>
 						</div>
 						<div className="bg-white shadow rounded-2xl xl:px-10 px-4 py-11">

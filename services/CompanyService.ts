@@ -39,3 +39,16 @@ export const postUpdateCompanyData = async (
 		return Promise.reject(error);
 	}
 };
+export const postUpdateCompanyServices = async (
+	data: IServices
+): Promise<any> => {
+	try {
+		const res = await axios.post(
+			"/api/v1/private/companies/me/update-services",
+			data
+		);
+		return Promise.resolve(res.data);
+	} catch (error) {
+		return Promise.reject(error);
+	}
+};

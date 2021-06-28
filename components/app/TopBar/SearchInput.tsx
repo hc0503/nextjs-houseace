@@ -12,6 +12,7 @@ const SearchInput: React.FC<IProps> = ({
 	name,
 	border = "border-transparent focus:border-transparent",
 	rounded,
+	onKeyPress,
 }): JSX.Element => (
 	<>
 		<div className="relative w-full focus-within:text-gray-700">
@@ -28,6 +29,7 @@ const SearchInput: React.FC<IProps> = ({
 				placeholder={placeHolder}
 				type={type}
 				name={name}
+				onKeyPress={onKeyPress}
 			/>
 		</div>
 	</>
