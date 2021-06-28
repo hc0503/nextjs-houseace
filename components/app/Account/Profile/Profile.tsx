@@ -29,11 +29,13 @@ const Profile: React.FC = (): JSX.Element => {
 		formState: { errors },
 		handleSubmit,
 	} = useForm();
-	const handleUpdateProfileData = handleSubmit((data: IProfile) => {
-		dispatch(updateProfileData(data));
-		setProfileEditable(false);
-		successToast("update successfully.");
-	});
+	const handleUpdateProfileData = handleSubmit(
+		(data: IProfileData) => {
+			dispatch(updateProfileData(data));
+			setProfileEditable(false);
+			successToast("update successfully.");
+		}
+	);
 	const handleUpdatePhoto = (
 		e: React.ChangeEvent<HTMLInputElement>
 	) => {
@@ -147,6 +149,7 @@ const Profile: React.FC = (): JSX.Element => {
 									"focus:outline-none hover:text-red-lesslight text-white",
 									{ hidden: !profileEditable }
 								)}
+								type="submit"
 							>
 								<FaRegSave className="w-7 h-7" />
 							</button>

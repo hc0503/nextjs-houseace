@@ -16,6 +16,7 @@ interface IInput {
 	placeHolder?: string;
 	onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 	disabled?: boolean;
+	onKeyPress?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
 }
 interface IButton {
 	children: React.ReactNode;

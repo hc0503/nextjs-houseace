@@ -6,7 +6,12 @@ import {
 	postUpdateProfilePhoto,
 	postUpdateProfileType,
 } from "../../../services/profileService";
-import { postUpdateCompanyLogo } from "../../../services/CompanyService";
+import {
+	postUpdateCompanyData,
+	postUpdateCompanyHero,
+	postUpdateCompanyLogo,
+	postUpdateCompanyServices,
+} from "../../../services/CompanyService";
 
 export interface IProfileState extends IState {
 	data: IUser;
@@ -25,7 +30,7 @@ export const fetchProfileData = createAsyncThunk(
 );
 export const updateProfileData = createAsyncThunk(
 	"profiles/updateDataStatus",
-	async (data: IProfile) => {
+	async (data: IProfileData) => {
 		const res = await postUpdateProfileData(data);
 		return res.data;
 	}
@@ -49,6 +54,27 @@ export const updateCompanyLogo = createAsyncThunk(
 	"profiles/updateCompanyLogoStatus",
 	async (data: FormData) => {
 		const res = await postUpdateCompanyLogo(data);
+		return res.data;
+	}
+);
+export const updateCompanyHero = createAsyncThunk(
+	"profiles/updateCompanyHeroStatus",
+	async (data: FormData) => {
+		const res = await postUpdateCompanyHero(data);
+		return res.data;
+	}
+);
+export const updateCompanyData = createAsyncThunk(
+	"profiles/updateCompanyDataStatus",
+	async (data: ICompanyData) => {
+		const res = await postUpdateCompanyData(data);
+		return res.data;
+	}
+);
+export const updateCompanyServices = createAsyncThunk(
+	"profiles/updateCompanyServicesStatus",
+	async (data: IServices) => {
+		const res = await postUpdateCompanyServices(data);
 		return res.data;
 	}
 );
@@ -92,6 +118,30 @@ export const profileSlice = createSlice({
 		// Update company logo
 		builder.addCase(
 			updateCompanyLogo.fulfilled,
+			(state: IProfileState, action: any) => {
+				state.loading = false;
+				state.data = action.payload.me;
+			}
+		);
+		// Update company hero
+		builder.addCase(
+			updateCompanyHero.fulfilled,
+			(state: IProfileState, action: any) => {
+				state.loading = false;
+				state.data = action.payload.me;
+			}
+		);
+		// Update company data
+		builder.addCase(
+			updateCompanyData.fulfilled,
+			(state: IProfileState, action: any) => {
+				state.loading = false;
+				state.data = action.payload.me;
+			}
+		);
+		// Update company services
+		builder.addCase(
+			updateCompanyServices.fulfilled,
 			(state: IProfileState, action: any) => {
 				state.loading = false;
 				state.data = action.payload.me;

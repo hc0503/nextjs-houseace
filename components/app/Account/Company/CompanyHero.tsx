@@ -1,8 +1,12 @@
+import React from "react";
 import { AiOutlineCamera } from "react-icons/ai";
 import { useDispatch } from "react-redux";
 
 import { successToast } from "../../../../lib/global-functions";
-import { updateCompanyLogo } from "../../../../redux/reducers/account/profileReducer";
+import {
+	updateCompanyHero,
+	updateCompanyLogo,
+} from "../../../../redux/reducers/account/profileReducer";
 import Avatar from "../Profile/Avatar";
 import FileUploadButton from "./FileUploadButton";
 
@@ -15,13 +19,21 @@ const CompanyHero: React.FC<IProps> = ({
 	heroImage,
 }): JSX.Element => {
 	const dispatch = useDispatch();
-	const handleUpdateLogo = (
+	const handleUpdateCompanyLogo = (
 		e: React.ChangeEvent<HTMLInputElement>
 	) => {
 		const body = new FormData();
 		body.append("file", e.target.files[0]);
 		dispatch(updateCompanyLogo(body));
-		successToast("update successfully.");
+		successToast("The logo image is updated successfully.");
+	};
+	const handleUpdateComapnyHero = (
+		e: React.ChangeEvent<HTMLInputElement>
+	) => {
+		const body = new FormData();
+		body.append("file", e.target.files[0]);
+		dispatch(updateCompanyHero(body));
+		successToast("The hero image is updated successfully.");
 	};
 	return (
 		<div
@@ -37,10 +49,14 @@ const CompanyHero: React.FC<IProps> = ({
 				<Avatar
 					imageUrl={logoImage}
 					size="w-44 h-44"
-					onChange={handleUpdateLogo}
+					onChange={handleUpdateCompanyLogo}
 				/>
 			</div>
-			<FileUploadButton name="company_hero" id="company_hero">
+			<FileUploadButton
+				name="company_hero"
+				id="company_hero"
+				onChange={handleUpdateComapnyHero}
+			>
 				<AiOutlineCamera className="h-7 w-7" aria-hidden="true" />
 			</FileUploadButton>
 		</div>

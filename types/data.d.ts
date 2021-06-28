@@ -30,6 +30,7 @@ interface ICompany {
 	licenseNumber: string;
 	yearFounded: string;
 	abnNumber: string;
+	services: IService[];
 	createdAt: Date;
 	updatedAt: Date;
 }
