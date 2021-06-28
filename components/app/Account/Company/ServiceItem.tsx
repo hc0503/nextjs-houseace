@@ -1,6 +1,6 @@
 interface IProps {
 	name: string;
-	onDelete: () => void;
+	onDelete: (e: React.MouseEvent<HTMLElement>) => void;
 }
 
 const ServiceItem: React.FC<IProps> = ({

@@ -40,7 +40,6 @@ export const Company: React.FC = (): JSX.Element => {
 	const {
 		register,
 		formState: { errors },
-		setError,
 		handleSubmit,
 	} = useForm();
 	const handleCompanyEditable = (
@@ -55,8 +54,11 @@ export const Company: React.FC = (): JSX.Element => {
 			successToast("update successfully.");
 		}
 	);
-	const handleDeleteService = () => {
-		console.log();
+	const handleDeleteService = (serviceName: string) => {
+		const services = profileData.company.services.filter(
+			(service) => service.name !== serviceName
+		);
+		dispatch(updateCompanyServices({ services: services }));
 	};
 	const handleAddService = (
 		e: React.KeyboardEvent<HTMLInputElement>
@@ -282,7 +284,9 @@ export const Company: React.FC = (): JSX.Element => {
 										<ServiceItem
 											key={`ServiceItem-${key}`}
 											name={service.name}
-											onDelete={handleDeleteService}
+											onDelete={() =>
+												handleDeleteService(service.name)
+											}
 										/>
 									)
 								)}
