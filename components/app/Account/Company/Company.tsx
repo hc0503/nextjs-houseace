@@ -1,12 +1,20 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { FiEdit } from "react-icons/fi";
 import { BiPhoneCall, BiRectangle } from "react-icons/bi";
 import { GoLocation } from "react-icons/go";
 import { IoMdBriefcase } from "react-icons/io";
-import { FaFacebookF, FaTwitter, FaLinkedinIn } from "react-icons/fa";
+import {
+	FaFacebookF,
+	FaTwitter,
+	FaLinkedinIn,
+	FaRegSave,
+} from "react-icons/fa";
 import { RotateSpinner } from "react-spinners-kit";
+import classNames from "classnames";
+import { useForm } from "react-hook-form";
 
+import { successToast } from "../../../../lib/global-functions";
 import InfoLabel from "../Profile/InfoLabel";
 import SearchInput from "../../TopBar/SearchInput";
 import ServiceItem from "./ServiceItem";
@@ -14,23 +22,7 @@ import DropdownFileUpload from "./DropdownFileUpload";
 import UploadItem from "./UploadItem";
 import SocialShareButton from "./SocialShareButton";
 import CompanyHero from "./CompanyHero";
-
-interface ICompany {
-	businessName: string;
-	phoneNumber: string;
-	address: string;
-	licenseNumber: string;
-	yearFounded: string;
-	abnNumber: string;
-}
-const company: ICompany = {
-	businessName: "Interlor Archltect",
-	phoneNumber: "(03) 5348 5891",
-	address: "98 Garden Place, FENTONS CREEK, Victoria-3518",
-	licenseNumber: "5348 5891",
-	yearFounded: "2012",
-	abnNumber: "5348 5891",
-};
+import { updateCompanyData } from "../../../../redux/reducers/account/profileReducer";
 
 export const Company: React.FC = (): JSX.Element => {
 	const [serviceList, setServiceList] = useState([
@@ -43,6 +35,26 @@ export const Company: React.FC = (): JSX.Element => {
 	]);
 	const profileData: IUser = useSelector(
 		(state: any) => state.profile.data
+	);
+	const [companyEditable, setCompanyEditable] = useState(false);
+	const dispatch = useDispatch();
+	const {
+		register,
+		formState: { errors },
+		setError,
+		handleSubmit,
+	} = useForm();
+	const handleCompanyEditable = (
+		_: React.MouseEvent<HTMLElement>
+	) => {
+		setCompanyEditable(true);
+	};
+	const handleUpdateCompanyData = handleSubmit(
+		(data: ICompanyData) => {
+			dispatch(updateCompanyData(data));
+			setCompanyEditable(false);
+			successToast("update successfully.");
+		}
 	);
 	return (
 		<>
@@ -58,78 +70,163 @@ export const Company: React.FC = (): JSX.Element => {
 						heroImage={profileData.company.heroImage}
 					/>
 					<div className="grid md:grid-cols-2 grid-cols-1 gap-4 mt-4">
-						<div className="bg-white shadow rounded-2xl xl:px-10 px-4 py-11 space-y-10 relative">
+						<form
+							onSubmit={handleUpdateCompanyData}
+							className="bg-white shadow rounded-2xl xl:px-10 px-4 py-11 space-y-10 relative"
+						>
 							<div className="">
 								<InfoLabel
 									label="Business Name"
-									defaultValue={company.businessName}
-									valueClass="font-montserrat-bold text-gray-dark"
+									defaultValue={profileData.company.businessName}
+									valueClass={classNames(
+										"font-montserrat-bold text-gray-dark rounded",
+										{ "border border-red": companyEditable }
+									)}
 									icon={
 										<IoMdBriefcase className="h-4 w-4 text-red" />
 									}
 									id="business_name"
 									name="bussiness_name"
+									disabled={!companyEditable}
+									register={register("business_name", {
+										required: {
+											value: true,
+											message: "The business name is required.",
+										},
+									})}
+									errorMessage={errors.business_name?.message}
 								/>
 							</div>
 							<div className="">
 								<InfoLabel
 									label="Phone Number"
-									defaultValue={company.phoneNumber}
+									defaultValue={profileData.company.phoneNumber}
+									valueClass={classNames("rounded", {
+										"border border-red": companyEditable,
+									})}
 									icon={<BiPhoneCall className="h-4 w-4 text-red" />}
-									id="phone"
-									name="phone"
+									id="phone_number"
+									name="phone_number"
+									disabled={!companyEditable}
+									register={register("phone_number", {
+										required: {
+											value: true,
+											message: "The phone number is required.",
+										},
+									})}
+									errorMessage={errors.phone_number?.message}
 								/>
 							</div>
 							<div className="">
 								<InfoLabel
 									label="Address"
-									defaultValue={company.address}
+									defaultValue={profileData.company.address}
+									valueClass={classNames("rounded", {
+										"border border-red": companyEditable,
+									})}
 									icon={<GoLocation className="h-4 w-4 text-red" />}
 									id="address"
 									name="address"
+									disabled={!companyEditable}
+									register={register("address", {
+										required: {
+											value: true,
+											message: "The address is required.",
+										},
+									})}
+									errorMessage={errors.address?.message}
 								/>
 							</div>
-							<div className="flex justify-between">
+							<div className="flex justify-between space-x-1">
 								<div className="">
 									<InfoLabel
 										label="License Number"
-										defaultValue={company.licenseNumber}
+										defaultValue={profileData.company.licenseNumber}
+										valueClass={classNames("rounded", {
+											"border border-red": companyEditable,
+										})}
 										icon={
 											<BiRectangle className="h-4 w-4 text-red" />
 										}
-										id="license"
-										name="license"
+										id="license_number"
+										name="license_number"
+										disabled={!companyEditable}
+										register={register("license_number", {
+											required: {
+												value: true,
+												message: "The license number is required.",
+											},
+										})}
+										errorMessage={errors.license_number?.message}
 									/>
 								</div>
 								<div className="">
 									<InfoLabel
 										label="Year Founded"
-										defaultValue={company.yearFounded}
+										defaultValue={profileData.company.yearFounded}
+										valueClass={classNames("rounded", {
+											"border border-red": companyEditable,
+										})}
 										icon={
 											<BiRectangle className="h-4 w-4 text-red" />
 										}
 										id="year_founded"
 										name="year_founded"
+										disabled={!companyEditable}
+										register={register("year_founded", {
+											required: {
+												value: true,
+												message: "The year founded is required.",
+											},
+										})}
+										errorMessage={errors.year_founded?.message}
 									/>
 								</div>
 								<div className="">
 									<InfoLabel
 										label="ABN Number"
-										defaultValue={company.abnNumber}
+										defaultValue={profileData.company.abnNumber}
+										valueClass={classNames("rounded", {
+											"border border-red": companyEditable,
+										})}
 										icon={
 											<BiRectangle className="h-4 w-4 text-red" />
 										}
 										id="abn_number"
 										name="abn_number"
+										disabled={!companyEditable}
+										register={register("abn_number", {
+											required: {
+												value: true,
+												message: "The ABN number is required.",
+											},
+										})}
+										errorMessage={errors.abn_number?.message}
 									/>
 								</div>
 							</div>
-							<div className="absolute md:top-0 -top-0 right-4">
-								<button className="focus:outline-none hover:text-red">
+							<div className="absolute md:-top-1 -top-1 right-4">
+								<button
+									className={classNames(
+										"focus:outline-none hover:text-red",
+										{ hidden: companyEditable }
+									)}
+									type="button"
+									onClick={handleCompanyEditable}
+								>
 									<FiEdit className="w-7 h-7" />
 								</button>
+								<button
+									className={classNames(
+										"focus:outline-none hover:text-red",
+										{ hidden: !companyEditable }
+									)}
+									type="submit"
+								>
+									<FaRegSave className="w-7 h-7" />
+								</button>
 							</div>
-						</div>
+						</form>
 						<div className="bg-white shadow rounded-2xl xl:px-10 px-4 py-11">
 							<div>
 								<p className="xl:text-2xl text-xl font-montserrat-bold text-gray-dark">

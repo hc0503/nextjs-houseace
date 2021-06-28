@@ -149,6 +149,7 @@ const Profile: React.FC = (): JSX.Element => {
 									"focus:outline-none hover:text-red-lesslight text-white",
 									{ hidden: !profileEditable }
 								)}
+								type="submit"
 							>
 								<FaRegSave className="w-7 h-7" />
 							</button>
