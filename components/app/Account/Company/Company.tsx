@@ -65,6 +65,7 @@ export const Company: React.FC = (): JSX.Element => {
 	) => {
 		if (e.key === "Enter") {
 			const value = e.currentTarget.value;
+			if (value === "") return;
 			const uniqueNames = [];
 			const tempList = [
 				...profileData.company.services,
@@ -278,7 +279,7 @@ export const Company: React.FC = (): JSX.Element => {
 									Your Service list
 								</p>
 							</div>
-							<div className="mt-4 space-x-2">
+							<div className="mt-4 space-x-2 flex flex-wrap">
 								{profileData.company.services.map(
 									(service: IService, key: number) => (
 										<ServiceItem
