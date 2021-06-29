@@ -31,6 +31,14 @@ interface ICompany {
 	yearFounded: string;
 	abnNumber: string;
 	services: IService[];
+	companyImages: ICompanyImage[];
+	createdAt: Date;
+	updatedAt: Date;
+}
+interface ICompanyImage {
+	id: string;
+	companyId: string;
+	image: string;
 	createdAt: Date;
 	updatedAt: Date;
 }

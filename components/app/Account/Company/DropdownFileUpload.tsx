@@ -1,6 +1,11 @@
 import { FaCloudUploadAlt } from "react-icons/fa";
 
-const DropdownFileUpload: React.FC = (): JSX.Element => (
+interface IProps {
+	onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
+const DropdownFileUpload: React.FC<IProps> = ({
+	onChange,
+}): JSX.Element => (
 	<>
 		<div className="text-xs">
 			<div className="flex justify-center items-center px-6 pt-5 pb-6 border-2 border-gray-light border-dashed rounded-md">
@@ -18,6 +23,7 @@ const DropdownFileUpload: React.FC = (): JSX.Element => (
 								name="file-upload"
 								type="file"
 								className="sr-only"
+								onChange={onChange}
 							/>
 						</label>
 					</div>

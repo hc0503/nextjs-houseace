@@ -1,20 +1,29 @@
 import classNames from "classnames";
 import { FaTrashAlt } from "react-icons/fa";
 
-type IProps = IUploadItem;
+interface IProps {
+	imageUrl: string;
+	onDelete: (e: React.MouseEvent<HTMLElement>) => void;
+}
 
-const UploadItem: React.FC<IProps> = ({ imageUrl }): JSX.Element => (
+const UploadItem: React.FC<IProps> = ({
+	imageUrl,
+	onDelete,
+}): JSX.Element => (
 	<>
 		<div className="flex-grow lg:flex-grow-0 lg:flex-shrink-0 left-0 top-0 z-50">
 			<div className="flex items-center justify-center">
-				<div className={classNames("relative rounded-lg")}>
+				<div className={classNames("relative rounded-lg mb-2")}>
 					<img
-						className="rounded-lg h-full w-full"
+						className="rounded-lg h-24 w-24 object-cover"
 						src={imageUrl}
 						alt=""
 					/>
 					<span className="absolute inset-0 bg-gray-dark bg-opacity-75 flex items-center justify-center text-sm text-gray-dark opacity-0 hover:opacity-100 rounded-lg">
-						<button className="bg-white rounded-full p-1 hover:text-red focus:outline-none">
+						<button
+							className="bg-white rounded-full p-1 hover:text-red focus:outline-none"
+							onClick={onDelete}
+						>
 							<FaTrashAlt className="h-5 w-5" />
 						</button>
 					</span>
