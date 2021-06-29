@@ -9,7 +9,7 @@ const UploadItem: React.FC<IProps> = ({ imageUrl }): JSX.Element => (
 	<>
 		<div className="flex-grow lg:flex-grow-0 lg:flex-shrink-0 left-0 top-0 z-50">
 			<div className="flex items-center justify-center">
-				<div className={classNames("relative rounded-lg")}>
+				<div className={classNames("relative rounded-lg mb-2")}>
 					<img
 						className="rounded-lg h-24 w-24 object-cover"
 						src={imageUrl}

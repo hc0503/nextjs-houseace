@@ -309,7 +309,7 @@ export const Company: React.FC = (): JSX.Element => {
 									onChange={handleAddCompanyImage}
 								/>
 							</div>
-							<div className="flex mt-10 space-x-2">
+							<div className="flex flex-wrap mt-10 space-x-2">
 								{profileData.company.companyImages.map(
 									(companyImage: ICompanyImage, key: number) => (
 										<UploadItem
