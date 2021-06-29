@@ -52,3 +52,16 @@ export const postUpdateCompanyServices = async (
 		return Promise.reject(error);
 	}
 };
+export const postAddCompanyImage = async (
+	data: FormData
+): Promise<any> => {
+	try {
+		const res = await axios.post(
+			"/api/v1/private/companies/me/image",
+			data
+		);
+		return Promise.resolve(res.data);
+	} catch (error) {
+		return Promise.reject(error);
+	}
+};

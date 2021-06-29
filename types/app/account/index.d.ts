@@ -1,6 +1,3 @@
-interface IUploadItem {
-	imageUrl: string;
-}
 interface IService {
 	name: string;
 }

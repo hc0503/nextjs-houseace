@@ -1,7 +1,9 @@
 import classNames from "classnames";
 import { FaTrashAlt } from "react-icons/fa";
 
-type IProps = IUploadItem;
+interface IProps {
+	imageUrl: string;
+}
 
 const UploadItem: React.FC<IProps> = ({ imageUrl }): JSX.Element => (
 	<>
@@ -9,7 +11,7 @@ const UploadItem: React.FC<IProps> = ({ imageUrl }): JSX.Element => (
 			<div className="flex items-center justify-center">
 				<div className={classNames("relative rounded-lg")}>
 					<img
-						className="rounded-lg h-full w-full"
+						className="rounded-lg h-24 w-24 object-cover"
 						src={imageUrl}
 						alt=""
 					/>

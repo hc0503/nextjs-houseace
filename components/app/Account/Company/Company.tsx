@@ -23,15 +23,12 @@ import UploadItem from "./UploadItem";
 import SocialShareButton from "./SocialShareButton";
 import CompanyHero from "./CompanyHero";
 import {
+	addCompanyImage,
 	updateCompanyData,
 	updateCompanyServices,
 } from "../../../../redux/reducers/account/profileReducer";
 
 export const Company: React.FC = (): JSX.Element => {
-	const [imageList, setImageList] = useState([
-		{ imageUrl: "/images/app/upload_image1.png" },
-		{ imageUrl: "/images/app/upload_image2.png" },
-	]);
 	const profileData: IUser = useSelector(
 		(state: any) => state.profile.data
 	);
@@ -83,6 +80,14 @@ export const Company: React.FC = (): JSX.Element => {
 			e.currentTarget.value = "";
 			dispatch(updateCompanyServices({ services: services }));
 		}
+	};
+	const handleAddCompanyImage = (
+		e: React.ChangeEvent<HTMLInputElement>
+	) => {
+		const body = new FormData();
+		body.append("file", e.target.files[0]);
+		dispatch(addCompanyImage(body));
+		successToast("The logo image is updated successfully.");
 	};
 	return (
 		<>
@@ -300,15 +305,19 @@ export const Company: React.FC = (): JSX.Element => {
 								</p>
 							</div>
 							<div className="mt-5 w-full">
-								<DropdownFileUpload />
+								<DropdownFileUpload
+									onChange={handleAddCompanyImage}
+								/>
 							</div>
 							<div className="flex mt-10 space-x-2">
-								{imageList.map((image: IUploadItem, key: number) => (
-									<UploadItem
-										imageUrl={image.imageUrl}
-										key={`UploadedItem-${key}`}
-									/>
-								))}
+								{profileData.company.companyImages.map(
+									(companyImage: ICompanyImage, key: number) => (
+										<UploadItem
+											imageUrl={companyImage.image}
+											key={`UploadedItem-${key}`}
+										/>
+									)
+								)}
 							</div>
 						</div>
 						<div className="bg-white shadow rounded-2xl xl:px-10 px-4 py-11">
