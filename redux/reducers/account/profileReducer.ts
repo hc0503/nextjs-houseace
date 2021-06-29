@@ -8,6 +8,7 @@ import {
 } from "../../../services/profileService";
 import {
 	postAddCompanyImage,
+	postDeleteCompanyImage,
 	postUpdateCompanyData,
 	postUpdateCompanyHero,
 	postUpdateCompanyLogo,
@@ -86,6 +87,13 @@ export const addCompanyImage = createAsyncThunk(
 		return res.data;
 	}
 );
+export const deleteCompanyImage = createAsyncThunk(
+	"profiles/deleteCompanyImage",
+	async (id: string) => {
+		const res = await postDeleteCompanyImage(id);
+		return res.data;
+	}
+);
 export const profileSlice = createSlice({
 	name: "profiles",
 	initialState,
@@ -158,6 +166,14 @@ export const profileSlice = createSlice({
 		// Add company image
 		builder.addCase(
 			addCompanyImage.fulfilled,
+			(state: IProfileState, action: any) => {
+				state.loading = false;
+				state.data = action.payload.me;
+			}
+		);
+		// Delete company image
+		builder.addCase(
+			deleteCompanyImage.fulfilled,
 			(state: IProfileState, action: any) => {
 				state.loading = false;
 				state.data = action.payload.me;

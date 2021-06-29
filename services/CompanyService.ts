@@ -65,3 +65,15 @@ export const postAddCompanyImage = async (
 		return Promise.reject(error);
 	}
 };
+export const postDeleteCompanyImage = async (
+	id: string
+): Promise<any> => {
+	try {
+		const res = await axios.post(
+			`/api/v1/private/companies/me/image/${id}`
+		);
+		return Promise.resolve(res.data);
+	} catch (error) {
+		return Promise.reject(error);
+	}
+};

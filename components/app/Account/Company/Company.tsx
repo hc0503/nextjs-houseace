@@ -24,6 +24,7 @@ import SocialShareButton from "./SocialShareButton";
 import CompanyHero from "./CompanyHero";
 import {
 	addCompanyImage,
+	deleteCompanyImage,
 	updateCompanyData,
 	updateCompanyServices,
 } from "../../../../redux/reducers/account/profileReducer";
@@ -87,7 +88,11 @@ export const Company: React.FC = (): JSX.Element => {
 		const body = new FormData();
 		body.append("file", e.target.files[0]);
 		dispatch(addCompanyImage(body));
-		successToast("The logo image is updated successfully.");
+		successToast("The image is added successfully.");
+	};
+	const handleDeleteCompanyImage = (id: string) => {
+		dispatch(deleteCompanyImage(id));
+		successToast("The image is deleted successfully.");
 	};
 	return (
 		<>
@@ -314,6 +319,9 @@ export const Company: React.FC = (): JSX.Element => {
 									(companyImage: ICompanyImage, key: number) => (
 										<UploadItem
 											imageUrl={companyImage.image}
+											onDelete={(
+												_: React.MouseEvent<HTMLInputElement>
+											) => handleDeleteCompanyImage(companyImage.id)}
 											key={`UploadedItem-${key}`}
 										/>
 									)
