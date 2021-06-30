@@ -57,7 +57,7 @@ const LoginForm: React.FC = (): JSX.Element => {
 				provider_type: user._provider.toUpperCase(),
 			});
 			if (res.status === 200) {
-				router.push("/app");
+				router.push("/app/account");
 			}
 		} catch (error) {
 			setErrors({
