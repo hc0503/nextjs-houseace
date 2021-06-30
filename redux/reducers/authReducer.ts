@@ -46,7 +46,7 @@ export const authSlice = createSlice({
 				"accessToken",
 				action?.payload?.tokens?.accessToken?.token
 			);
-			Router.push("/app");
+			Router.push("/app/account");
 		});
 		builder.addCase(logout.fulfilled, (state: any, action: any) => {
 			state.data = action.payload;
