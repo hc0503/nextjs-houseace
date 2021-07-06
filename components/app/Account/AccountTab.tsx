@@ -3,13 +3,13 @@ import React, { useState } from "react";
 
 import Profile from "./Profile/Profile";
 import Company from "./Company/Company";
-import AccountPricing from "./AccountPricing";
+import Pricing from "./Pricing/Pricing";
 import AccountCalendar from "./AccountCalendar";
 
 const tabs: ITab[] = [
 	{ name: "Profile", target: Profile },
 	{ name: "Company", target: Company },
-	{ name: "Pricing", target: AccountPricing },
+	{ name: "Pricing", target: Pricing },
 	{ name: "Calendar", target: AccountCalendar },
 ];
 
