@@ -106,7 +106,7 @@ const PasswordSetting: React.FC = (): JSX.Element => {
 									register={register("password_confirmation", {
 										validate: (value) =>
 											value === password.current ||
-											"The password do not match.",
+											"The password doesn't match.",
 									})}
 									errorMessage={errors.password_confirmation?.message}
 								>
